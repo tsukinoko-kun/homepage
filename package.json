@@ -1,0 +1,37 @@
+{
+  "name": "yuletemplate",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css:lint": "stylelint scss/*.scss --syntax scss",
+    "css:scss": "sass scss/styles.scss css/styles.css --style compressed --no-source-map",
+    "css:lintfix": "stylelint scss/*.scss --syntax scss --fix",
+    "css:autoprefixer": "postcss --use autoprefixer --no-map -r css/*.css",
+    "build:css": "yarn css:lint && yarn css:scss && yarn css:autoprefixer",
+    "watch:css": "onchange \"scss\" -- yarn build:css",
+    "serve": "browser-sync start --server '.' --files '.' 'css/' --extensions 'html'",
+    "dev": "parcel serve src/index.html 'src/**/*.html'",
+    "build": "parcel build src/index.html 'src/**/*.html' --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frank-Mayer/YuleTemplate.git"
+  },
+  "author": "Frank-Mayer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Frank-Mayer/YuleTemplate/issues"
+  },
+  "homepage": "https://github.com/Frank-Mayer/YuleTemplate#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-nightly.752",
+    "parcel": "^2.0.0-beta.2",
+    "stylelint": "^13.13.1"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  }
+}
