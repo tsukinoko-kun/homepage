@@ -1,0 +1,15 @@
+@import "nav-desktop";
+@import "main-desktop";
+@import "portfolio-desktop";
+
+main {
+  h1 {
+    font-size: 64px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.5em;
+  }
+}

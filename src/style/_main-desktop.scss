@@ -1,0 +1,18 @@
+main {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto !important;
+  padding: 16px max(calc(50vw - 400px), 80px);
+
+  transition: all ease-in-out 100ms;
+
+  &.loading {
+    transform: translateX(-25vh);
+    opacity: 0;
+    cursor: wait !important;
+  }
+}

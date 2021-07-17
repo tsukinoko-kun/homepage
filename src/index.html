@@ -1,36 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yule Template</title>
+    <title>Frank Mayer</title>
+    <link rel="shortcut icon" href="./img/skull.avif" type="image/avif" />
+    <link rel="shortcut icon" href="./img/skull.png" type="image/png" />
+    <meta name="author" content="Frank Mayer" />
+    <meta name="title" content="Frank Mayer" />
+    <meta
+      name="description"
+      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5"
+    />
+
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="theme-color" content="#000000" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://frank-mayer.tech/" />
+    <meta property="og:title" content="Frank Mayer" />
+    <meta
+      property="og:description"
+      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5"
+    />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://frank-mayer.tech/" />
+    <meta property="twitter:title" content="Frank Mayer" />
+    <meta
+      property="twitter:description"
+      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5"
+    />
+    <meta property="twitter:image" content="/img/LinkPreview.webp" />
+
+    <link rel="preload" href="./style/style.scss" as="style" />
+    <link rel="preload" href="./script/index.ts" as="script" />
   </head>
   <body>
-    <nav>
-      <a route="home">Home</a>
-      <a route="counter">Counter</a>
-      <a route="license">License</a>
+    <nav id="nav">
+      <a route="portfolio">
+        <img src="./img/briefcase.svg" />
+        <span>Portfolio</span>
+      </a>
+      <a route="info">
+        <img src="./img/person.svg" />
+        <span>Info</span>
+      </a>
+      <a route="links">
+        <img src="./img/link-45deg.svg" />
+        <span>Links</span>
+      </a>
     </nav>
-    <main id="root"></main>
+    <main id="root" class="loading">
+      <style>
+        main {
+          transform: translateX(-25vh);
+          opacity: 0;
+          cursor: wait !important;
+        }
+        body > * {
+          display: none;
+        }
+      </style>
+    </main>
     <link rel="stylesheet" href="./style/style.scss" />
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/yule-ts@1.0.1"
-      crossorigin="anonymous"
-    ></script>
-    <script defer src="./script/index.ts"></script>
-
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
+      media="all and (orientation: landscape)"
+      href="./style/style-desktop.scss"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+    <link
+      rel="stylesheet"
+      media="all and (orientation: portrait)"
+      href="./style/style-mobile.scss"
+    />
+
+    <script type="module" defer src="./script/index.ts"></script>
   </body>
 </html>

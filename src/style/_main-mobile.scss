@@ -1,0 +1,16 @@
+main {
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 16px 8px 128px 8px;
+
+  transition: all ease-in-out 100ms;
+
+  &.loading {
+    transform: translateY(25vh);
+    opacity: 0;
+  }
+}

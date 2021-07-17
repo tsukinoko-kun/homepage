@@ -1,0 +1,56 @@
+@import "palette";
+
+.portfolio {
+  ol {
+    list-style-type: decimal-leading-zero !important;
+    list-style-position: outside !important;
+
+    > li {
+      cursor: default;
+
+      > span {
+        font-size: 64px;
+        font-weight: 800;
+      }
+
+      > div {
+        position: fixed;
+        right: 16px;
+        left: 55vw;
+        top: 64px;
+        bottom: 32px;
+        transition: all ease-in-out 300ms;
+
+        > img {
+          height: 50vh;
+          margin-bottom: 32px;
+
+          &:not(:hover) {
+            image-rendering: optimizeSpeed;
+            transform: rotateZ(-5deg);
+          }
+
+          &:hover {
+            transform: scale(1.25) rotateZ(2deg);
+            image-rendering: optimizeQuality;
+          }
+        }
+      }
+
+      &:not(:hover) {
+        > span {
+          -webkit-text-fill-color: transparent;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: $font;
+        }
+
+        > div {
+          pointer-events: none;
+          filter: blur(25vw) contrast(1.5) saturate(1.5);
+          opacity: 0;
+          transform: translateX(50vw);
+        }
+      }
+    }
+  }
+}

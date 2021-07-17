@@ -1,7 +1,7 @@
 {
-  "name": "yuletemplate",
+  "name": "frank-mayer",
   "version": "1.0.0",
-  "description": "",
+  "description": "My personal homepage",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "css:lint": "stylelint scss/*.scss --syntax scss",
@@ -12,20 +12,21 @@
     "watch:css": "onchange \"scss\" -- yarn build:css",
     "serve": "browser-sync start --server '.' --files '.' 'css/' --extensions 'html'",
     "dev": "parcel serve src/index.html 'src/**/*.html'",
-    "build": "parcel build src/index.html 'src/**/*.html' --no-source-maps"
+    "build": "rm -rf ./dist/* && parcel build src/index.html 'src/**/*.html' --no-source-maps"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Frank-Mayer/YuleTemplate.git"
+    "url": "git+https://github.com/Frank-Mayer/homepage.git"
   },
   "author": "Frank-Mayer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Frank-Mayer/YuleTemplate/issues"
+    "url": "https://github.com/Frank-Mayer/homepage/issues"
   },
-  "homepage": "https://github.com/Frank-Mayer/YuleTemplate#readme",
+  "homepage": "https://github.com/Frank-Mayer/homepage#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-nightly.752",
+    "@parcel/transformer-webmanifest": "^2.0.0-nightly.2374",
     "parcel": "^2.0.0-beta.2",
     "stylelint": "^13.13.1"
   },
@@ -33,5 +34,8 @@
     "plugins": {
       "autoprefixer": {}
     }
+  },
+  "dependencies": {
+    "@frank-mayer/photon": "^0.1.2"
   }
 }

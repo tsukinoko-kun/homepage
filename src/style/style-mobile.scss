@@ -1,0 +1,15 @@
+@import "nav-mobile";
+@import "main-mobile";
+@import "portfolio-mobile";
+
+main {
+  h1 {
+    font-size: 42px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 1.5em;
+  }
+}
