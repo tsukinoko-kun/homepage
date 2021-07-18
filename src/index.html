@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frank Mayer</title>
+    <link rel="canonical" href="https://frank-mayer.io" />
     <link rel="shortcut icon" href="./img/skull.avif" type="image/avif" />
     <link rel="shortcut icon" href="./img/skull.png" type="image/png" />
     <meta name="author" content="Frank Mayer" />
@@ -18,7 +19,7 @@
     <meta name="theme-color" content="#000000" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://frank-mayer.tech/" />
+    <meta property="og:url" content="https://frank-mayer.io" />
     <meta property="og:title" content="Frank Mayer" />
     <meta
       property="og:description"
@@ -26,7 +27,7 @@
     />
 
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://frank-mayer.tech/" />
+    <meta property="twitter:url" content="https://frank-mayer.io" />
     <meta property="twitter:title" content="Frank Mayer" />
     <meta
       property="twitter:description"
@@ -35,20 +36,20 @@
     <meta property="twitter:image" content="/img/LinkPreview.webp" />
 
     <link rel="preload" href="./style/style.scss" as="style" />
-    <link rel="preload" href="./script/index.ts" as="script" />
+    <link rel="modulepreload" href="./script/index.ts" />
   </head>
   <body>
     <nav id="nav">
-      <a route="portfolio">
-        <img src="./img/briefcase.svg" />
+      <a route="portfolio" title="Portfolio">
+        <img src="./img/briefcase.svg" alt="briefcase" />
         <span>Portfolio</span>
       </a>
-      <a route="info">
-        <img src="./img/person.svg" />
+      <a route="info" title="Info">
+        <img src="./img/person.svg" alt="person" />
         <span>Info</span>
       </a>
-      <a route="links">
-        <img src="./img/link-45deg.svg" />
+      <a route="links" title="Links">
+        <img src="./img/link-45deg.svg" alt="link" />
         <span>Links</span>
       </a>
     </nav>

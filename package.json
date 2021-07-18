@@ -12,7 +12,7 @@
     "watch:css": "onchange \"scss\" -- yarn build:css",
     "serve": "browser-sync start --server '.' --files '.' 'css/' --extensions 'html'",
     "dev": "parcel serve src/index.html 'src/**/*.html'",
-    "build": "rm -rf ./dist/* && parcel build src/index.html 'src/**/*.html' --no-source-maps"
+    "build": "rm -rf ./dist/* && parcel build src/index.html 'src/**/*.html' --no-source-maps && cp ./src/sitemap.xml ./dist/ && cp ./src/robots.txt ./dist/"
   },
   "repository": {
     "type": "git",

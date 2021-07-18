@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /components/
+Disallow: /content/
+
+Sitemap: https://frank-mayer.io/sitemap.xml
