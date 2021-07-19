@@ -1,6 +1,7 @@
-import { DomFrame, Router } from "@frank-mayer/photon";
+import { DomFrame } from "@frank-mayer/photon";
+import MyRouter from "./MyRouter";
 
-const router = new Router({
+new MyRouter({
   frame: new DomFrame("#root"),
   sitemap: new Set(["portfolio", "info", "links"]),
   fallbackSite: "404",

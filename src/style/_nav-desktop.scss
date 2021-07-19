@@ -19,18 +19,32 @@ nav {
     padding: 8px 0;
 
     > img {
-      height: 32px;
+      height: 42px;
       padding: 0 16px;
     }
 
     > span {
       font-size: 32px;
+      line-height: 42px;
     }
 
-    &:not(:hover) {
+    &:not(:hover) > * {
+      opacity: 0.75;
+      filter: contrast(0.75);
+    }
+
+    &.important {
+      > img {
+        image-rendering: optimizeQuality !important;
+      }
+
+      &:hover > img {
+        transform: scale(1.275);
+      }
+
       > * {
-        opacity: 0.75;
-        filter: contrast(0.75);
+        opacity: 1 !important;
+        filter: none !important;
       }
     }
   }
