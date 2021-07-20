@@ -6,13 +6,13 @@ main {
   bottom: 0;
   left: 0;
   overflow-y: auto !important;
-  padding: 16px max(calc(50vw - 600px), 80px);
+  padding: 16px max(calc(50vw - 600px), 80px) 256px
+    max(calc(50vw - 600px), 80px);
 
-  transition: all ease-in-out 100ms;
+  transition: opacity ease-in-out 100ms;
 
   &.loading {
-    transform: translateX(-25vh);
-    opacity: 0;
     cursor: wait !important;
+    opacity: 0;
   }
 }

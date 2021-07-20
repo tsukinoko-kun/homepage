@@ -1,6 +1,7 @@
 @import "nav-mobile";
 @import "main-mobile";
 @import "portfolio-mobile";
+@import "footer-mobile";
 
 main {
   h1 {
@@ -12,4 +13,25 @@ main {
     font-size: 17px;
     line-height: 1.5em;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+b {
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  image-rendering: optimizeQuality;
+}
+
+* {
+  shape-rendering: geometricPrecision;
 }

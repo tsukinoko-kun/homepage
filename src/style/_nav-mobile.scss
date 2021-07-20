@@ -24,6 +24,10 @@ nav {
       display: none;
     }
   }
+
+  img {
+    pointer-events: none;
+  }
 }
 
 .portfolio nav a[route="portfolio"],

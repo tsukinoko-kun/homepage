@@ -60,6 +60,10 @@ nav {
   &:hover {
     padding-right: 16px;
   }
+
+  img {
+    pointer-events: none;
+  }
 }
 
 nav,
