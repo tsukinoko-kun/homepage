@@ -1,6 +1,9 @@
+@import "palette";
+
 footer {
   position: fixed;
   bottom: 8px;
   right: 8px;
   z-index: 100;
+  color: rgba($color: $font, $alpha: 0.5);
 }

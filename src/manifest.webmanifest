@@ -1,0 +1,15 @@
+{
+  "name": "Frank Mayer Portfolio",
+  "short_name": "Frank Mayer",
+  "start_url": "/",
+  "background_color": "#2a0d5d",
+  "theme_color": "#2a0d5d",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./img/fav.webp",
+      "sizes": "500x500",
+      "type": "image/webp"
+    }
+  ]
+}

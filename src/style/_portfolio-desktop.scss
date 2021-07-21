@@ -33,11 +33,12 @@
           &:hover {
             transform: scale(1.5) translateY(5vh) rotateZ(2deg);
             image-rendering: optimizeQuality;
+            z-index: 1000;
           }
         }
       }
 
-      &:not(:hover) {
+      &:not(.hover) {
         > span {
           -webkit-text-fill-color: transparent;
           -webkit-text-stroke-width: 1px;
@@ -51,6 +52,12 @@
           transform: translateX(50vw);
         }
       }
+    }
+
+    &:not(:hover) > li:not(.hover) > div {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
     }
   }
 }

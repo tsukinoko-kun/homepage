@@ -7,3 +7,9 @@ new MyRouter({
   fallbackSite: "404",
   homeSite: "portfolio",
 });
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("../sw.ts").then((registration) => {
+    console.debug(registration);
+  });
+}

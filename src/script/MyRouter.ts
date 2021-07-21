@@ -1,4 +1,5 @@
 import { Router } from "@frank-mayer/photon";
+import { setHoverSelect } from "./hoverSelect";
 
 export default class MyRouter extends Router {
   protected lang!: string;
@@ -9,12 +10,20 @@ export default class MyRouter extends Router {
   protected onInject(newPage: string) {
     this.canonicalLinkEl.href = `https://frank-mayer.io${location.pathname}`;
 
-    if (newPage == "links") {
-      const mailEl = <HTMLAnchorElement | null>document.getElementById("mail");
-      if (mailEl) {
-        mailEl.href = "mailto:mail@frank-mayer.io";
-        mailEl.innerText = "mail@frank-mayer.io";
-      }
+    switch (newPage) {
+      case "links":
+        const mailEl = <HTMLAnchorElement | null>(
+          document.getElementById("mail")
+        );
+        if (mailEl) {
+          mailEl.href = "mailto:mail@frank-mayer.io";
+          mailEl.innerText = "mail@frank-mayer.io";
+        }
+        break;
+
+      case "portfolio":
+        setHoverSelect();
+        break;
     }
   }
 

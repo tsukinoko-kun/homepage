@@ -1,3 +1,5 @@
+@import "palette";
+
 footer {
   pointer-events: none;
   position: absolute;
@@ -5,6 +7,6 @@ footer {
   right: 4px;
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  opacity: 0.5;
+  color: rgba($color: $font, $alpha: 0.5);
   z-index: 100;
 }

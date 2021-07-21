@@ -2,10 +2,18 @@
 <html lang="de">
   <head>
     <title>Frank Mayer</title>
+
+    <!-- Links -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="preload" href="./style/style.scss" as="style" />
+    <link rel="modulepreload" href="./script/index.ts" />
     <link rel="canonical" href="https://frank-mayer.io" />
     <link rel="shortcut icon" href="./img/fav.webp" type="image/webp" />
+    <link rel="apple-touch-icon" href="./img/fav.webp" type="image/webp" />
+
     <!-- Primary Meta Tags -->
     <meta charset="UTF-8" />
+    <meta name="theme-color" content="#2a0d5d" />
     <meta
       name="keywords"
       content="frank, mayer, programmierer, entwickler, dev, developer, web, webentwickler, frontend, typescript, javascript, html, css, scss, sass, photon, heilbronn, baden, würthemberg, badenwürthemberg, deutschland, germany"
@@ -41,9 +49,6 @@
       content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5"
     />
     <meta property="twitter:image" content="./img/fav.webp" />
-
-    <link rel="preload" href="./style/style.scss" as="style" />
-    <link rel="modulepreload" href="./script/index.ts" />
   </head>
   <body>
     <nav>
@@ -88,6 +93,6 @@
       href="./style/style-mobile.scss"
     />
 
-    <script type="module" defer src="./script/index.ts"></script>
+    <script defer type="module" defer src="./script/index.ts"></script>
   </body>
 </html>

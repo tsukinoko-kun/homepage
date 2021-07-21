@@ -7,7 +7,7 @@ main {
   left: 0;
   padding: 16px 16px 256px 8px;
 
-  transition: opacity ease-in-out 100ms;
+  transition: opacity ease-in-out 200ms;
 
   &.loading {
     opacity: 0;

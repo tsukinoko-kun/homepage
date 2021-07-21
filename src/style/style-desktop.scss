@@ -35,3 +35,7 @@ img {
 * {
   shape-rendering: geometricPrecision;
 }
+
+::selection {
+  background: $accent;
+}

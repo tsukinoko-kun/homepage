@@ -2,5 +2,10 @@ User-agent: *
 Allow: /
 Disallow: /components/
 Disallow: /content/
+Disallow: /*.svg
+Disallow: /*.css
+Disallow: /*.js
+Disallow: /*.map
+Allow: /index.html
 
 Sitemap: https://frank-mayer.io/sitemap.xml
