@@ -11,7 +11,14 @@ self.addEventListener("fetch", (ev) => {
   const fev = <FetchEvent>ev;
   fev.respondWith(
     caches.match(fev.request).then((response) => {
-      return response ?? fetch(fev.request);
+      return (
+        response ??
+        fetch(fev.request, {
+          cache: "default",
+          redirect: "error",
+          referrerPolicy: "no-referrer",
+        })
+      );
     })
   );
 });
