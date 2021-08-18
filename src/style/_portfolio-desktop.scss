@@ -19,7 +19,6 @@
         left: 55vw;
         top: 64px;
         bottom: 32px;
-        transition: all ease-in-out 300ms;
 
         > img {
           height: 40vh;
@@ -55,8 +54,8 @@
     }
 
     &:not(:hover) > li:not(.hover) > div {
-      display: none;
-      visibility: hidden;
+      // display: none;
+      // visibility: hidden;
       opacity: 0;
     }
   }

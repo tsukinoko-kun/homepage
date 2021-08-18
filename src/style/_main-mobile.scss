@@ -1,10 +1,5 @@
 main {
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  position: relative;
   padding: 16px 16px 256px 8px;
 
   transition: opacity ease-in-out 200ms;

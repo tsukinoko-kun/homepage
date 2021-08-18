@@ -1,5 +1,6 @@
 import { Router } from "@frank-mayer/photon";
-import { setHoverSelect } from "./hoverSelect";
+import setHoverSelect from "./Portfolio/hoverSelect";
+import addAnimation from "./Portfolio/addAnimation";
 
 export default class MyRouter extends Router {
   protected lang!: string;
@@ -23,6 +24,7 @@ export default class MyRouter extends Router {
 
       case "portfolio":
         setHoverSelect();
+        addAnimation();
         break;
     }
   }

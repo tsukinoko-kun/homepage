@@ -1,6 +1,6 @@
-$font: #fff;
-$main: #2a0d5d;
-$shade: #1d0941;
-$accent: #7b00ff;
+$font: var(--font);
+$main: var(--main);
+$shade: var(--shade);
+$accent: var(--accent);
 
 $timings: 300ms;

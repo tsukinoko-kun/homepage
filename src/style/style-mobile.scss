@@ -13,6 +13,25 @@ main {
     font-size: 17px;
     line-height: 1.5em;
   }
+
+  a {
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: $font;
+
+    &:after {
+      content: "";
+      background-color: $font;
+      opacity: 0.25;
+      position: absolute;
+      left: 12px;
+      bottom: -6px;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      z-index: -1;
+    }
+  }
 }
 
 h1,

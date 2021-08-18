@@ -2,11 +2,12 @@
 
 footer {
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   top: 10vh;
   right: 4px;
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  color: rgba($color: $font, $alpha: 0.5);
+  color: $font;
+  opacity: 0.5;
   z-index: 100;
 }

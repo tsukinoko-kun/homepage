@@ -4,6 +4,7 @@
   ol {
     list-style-type: decimal-leading-zero !important;
     list-style-position: outside;
+    overflow: visible;
 
     > li {
       cursor: default;

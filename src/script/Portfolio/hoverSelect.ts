@@ -1,15 +1,15 @@
 import { retriggerableDelay } from "@frank-mayer/photon";
 
-let id: undefined | number;
+let id: undefined | number = undefined;
 
-export function setHoverSelect() {
+export default function setHoverSelect() {
   for (const li of Array.from(
     <HTMLCollectionOf<HTMLLIElement>>(
       document.getElementsByClassName("hoverSelect")
     )
   )) {
     li.classList.remove("hoverSelect");
-    for (const el of li.children) {
+    for (const el of Array.from(li.children)) {
       el.addEventListener("mousemove", () => {
         if (id) {
           clearTimeout(id);

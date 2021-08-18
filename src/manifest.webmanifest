@@ -3,7 +3,7 @@
   "short_name": "Frank Mayer",
   "start_url": "/",
   "background_color": "#2a0d5d",
-  "theme_color": "#2a0d5d",
+  "theme_color": "#7b00ff",
   "display": "standalone",
   "icons": [
     {
