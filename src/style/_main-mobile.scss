@@ -1,6 +1,6 @@
 main {
   position: relative;
-  padding: 16px 16px 256px 8px;
+  padding: #{42px + 16px + 16px} 16px 256px 8px;
 
   transition: opacity ease-in-out 200ms;
 
