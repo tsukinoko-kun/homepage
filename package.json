@@ -3,16 +3,9 @@
   "version": "1.0.0",
   "description": "My personal homepage",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "css:lint": "stylelint scss/*.scss --syntax scss",
-    "css:scss": "sass scss/styles.scss css/styles.css --style compressed --no-source-map",
-    "css:lintfix": "stylelint scss/*.scss --syntax scss --fix",
-    "css:autoprefixer": "postcss --use autoprefixer --no-map -r css/*.css",
-    "build:css": "yarn css:lint && yarn css:scss && yarn css:autoprefixer",
-    "watch:css": "onchange \"scss\" -- yarn build:css",
     "serve": "browser-sync start --server '.' --files '.' 'css/' --extensions 'html'",
-    "dev": "parcel serve src/index.html 'src/**/*.html'",
-    "build": "rm -rf ./dist/* && parcel build src/index.html 'src/**/*.html' --no-source-maps && cp ./src/sitemap.xml ./dist/ && cp ./src/robots.txt ./dist/"
+    "dev": "parcel serve 'src/**/*.html'",
+    "build": "node ./build.js"
   },
   "repository": {
     "type": "git",
@@ -24,20 +17,16 @@
     "url": "https://github.com/Frank-Mayer/homepage/issues"
   },
   "homepage": "https://github.com/Frank-Mayer/homepage#readme",
-  "devDependencies": {
-    "@parcel/packager-raw-url": "^2.0.0-nightly.2374",
-    "@parcel/transformer-image": "^2.0.0-rc.0",
-    "@parcel/transformer-sass": "^2.0.0-nightly.752",
-    "@parcel/transformer-webmanifest": "^2.0.0-nightly.2374",
-    "parcel": "^2.0.0-beta.2",
-    "stylelint": "^13.13.1"
-  },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
   },
-  "dependencies": {
-    "@frank-mayer/photon": "^0.1.11"
+  "browserslist": "> 10%, last 2 versions, not dead",
+  "devDependencies": {
+    "@frank-mayer/photon": "^0.2.0",
+    "autoprefixer": "^10.3.4",
+    "parcel": "^2.0.0-rc.0",
+    "postcss": "^8.1.0"
   }
 }
