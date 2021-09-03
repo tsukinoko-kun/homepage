@@ -58,20 +58,20 @@ export default class MyRouter extends Router {
         addAnimation();
 
         break;
-
-      default:
-        if (this.hash) {
-          const el = document.getElementById(this.hash);
-          if (el) {
-            el.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-              inline: "center",
-            });
-          }
-        }
-        break;
     }
+
+    if (this.hash) {
+      const el = document.getElementById(this.hash);
+      if (el) {
+        el.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "center",
+        });
+      }
+    }
+
+    this.hash = null;
   }
 
   protected getLang(): string {
