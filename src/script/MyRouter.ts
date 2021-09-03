@@ -1,4 +1,4 @@
-import { Router } from "@frank-mayer/photon";
+import { DomFrame, Router } from "@frank-mayer/photon";
 import setHoverSelect from "./Portfolio/hoverSelect";
 import addAnimation from "./Portfolio/addAnimation";
 
@@ -7,6 +7,23 @@ export default class MyRouter extends Router {
   protected readonly canonicalLinkEl = <HTMLLinkElement>(
     document.querySelector("link[rel=canonical]")
   );
+  protected hash: string | null;
+
+  constructor(
+    param: {
+      frame: DomFrame;
+      sitemap: Set<string>;
+      homeSite?: string;
+      homeAsEmpty?: boolean;
+      fallbackSite?: string;
+      siteNameClassPushElement?: HTMLElement;
+      setWindowTitle?: (newPage: string) => string;
+    },
+    hash: string
+  ) {
+    super(param);
+    this.hash = hash ? hash.substr(1) : null;
+  }
 
   protected onInject(newPage: string) {
     this.canonicalLinkEl.href = `https://frank-mayer.io${location.pathname}`;
@@ -23,8 +40,36 @@ export default class MyRouter extends Router {
         break;
 
       case "portfolio":
-        setHoverSelect();
+        if (this.hash) {
+          console.debug(this.hash);
+          const el = document.getElementById(this.hash);
+          if (
+            el &&
+            el.tagName === "LI" &&
+            el.classList.contains("hoverSelect")
+          ) {
+            el.classList.add("hover");
+          }
+
+          setTimeout(() => setHoverSelect(), 1000);
+        } else {
+          setHoverSelect();
+        }
         addAnimation();
+
+        break;
+
+      default:
+        if (this.hash) {
+          const el = document.getElementById(this.hash);
+          if (el) {
+            el.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+              inline: "center",
+            });
+          }
+        }
         break;
     }
   }
