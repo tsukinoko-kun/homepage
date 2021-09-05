@@ -25,6 +25,7 @@
   "browserslist": "> 10%, last 2 versions, not dead",
   "devDependencies": {
     "@frank-mayer/photon": "^0.2.0",
+    "@parcel/transformer-webmanifest": "^2.0.0-nightly.2186",
     "autoprefixer": "^10.3.4",
     "parcel": "^2.0.0-rc.0",
     "postcss": "^8.1.0"
