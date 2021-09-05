@@ -1,5 +1,5 @@
-const fs = require("node:fs");
-const path = require("node:path");
+const fs = require("fs");
+const path = require("path");
 
 const dist = "./dist/";
 const src = "./src/";
@@ -96,7 +96,7 @@ fs.copyFileSync(`${src}robots.txt`, `${dist}robots.txt`);
 //#endregion
 
 //#region Parcel
-require("node:child_process").execSync(
+require("child_process").execSync(
   "npx parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache"
 );
 //#endregion
