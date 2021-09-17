@@ -50,38 +50,32 @@
     <meta property="twitter:image" content="./img/fav.webp" />
   </head>
   <body>
-    <nav>
-      <a href="/" class="important">
-        <img src="./img/fav.webp" alt="memoji" />
-      </a>
-      <a route="portfolio" title="Portfolio">
-        <img src="./img/briefcase.svg" alt="briefcase" />
-        <span>Portfolio</span>
-      </a>
-      <a route="info" title="Info">
-        <img src="./img/person.svg" alt="person" />
-        <span>Info</span>
-      </a>
-      <a route="links" title="Links">
-        <img src="./img/link-45deg.svg" alt="link" />
-        <span>Links</span>
-      </a>
-    </nav>
-    <main id="root" class="loading">
-      <style>
-        main {
-          transform: translateX(-25vh);
-          opacity: 0;
-          cursor: wait !important;
-        }
-        body > * {
-          display: none;
-        }
-      </style>
-    </main>
-    <footer>&copy; 2021 Frank Mayer</footer>
+    <div class="wrapper">
+      <span id="menu-button">Menu</span>
+
+      <nav>
+        <a route="portfolio" title="Portfolio">
+          <img src="./img/briefcase.svg" alt="briefcase" />
+          <span>Portfolio</span>
+        </a>
+        <a route="info" title="Info">
+          <img src="./img/person.svg" alt="person" />
+          <span>Info</span>
+        </a>
+        <a route="links" title="Links">
+          <img src="./img/link-45deg.svg" alt="link" />
+          <span>Links</span>
+        </a>
+      </nav>
+
+      <div class="fake-page"></div>
+      <div class="fake-page"></div>
+      <div class="fake-page"></div>
+      <main id="root" class="page loading"></main>
+    </div>
+
     <link rel="stylesheet" href="./style/style.scss" />
-    <link
+    <!-- <link
       rel="stylesheet"
       media="screen and (min-width: 824px)"
       href="./style/style-desktop.scss"
@@ -90,7 +84,7 @@
       rel="stylesheet"
       media="screen and (max-width: 823px)"
       href="./style/style-mobile.scss"
-    />
+    /> -->
 
     <script defer type="module" defer src="./script/index.ts"></script>
 
