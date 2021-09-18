@@ -30,6 +30,6 @@
     "postcss": "^8.3.6"
   },
   "dependencies": {
-    "@frank-mayer/magic": "^1.1.6"
+    "@frank-mayer/magic": "^1.1.9"
   }
 }
