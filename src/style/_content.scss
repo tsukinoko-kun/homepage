@@ -1,0 +1,26 @@
+@import "portfolio";
+
+main {
+  padding: 64px max(8px, calc(50vw - 500px));
+
+  * {
+    // color: #b4a5a5;
+    color: white;
+  }
+
+  h1 {
+    color: hsl(275, 40%, 45%) !important;
+  }
+
+  h1 {
+    font-size: 10vmin;
+  }
+
+  h2 {
+    font-size: 8vmin;
+  }
+
+  a {
+    color: hsl(231, 21%, 45%) !important;
+  }
+}

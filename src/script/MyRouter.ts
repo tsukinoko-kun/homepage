@@ -1,6 +1,20 @@
 import { DomFrame, Router } from "@frank-mayer/photon";
-import setHoverSelect from "./Portfolio/hoverSelect";
-import addAnimation from "./Portfolio/addAnimation";
+import { capitalize } from "@frank-mayer/magic";
+
+const menuButton = document.getElementById("menu-button");
+const main = document.getElementById("root");
+
+if (menuButton) {
+  menuButton.addEventListener("mousemove", () => {
+    document.body.classList.add("active");
+  });
+}
+
+if (main) {
+  main.addEventListener("mousemove", () => {
+    document.body.classList.remove("active");
+  });
+}
 
 export default class MyRouter extends Router {
   protected lang!: string;
@@ -17,16 +31,17 @@ export default class MyRouter extends Router {
       homeAsEmpty?: boolean;
       fallbackSite?: string;
       siteNameClassPushElement?: HTMLElement;
-      setWindowTitle?: (newPage: string) => string;
     },
     hash: string
   ) {
-    super(param);
+    super({ ...param, setWindowTitle: (newPage) => capitalize(newPage) });
     this.hash = hash ? hash.substr(1) : null;
   }
 
   protected onInject(newPage: string) {
     this.canonicalLinkEl.href = `https://frank-mayer.io${location.pathname}`;
+
+    document.body.classList.remove("active");
 
     switch (newPage) {
       case "links":
@@ -37,26 +52,6 @@ export default class MyRouter extends Router {
           mailEl.href = "mailto:mail@frank-mayer.io";
           mailEl.innerText = "mail@frank-mayer.io";
         }
-        break;
-
-      case "portfolio":
-        if (this.hash) {
-          console.debug(this.hash);
-          const el = document.getElementById(this.hash);
-          if (
-            el &&
-            el.tagName === "LI" &&
-            el.classList.contains("hoverSelect")
-          ) {
-            el.classList.add("hover");
-          }
-
-          setTimeout(() => setHoverSelect(), 1000);
-        } else {
-          setHoverSelect();
-        }
-        addAnimation();
-
         break;
     }
 

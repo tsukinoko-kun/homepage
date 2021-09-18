@@ -24,9 +24,12 @@
   },
   "browserslist": "> 10%, last 2 versions, not dead",
   "devDependencies": {
-    "@frank-mayer/photon": "^0.2.0",
+    "@frank-mayer/photon": "^0.2.1",
     "autoprefixer": "^10.3.4",
     "parcel": "^2.0.0-alpha.3",
     "postcss": "^8.3.6"
+  },
+  "dependencies": {
+    "@frank-mayer/magic": "^1.1.6"
   }
 }

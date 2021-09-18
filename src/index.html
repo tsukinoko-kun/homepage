@@ -12,21 +12,21 @@
 
     <!-- Primary Meta Tags -->
     <meta charset="UTF-8" />
-    <meta name="theme-color" content="#2a0d5d" />
+    <meta name="theme-color" content="#7a45a1" />
     <meta
       name="keywords"
-      content="frank, mayer, programmierer, entwickler, dev, developer, web, webentwickler, frontend, typescript, javascript, html, css, scss, sass, photon, heilbronn, baden, würthemberg, badenwürthemberg, deutschland, germany"
+      content="frank, mayer, programmierer, entwickler, dev, developer, web, webentwickler, frontend, typescript, javascript, html, css, scss, sass, photon, heilbronn, baden, würthemberg, badenwürthemberg, deutschland, germany, F#, C#, C++"
     />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Frank Mayer" />
-    <meta name="msapplication-TileColor" content="#000000" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#7a45a1" />
+    <meta name="theme-color" content="#7a45a1" />
     <meta name="title" content="Frank Mayer" />
     <meta
       name="description"
-      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5"
+      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5, F#"
     />
 
     <!-- Open Graph / Facebook -->
@@ -35,7 +35,7 @@
     <meta property="og:title" content="Frank Mayer" />
     <meta
       property="og:description"
-      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5"
+      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5, F#"
     />
     <meta property="og:image" content="./img/fav.webp" />
 
@@ -45,46 +45,38 @@
     <meta property="twitter:title" content="Frank Mayer" />
     <meta
       property="twitter:description"
-      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5"
+      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5, F#"
     />
     <meta property="twitter:image" content="./img/fav.webp" />
   </head>
   <body>
-    <div class="wrapper">
-      <span id="menu-button">Menu</span>
+    <div id="overlay"></div>
 
-      <nav>
-        <a route="portfolio" title="Portfolio">
-          <img src="./img/briefcase.svg" alt="briefcase" />
-          <span>Portfolio</span>
-        </a>
-        <a route="info" title="Info">
-          <img src="./img/person.svg" alt="person" />
-          <span>Info</span>
-        </a>
-        <a route="links" title="Links">
-          <img src="./img/link-45deg.svg" alt="link" />
-          <span>Links</span>
-        </a>
-      </nav>
+    <div class="fake-page"></div>
+    <div class="fake-page"></div>
+    <div class="fake-page"></div>
+    <main class="page" id="root"></main>
 
-      <div class="fake-page"></div>
-      <div class="fake-page"></div>
-      <div class="fake-page"></div>
-      <main id="root" class="page loading"></main>
-    </div>
+    <span id="menu-button">...</span>
+
+    <img id="menu-info" src="./img/tap.svg" alt="👆" />
+
+    <nav>
+      <a route="portfolio">
+        <img src="./img/briefcase.svg" alt="briefcase" />
+        <span>Portfolio</span>
+      </a>
+      <a route="info">
+        <img src="./img/person.svg" alt="person" />
+        <span>Info</span>
+      </a>
+      <a route="links">
+        <img src="./img/link-45deg.svg" alt="link" />
+        <span>Links</span>
+      </a>
+    </nav>
 
     <link rel="stylesheet" href="./style/style.scss" />
-    <!-- <link
-      rel="stylesheet"
-      media="screen and (min-width: 824px)"
-      href="./style/style-desktop.scss"
-    />
-    <link
-      rel="stylesheet"
-      media="screen and (max-width: 823px)"
-      href="./style/style-mobile.scss"
-    /> -->
 
     <script defer type="module" defer src="./script/index.ts"></script>
 
