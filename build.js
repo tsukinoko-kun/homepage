@@ -97,6 +97,6 @@ fs.copyFileSync(`${src}robots.txt`, `${dist}robots.txt`);
 
 //#region Parcel
 require("child_process").execSync(
-  "npx parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache"
+  "yarn parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache"
 );
 //#endregion
