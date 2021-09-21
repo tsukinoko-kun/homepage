@@ -1,5 +1,7 @@
-import { DomFrame, Router } from "@frank-mayer/photon";
-import { capitalize } from "@frank-mayer/magic";
+import {
+  MultiLanguageRouter,
+  MultiLanguageRouterOptions,
+} from "@frank-mayer/photon";
 
 const menuButton = document.getElementById("menu-button");
 const main = document.getElementById("root");
@@ -16,25 +18,14 @@ if (main) {
   });
 }
 
-export default class MyRouter extends Router {
-  protected lang!: string;
+export default class MyRouter extends MultiLanguageRouter {
   protected readonly canonicalLinkEl = <HTMLLinkElement>(
     document.querySelector("link[rel=canonical]")
   );
   protected hash: string | null;
 
-  constructor(
-    param: {
-      frame: DomFrame;
-      sitemap: Set<string>;
-      homeSite?: string;
-      homeAsEmpty?: boolean;
-      fallbackSite?: string;
-      siteNameClassPushElement?: HTMLElement;
-    },
-    hash: string
-  ) {
-    super({ ...param, setWindowTitle: (newPage) => capitalize(newPage) });
+  constructor(options: MultiLanguageRouterOptions, hash: string) {
+    super(options);
     this.hash = hash ? hash.substr(1) : null;
   }
 
@@ -67,59 +58,5 @@ export default class MyRouter extends Router {
     }
 
     this.hash = null;
-  }
-
-  protected getLang(): string {
-    if (!this.lang) {
-      const path = location.pathname.split("/").filter((val) => {
-        return !!val;
-      });
-      const firstPathEl = path.length > 0 ? path[0].toLowerCase() : "";
-      if (firstPathEl == "de" || firstPathEl == "en") {
-        this.lang = firstPathEl;
-      } else {
-        const lcc = navigator.language.toLowerCase();
-        if (lcc.includes("de")) {
-          this.lang = this.updateDocLang("de");
-        } else {
-          this.lang = this.updateDocLang("en");
-        }
-      }
-    }
-
-    return this.lang;
-  }
-
-  protected getCurrentSubPageName(): string {
-    const path = location.pathname.split("/").filter((val) => {
-      return !!val;
-    });
-
-    this.getLang();
-
-    return path[path.length - 1] || this.homeSite;
-  }
-
-  protected updateDocLang(lang: string): string {
-    document.head.parentElement!.lang = lang;
-    this.lang = lang;
-    return lang;
-  }
-
-  protected getLanguageCode() {
-    const lcc = this.getLang() ?? navigator.language.toLowerCase();
-    if (lcc.includes("de")) {
-      return this.updateDocLang("de");
-    } else {
-      return this.updateDocLang("en");
-    }
-  }
-
-  protected pageTitleToHref(newPage: string): string {
-    return `/${this.getLanguageCode()}/${newPage}`;
-  }
-
-  protected pageTitleToStoreLocation(newPage: string): string {
-    return `content/${this.getLanguageCode()}/${newPage}.html`;
   }
 }
