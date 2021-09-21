@@ -21,6 +21,7 @@ jobs:
       - run: npm install -g yarn
       - run: yarn
       - run: node ./build.js
+      - run: yarn parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"

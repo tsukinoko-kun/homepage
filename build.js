@@ -98,10 +98,3 @@ fs.writeFileSync(`${dist}sitemap.xml`, xml.join("\n"));
 console.log("robots.txt");
 fs.copyFileSync(`${src}robots.txt`, `${dist}robots.txt`);
 //#endregion
-
-//#region Parcel
-const parcelBuildCmd =
-  "yarn parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache";
-console.log(parcelBuildCmd);
-require("child_process").execSync(parcelBuildCmd);
-//#endregion
