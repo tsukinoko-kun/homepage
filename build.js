@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 
+console.log("setup");
+
 const dist = "./dist/";
 const src = "./src/";
 
@@ -38,6 +40,7 @@ if (fs.existsSync(dist)) {
 
 //#region sitemap.xml
 
+console.log("sitemap.xml");
 const p1 = "  ";
 const p2 = p1 + p1;
 
@@ -92,11 +95,13 @@ fs.writeFileSync(`${dist}sitemap.xml`, xml.join("\n"));
 //#endregion
 
 //#region robots.txt
+console.log("robots.txt");
 fs.copyFileSync(`${src}robots.txt`, `${dist}robots.txt`);
 //#endregion
 
 //#region Parcel
-require("child_process").execSync(
-  "yarn parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache"
-);
+const parcelBuildCmd =
+  "yarn parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache";
+console.log(parcelBuildCmd);
+require("child_process").execSync(parcelBuildCmd);
 //#endregion
