@@ -20,7 +20,7 @@ jobs:
           node-version: "16"
           cache: "yarn"
       - run: yarn
-      - run: node ./build.js
+      - run: node ./build.cjs
       - run: yarn parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
