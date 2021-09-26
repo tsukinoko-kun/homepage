@@ -1,0 +1,31 @@
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  padding: 8px 0;
+
+  z-index: 1000;
+
+  background-image: linear-gradient(#{$back}, transparent);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  > a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    > img {
+      height: 32px;
+    }
+
+    > span {
+      color: $foreground;
+    }
+  }
+}

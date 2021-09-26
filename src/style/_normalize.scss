@@ -1,10 +1,17 @@
-/****** Elad Shechter's RESET *******/
-/*** box sizing border-box for all elements ***/
-
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+* {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  overflow-x: hidden;
 }
 
 a {

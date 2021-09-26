@@ -4,7 +4,6 @@
     <title>Frank Mayer</title>
 
     <!-- Links -->
-    <link rel="manifest" href="manifest.webmanifest" />
     <link rel="preload" href="./style/style.scss" as="style" />
     <link rel="modulepreload" href="./script/index.ts" />
     <link rel="canonical" href="https://frank-mayer.io" />
@@ -13,21 +12,21 @@
 
     <!-- Primary Meta Tags -->
     <meta charset="UTF-8" />
-    <meta name="theme-color" content="#2a0d5d" />
+    <meta name="theme-color" content="#7a45a1" />
     <meta
       name="keywords"
-      content="frank, mayer, programmierer, entwickler, dev, developer, web, webentwickler, frontend, typescript, javascript, html, css, scss, sass, photon, heilbronn, baden, würthemberg, badenwürthemberg, deutschland, germany"
+      content="frank, mayer, programmierer, entwickler, dev, developer, web, webentwickler, frontend, typescript, javascript, html, css, scss, sass, photon, heilbronn, baden, würthemberg, badenwürthemberg, deutschland, germany, F#, C#, C++"
     />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Frank Mayer" />
-    <meta name="msapplication-TileColor" content="#000000" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#7a45a1" />
+    <meta name="theme-color" content="#7a45a1" />
     <meta name="title" content="Frank Mayer" />
     <meta
       name="description"
-      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5"
+      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5, F#"
     />
 
     <!-- Open Graph / Facebook -->
@@ -36,7 +35,7 @@
     <meta property="og:title" content="Frank Mayer" />
     <meta
       property="og:description"
-      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5"
+      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5, F#"
     />
     <meta property="og:image" content="./img/fav.webp" />
 
@@ -46,55 +45,36 @@
     <meta property="twitter:title" content="Frank Mayer" />
     <meta
       property="twitter:description"
-      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5"
+      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5, F#"
     />
     <meta property="twitter:image" content="./img/fav.webp" />
   </head>
   <body>
+    <h1>Frank Mayer</h1>
     <nav>
-      <a href="/" class="important">
-        <img src="./img/fav.webp" alt="memoji" />
-      </a>
-      <a route="portfolio" title="Portfolio">
+      <a route="portfolio">
         <img src="./img/briefcase.svg" alt="briefcase" />
         <span>Portfolio</span>
       </a>
-      <a route="info" title="Info">
+      <a route="info">
         <img src="./img/person.svg" alt="person" />
         <span>Info</span>
       </a>
-      <a route="links" title="Links">
+      <a route="links">
         <img src="./img/link-45deg.svg" alt="link" />
         <span>Links</span>
       </a>
     </nav>
-    <main id="root" class="loading">
-      <style>
-        main {
-          transform: translateX(-25vh);
-          opacity: 0;
-          cursor: wait !important;
-        }
-        body > * {
-          display: none;
-        }
-      </style>
-    </main>
-    <footer>&copy; 2021 Frank Mayer</footer>
+
+    <main id="root"></main>
+
     <link rel="stylesheet" href="./style/style.scss" />
     <link
       rel="stylesheet"
-      media="screen and (min-width: 824px)"
-      href="./style/style-desktop.scss"
-    />
-    <link
-      rel="stylesheet"
-      media="screen and (max-width: 823px)"
-      href="./style/style-mobile.scss"
+      media="all and (orientation: landscape)"
+      href="./style/desktop/desktop.scss"
     />
 
     <script defer type="module" defer src="./script/index.ts"></script>
-
-    <link rel="stylesheet" media="print" href="./style/style.scss" />
   </body>
 </html>
