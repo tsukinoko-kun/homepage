@@ -1,0 +1,23 @@
+@import "portfolio";
+
+main {
+  padding: 64px max(8px, calc(50vw - 500px));
+
+  * {
+    color: $foreground;
+    font-size: 16px;
+  }
+
+  h2 {
+    color: $accent !important;
+    font-size: max(32px, 10vmin) !important;
+  }
+
+  h3 {
+    font-size: max(24px, 8vmin) !important;
+  }
+
+  a {
+    color: $accent2 !important;
+  }
+}

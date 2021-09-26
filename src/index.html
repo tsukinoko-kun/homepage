@@ -50,17 +50,7 @@
     <meta property="twitter:image" content="./img/fav.webp" />
   </head>
   <body>
-    <div id="overlay"></div>
-
-    <div class="fake-page"></div>
-    <div class="fake-page"></div>
-    <div class="fake-page"></div>
-    <main class="page" id="root"></main>
-
-    <span id="menu-button">...</span>
-
-    <img id="menu-info" src="./img/tap.svg" alt="👆" />
-
+    <h1>Frank Mayer</h1>
     <nav>
       <a route="portfolio">
         <img src="./img/briefcase.svg" alt="briefcase" />
@@ -76,10 +66,15 @@
       </a>
     </nav>
 
+    <main id="root"></main>
+
     <link rel="stylesheet" href="./style/style.scss" />
+    <link
+      rel="stylesheet"
+      media="all and (orientation: landscape)"
+      href="./style/desktop/desktop.scss"
+    />
 
     <script defer type="module" defer src="./script/index.ts"></script>
-
-    <link rel="stylesheet" media="print" href="./style/style.scss" />
   </body>
 </html>

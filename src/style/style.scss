@@ -1,48 +1,25 @@
 @import "normalize";
-@import "menu";
-@import "content";
+@import "theme";
+@import "main";
+@import "nav";
+@import "overlay";
 @import "scrollbar";
-
-:root {
-  $bg-size: 256px;
-
-  /* Animations */
-  @-webkit-keyframes bg-scrolling-reverse {
-    100% {
-      background-position: $bg-size $bg-size;
-    }
-  }
-  @keyframes bg-scrolling-reverse {
-    100% {
-      background-position: $bg-size $bg-size;
-    }
-  }
-  @keyframes bg-scrolling {
-    0% {
-      background-position: $bg-size $bg-size;
-    }
-  }
-
-  background-color: black;
-  background-image: url(../img/black-wave.webp);
-  background-size: $bg-size $bg-size;
-  background-repeat: repeat;
-  animation: bg-scrolling-reverse 16s infinite;
-  animation-timing-function: linear;
-}
+@import "title";
 
 :root,
 body {
-  overflow: hidden;
-  max-height: 100vh;
-  width: 100vw;
+  background-color: $back;
+}
+
+::selection {
+  background-color: $accent;
+  color: $back;
 }
 
 body > *,
 body > * > * {
   // color: $font;
   font-family: "Segoe UI", Roboto, Ubuntu, sans-serif;
-  overflow: hidden;
 }
 
 @media all and (prefers-reduced-motion: reduce) {
@@ -52,17 +29,4 @@ body > * > * {
     transition: none !important;
     animation: none !important;
   }
-}
-
-#overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 2000;
-  background-image: url(../img/grain.webp);
-  background-repeat: repeat;
-  background-size: cover;
 }

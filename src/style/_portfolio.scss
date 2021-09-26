@@ -1,4 +1,4 @@
-.portfolio .page {
+.portfolio main {
   .portfolio_roles {
     display: block;
     margin-top: 8em;
@@ -13,7 +13,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    height: fit-content;
+    height: max-content;
   }
 
   img:not(.badge) {
@@ -24,13 +24,5 @@
     margin-right: auto;
     max-height: 75vh;
     max-width: 90%;
-
-    &:not(:hover) {
-      filter: brightness(0.75) grayscale(1);
-    }
-
-    &:hover {
-      transform: scale(1.01);
-    }
   }
 }
