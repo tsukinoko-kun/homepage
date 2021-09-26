@@ -22,10 +22,26 @@ nav {
 
     > img {
       height: 32px;
+      transition: all ease-in-out $time;
+    }
+
+    &:hover {
+      opacity: 0.75;
+
+      > img {
+        transform: translateY(-0.5em);
+      }
     }
 
     > span {
       color: $foreground;
     }
   }
+}
+
+.portfolio a[route="portfolio"],
+.info a[route="info"],
+.links a[route="links"] {
+  display: none;
+  visibility: collapse;
 }

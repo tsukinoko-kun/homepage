@@ -18,7 +18,7 @@
 
   img:not(.badge) {
     margin: 1em 0;
-    transition: all 500ms;
+    transition: all $time;
     display: block;
     margin-left: auto;
     margin-right: auto;
