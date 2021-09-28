@@ -5,4 +5,3 @@ dist/
 .parcel-cache/
 firebase-debug.log
 .firebase/
-package-lock.json
