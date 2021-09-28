@@ -63,6 +63,12 @@ main {
           }
         }
 
+        .tomoe-circle,
+        .triangle,
+        .pupil {
+          transition: all ease-in-out 1s;
+        }
+
         .tomoe-circle {
           --tomoe-size: calc(var(--eye-size) * 0.1);
           position: absolute;
@@ -84,8 +90,8 @@ main {
             width: calc(var(--tomoe-size) / 2);
             background-color: black;
             position: relative;
-            top: -9px;
-            left: 4px;
+            top: -35%;
+            left: 25%;
             border-radius: 0% 145% 0% 90%;
             transform: rotateZ(60deg) skewY(30deg);
           }
@@ -107,11 +113,15 @@ main {
     }
 
     &:hover {
+      .pupil {
+        transform: scale(0) !important;
+      }
+
       .tomoe-circle {
         height: 0 !important;
         width: 0 !important;
-        top: 15% !important;
-        transform-origin: 0 calc(var(--eye-size) * 0.15) !important;
+        top: 5% !important;
+        transform-origin: 0 calc(var(--eye-size) * 0.2) !important;
 
         .triangle {
           height: calc(var(--tomoe-size) * 4) !important;
