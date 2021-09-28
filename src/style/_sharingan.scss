@@ -1,4 +1,5 @@
 main {
+  $red: #b22222;
   --width: min(400px, 75vw);
   --height: calc(0.625 * var(--width));
 
@@ -19,7 +20,7 @@ main {
 
     #sharingan {
       --eye-size: calc(var(--width) / 2);
-      background-color: #b22222;
+      background-color: $red;
       border-radius: 50%;
       border: solid black;
       height: var(--eye-size);
@@ -114,7 +115,9 @@ main {
 
     &:hover {
       .pupil {
-        transform: scale(0) !important;
+        transform: scale(0.75) !important;
+        z-index: 10 !important;
+        background-color: $red !important;
       }
 
       .tomoe-circle {
