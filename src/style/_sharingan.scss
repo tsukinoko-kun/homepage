@@ -1,0 +1,123 @@
+main {
+  --width: min(400px, 75vw);
+  --height: calc(0.625 * var(--width));
+
+  #eye {
+    position: absolute;
+    top: calc(20vh + 1em);
+    left: calc(50vw - var(--width) / 2);
+    background-color: #f5f5f5;
+    width: var(--width);
+    height: var(--height);
+    border-radius: 65% 0;
+    border-top: solid black 15px;
+    border-left: solid black 5px;
+    border-right: solid black 7px;
+    border-bottom: solid black 2px;
+    border-bottom-left-radius: 5%;
+    border-top-right-radius: 1%;
+
+    #sharingan {
+      --eye-size: calc(var(--width) / 2);
+      background-color: #b22222;
+      border-radius: 50%;
+      border: solid black;
+      height: var(--eye-size);
+      width: var(--eye-size);
+      position: absolute;
+      top: 9%;
+      left: 25%;
+
+      #black-outline {
+        margin-top: 14%;
+        margin-left: 14%;
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        border: solid black;
+        border-radius: 50%;
+
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes open-tomoe {
+          from {
+            opacity: 0;
+          }
+
+          to {
+            opacity: 1;
+          }
+        }
+
+        @for $i from 0 through 2 {
+          .tomoe-circle:nth-child(#{$i}) {
+            animation-delay: #{-2 * $i}s, #{$i * 500}ms;
+          }
+        }
+
+        .tomoe-circle {
+          --tomoe-size: calc(var(--eye-size) * 0.1);
+          position: absolute;
+          top: -22.5%;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-top: 15%;
+          height: var(--tomoe-size);
+          width: var(--tomoe-size);
+          background-color: black;
+          border-radius: 50%;
+          opacity: 0;
+          animation: rotate 6s linear infinite, open-tomoe 750ms linear;
+          animation-fill-mode: forwards;
+          transform-origin: 0 calc(var(--eye-size) * 0.375);
+
+          .triangle {
+            height: var(--tomoe-size);
+            width: calc(var(--tomoe-size) / 2);
+            background-color: black;
+            position: relative;
+            top: -9px;
+            left: 4px;
+            border-radius: 0% 145% 0% 90%;
+            transform: rotateZ(60deg) skewY(30deg);
+          }
+        }
+
+        .pupil {
+          --pupic-size: calc(var(--eye-size) / 4);
+          --pupic-margin: calc(var(--eye-size) / 5);
+          background-color: black;
+          height: var(--pupic-size);
+          width: var(--pupic-size);
+          border-radius: 50%;
+          position: relative;
+          left: var(--pupic-margin);
+          top: var(--pupic-margin);
+          box-shadow: 0px 0px 70px black;
+        }
+      }
+    }
+
+    &:hover {
+      .tomoe-circle {
+        height: 0 !important;
+        width: 0 !important;
+        top: 15% !important;
+        transform-origin: 0 calc(var(--eye-size) * 0.15) !important;
+
+        .triangle {
+          height: calc(var(--tomoe-size) * 4) !important;
+          width: calc(var(--tomoe-size) * 2) !important;
+        }
+      }
+    }
+  }
+}
