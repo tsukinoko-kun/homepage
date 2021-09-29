@@ -8,4 +8,4 @@ Disallow: /*.js
 Disallow: /*.map
 Allow: /index.html
 
-Sitemap: https://frank-mayer.io/sitemap.xml
+Sitemap: https://www.frank-mayer.io/sitemap.xml

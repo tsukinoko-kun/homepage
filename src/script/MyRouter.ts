@@ -19,9 +19,9 @@ if (main) {
 }
 
 export default class MyRouter extends MultiLanguageRouter {
-  protected readonly canonicalLinkEl = <HTMLLinkElement>(
-    document.querySelector("link[rel=canonical]")
-  );
+  protected canonicalLinkEl() {
+    return <HTMLLinkElement>document.querySelector("link[rel=canonical]");
+  }
   protected hash: string | null;
 
   constructor(options: MultiLanguageRouterOptions, hash: string) {
@@ -30,7 +30,7 @@ export default class MyRouter extends MultiLanguageRouter {
   }
 
   protected onInject(newPage: string) {
-    this.canonicalLinkEl.href = `https://frank-mayer.io${location.pathname}`;
+    this.canonicalLinkEl().href = `https://www.frank-mayer.io${location.pathname}`;
 
     document.body.classList.remove("active");
 

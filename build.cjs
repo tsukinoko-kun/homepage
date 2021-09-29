@@ -6,7 +6,7 @@ console.log("setup");
 const dist = "./dist/";
 const src = "./src/";
 
-const mainLocation = "https://frank-mayer.io";
+const mainLocation = "https://www.frank-mayer.io";
 
 const dateTime = (() => {
   const d = new Date();
