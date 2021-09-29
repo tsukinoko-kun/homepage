@@ -2,7 +2,6 @@
 
 main {
   padding: 64px max(8px, calc(50vw - 500px));
-  min-height: 200vh;
 
   * {
     color: $foreground;
