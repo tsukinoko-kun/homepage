@@ -45,6 +45,6 @@ nav {
 .portfolio a[route="portfolio"],
 .info a[route="info"],
 .links a[route="links"] {
-  display: none;
-  visibility: collapse;
+  opacity: 0.5 !important;
+  pointer-events: none;
 }
