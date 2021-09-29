@@ -24,7 +24,7 @@
   },
   "browserslist": "> 10%, last 2 versions, not dead",
   "devDependencies": {
-    "@frank-mayer/photon": "^0.3.0",
+    "@frank-mayer/photon": "^0.4.0",
     "@parcel/transformer-image": "2.0.0-rc.0",
     "@parcel/transformer-sass": "2.0.0-rc.0",
     "autoprefixer": "^10.3.4",
