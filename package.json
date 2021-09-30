@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "browser-sync start --server '.' --files '.' 'css/' --extensions 'html'",
     "dev": "parcel serve 'src/**/*.html'",
+    "clean": "rm -rf ./.parcel-cache && rm -rf ./dist",
     "build": "node ./build.cjs && yarn parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache"
   },
   "repository": {
