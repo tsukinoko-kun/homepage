@@ -10,7 +10,7 @@ new MyRouter(
     sitemap: new Set(["portfolio", "info", "links"]),
     fallbackSite: "404",
     homeSite: "portfolio",
-    setWindowTitle: (newPage: string) => capitalize(newPage),
+    setWindowTitle: (newPage: string) => "Frank Mayer - " + capitalize(newPage),
   },
   location.hash
 );

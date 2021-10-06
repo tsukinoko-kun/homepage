@@ -27,36 +27,36 @@ export default class MyRouter extends MultiLanguageRouter {
   constructor(options: MultiLanguageRouterOptions, hash: string) {
     super(options);
     this.hash = hash ? hash.substr(1) : null;
-  }
 
-  protected onInject(newPage: string) {
-    this.canonicalLinkEl().href = `https://www.frank-mayer.io${location.pathname}`;
+    this.addEventListener("injected", (ev) => {
+      this.canonicalLinkEl().href = `https://www.frank-mayer.io${location.pathname}`;
 
-    document.body.classList.remove("active");
+      document.body.classList.remove("active");
 
-    switch (newPage) {
-      case "links":
-        const mailEl = <HTMLAnchorElement | null>(
-          document.getElementById("mail")
-        );
-        if (mailEl) {
-          mailEl.href = "mailto:mail@frank-mayer.io";
-          mailEl.innerText = "mail@frank-mayer.io";
-        }
-        break;
-    }
-
-    if (this.hash) {
-      const el = document.getElementById(this.hash);
-      if (el) {
-        el.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-          inline: "center",
-        });
+      switch (ev.value) {
+        case "links":
+          const mailEl = <HTMLAnchorElement | null>(
+            document.getElementById("mail")
+          );
+          if (mailEl) {
+            mailEl.href = "mailto:mail@frank-mayer.io";
+            mailEl.innerText = "mail@frank-mayer.io";
+          }
+          break;
       }
-    }
 
-    this.hash = null;
+      if (this.hash) {
+        const el = document.getElementById(this.hash);
+        if (el) {
+          el.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+          });
+        }
+      }
+
+      this.hash = null;
+    });
   }
 }

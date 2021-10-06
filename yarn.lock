@@ -245,10 +245,10 @@
   resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.1.9.tgz#19ba4cfe9e50ff64cb9924505411977356b0b1fc"
   integrity sha512-hzRBbTWddue8hQM/c0QCE4TXHbEox4krKjQBtdubux7cXmF1ewQ1qHblx4Y/5vlH7lN4gdR+8s+9Kyuj7d6f/Q==
 
-"@frank-mayer/photon@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@frank-mayer/photon/-/photon-0.4.0.tgz#310579c9c6036af6b472752554ef3c58a745058d"
-  integrity sha512-KvnwA+bypnHccZmIc0uBUOnqP7hE0ZKO3xMc+kNaOftKoVHE9VZADfIkqyLQ08Reohh0RaBlD0l5Bhb3ol+hBA==
+"@frank-mayer/photon@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/photon/-/photon-0.6.1.tgz#5886b4a30c116bdc11078df28e6598ac7f928b1d"
+  integrity sha512-94KqZweG7wd2f00TxNQFfi84K+MALkRPONkKq5hcnA7rtSbuUiVEf70qAzTOqasG/CBBL0VJVSyEheyXy8vCmg==
 
 "@gar/promisify@^1.0.1":
   version "1.1.2"
