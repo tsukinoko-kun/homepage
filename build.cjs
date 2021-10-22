@@ -44,18 +44,6 @@ console.log("sitemap.xml");
 const p1 = "  ";
 const p2 = p1 + p1;
 
-const pathSet = [
-  "/portfolio",
-  "/info",
-  "/links",
-  "/de/portfolio",
-  "/de/info",
-  "/de/links",
-  "/en/portfolio",
-  "/en/info",
-  "/en/links",
-];
-
 /**
  * 1 -> 1.00
  *
@@ -85,8 +73,21 @@ const xml = [
   createUrl(mainLocation, 1),
 ];
 
-for (const path of pathSet) {
-  xml.push(createUrl(mainLocation + path, 0.8));
+{
+  const pathSet = [
+    "/portfolio",
+    "/info",
+    "/links",
+    "/de/portfolio",
+    "/de/info",
+    "/de/links",
+    "/en/portfolio",
+    "/en/info",
+    "/en/links",
+  ];
+  for (const path of pathSet) {
+    xml.push(createUrl(mainLocation + path, 0.8));
+  }
 }
 
 xml.push("</urlset>\n");
@@ -97,4 +98,63 @@ fs.writeFileSync(`${dist}sitemap.xml`, xml.join("\n"));
 //#region robots.txt
 console.log("robots.txt");
 fs.copyFileSync(`${src}robots.txt`, `${dist}robots.txt`);
+//#endregion
+
+//#region subpage integration
+{
+  const mainIndex = fs.readFileSync("dist/index.html").toString();
+
+  const content = "dist/content";
+  for (const lang of fs.readdirSync(content)) {
+    const fullLangPath = path.join(content, lang);
+    for (const langCont of fs.readdirSync(fullLangPath)) {
+      if (langCont.endsWith(".html")) {
+        const newFileDir = path.join(
+          "dist",
+          lang,
+          langCont.substr(0, langCont.length - 5)
+        );
+        if (!fs.existsSync(newFileDir)) {
+          fs.mkdirSync(newFileDir, {
+            recursive: true,
+          });
+        }
+
+        const newFileContent = mainIndex
+          .replace(
+            /(?<=<main\s*id=["']root["']>)\s*(?=<\/main>)/,
+            fs.readFileSync(path.join(fullLangPath, langCont)).toString()
+          )
+          .replace(/(?<=<html\slang=["'])de(?=["']>)/, lang);
+
+        fs.writeFileSync(path.join(newFileDir, "index.html"), newFileContent);
+
+        if (langCont === "portfolio.html") {
+          const newFileDirLang = path.join("dist", lang);
+          fs.writeFileSync(
+            path.join(newFileDirLang, "index.html"),
+            newFileContent
+          );
+        }
+
+        if (lang === "en") {
+          const newFileDirEn = path.join(
+            "dist",
+            langCont.substr(0, langCont.length - 5),
+            "index.html"
+          );
+
+          if (!fs.existsSync(newFileDirEn)) {
+            fs.mkdirSync(newFileDirEn, { recursive: true });
+          }
+
+          fs.writeFileSync(
+            path.join(newFileDirEn, "index.html"),
+            newFileContent
+          );
+        }
+      }
+    }
+  }
+}
 //#endregion
