@@ -13,7 +13,7 @@
 }
 
 body {
-  // transition: all linear $time;
+  min-height: 100vh;
   background-image: radial-gradient(
     circle 100vmin at var(--x) var(--y),
     mix($foreground, $back, 10%) 5%,
