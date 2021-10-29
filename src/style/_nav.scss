@@ -4,11 +4,15 @@ nav {
   left: 0;
   right: 0;
   width: 100vw;
-  padding: 8px 0;
+  padding: 16px 0 0 0;
 
   z-index: 1000;
 
-  background-image: linear-gradient(#{$back}, transparent);
+  background-image: linear-gradient(
+    $back 0%,
+    mix($back, transparent, 50%) 45%,
+    transparent 100%
+  );
 
   display: flex;
   flex-direction: row;
