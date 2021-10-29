@@ -1,5 +1,6 @@
 body > h1 {
+  background-color: $back;
   color: $accent !important;
   font-size: max(32px, 12vmin) !important;
-  margin: 16px max(8px, calc(50vw - 500px));
+  padding: 16px max(8px, calc(50vw - 500px));
 }
