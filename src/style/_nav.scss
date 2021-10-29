@@ -47,7 +47,7 @@ nav {
 .info a[route="info"],
 .links a[route="links"] {
   opacity: 0.5 !important;
-  pointer-events: none;
+  pointer-events: none !important;
   img {
     transform: none !important;
   }
