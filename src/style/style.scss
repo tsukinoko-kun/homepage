@@ -15,11 +15,10 @@
 body {
   // transition: all linear $time;
   background-image: radial-gradient(
-    circle closest-side,
+    circle 100vmin at var(--x) var(--y),
     mix($foreground, $back, 10%) 5%,
     $back 50%
   );
-  background-position: calc(var(--x) - 50vw) calc(var(--y) - 220vh);
   background-repeat: no-repeat;
 }
 
