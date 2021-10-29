@@ -1,6 +1,8 @@
 import { capitalize } from "@frank-mayer/magic";
-import { DomFrame } from "@frank-mayer/photon";
+import { DomFrame, Components } from "@frank-mayer/photon";
 import MyRouter from "./MyRouter";
+
+Components.resolveComponents();
 
 new MyRouter(
   {
