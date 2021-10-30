@@ -9,19 +9,16 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - uses: actions/checkout@v2
+
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
           cache: "yarn"
       - run: yarn
-      - run: node ./build.cjs
-      - run: yarn parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache
+      - run: yarn build
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
