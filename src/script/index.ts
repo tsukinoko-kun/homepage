@@ -1,5 +1,5 @@
 import { capitalize } from "@frank-mayer/magic";
-import { DomFrame, Components } from "@frank-mayer/photon";
+import { DomFrame, Components, retriggerableDelay } from "@frank-mayer/photon";
 import MyRouter from "./MyRouter";
 
 Components.resolveComponents();
@@ -17,18 +17,46 @@ new MyRouter(
   location.hash
 );
 
-const onMouseMove = (ev: MouseEvent) => {
-  document.body.style.setProperty("--x", `${ev.pageX}px`);
-  document.body.style.setProperty("--y", `${ev.pageY}px`);
-};
+{
+  const elo: AddEventListenerOptions = {
+    capture: false,
+    once: false,
+    passive: true,
+  };
 
-document.body.addEventListener("mousemove", onMouseMove);
-document.body.addEventListener("touchstart", () => {
-  document.body.removeEventListener("mousemove", onMouseMove);
+  const mousePos = [0, 0];
 
-  document.body.style.setProperty("--x", "-200vw");
-  document.body.style.setProperty("--y", "-200vh");
-});
-document.body.addEventListener("touchend", () => {
-  document.body.addEventListener("mousemove", onMouseMove);
-});
+  const setTorchPos = (pos: { clientX: number; clientY: number }) => {
+    mousePos[0] = Math.round(pos.clientX);
+    mousePos[1] = Math.round(pos.clientY);
+    updateTorchStyle();
+  };
+
+  const updateTorchStyle = () => {
+    document.body.style.setProperty("--x", `${mousePos[0]}px`);
+    document.body.style.setProperty(
+      "--y",
+      `${window.pageYOffset + mousePos[1]}px`
+    );
+  };
+
+  const onTouch = (ev: TouchEvent) => {
+    setTorchPos(ev.touches[0]);
+  };
+
+  document.body.addEventListener("mousemove", setTorchPos, elo);
+  document.addEventListener("scroll", updateTorchStyle, elo);
+
+  document.body.addEventListener("touchmove", onTouch, elo);
+  document.body.addEventListener("touchstart", onTouch, elo);
+  document.body.addEventListener(
+    "touchend",
+    () => {
+      setTorchPos({
+        clientX: -window.innerWidth,
+        clientY: -window.innerHeight,
+      });
+    },
+    elo
+  );
+}
