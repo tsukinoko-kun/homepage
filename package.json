@@ -25,15 +25,15 @@
   },
   "browserslist": "> 10%, last 2 versions, not dead",
   "devDependencies": {
-    "@frank-mayer/photon": "^0.6.1",
-    "@parcel/transformer-image": "2.0.0-rc.0",
-    "@parcel/transformer-sass": "2.0.0-rc.0",
-    "autoprefixer": "^10.3.4",
-    "firebase-tools": "^9.18.0",
-    "parcel": "^2.0.0-alpha.3",
-    "postcss": "^8.3.6"
+    "@parcel/packager-raw-url": "^2.0.0",
+    "@parcel/transformer-sass": "^2.0.0",
+    "@parcel/transformer-webmanifest": "^2.0.0",
+    "autoprefixer": "^10.4.0",
+    "parcel": "^2.0.0",
+    "postcss": "^8.3.11"
   },
   "dependencies": {
-    "@frank-mayer/magic": "^1.1.9"
+    "@frank-mayer/magic": "^1.1.9",
+    "@frank-mayer/photon": "^0.6.2"
   }
 }
