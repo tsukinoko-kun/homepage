@@ -16,7 +16,7 @@ body {
   min-height: 100vh;
   background-image: radial-gradient(
     circle 100vmin at var(--x) var(--y),
-    mix($foreground, $back, 5%) 5%,
+    mix($foreground, $back, 10%) 5%,
     $back 50%
   );
   background-repeat: no-repeat;
