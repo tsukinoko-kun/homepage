@@ -16,10 +16,14 @@ body {
   min-height: 100vh;
   background-image: radial-gradient(
     circle 100vmin at var(--x) var(--y),
-    mix($foreground, $back, 10%) 5%,
+    mix($foreground, $back, 20%) 5%,
     $back 50%
   );
   background-repeat: no-repeat;
+
+  > * {
+    filter: drop-shadow(0 0 16px $back) drop-shadow(0 0 8px $back);
+  }
 }
 
 ::selection {
