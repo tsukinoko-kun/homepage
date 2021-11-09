@@ -379,7 +379,7 @@
     nullthrows "^1.1.1"
     semver "^5.4.1"
 
-"@parcel/diagnostic@^2.0.0", "@parcel/diagnostic@^2.0.1":
+"@parcel/diagnostic@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@parcel/diagnostic/-/diagnostic-2.0.1.tgz#cc96d94eab0db963f0c4586a2f5bc822eea46e36"
   integrity sha512-pC9GmEUUB2UQ9epvE/H2wn0rb6hyF68QlpxppHZ9fxib/RxqGWDG1I3axR0cxZifRRZiMNnbk7HfmUB19KNTtA==
@@ -849,12 +849,12 @@
     "@parcel/utils" "^2.0.1"
     react-refresh "^0.9.0"
 
-"@parcel/transformer-sass@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@parcel/transformer-sass/-/transformer-sass-2.0.0.tgz#143048e38f4bd63cd8009588c6a114c2dbe0b9f1"
-  integrity sha512-PbqKVsUOaVHrFgp7wdnTCa1oKUNQeMMaHc1IBZwLVLqcHLnPSO4lwRNhlYDfAA1gUUoT+mnrEM23ugHrPnXwBA==
+"@parcel/transformer-sass@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@parcel/transformer-sass/-/transformer-sass-2.0.1.tgz#5bbd7b5de1278224e42a6c013d934e4ceb19a4b8"
+  integrity sha512-Qk4+8N1zNaBxXRqjJvzjLjutuuhyw/3MHSA6wjvY5BqQB22GtDFE8h9KFSFN7hPdU8CEiBntKe1diqeckPCg4w==
   dependencies:
-    "@parcel/plugin" "^2.0.0"
+    "@parcel/plugin" "^2.0.1"
     "@parcel/source-map" "^2.0.0"
     sass "^1.38.0"
 
@@ -871,14 +871,14 @@
     posthtml-render "^3.0.0"
     semver "^5.4.1"
 
-"@parcel/transformer-webmanifest@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@parcel/transformer-webmanifest/-/transformer-webmanifest-2.0.0.tgz#8179ee3648e65506e988a6f4f434fa148a36c81b"
-  integrity sha512-ztcUKg2Aol2pwVn0WWfleaR58RSPMAEqEWufSW1zXfIgSJBNXCxrN1b93lQ9gA2SFOD+fwsh2vihdUIutCX/fQ==
+"@parcel/transformer-webmanifest@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@parcel/transformer-webmanifest/-/transformer-webmanifest-2.0.1.tgz#17ff113c58638191f267671dd8c82f3d4a0c1fe0"
+  integrity sha512-yv8x8LvIX/MbZ/xXoqqQktYBvVCffKXK6Ak4Ig4DyRBmmcrYJxwWuyQpkpzXhuIFW0jPq8rz4hgoQHnV0teWwg==
   dependencies:
-    "@parcel/diagnostic" "^2.0.0"
-    "@parcel/plugin" "^2.0.0"
-    "@parcel/utils" "^2.0.0"
+    "@parcel/diagnostic" "^2.0.1"
+    "@parcel/plugin" "^2.0.1"
+    "@parcel/utils" "^2.0.1"
     json-source-map "^0.6.1"
 
 "@parcel/types@^2.0.1":
