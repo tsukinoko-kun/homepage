@@ -137,7 +137,7 @@ fs.copyFileSync(`${src}robots.txt`, `${dist}robots.txt`);
           );
         }
 
-        if (lang === "en") {
+        if (lang === "de") {
           const newFileDirEn = path.join(
             "dist",
             langCont.substr(0, langCont.length - 5),
