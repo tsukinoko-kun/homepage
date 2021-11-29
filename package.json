@@ -30,7 +30,7 @@
     "@parcel/transformer-webmanifest": "^2.0.1",
     "autoprefixer": "^10.4.0",
     "parcel": "^2.0.1",
-    "postcss": "^8.4.1"
+    "postcss": "^8.4.4"
   },
   "dependencies": {
     "@frank-mayer/magic": "^1.1.9",
