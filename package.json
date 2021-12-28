@@ -33,7 +33,7 @@
     "postcss": "^8.4.4"
   },
   "dependencies": {
-    "@frank-mayer/magic": "^1.1.9",
+    "@frank-mayer/magic": "^1.2.1",
     "@frank-mayer/photon": "^0.6.3"
   }
 }
