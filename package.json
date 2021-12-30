@@ -28,7 +28,7 @@
     "@parcel/packager-raw-url": "^2.0.1",
     "@parcel/transformer-sass": "^2.0.1",
     "@parcel/transformer-webmanifest": "^2.0.1",
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.4.1",
     "parcel": "^2.0.1",
     "postcss": "^8.4.4"
   },
