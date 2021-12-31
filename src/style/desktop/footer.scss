@@ -1,0 +1,21 @@
+footer {
+  width: 100%;
+  height: fit-content;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+
+  > * {
+    &:hover {
+      color: $foreground-primary;
+    }
+
+    &:not(:hover) {
+      color: $foreground-secondary;
+    }
+  }
+}

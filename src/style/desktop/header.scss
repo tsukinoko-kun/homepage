@@ -1,0 +1,52 @@
+header {
+  $header-height: 60px;
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: $header-height;
+  background-color: $background;
+
+  > * {
+    z-index: 2;
+  }
+
+  #home {
+    width: #{$header-height - $padding * 2};
+    height: #{$header-height - $padding * 2};
+    position: fixed;
+    top: $padding;
+    left: $padding;
+    background-image: url(../img/fav.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: $header-height;
+    right: $header-height;
+    width: calc(100vw - #{$header-height * 2});
+    height: $header-height;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+
+    > * {
+      &:hover {
+        color: $foreground-primary;
+      }
+
+      &:not(:hover) {
+        color: $foreground-secondary;
+      }
+    }
+  }
+}
