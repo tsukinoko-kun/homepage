@@ -26,22 +26,31 @@ header {
   }
 
   nav {
+    $header-margin: max($header-height, calc(50vw - #{$main-width * 0.5}));
+
     position: fixed;
     top: 0;
-    left: $header-height;
-    right: $header-height;
-    width: calc(100vw - #{$header-height * 2});
+    left: $header-margin;
+    width: calc(100vw - #{$header-margin} * 2);
     height: $header-height;
+    padding: 0 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
-    > * {
+    > a {
+      text-transform: uppercase;
+      font-size: $font-size-small !important;
+      text-decoration: none;
+      padding: 10px 20px;
+
       &:hover {
         color: $foreground-primary;
+        background-color: $hover;
+        border-radius: $border-radius;
       }
 
       &:not(:hover) {

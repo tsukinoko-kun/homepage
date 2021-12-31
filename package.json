@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "parcel serve 'src/**/*.html'",
     "clean": "rm -rf ./.parcel-cache && rm -rf ./dist",
-    "build": "parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache && node ./build.cjs"
+    "build": "parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache"
   },
   "repository": {
     "type": "git",

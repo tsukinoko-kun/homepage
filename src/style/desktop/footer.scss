@@ -10,6 +10,10 @@ footer {
   align-items: center;
 
   > * {
+    text-transform: lowercase;
+    text-decoration: none;
+    font-size: #{$font-size-small + 2px} !important;
+
     &:hover {
       color: $foreground-primary;
     }

@@ -1,0 +1,23 @@
+::-webkit-scrollbar {
+  width: #{$padding * 0.5};
+  height: #{$padding * 0.5};
+  background-color: $background;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: $background;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $background;
+}
+
+::-webkit-scrollbar-thumb {
+  &:not(:hover) {
+    background-color: $foreground-secondary;
+  }
+
+  &:hover {
+    background-color: $foreground-primary;
+  }
+}

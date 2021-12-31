@@ -35,4 +35,10 @@ svg * {
 :root,
 body {
   overflow-x: hidden;
+  min-height: 100vh;
 }
+
+@import "main";
+@import "page-color";
+@import "button";
+@import "scrollbar";

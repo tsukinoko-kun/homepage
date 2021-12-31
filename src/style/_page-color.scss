@@ -1,0 +1,23 @@
+@mixin page-color($color-a, $color-b) {
+  ::selection {
+    background-color: $color-a;
+    color: $background;
+  }
+
+  h1 {
+    background-image: linear-gradient(135deg, $color-a -10%, $color-b 110%);
+    width: fit-content;
+    background-clip: text;
+    color: transparent !important;
+  }
+}
+
+body.info {
+  @include page-color($pink, $red);
+}
+body.portfolio {
+  @include page-color($cyan, $green);
+}
+body.links {
+  @include page-color($yellow, $orange);
+}
