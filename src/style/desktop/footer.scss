@@ -1,0 +1,25 @@
+footer {
+  width: 100%;
+  height: fit-content;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+
+  > * {
+    text-transform: lowercase;
+    text-decoration: none;
+    font-size: #{$font-size-small + 2px} !important;
+
+    &:hover {
+      color: $foreground-primary;
+    }
+
+    &:not(:hover) {
+      color: $foreground-secondary;
+    }
+  }
+}

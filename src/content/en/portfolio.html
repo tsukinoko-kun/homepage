@@ -1,89 +1,73 @@
-<h2>Portfolio</h2>
+<h1>Portfolio</h1>
+<p>
+  Here are some of my projects. Older projects on this list are no longer
+  maintained.
+</p>
 
-<div id="photon">
-  <span class="portfolio_roles"
-    >Prototyping, development, testing, deployment</span
-  >
-  <span class="portfolio_title">
-    <h3>01</h3>
-    <h3>Photon</h3>
-  </span>
-  <p>Simple and efficient web frontend framework</p>
-  <p>Subpage Router, Custom Components, Data-Binding.</p>
-  <p>
-    No special web server is needed, as everything is done on the client-side.
-  </p>
-  <p>
-    Earliest compatible browser versions: Chrome 58 (Jan 2017), Edge 14 (Aug
-    2016), Firefox 54 (Mar 2017), Safari 10 (Jul 2016), Opera 55 (Aug 2018).
-  </p>
-  <p>
-    Current version:
-    <img
-      class="badge"
-      src="https://img.shields.io/npm/v/@frank-mayer/photon.svg"
-      alt="NPM version"
-      loading="lazy"
-    />&nbsp;<img
-      class="badge"
-      src="https://img.shields.io/npm/dm/@frank-mayer/photon.svg"
-      alt="NPM downloads"
-      loading="lazy"
-    />
-  </p>
-  <br />
-  <component template="anchor" href="https://reost.de"
-    >View on GitHub</component
-  >
-</div>
+<h2>Photon</h2>
+<p>Simple and efficient <strong>web frontend framework</strong></p>
+<p>Subpage Router, Custom Components, Data-Binding.</p>
+<p>
+  No special web server is needed, because everything is done client-side.
+  However, the router requires that the /index.html is always loaded, if the
+  requested file was not found (404 can be served using the framework).
+</p>
+<p>
+  Earliest compatible browser versions: <strong> Chrome 58</strong> (Jan 2017),
+  Edge 14 (Aug 2016), Firefox 54 (Mar 2017), Safari 10 (Jul 2016), Opera 55 (Aug
+  2018).
+</p>
+<p>
+  Current version:
+  <img
+    class="badge"
+    src="https://img.shields.io/npm/v/@frank-mayer/photon.svg"
+    alt="NPM version"
+    loading="lazy"
+  />&nbsp;<img
+    class="badge"
+    src="https://img.shields.io/npm/dm/@frank-mayer/photon.svg"
+    alt="NPM downloads"
+    loading="lazy"
+  />
+</p>
+<br />
+<component
+  class="button"
+  template="anchor"
+  href="https://github.com/Frank-Mayer/photon"
+  >View on GitHub</component
+>
 
-<div id="reost">
-  <span class="portfolio_roles">Design, prototyping, development</span>
-  <span class="portfolio_title">
-    <h3>02</h3>
-    <h3>Reost</h3>
-  </span>
-  <p>Webseite for a german Minecraft Server</p>
-  <p>
-    "Online List" using the Discord-API, embedded Map using "Dynmap"
-    Server-Plugin.
-  </p>
-  <component template="anchor" href="https://reost.de" class="img">
-    <img
-      class="horizontal"
-      src="../../img/reost.webp"
-      loading="lazy"
-      alt="reost screenshot"
-    />
-  </component>
-</div>
+<h2>Reost</h2>
+<p>Webseite for a german Minecraft Server</p>
+<p>
+  List of avaliable players using the <strong>Discord-API</strong>, embedded
+  <strong>realtime map</strong> using "Dynmap" Server-Plugin.
+</p>
+<img
+  class="landscape"
+  src="../../img/reost.webp"
+  loading="lazy"
+  alt="reost screenshot"
+/>
 
-<div id="popcorn-box">
-  <span class="portfolio_roles">Design, prototyping, development</span>
-  <span class="portfolio_title">
-    <h3>03</h3>
-    <h3>Popcorn Box</h3>
-  </span>
-  <p>DVD and Blu-ray administration app</p>
-  <p>
-    Machine learning based movie recommendations. Automatic app updates on
-    Android. User data is stored in a protected database.
-  </p>
-  <p>
-    Movie data comes from the public API
-    <component template="anchor" href="https://www.themoviedb.org"
-      >TMDB</component
-    >.
-  </p>
-  <component
-    template="anchor"
-    href="https://github.com/Frank-Mayer/MoviePalace"
-    class="img"
-  >
-    <img
-      src="../../img/popcornbox.webp"
-      loading="lazy"
-      alt="popcornbox screenshot"
-    />
-  </component>
-</div>
+<h2>Popcorn Box</h2>
+<p>DVD and Blu-ray <strong>administration app</strong></p>
+<p>
+  <strong>Machine</strong> learning based movie recommendations.
+  <strong>Automatic app updates</strong> on Android. User data is stored in a
+  protected <strong>database</strong>.
+</p>
+<p>
+  Movie data comes from the public <strong>API</strong>
+  <component template="anchor" href="https://www.themoviedb.org">TMDB</component
+  >.
+</p>
+<p>This project is inactive since 2020.</p>
+<img
+  src="../../img/popcornbox.webp"
+  class="portrait"
+  loading="lazy"
+  alt="popcornbox screenshot"
+/>

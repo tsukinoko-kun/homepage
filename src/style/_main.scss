@@ -1,19 +1,37 @@
-@import "portfolio";
-
 main {
-  padding: 64px max(8px, calc(50vw - 500px));
-
-  * {
-    color: $foreground;
-    font-size: 16px;
+  h1 {
+    font-size: $font-size-h1;
+    font-weight: bold;
+    margin: 0 0 20px 0;
   }
 
   h2 {
-    color: $accent !important;
-    font-size: max(32px, 10vmin) !important;
+    font-size: $font-size-h2;
+    font-weight: bold;
+    margin: 60px 0 0 0;
   }
 
-  h3 {
-    font-size: max(24px, 8vmin) !important;
+  p {
+    font-size: $font-size;
+    font-weight: normal;
+    color: $foreground-secondary;
+
+    strong {
+      font-size: $font-size;
+      font-weight: normal;
+      color: $foreground-primary !important;
+    }
+
+    a {
+      color: $foreground-primary !important;
+      text-decoration: underline;
+      text-decoration-color: $foreground-primary;
+      text-decoration-thickness: 2px;
+
+      &:hover {
+        color: rgba($foreground-primary, 0.8) !important;
+        text-decoration-color: rgba($foreground-primary, 0.8) !important;
+      }
+    }
   }
 }

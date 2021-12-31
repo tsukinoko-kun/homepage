@@ -1,46 +1,44 @@
-@import "normalize";
 @import "theme";
-@import "main";
-@import "nav";
-@import "overlay";
-@import "scrollbar";
-@import "title";
-@import "footer";
-@import "anchor";
 
-:root {
-  background-color: $back;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  outline: none;
+  border: none;
 }
 
+:root,
+body,
+main {
+  padding: 0;
+  margin: 0;
+  background-color: $background;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+* {
+  position: relative;
+  font-family: $default-font !important;
+  color-scheme: dark !important;
+  text-rendering: optimizeLegibility;
+  image-rendering: optimizeQuality;
+  shape-rendering: geometricPrecision;
+}
+
+svg,
+svg * {
+  text-rendering: geometricPrecision !important;
+}
+
+:root,
 body {
+  overflow-x: hidden;
   min-height: 100vh;
-  background-image: radial-gradient(
-    circle 100vmin at var(--x) var(--y),
-    mix($foreground, $back, 15%) 5%,
-    $back 50%
-  );
-  background-repeat: no-repeat;
-
-  > * {
-    filter: drop-shadow(0 0 16px $back) drop-shadow(0 0 8px $back);
-  }
 }
 
-::selection {
-  background-color: $accent;
-  color: $back;
-}
-
-body > *,
-body > * > * {
-  font-family: "Segoe UI", Roboto, Ubuntu, sans-serif;
-}
-
-@media all and (prefers-reduced-motion: reduce) {
-  *,
-  *:after,
-  *:before {
-    transition: none !important;
-    animation: none !important;
-  }
-}
+@import "main";
+@import "page-color";
+@import "button";
+@import "scrollbar";

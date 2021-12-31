@@ -1,0 +1,21 @@
+main {
+  $main-margin: 175px;
+  margin: $main-margin auto;
+  padding: 0 20px;
+  width: 100vw;
+  max-width: $main-width;
+  min-height: calc(100vh - #{58px + $main-margin * 2});
+
+  img.landscape {
+    width: #{$main-width - $padding * 4};
+    height: auto;
+    margin: $padding 0;
+  }
+
+  img.portrait {
+    height: calc(50vh - #{$padding * 2});
+    width: auto;
+    text-align: center;
+    margin: $padding 0;
+  }
+}
