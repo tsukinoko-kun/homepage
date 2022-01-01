@@ -3,6 +3,14 @@ main {
     font-size: $font-size-h1;
     font-weight: bold;
     margin: 0 0 20px 0;
+    background-image: linear-gradient(
+      135deg,
+      var(--theme-color-a) -10%,
+      var(--theme-color-b) 110%
+    );
+    width: fit-content;
+    background-clip: text;
+    color: transparent !important;
   }
 
   h2 {

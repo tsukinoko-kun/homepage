@@ -1,0 +1,24 @@
+body:hover {
+  $cursor-size: 20px;
+
+  &::after {
+    content: "";
+    z-index: 1000;
+    position: fixed;
+    pointer-events: none;
+    background-color: transparent;
+    border: {
+      width: 1px;
+      style: solid;
+      color: var(--theme-color-b);
+      radius: 50%;
+    }
+    width: $cursor-size;
+    height: $cursor-size;
+    top: #{$cursor-size * -0.5};
+    left: #{$cursor-size * -0.5};
+    transform: translate(var(--x), var(--y)) scale(var(--scale)) translateZ(0px);
+    transition: transform #{$timing} ease-out, border-color #{$timing} ease-out;
+    will-change: transform, border-color;
+  }
+}

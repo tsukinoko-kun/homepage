@@ -38,7 +38,17 @@ body {
   min-height: 100vh;
 }
 
+br,
+hr,
+img {
+  user-select: none;
+  pointer-events: none;
+}
+
+@import "header";
 @import "main";
+@import "footer";
 @import "page-color";
 @import "button";
 @import "scrollbar";
+@import "selection";

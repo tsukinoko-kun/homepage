@@ -1,15 +1,11 @@
-@mixin page-color($color-a, $color-b) {
-  ::selection {
-    background-color: $color-a;
-    color: $background;
-  }
+body {
+  --theme-color-a: #{$foreground-primary};
+  --theme-color-b: #{$foreground-primary};
+}
 
-  h1 {
-    background-image: linear-gradient(135deg, $color-a -10%, $color-b 110%);
-    width: fit-content;
-    background-clip: text;
-    color: transparent !important;
-  }
+@mixin page-color($color-a, $color-b) {
+  --theme-color-a: #{$color-a} !important;
+  --theme-color-b: #{$color-b} !important;
 }
 
 body.info {

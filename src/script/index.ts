@@ -1,5 +1,6 @@
 import { capitalize } from "@frank-mayer/magic";
 import { DomFrame, Components, MultiLanguageRouter } from "@frank-mayer/photon";
+import { clickable } from "./cursor";
 
 Components.resolveComponents();
 
@@ -10,7 +11,9 @@ const router = new MultiLanguageRouter({
   sitemap: new Set(["home", "portfolio", "info", "links"]),
   fallbackSite: "404",
   homeSite: "home",
-  setWindowTitle: (newPage: string) => "Frank Mayer – " + capitalize(newPage),
+  homeAsEmpty: true,
+  setWindowTitle: (newPage) =>
+    newPage === "home" ? "Frank Mayer" : "Frank Mayer – " + capitalize(newPage),
 });
 
 router.addEventListener("injected", () => {
@@ -22,4 +25,12 @@ router.addEventListener("injected", () => {
   }
 
   window.scrollTo(0, 0);
+
+  for (const button of Array.from(document.getElementsByClassName("button"))) {
+    clickable(button as HTMLElement);
+  }
+
+  for (const button of Array.from(document.getElementsByTagName("a"))) {
+    clickable(button as HTMLElement);
+  }
 });
