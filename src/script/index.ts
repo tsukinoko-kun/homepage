@@ -16,21 +16,36 @@ const router = new MultiLanguageRouter({
     newPage === "home" ? "Frank Mayer" : "Frank Mayer – " + capitalize(newPage),
 });
 
-router.addEventListener("injected", () => {
-  const mailEl = document.getElementById("mail") as HTMLAnchorElement;
-  if (mailEl) {
-    const mail = atob("bWFpbEBmcmFuay1tYXllci5pbw==");
-    mailEl.href = `mailto:${mail}`;
-    mailEl.innerText = mail;
-  }
+router.addEventListener(
+  "injected",
+  () => {
+    const mailEl = document.getElementById("mail") as HTMLAnchorElement;
+    if (mailEl) {
+      const mail = atob("bWFpbEBmcmFuay1tYXllci5pbw==");
+      mailEl.href = `mailto:${mail}`;
+      mailEl.innerText = mail;
+    }
 
-  window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
 
-  for (const button of Array.from(document.getElementsByClassName("button"))) {
-    clickable(button as HTMLElement);
-  }
+    for (const button of Array.from(
+      document.getElementsByClassName("button")
+    )) {
+      clickable(button as HTMLElement);
+    }
 
-  for (const button of Array.from(document.getElementsByTagName("a"))) {
-    clickable(button as HTMLElement);
-  }
-});
+    for (const button of Array.from(document.getElementsByTagName("a"))) {
+      clickable(button as HTMLElement);
+    }
+  },
+  { passive: true }
+);
+
+router.addEventListener(
+  "injected",
+  () => {
+    console.debug("once");
+    document.getElementById("splash")?.remove();
+  },
+  { passive: true, once: true }
+);
