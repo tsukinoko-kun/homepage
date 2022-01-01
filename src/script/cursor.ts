@@ -1,39 +1,49 @@
-const clickableElements = new Set<HTMLElement>();
+const isMobile = (navigator as any).userAgentData.mobile;
 
-const evOptions: AddEventListenerOptions = { passive: true };
+export let clickable = (el: HTMLElement) => {};
 
-let isClickable = false;
+if (isMobile) {
+  document.body.style.setProperty("--x", "-100%");
+  document.body.style.setProperty("--y", "-100%");
+  document.body.style.setProperty("--scale", "0");
+} else {
+  const clickableElements = new Set<HTMLElement>();
 
-document.addEventListener(
-  "mousemove",
-  (ev) => {
-    document.body.style.setProperty("--x", `${ev.clientX}px`);
-    document.body.style.setProperty("--y", `${ev.clientY}px`);
-    document.body.style.setProperty("--scale", isClickable ? "1.5" : "1");
-  },
-  evOptions
-);
+  const evOptions: AddEventListenerOptions = { passive: true };
 
-export const clickable = (el: HTMLElement) => {
-  if (clickableElements.has(el)) {
-    return;
-  }
+  let isClickable = false;
 
-  clickableElements.add(el);
-
-  el.addEventListener(
-    "mouseenter",
-    () => {
-      isClickable = true;
+  document.addEventListener(
+    "mousemove",
+    (ev) => {
+      document.body.style.setProperty("--x", `${ev.clientX}px`);
+      document.body.style.setProperty("--y", `${ev.clientY}px`);
+      document.body.style.setProperty("--scale", isClickable ? "1.5" : "1");
     },
     evOptions
   );
 
-  el.addEventListener(
-    "mouseout",
-    () => {
-      isClickable = false;
-    },
-    evOptions
-  );
-};
+  clickable = (el: HTMLElement) => {
+    if (clickableElements.has(el)) {
+      return;
+    }
+
+    clickableElements.add(el);
+
+    el.addEventListener(
+      "mouseenter",
+      () => {
+        isClickable = true;
+      },
+      evOptions
+    );
+
+    el.addEventListener(
+      "mouseout",
+      () => {
+        isClickable = false;
+      },
+      evOptions
+    );
+  };
+}

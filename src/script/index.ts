@@ -44,7 +44,6 @@ router.addEventListener(
 router.addEventListener(
   "injected",
   () => {
-    console.debug("once");
     document.getElementById("splash")?.remove();
   },
   { passive: true, once: true }

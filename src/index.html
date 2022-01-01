@@ -7,8 +7,11 @@
       body {
         background-color: #08070b;
       }
-      body * {
-        visibility: hidden;
+      body *,
+      body *:before,
+      body *:after {
+        visibility: hidden !important;
+        border-color: #08070b !important;
       }
     </style>
 
