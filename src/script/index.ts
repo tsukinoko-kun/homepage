@@ -7,7 +7,7 @@ Components.resolveComponents();
 const router = new MultiLanguageRouter({
   languages: new Set(["de", "en"]),
   defaultLanguage: navigator.language.includes("de") ? "de" : "en",
-  frame: new DomFrame("#root"),
+  frame: new DomFrame({ element: document.getElementById("root")! }),
   sitemap: new Set(["home", "portfolio", "info", "links"]),
   fallbackSite: "404",
   homeSite: "home",
