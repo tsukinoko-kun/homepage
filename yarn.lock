@@ -210,10 +210,10 @@
   resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.2.1.tgz#b5dbb3bc39e0f4974b2c2ff11406afce7e8e3e50"
   integrity sha512-HHMFvY7twbBR5IorEqZuy+n3cvc8ssQwkB6LeMrYcK/mEORqtIFMOknwjLKXlB2ZbDjg1dIlYD6efDyfWrpLZA==
 
-"@frank-mayer/photon@^0.6.3":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@frank-mayer/photon/-/photon-0.6.3.tgz#3aaff3654f0d4733734c9d8f3f72337e30334730"
-  integrity sha512-PJPZh0Xy/eV9wlvvBzAXAyFyfMsqwcHWIna0IzMJxygGke5Dny3VFGTkWNeY2suhnYtbz0GkCeiFSSFlT96HhQ==
+"@frank-mayer/photon@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/photon/-/photon-1.0.0.tgz#ee44f7f63b865fe152a60b6240b06061c0861368"
+  integrity sha512-jbsMi7nwogaBBJSm2FH7V5j+fR9yGCi76ssC284CKex0MCmlHkcxs00gsqD/sg3O7eXJzUyQn9p79wvtcHbVBA==
 
 "@iarna/toml@^2.2.0":
   version "2.2.5"

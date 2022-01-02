@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "@frank-mayer/magic": "^1.2.1",
-    "@frank-mayer/photon": "^0.6.3"
+    "@frank-mayer/photon": "^1.0.0"
   }
 }
