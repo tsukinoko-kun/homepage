@@ -1,4 +1,12 @@
 main {
+  $main-margin-t: 175px;
+  $main-margin-b: 75px;
+  margin: $main-margin-t auto $main-margin-b auto;
+  padding: 0 20px;
+  width: 100vw;
+  max-width: $main-width;
+  min-height: calc(100vh - #{58px + $main-margin-t + $main-margin-b});
+
   h1 {
     font-size: $font-size-h1;
     font-weight: bold;

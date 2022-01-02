@@ -1,3 +1,29 @@
 footer {
+  width: 100%;
+  height: fit-content;
+  margin: 20px auto 120px auto;
+  padding: 0 20px;
+  width: 100vw;
+  max-width: $main-width;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
   user-select: none;
+
+  > * {
+    text-transform: lowercase;
+    text-decoration: none;
+    font-size: #{$font-size-small + 2px} !important;
+
+    &:hover {
+      color: $foreground-primary;
+    }
+
+    &:not(:hover) {
+      color: $foreground-secondary;
+    }
+  }
 }

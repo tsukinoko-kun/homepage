@@ -1,0 +1,8 @@
+main {
+  img.portrait,
+  img.landscape {
+    width: 100%;
+    height: auto;
+    margin: $padding 0;
+  }
+}
