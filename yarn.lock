@@ -205,10 +205,10 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@frank-mayer/magic@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.2.1.tgz#b5dbb3bc39e0f4974b2c2ff11406afce7e8e3e50"
-  integrity sha512-HHMFvY7twbBR5IorEqZuy+n3cvc8ssQwkB6LeMrYcK/mEORqtIFMOknwjLKXlB2ZbDjg1dIlYD6efDyfWrpLZA==
+"@frank-mayer/magic@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.3.0.tgz#e14aeb0fc8eb48908a40781ec56836d370540ab4"
+  integrity sha512-hDCwO/MH9K6hUZyHN3llw9oxv3XhJqAWDaZDkbyCrAUCYIAhLTMnTk17vnw4Sg+mWxHJWbRbNI3QJMTSyw1teA==
 
 "@frank-mayer/photon@^1.1.0":
   version "1.1.0"

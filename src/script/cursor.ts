@@ -1,12 +1,12 @@
-const isMobile = (navigator as any).userAgentData.mobile;
+import { Client } from "@frank-mayer/magic";
 
 export let clickable = (el: HTMLElement) => {};
 
-if (isMobile) {
-  document.body.style.setProperty("--x", "-100%");
-  document.body.style.setProperty("--y", "-100%");
-  document.body.style.setProperty("--scale", "0");
-} else {
+document.body.style.setProperty("--x", "50%");
+document.body.style.setProperty("--y", "50%");
+document.body.style.setProperty("--scale", "0");
+
+if (!Client.mobile) {
   const clickableElements = new Set<HTMLElement>();
 
   const evOptions: AddEventListenerOptions = { passive: true };
