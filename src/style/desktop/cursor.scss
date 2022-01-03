@@ -1,24 +1,48 @@
-body:hover {
-  $cursor-size: 20px;
+@media all and (prefers-reduced-motion: no-preference) {
+  // * {
+  //   cursor: none !important;
+  // }
 
-  &::after {
-    content: "";
-    z-index: 1000;
-    position: fixed;
-    pointer-events: none;
-    background-color: transparent;
-    border: {
-      width: 1px;
-      style: solid;
-      color: var(--theme-color-b);
-      radius: 50%;
+  body:hover {
+    &::after,
+    &::before {
+      content: "";
+      z-index: 1000;
+      position: fixed;
+      pointer-events: none;
     }
-    width: $cursor-size;
-    height: $cursor-size;
-    top: #{$cursor-size * -0.5};
-    left: #{$cursor-size * -0.5};
-    transform: translate(var(--x), var(--y)) scale(var(--scale)) translateZ(0px);
-    transition: transform #{$timing} ease-out, border-color #{$timing} ease-out;
-    will-change: transform, border-color;
+
+    &::after {
+      $cursor-size: 20px;
+      background-color: transparent;
+      border: {
+        width: 1px;
+        style: solid;
+        color: var(--theme-color-b);
+        radius: 50%;
+      }
+      width: $cursor-size;
+      height: $cursor-size;
+      top: #{$cursor-size * -0.5};
+      left: #{$cursor-size * -0.5};
+      transform: translate(var(--x), var(--y)) scale(var(--scale))
+        translateZ(0px);
+      transition: transform #{$timing} ease-out,
+        border-color #{$timing} ease-out;
+      will-change: transform, border-color;
+    }
+
+    &::before {
+      $cursor-size: 4px;
+      background-color: var(--theme-color-b);
+      border-radius: 50%;
+      width: $cursor-size;
+      height: $cursor-size;
+      top: #{$cursor-size * -0.5};
+      left: #{$cursor-size * -0.5};
+      transform: translate(var(--x), var(--y)) translateZ(0px);
+      transition: background-color #{math.div($timing, 2)} ease-out;
+      will-change: transform, background-color;
+    }
   }
 }
