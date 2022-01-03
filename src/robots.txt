@@ -2,7 +2,10 @@ User-agent: *
 Allow: /
 Disallow: /components/
 Disallow: /content/
+Disallow: /img/
 Disallow: /*.svg
+Disallow: /*.png
+Disallow: /*.webp
 Disallow: /*.css
 Disallow: /*.js
 Disallow: /*.map
