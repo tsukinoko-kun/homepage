@@ -4,13 +4,15 @@
   font-family: $default-font;
   text-decoration: none !important;
   color: $foreground-primary;
+  border-radius: $border-radius;
+
+  transition: background-color $timing ease-out, opacity $timing ease-out;
 
   &:focus:not(&:hover) {
     opacity: 0.5;
   }
 
   &:hover {
-    border-radius: $border-radius;
     opacity: 1;
     background-color: $hover;
   }
