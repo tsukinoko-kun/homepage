@@ -62,6 +62,23 @@ header {
   }
 }
 
+body.info a[route="info"],
+body.portfolio a[route="portfolio"],
+body.links a[route="links"] {
+  color: $foreground-primary !important;
+
+  &:after {
+    $underline-width: 20px;
+    content: "";
+    height: 1px;
+    width: $underline-width;
+    background-color: $foreground-primary;
+    position: absolute;
+    bottom: -0.5em;
+    left: calc(50% - #{$underline-width * 0.5});
+  }
+}
+
 .home #home[route="home"] {
   font-size: 0 !important;
   color: transparent !important;

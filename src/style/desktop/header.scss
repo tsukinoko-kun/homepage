@@ -47,14 +47,26 @@ header {
     > a {
       text-transform: uppercase;
       font-size: $font-size-small !important;
+      opacity: 1 !important;
 
-      &:hover {
-        color: $foreground-primary;
-      }
-
-      &:not(:hover) {
-        color: $foreground-secondary;
-      }
+      @include button;
     }
+  }
+}
+
+body.info a[route="info"],
+body.portfolio a[route="portfolio"],
+body.links a[route="links"] {
+  color: $foreground-primary !important;
+
+  &:after {
+    $underline-width: 20px;
+    content: "";
+    height: 1px;
+    width: $underline-width;
+    background-color: $foreground-primary;
+    position: absolute;
+    bottom: 0.5em;
+    left: calc(50% - #{$underline-width * 0.5});
   }
 }

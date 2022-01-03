@@ -1,4 +1,4 @@
-.button {
+@mixin button {
   padding: 10px 20px;
   font-size: $font-size;
   font-family: $default-font;
@@ -12,6 +12,10 @@
   &:hover {
     border-radius: $border-radius;
     opacity: 1;
-    background-color: $hover !important;
+    background-color: $hover;
   }
+}
+
+.button {
+  @include button;
 }

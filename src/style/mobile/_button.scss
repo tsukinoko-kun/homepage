@@ -1,0 +1,13 @@
+@mixin button {
+  padding: 10px 20px;
+  font-size: $font-size;
+  font-family: $default-font;
+  text-decoration: none !important;
+  color: $foreground-primary;
+  background-color: $hover;
+  border-radius: $border-radius;
+}
+
+.button {
+  @include button;
+}
