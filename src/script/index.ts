@@ -1,4 +1,4 @@
-import { capitalize } from "@frank-mayer/magic";
+import { capitalize, Client, retriggerableDelay } from "@frank-mayer/magic";
 import { DomFrame, Components, MultiLanguageRouter } from "@frank-mayer/photon";
 import { clickable } from "./cursor";
 
@@ -17,6 +17,18 @@ const router = new MultiLanguageRouter({
 });
 
 const translateEl = document.getElementById("translate") as HTMLElement;
+
+translateEl.addEventListener(
+  Client.mobile ? "click" : "mousemove",
+  () => {
+    translateEl.classList.add("open");
+    retriggerableDelay(() => {
+      translateEl.classList.remove("open");
+    }, 3000);
+  },
+  { passive: true }
+);
+
 for (const a of Array.from(translateEl.getElementsByTagName("a"))) {
   a.addEventListener(
     "click",
@@ -24,7 +36,7 @@ for (const a of Array.from(translateEl.getElementsByTagName("a"))) {
       ev.preventDefault();
       ev.stopPropagation();
       router.setLang(a.dataset.lang!, ev);
-      translateEl.blur();
+      translateEl.classList.remove("open");
     },
     {
       passive: false,

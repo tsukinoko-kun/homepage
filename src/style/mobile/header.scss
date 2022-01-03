@@ -14,7 +14,7 @@ header {
   }
 
   #home {
-    width: calc(100vw - #{$padding * 2});
+    width: calc(100vw - #{$padding * 2} - #{$header-height});
     height: #{$header-height - $padding * 2};
     position: fixed;
     top: $padding;
@@ -43,14 +43,14 @@ header {
       size: calc(100% - #{$padding * 2}) calc(100% - #{$padding * 2});
     }
 
-    &:not(:hover) {
+    &:not(.open) {
       > ul {
         display: none !important;
         overflow: hidden;
       }
     }
 
-    &:hover {
+    &.open {
       > ul {
         position: fixed;
         top: #{$header-height};
