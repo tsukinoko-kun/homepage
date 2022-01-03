@@ -205,15 +205,15 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@frank-mayer/magic@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.3.1.tgz#379eb3f5da0d10dcede2b4d18849975e17635989"
-  integrity sha512-ib9mRNm/l4pTiS2/Y7WPnW5qZ/zJw8ocProQ3GfEo2sTVx37qC1Wpyz9tET2KASX0jJXo5JwofkRpw+EZwdAuw==
+"@frank-mayer/magic@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.3.2.tgz#aedbb5c3087d6c3ef55dad7ec07750304acad827"
+  integrity sha512-cybtvQXDA9j4gyPSAFHN/dLZ3nescHVg3w2Yi5czYQJ3VXz1/AWwGeY4JVAYt038bFXN+ZKT0uK7zFFhHDAZBw==
 
-"@frank-mayer/photon@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@frank-mayer/photon/-/photon-1.1.1.tgz#4295ed67c6264662fa28fd7fd8274ff36438a034"
-  integrity sha512-6UvR9aOs6opCgQkSWoivOIurP6BmjwD0OUBpcsR5B6x0n9BWx7YgUcPTtzDeBkse5PLrrwg9w1NfZAXvpKscOA==
+"@frank-mayer/photon@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/photon/-/photon-1.1.3.tgz#055abe72c58b204651cc31d36059fd9258cf2cbe"
+  integrity sha512-xx1/1eDmiJKVjkorLPqsbTV2EvmxqvUeZ+ZQrHEPRDDez+uSl8aCHKbEiVhduWhTVUY+MAHzGuwga4aI72ICDQ==
 
 "@iarna/toml@^2.2.0":
   version "2.2.5"

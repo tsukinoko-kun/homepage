@@ -1,5 +1,4 @@
 import { Client } from "@frank-mayer/magic";
-
 export let clickable = (el: HTMLElement) => {};
 
 document.body.style.setProperty("--x", "50%");
@@ -18,7 +17,7 @@ if (!Client.mobile) {
     (ev) => {
       document.body.style.setProperty("--x", `${ev.clientX}px`);
       document.body.style.setProperty("--y", `${ev.clientY}px`);
-      document.body.style.setProperty("--scale", isClickable ? "1.5" : "1");
+      document.body.style.setProperty("--scale", isClickable ? "1.75" : "1");
     },
     evOptions
   );

@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "theme";
 
 *,
@@ -11,14 +12,14 @@
 :root,
 body,
 main {
-  padding: 0;
-  margin: 0;
   background-color: $background;
   overflow-x: hidden;
   overflow-y: auto;
+  margin: 0;
 }
 
 * {
+  padding: 0;
   position: relative;
   font-family: $default-font !important;
   color-scheme: dark !important;

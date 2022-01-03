@@ -29,6 +29,82 @@ header {
     text-align: center;
   }
 
+  #translate {
+    width: #{$header-height - $padding * 2};
+    height: #{$header-height - $padding * 2};
+    position: fixed;
+    right: $padding;
+    top: $padding;
+    background: {
+      repeat: no-repeat;
+      position: center;
+      image: url(../img/translate.svg);
+      position: #{$padding} #{$padding};
+      size: calc(100% - #{$padding * 2}) calc(100% - #{$padding * 2});
+    }
+
+    &:not(:hover) {
+      > ul {
+        display: none !important;
+        overflow: hidden;
+      }
+    }
+
+    &:hover {
+      > ul {
+        position: fixed;
+        top: #{$header-height};
+        right: $padding;
+        width: fit-content;
+        max-width: calc(100vw - #{$padding * 2});
+        background-color: $background;
+        border: {
+          width: 1px;
+          style: solid;
+          color: $background;
+          radius: $border-radius;
+        }
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+
+        > li {
+          list-style: none;
+          background-color: $hover;
+
+          &:hover > a:not(.active) {
+            color: var(--theme-color-a);
+          }
+
+          &:not(:hover) > a:not(.active) {
+            color: $foreground-secondary;
+          }
+
+          a.active {
+            color: var(--theme-color-a) !important;
+          }
+
+          &:first-child {
+            border-top-left-radius: $border-radius;
+            border-top-right-radius: $border-radius;
+          }
+
+          &:last-child {
+            border-bottom-left-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+          }
+
+          > a {
+            text-decoration: none;
+            padding: #{$padding * 2};
+            line-height: #{$padding * 5};
+            font-size: $font-size-h3;
+          }
+        }
+      }
+    }
+  }
+
   nav {
     position: fixed;
     top: $header-height;

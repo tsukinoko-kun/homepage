@@ -16,9 +16,25 @@ const router = new MultiLanguageRouter({
     newPage === "home" ? "Frank Mayer" : "Frank Mayer – " + capitalize(newPage),
 });
 
+const translateEl = document.getElementById("translate") as HTMLElement;
+for (const a of Array.from(translateEl.getElementsByTagName("a"))) {
+  a.addEventListener(
+    "click",
+    (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      router.setLang(a.dataset.lang!, ev);
+      translateEl.blur();
+    },
+    {
+      passive: false,
+    }
+  );
+}
+
 router.addEventListener(
   "injected",
-  () => {
+  (ev) => {
     const mailEl = document.getElementById("mail") as HTMLAnchorElement;
     if (mailEl) {
       const mail = atob("bWFpbEBmcmFuay1tYXllci5pbw==");
@@ -36,6 +52,15 @@ router.addEventListener(
 
     for (const button of Array.from(document.getElementsByTagName("a"))) {
       clickable(button as HTMLElement);
+    }
+
+    for (const a of Array.from(translateEl.getElementsByTagName("a"))) {
+      a.href = `/${a.hreflang.split("-")[0]}/${ev.value}`;
+      if (router.getLang() === a.dataset.lang) {
+        a.classList.add("active");
+      } else {
+        a.classList.remove("active");
+      }
     }
   },
   { passive: true }
