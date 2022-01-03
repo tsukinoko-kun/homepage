@@ -41,7 +41,8 @@
       top: #{$cursor-size * -0.5};
       left: #{$cursor-size * -0.5};
       transform: translate(var(--x), var(--y)) translateZ(0px);
-      transition: background-color #{math.div($timing, 2)} ease-out;
+      transition: transform #{math.div($timing, 2)} ease-out,
+        background-color #{$timing} ease-out;
       will-change: transform, background-color;
     }
   }
