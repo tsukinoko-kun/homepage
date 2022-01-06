@@ -21,7 +21,7 @@
   },
   "browserslist": "> 10%, last 2 versions, not dead",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.1",
+    "@parcel/transformer-sass": "^2.1.0",
     "autoprefixer": "^10.4.1",
     "parcel": "^2.0.1",
     "postcss": "^8.4.5",
