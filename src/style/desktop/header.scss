@@ -138,6 +138,8 @@ body.info a[route="info"],
 body.portfolio a[route="portfolio"],
 body.links a[route="links"] {
   color: $foreground-primary !important;
+  background-color: transparent !important;
+  pointer-events: none !important;
 
   &:after {
     $underline-width: 20px;
