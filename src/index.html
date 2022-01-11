@@ -98,19 +98,18 @@
     <main id="root"></main>
 
     <footer>
-      <component
-        template="anchor"
-        href="https://github.com/Frank-Mayer/homepage"
-        >Source</component
-      >
-      <component template="anchor" href="https://github.com/Frank-Mayer"
-        >GitHub</component
-      >
-      <component
-        template="anchor"
-        href="https://www.linkedin.com/in/frank-mayer-b85677214"
-        >LinkedIn</component
-      >
+      <template src="anchor">
+        <href>https://github.com/Frank-Mayer/homepage</href>
+        <content>Source</content>
+      </template>
+      <template src="anchor">
+        <href>https://github.com/Frank-Mayer</href>
+        <content>GitHub</content>
+      </template>
+      <template src="anchor">
+        <href>https://www.linkedin.com/in/frank-mayer-b85677214</href>
+        <content>LinkedIn</content>
+      </template>
     </footer>
 
     <link rel="stylesheet" href="./style/style.scss" />

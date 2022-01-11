@@ -1,8 +1,8 @@
 import { capitalize, Client, retriggerableDelay } from "@frank-mayer/magic";
-import { DomFrame, Components, MultiLanguageRouter } from "@frank-mayer/photon";
+import { DomFrame, Templates, MultiLanguageRouter } from "@frank-mayer/photon";
 import { clickable } from "./cursor";
 
-Components.resolveComponents();
+Templates.resolveTemplates();
 
 const router = new MultiLanguageRouter({
   languages: new Set(["de", "en"]),

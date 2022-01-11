@@ -8,7 +8,10 @@
 <p>Automated <strong>documentation tool</strong>.</p>
 <p>
   The
-  <component template="anchor" href="https://editorjs.io">Editor.js</component>
+  <template src="anchor">
+    <href>https://editorjs.io</href>
+    <content>Editor.js</content>
+  </template>
   library is used to make writing the text as easy as possible. Custom plug-ins
   for this editor allow linking sources and creating a table of contents and
   source lists.
@@ -22,16 +25,21 @@
 </p>
 <p>
   The finished document can then be exported as a PDF document using the
-  <component template="anchor" href="http://pdfmake.org">PDFMake</component>
+  <template src="anchor">
+    <href>http://pdfmake.org</href>
+    <content>PDFMake</content>
+  </template>
   library.
 </p>
-<component class="button" template="anchor" href="https://docdown.app"
-  >Take a look</component
->
+<template src="anchor">
+  <class>button</class>
+  <href>https://docdown.app</href>
+  <content>App ansehen</content>
+</template>
 
 <h2>Photon</h2>
 <p>Simple and efficient <strong>web frontend framework</strong></p>
-<p>Subpage Router, Custom Components, Data-Binding.</p>
+<p>Subpage Router, Custom Templates, Data-Binding.</p>
 <p>
   No special web server is needed, because everything is done client-side.
   However, the router requires that the /index.html is always loaded, if the
@@ -56,12 +64,11 @@
     loading="lazy"
   />
 </p>
-<component
-  class="button"
-  template="anchor"
-  href="https://github.com/Frank-Mayer/photon"
-  >View on GitHub</component
->
+<template src="anchor">
+  <class>button</class>
+  <href>href="https://github.com/Frank-Mayer/photon</href>
+  <content>Auf GitHub ansehen</content>
+</template>
 
 <h2>Reost</h2>
 <p>Webseite for a german Minecraft Server</p>
@@ -85,7 +92,9 @@
 </p>
 <p>
   Movie data comes from the public <strong>API</strong>
-  <component template="anchor" href="https://www.themoviedb.org">TMDB</component
+  <template src="anchor"
+    ><href>https://www.themoviedb.org/?language=de</href
+    ><content>TMDB</content></template
   >.
 </p>
 <p>This project is inactive since 2020.</p>
