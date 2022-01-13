@@ -18,16 +18,18 @@ const router = new MultiLanguageRouter({
 
 const translateEl = document.getElementById("translate") as HTMLElement;
 
-translateEl.addEventListener(
-  Client.mobile ? "click" : "mousemove",
-  () => {
-    translateEl.classList.add("open");
-    retriggerableDelay(() => {
-      translateEl.classList.remove("open");
-    }, 3000);
-  },
-  { passive: true }
-);
+if (Client.mobile) {
+  translateEl.addEventListener(
+    "click",
+    () => {
+      translateEl.classList.add("open");
+      retriggerableDelay(() => {
+        translateEl.classList.remove("open");
+      }, 2000);
+    },
+    { passive: true }
+  );
+}
 
 for (const a of Array.from(translateEl.getElementsByTagName("a"))) {
   a.addEventListener(
