@@ -5,13 +5,18 @@
     <style id="splash">
       :root,
       body {
-        background-color: #08070b;
+        background-color: #08070b !important;
       }
-      body *,
-      body *:before,
-      body *:after {
+      header,
+      main#root *,
+      main#root *:before,
+      main#root *:after,
+      footer {
         visibility: hidden !important;
-        border-color: #08070b !important;
+      }
+      * {
+        pointer-events: none !important;
+        cursor: wait !important;
       }
     </style>
 
@@ -29,7 +34,7 @@
     <meta name="color-scheme" content="dark" />
     <meta
       name="keywords"
-      content="frank, mayer, programmierer, entwickler, dev, developer, web, webentwickler, frontend, typescript, javascript, html, css, scss, sass, photon, heilbronn, baden, würthemberg, badenwürthemberg, deutschland, germany, F#, C#, C++"
+      content="frank, mayer, programmierer, entwickler, developer, web, webentwickler, typescript, heilbronn, baden, würthemberg, badenwürthemberg, deutschland, germany"
     />
     <meta name="hostname" content="frank-mayer.io" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
@@ -41,23 +46,25 @@
     <meta name="title" content="Frank Mayer" />
     <meta
       name="description"
-      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5, F#"
+      content="Web & Frontend Programmierer, TypeScript, JavaScript, CSS3, HTML5, C#, F#, Kotlin, Rust#"
     />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale:alternate" content="de-DE" />
+    <meta property="og:locale:alternate" content="en-US" />
     <meta property="og:url" content="https://frank-mayer.io" />
     <meta property="og:title" content="Frank Mayer" />
     <meta property="og:site_name" content="Frank Mayer" />
     <meta
       property="og:description"
-      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5, F#"
+      content="Web & Frontend Programmierer, TypeScript, JavaScript, CSS3, HTML5, C#, F#, Kotlin, Rust"
     />
     <meta
       property="og:image:alt"
-      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5, F#"
+      content="Web & Frontend Programmierer, TypeScript, JavaScript, CSS3, HTML5, C#, F#, Kotlin, Rust"
     />
-    <meta property="og:image" content="./img/fav.webp" />
+    <meta name="image" property="og:image" content="./img/fav.png" />
 
     <!-- Twitter -->
     <meta name="twitter:image:src" content="./img/fav.png" />
@@ -66,7 +73,7 @@
     <meta property="twitter:title" content="Frank Mayer" />
     <meta
       property="twitter:description"
-      content="Web & Frontend Programmierer, Freelancer, TypeScript, JavaScript, WASM, CSS3, HTML5, F#"
+      content="Web & Frontend Programmierer, TypeScript, JavaScript, CSS3, HTML5, C#, F#, Kotlin, Rust"
     />
     <meta property="twitter:url" content="https://frank-mayer.io" />
     <meta property="twitter:image" content="./img/fav.png" />
