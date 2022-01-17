@@ -1,11 +1,11 @@
 import { Client } from "@frank-mayer/magic";
 export let clickable = (el: HTMLElement) => {};
 
-document.body.style.setProperty("--x", "50%");
-document.body.style.setProperty("--y", "50%");
-document.body.style.setProperty("--scale", "0");
+document.body.style.setProperty("--x", `${innerWidth / 2}px`);
+document.body.style.setProperty("--y", `${innerHeight / 2}px`);
 
 if (!Client.mobile) {
+  document.body.classList.add("cursor-enabled");
   const clickableElements = new Set<HTMLElement>();
 
   const evOptions: AddEventListenerOptions = { passive: true };
@@ -17,7 +17,11 @@ if (!Client.mobile) {
     (ev) => {
       document.body.style.setProperty("--x", `${ev.clientX}px`);
       document.body.style.setProperty("--y", `${ev.clientY}px`);
-      document.body.style.setProperty("--scale", isClickable ? "1.75" : "1");
+      if (isClickable) {
+        document.body.classList.add("cursor-active");
+      } else {
+        document.body.classList.remove("cursor-active");
+      }
     },
     evOptions
   );
@@ -30,7 +34,7 @@ if (!Client.mobile) {
     clickableElements.add(el);
 
     el.addEventListener(
-      "mouseenter",
+      "mousemove",
       () => {
         isClickable = true;
       },

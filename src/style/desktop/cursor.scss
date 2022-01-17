@@ -1,19 +1,11 @@
 @media all and (prefers-reduced-motion: no-preference) {
-  // * {
-  //   cursor: none !important;
-  // }
-
-  body:hover {
-    &::after,
-    &::before {
+  body.cursor-enabled:hover {
+    &::after {
+      $cursor-size: 20px;
       content: "";
       z-index: 1000;
       position: fixed;
       pointer-events: none;
-    }
-
-    &::after {
-      $cursor-size: 20px;
       background-color: transparent;
       border: {
         width: 1px;
@@ -21,29 +13,20 @@
         color: var(--theme-color-b);
         radius: 50%;
       }
+      backdrop-filter: invert(1) hue-rotate(180deg);
       width: $cursor-size;
       height: $cursor-size;
       top: #{$cursor-size * -0.5};
       left: #{$cursor-size * -0.5};
-      transform: translate(var(--x), var(--y)) scale(var(--scale))
-        translateZ(0px);
       transition: transform #{$timing} ease-out,
         border-color #{$timing} ease-out;
       will-change: transform, border-color;
     }
-
-    &::before {
-      $cursor-size: 4px;
-      background-color: var(--theme-color-b);
-      border-radius: 50%;
-      width: $cursor-size;
-      height: $cursor-size;
-      top: #{$cursor-size * -0.5};
-      left: #{$cursor-size * -0.5};
-      transform: translate(var(--x), var(--y)) translateZ(0px);
-      transition: transform #{math.div($timing, 2)} ease-out,
-        background-color #{$timing} ease-out;
-      will-change: transform, background-color;
+    &:not(.cursor-active)::after {
+      transform: translate(var(--x), var(--y)) scale(1) translateZ(0px);
+    }
+    &.cursor-active::after {
+      transform: translate(var(--x), var(--y)) scale(2) translateZ(0px);
     }
   }
 }
