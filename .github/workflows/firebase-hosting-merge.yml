@@ -18,8 +18,6 @@ jobs:
           cache: "yarn"
       - run: yarn
       - run: yarn build
-      - run: cp ./src/robots.txt ./dist/
-      - run: cp ./src/sitemap.xml ./dist/
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
