@@ -2,27 +2,9 @@
 <html lang="de">
   <head>
     <title>Frank Mayer</title>
-    <style id="splash">
-      :root,
-      body {
-        background-color: #08070b !important;
-      }
-      header,
-      main#root *,
-      main#root *:before,
-      main#root *:after,
-      footer {
-        visibility: hidden !important;
-      }
-      * {
-        pointer-events: none !important;
-        cursor: wait !important;
-      }
-    </style>
 
     <!-- Links -->
     <link rel="preload" href="./style/style.scss" as="style" />
-    <link rel="modulepreload" href="./script/index.ts" />
     <link rel="canonical" href="https://frank-mayer.io" />
     <link rel="shortcut icon" href="./img/fav.webp" type="image/webp" />
     <link rel="alternate icon" href="./img/fav.png" type="image/png" />
@@ -80,11 +62,11 @@
   </head>
   <body>
     <header>
-      <a id="home" route="home">Frank Mayer</a>
+      <a id="home" data-route="../home">Frank Mayer</a>
       <nav>
-        <a route="info">Info</a>
-        <a route="portfolio">Portfolio</a>
-        <a route="links">Links</a>
+        <a data-route="../info">Info</a>
+        <a data-route="/de/portfolio">Portfolio</a>
+        <a data-route="../links">Links</a>
       </nav>
       <span id="translate">
         <ul>
@@ -102,21 +84,29 @@
       </span>
     </header>
 
-    <main id="root"></main>
+    <main
+      id="root"
+      photon-router
+      data-content="/content"
+      data-default="/en/home"
+    ></main>
 
     <footer>
-      <template src="anchor">
-        <href>https://github.com/Frank-Mayer/homepage</href>
-        <content>Source</content>
-      </template>
-      <template src="anchor">
-        <href>https://github.com/Frank-Mayer</href>
-        <content>GitHub</content>
-      </template>
-      <template src="anchor">
-        <href>https://www.linkedin.com/in/frank-mayer-b85677214</href>
-        <content>LinkedIn</content>
-      </template>
+      <photon-ref
+        src="./templates/anchor.html"
+        data-href="https://github.com/Frank-Mayer/homepage"
+        data-content="content"
+      ></photon-ref>
+      <photon-ref
+        src="./templates/anchor.html"
+        data-href="https://github.com/Frank-Mayer"
+        data-content="GitHub"
+      ></photon-ref>
+      <photon-ref
+        src="./templates/anchor.html"
+        data-href="https://www.linkedin.com/in/frank-mayer-b85677214"
+        data-content="LinkedIn"
+      ></photon-ref>
     </footer>
 
     <link rel="stylesheet" href="./style/style.scss" />
@@ -131,6 +121,7 @@
       href="./style/mobile.scss"
     />
 
-    <script type="module" src="./script/index.ts" defer></script>
+    <script async type="module" src="./script/cursor.ts"></script>
+    <script defer type="module" src="../../photon-re/core.ts"></script>
   </body>
 </html>
