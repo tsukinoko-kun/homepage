@@ -1,14 +1,14 @@
-body.home nav a[route]:not([route="home"]),
-body.info nav a[route]:not([route="info"]),
-body.portfolio nav a[route]:not([route="portfolio"]),
-body.links nav a[route]:not([route="links"]) {
+body.home nav a[data-route]:not([data-route="../home"]),
+body.info nav a[data-route]:not([data-route="../info"]),
+body.portfolio nav a[data-route]:not([data-route="../portfolio"]),
+body.links nav a[data-route]:not([data-route="../links"]) {
   color: $foreground-secondary !important;
 }
 
 header {
   user-select: none;
 
-  a[route] {
+  a[data-route] {
     text-decoration: none;
   }
 

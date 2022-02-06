@@ -1,89 +1,73 @@
-import { capitalize, Client, retriggerableDelay } from "@frank-mayer/magic";
-import { DomFrame, Templates, MultiLanguageRouter } from "@frank-mayer/photon";
-import { clickable } from "./cursor";
+import { addRoutingEventListener, makePath, path } from "photon-re";
 
-Templates.resolveTemplates();
+const setPageNameAsBodyClass = (path: path) => {
+  const pageName = path[1];
+  if (pageName) {
+    document.body.classList.remove("home");
+    document.body.classList.remove("info");
+    document.body.classList.remove("portfolio");
+    document.body.classList.remove("links");
+    document.body.classList.remove("404");
+    document.body.classList.add(pageName);
+  }
+};
 
-const router = new MultiLanguageRouter({
-  languages: new Set(["de", "en"]),
-  defaultLanguage: navigator.language.includes("de") ? "de" : "en",
-  frame: new DomFrame({ element: document.getElementById("root")! }),
-  sitemap: new Set(["home", "portfolio", "info", "links"]),
-  fallbackSite: "404",
-  homeSite: "home",
-  homeAsEmpty: true,
-  setWindowTitle: (newPage) =>
-    newPage === "home" ? "Frank Mayer" : "Frank Mayer – " + capitalize(newPage),
-});
+const setLangEn = document.getElementById("set-lang-en") as HTMLAnchorElement;
+const setLangDe = document.getElementById("set-lang-de") as HTMLAnchorElement;
 
-const translateEl = document.getElementById("translate") as HTMLElement;
+const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
+  path[0] = lang;
+  const href = makePath(path);
+  el.href = href;
+  el.dataset.route = href;
+};
 
-if (Client.mobile) {
-  translateEl.addEventListener(
-    "click",
-    () => {
-      translateEl.classList.add("open");
-      retriggerableDelay(() => {
-        translateEl.classList.remove("open");
-      }, 2000);
-    },
-    { passive: true }
-  );
+{
+  const path = makePath(location.pathname);
+
+  setPageNameAsBodyClass(path);
+
+  if (setLangEn) {
+    setLangAnchorHref(path, "en", setLangEn);
+  }
+
+  if (setLangDe) {
+    setLangAnchorHref(path, "de", setLangDe);
+  }
 }
 
-for (const a of Array.from(translateEl.getElementsByTagName("a"))) {
-  a.addEventListener(
-    "click",
-    (ev) => {
-      ev.preventDefault();
-      ev.stopPropagation();
-      router.setLang(a.dataset.lang!, ev);
-      translateEl.classList.remove("open");
-    },
-    {
-      passive: false,
-    }
-  );
-}
-
-router.addEventListener(
-  "injected",
+addRoutingEventListener(
+  "routed",
   (ev) => {
+    setPageNameAsBodyClass(ev.detail.route);
+    const currentLang = ev.detail.route[0];
+
+    if (setLangEn) {
+      if (currentLang === "en") {
+        setLangEn.classList.add("active");
+      } else {
+        setLangEn.classList.remove("active");
+      }
+      setLangAnchorHref(ev.detail.route, "en", setLangEn);
+    }
+
+    if (setLangDe) {
+      if (currentLang === "de") {
+        setLangDe.classList.add("active");
+      } else {
+        setLangDe.classList.remove("active");
+      }
+      setLangAnchorHref(ev.detail.route, "de", setLangDe);
+    }
+
     const mailEl = document.getElementById("mail") as HTMLAnchorElement;
     if (mailEl) {
       const mail = atob("bWFpbEBmcmFuay1tYXllci5pbw==");
-      mailEl.href = `mailto:${mail}`;
+      mailEl.href = "mailto:" + mail;
       mailEl.innerText = mail;
     }
-
-    window.scrollTo(0, 0);
-
-    for (const button of Array.from(
-      document.getElementsByClassName("button")
-    )) {
-      clickable(button as HTMLElement);
-    }
-
-    for (const button of Array.from(document.getElementsByTagName("a"))) {
-      clickable(button as HTMLElement);
-    }
-
-    for (const a of Array.from(translateEl.getElementsByTagName("a"))) {
-      a.href = `/${a.hreflang.split("-")[0]}/${ev.value}`;
-      if (router.getLang() === a.dataset.lang) {
-        a.classList.add("active");
-      } else {
-        a.classList.remove("active");
-      }
-    }
   },
-  { passive: true }
-);
-
-router.addEventListener(
-  "injected",
-  () => {
-    document.getElementById("splash")?.remove();
-  },
-  { passive: true, once: true }
+  {
+    passive: true,
+  }
 );
