@@ -2691,10 +2691,10 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-photon-cli@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/photon-cli/-/photon-cli-0.1.1.tgz#415748b4dfc2edc889e3a935ddec392adb9ee18d"
-  integrity sha512-gsTgmL5PIZye6mgt8uZfuwi8XJfQWpCn4E3mbDWk9CYMUpB1/JKyCy/+IxyDSIgZDhXIofoGFE+U8P7CLpGbeg==
+photon-cli@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/photon-cli/-/photon-cli-0.1.2.tgz#04a4e81a388ed85e11c71b73fb6bf20d41c1eb37"
+  integrity sha512-8gzjxDIHlYp3hZRceXG2ny6f3izeWFESwsv3VZO4Pw8KZCbHkziodu98XRfyoun9r6wEiaMLEkMr2Rem27oNYg==
   dependencies:
     "@frank-mayer/dom-serializer" "^2.0.2"
     "@parcel/config-default" "^2.2.1"
