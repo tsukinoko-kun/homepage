@@ -134,9 +134,9 @@ header {
   }
 }
 
-body.info a[route="info"],
-body.portfolio a[route="portfolio"],
-body.links a[route="links"] {
+body.info a[data-route="../info"],
+body.portfolio a[data-route="../portfolio"],
+body.links a[data-route="../links"] {
   color: $foreground-primary !important;
   background-color: transparent !important;
   pointer-events: none !important;

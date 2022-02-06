@@ -1,10 +1,9 @@
 import {
   addDisposableEventListener,
   Client,
-  delay,
   disposeNode,
 } from "@frank-mayer/magic";
-import { addRoutingEventListener } from "../../../photon-re";
+import { addRoutingEventListener } from "photon-re";
 
 document.body.style.setProperty("--x", `${innerWidth / 2}px`);
 document.body.style.setProperty("--y", `${innerHeight / 2}px`);

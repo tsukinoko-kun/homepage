@@ -1,38 +1,63 @@
-import { addRoutingEventListener, makePath } from "../../../photon-re/index.js";
+import { addRoutingEventListener, makePath, path } from "photon-re";
+
+const setPageNameAsBodyClass = (path: path) => {
+  const pageName = path[1];
+  if (pageName) {
+    document.body.classList.remove("home");
+    document.body.classList.remove("info");
+    document.body.classList.remove("portfolio");
+    document.body.classList.remove("links");
+    document.body.classList.remove("404");
+    document.body.classList.add(pageName);
+  }
+};
 
 const setLangEn = document.getElementById("set-lang-en") as HTMLAnchorElement;
 const setLangDe = document.getElementById("set-lang-de") as HTMLAnchorElement;
 
-const path = makePath(location.pathname);
-if (setLangEn) {
-  path[0] = "en";
+const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
+  path[0] = lang;
   const href = makePath(path);
-  setLangEn.href = href;
-  setLangEn.dataset.route = href;
-}
+  el.href = href;
+  el.dataset.route = href;
+};
 
-if (setLangDe) {
-  path[0] = "de";
-  const href = makePath(path);
-  setLangDe.href = href;
-  setLangDe.dataset.route = href;
+{
+  const path = makePath(location.pathname);
+
+  setPageNameAsBodyClass(path);
+
+  if (setLangEn) {
+    setLangAnchorHref(path, "en", setLangEn);
+  }
+
+  if (setLangDe) {
+    setLangAnchorHref(path, "de", setLangDe);
+  }
 }
 
 addRoutingEventListener(
   "routed",
   (ev) => {
+    setPageNameAsBodyClass(ev.detail.route);
+    const currentLang = ev.detail.route[0];
+
     if (setLangEn) {
-      ev.detail.route[0] = "en";
-      const href = makePath(ev.detail.route);
-      setLangDe.href = href;
-      setLangDe.dataset.route = href;
+      if (currentLang === "en") {
+        setLangEn.classList.add("active");
+      } else {
+        setLangEn.classList.remove("active");
+      }
+      setLangAnchorHref(ev.detail.route, "en", setLangEn);
     }
 
     if (setLangDe) {
-      ev.detail.route[0] = "de";
-      const href = makePath(ev.detail.route);
-      setLangDe.href = href;
-      setLangDe.dataset.route = href;
+      if (currentLang === "de") {
+        setLangDe.classList.add("active");
+      } else {
+        setLangDe.classList.remove("active");
+      }
+      setLangAnchorHref(ev.detail.route, "de", setLangDe);
     }
 
     const mailEl = document.getElementById("mail") as HTMLAnchorElement;
