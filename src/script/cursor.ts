@@ -3,7 +3,7 @@ import {
   addDisposableEventListener,
   Client,
   disposeNode,
-} from "../../node_modules/@frank-mayer/magic";
+} from "@frank-mayer/magic";
 
 const router = document.getElementById("root")!;
 
