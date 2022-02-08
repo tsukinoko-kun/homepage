@@ -1,11 +1,9 @@
-import type { RoutingEvent } from "photon-re";
+import { addRoutingEventListener } from "photon-re";
 import {
   addDisposableEventListener,
   Client,
   disposeNode,
 } from "@frank-mayer/magic";
-
-const router = document.getElementById("root")!;
 
 document.body.style.setProperty("--x", `${innerWidth / 2}px`);
 document.body.style.setProperty("--y", `${innerHeight / 2}px`);
@@ -67,14 +65,14 @@ if (!Client.mobile) {
 
   applyAllClickable();
 
-  router.addEventListener("routed", applyAllClickable, {
+  addRoutingEventListener("routed", applyAllClickable, {
     passive: true,
   });
 
-  router.addEventListener(
+  addRoutingEventListener(
     "route",
     (ev) => {
-      disposeNode((ev as RoutingEvent).detail.router, false);
+      disposeNode(ev.detail.router, false);
     },
     {
       passive: true,

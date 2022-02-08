@@ -1,6 +1,4 @@
-import type { path, RoutedEvent } from "photon-re";
-
-const router = document.getElementById("root")!;
+import { addRoutingEventListener, path } from "photon-re";
 
 const makePath: {
   (path: string): path;
@@ -51,11 +49,11 @@ const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
   }
 }
 
-router.addEventListener(
+addRoutingEventListener(
   "routed",
   (ev) => {
-    setPageNameAsBodyClass((ev as RoutedEvent).detail.route);
-    const currentLang = (ev as RoutedEvent).detail.route[0];
+    setPageNameAsBodyClass(ev.detail.route);
+    const currentLang = ev.detail.route[0];
 
     if (setLangEn) {
       if (currentLang === "en") {
@@ -63,7 +61,7 @@ router.addEventListener(
       } else {
         setLangEn.classList.remove("active");
       }
-      setLangAnchorHref((ev as RoutedEvent).detail.route, "en", setLangEn);
+      setLangAnchorHref(ev.detail.route, "en", setLangEn);
     }
 
     if (setLangDe) {
@@ -72,7 +70,7 @@ router.addEventListener(
       } else {
         setLangDe.classList.remove("active");
       }
-      setLangAnchorHref((ev as RoutedEvent).detail.route, "de", setLangDe);
+      setLangAnchorHref(ev.detail.route, "de", setLangDe);
     }
 
     const mailEl = document.getElementById("mail") as HTMLAnchorElement;
