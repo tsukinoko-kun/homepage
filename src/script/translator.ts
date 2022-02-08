@@ -1,4 +1,19 @@
-import { addRoutingEventListener, makePath, path } from "photon-re";
+import type { path, RoutedEvent } from "photon-re";
+
+const router = document.getElementById("root")!;
+
+const makePath: {
+  (path: string): path;
+  (path: path): string;
+} = (path: any): any => {
+  if (typeof path === "string") {
+    return path.split("/").filter(Boolean);
+  } else if (Array.isArray(path)) {
+    return "/" + path.join("/");
+  } else {
+    throw new Error(`Invalid path: ${JSON.stringify(path)}`);
+  }
+};
 
 const setPageNameAsBodyClass = (path: path) => {
   const pageName = path[1];
@@ -36,11 +51,11 @@ const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
   }
 }
 
-addRoutingEventListener(
+router.addEventListener(
   "routed",
   (ev) => {
-    setPageNameAsBodyClass(ev.detail.route);
-    const currentLang = ev.detail.route[0];
+    setPageNameAsBodyClass((ev as RoutedEvent).detail.route);
+    const currentLang = (ev as RoutedEvent).detail.route[0];
 
     if (setLangEn) {
       if (currentLang === "en") {
@@ -48,7 +63,7 @@ addRoutingEventListener(
       } else {
         setLangEn.classList.remove("active");
       }
-      setLangAnchorHref(ev.detail.route, "en", setLangEn);
+      setLangAnchorHref((ev as RoutedEvent).detail.route, "en", setLangEn);
     }
 
     if (setLangDe) {
@@ -57,7 +72,7 @@ addRoutingEventListener(
       } else {
         setLangDe.classList.remove("active");
       }
-      setLangAnchorHref(ev.detail.route, "de", setLangDe);
+      setLangAnchorHref((ev as RoutedEvent).detail.route, "de", setLangDe);
     }
 
     const mailEl = document.getElementById("mail") as HTMLAnchorElement;

@@ -22,6 +22,6 @@
   },
   "dependencies": {
     "@frank-mayer/magic": "^1.3.2",
-    "photon-re": "^0.1.1"
+    "photon-re": "^0.1.4"
   }
 }
