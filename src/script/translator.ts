@@ -38,14 +38,25 @@ const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
 
 {
   const path = makePath(location.pathname);
+  const currentLang = path[0];
 
   setPageNameAsBodyClass(path);
 
   if (setLangEn) {
+    if (currentLang === "en") {
+      setLangEn.classList.add("active");
+    } else {
+      setLangEn.classList.remove("active");
+    }
     setLangAnchorHref(path, "en", setLangEn);
   }
 
   if (setLangDe) {
+    if (currentLang === "de") {
+      setLangDe.classList.add("active");
+    } else {
+      setLangDe.classList.remove("active");
+    }
     setLangAnchorHref(path, "de", setLangDe);
   }
 }

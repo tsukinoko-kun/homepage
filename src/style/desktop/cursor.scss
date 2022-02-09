@@ -1,7 +1,7 @@
 @media all and (prefers-reduced-motion: no-preference) {
   body.cursor-enabled:hover {
     &::after {
-      $cursor-size: 20px;
+      $cursor-size: 32px;
       content: "";
       z-index: 1000;
       position: fixed;
