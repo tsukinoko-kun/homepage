@@ -32,10 +32,10 @@
     domhandler "^4.3.0"
     entities "^3.0.1"
 
-"@frank-mayer/magic@^1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.3.2.tgz#aedbb5c3087d6c3ef55dad7ec07750304acad827"
-  integrity sha512-cybtvQXDA9j4gyPSAFHN/dLZ3nescHVg3w2Yi5czYQJ3VXz1/AWwGeY4JVAYt038bFXN+ZKT0uK7zFFhHDAZBw==
+"@frank-mayer/magic@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.4.0.tgz#244df1cc90d556c84be9f301f9dd5cca7d6fe355"
+  integrity sha512-NUqKF1bud7jc5fgT4Wn0ayb/zk1wsYB00gx8LL/ITTPF2dXsb98CPYsp5l1fkg2Tm0V2fbT0DtD1KMiyKdGE/Q==
 
 "@parcel/bundler-default@^2.3.0":
   version "2.3.0"
