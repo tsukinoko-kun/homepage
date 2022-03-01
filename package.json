@@ -1,32 +1,33 @@
 {
   "name": "homepage",
-  "displayName": "Homepage",
-  "targets": {
-    "browser": {
-      "includeNodeModules": {
-        "@frank-mayer/magic": true
-      }
-    }
-  },
   "scripts": {
     "dev": "npx parcel serve 'src/**/*.html'",
     "clean": "rm -rf ./photon && rm -rf ./dist",
-    "build": "photon ./src --no-cache"
+    "build": "parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache",
+    "photon": "photon ./dist"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Frank-Mayer/homepage.git"
+  "targets": {
+    "browser": {
+      "includeNodeModules": true,
+      "isLibrary": false
+    }
   },
-  "author": "Frank-Mayer",
+  "repository": "https://github.com/Frank-Mayer/homepage.git",
+  "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Frank-Mayer/homepage/issues"
+  "private": false,
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
   },
-  "homepage": "https://github.com/Frank-Mayer/homepage#readme",
   "devDependencies": {
+    "@parcel/transformer-sass": "2.3.2",
     "autoprefixer": "^10.4.2",
-    "photon-cli": "^0.1.7",
-    "sass": "^1.49.7",
+    "parcel": "^2.3.2",
+    "postcss": "^8.4.7",
+    "process": "^0.11.10",
+    "sass": "^1.49.9",
     "typescript": "^4.5.5"
   },
   "dependencies": {

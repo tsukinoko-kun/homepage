@@ -61,6 +61,16 @@ const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
   }
 }
 
+const insertEMail = () => {
+  const mailEl = document.getElementById("mail") as HTMLAnchorElement;
+  if (mailEl) {
+    const mail = atob("bWFpbEBmcmFuay1tYXllci5pbw==");
+    mailEl.href = "mailto:" + mail;
+    mailEl.innerText = mail;
+  }
+};
+insertEMail();
+
 routerEl.addEventListener(
   "routed",
   (ev) => {
@@ -85,12 +95,7 @@ routerEl.addEventListener(
       setLangAnchorHref((ev as RoutedEvent).detail.route, "de", setLangDe);
     }
 
-    const mailEl = document.getElementById("mail") as HTMLAnchorElement;
-    if (mailEl) {
-      const mail = atob("bWFpbEBmcmFuay1tYXllci5pbw==");
-      mailEl.href = "mailto:" + mail;
-      mailEl.innerText = mail;
-    }
+    insertEMail();
   },
   {
     passive: true,
