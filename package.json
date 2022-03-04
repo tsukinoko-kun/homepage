@@ -2,15 +2,9 @@
   "name": "homepage",
   "scripts": {
     "dev": "npx parcel serve 'src/**/*.html'",
-    "clean": "rm -rf ./photon && rm -rf ./dist",
+    "clean": "rm -rf ./parcel-cache && rm -rf ./dist",
     "build": "parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache",
-    "postbuild": "photon './dist/browser'"
-  },
-  "targets": {
-    "browser": {
-      "includeNodeModules": true,
-      "isLibrary": false
-    }
+    "pb": "photon './dist'"
   },
   "repository": "https://github.com/Frank-Mayer/homepage.git",
   "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
