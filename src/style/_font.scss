@@ -1,25 +1,61 @@
-// Noto Sans
+// Circular Std
 @font-face {
-  font-family: "Noto Sans";
-  src: url("../font/Noto_Sans/NotoSans-Regular.ttf") format("truetype");
+  font-family: "circular";
+  src: url("../font/CircularStd-Book.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Noto Sans";
-  src: url("../font/Noto_Sans/NotoSans-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Noto Sans";
-  src: url("../font/Noto_Sans/NotoSans-Italic.ttf") format("truetype");
+  font-family: "circular";
+  src: url("../font/CircularStd-BookItalic.otf") format("opentype");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  font-family: "Noto Sans";
-  src: url("../font/Noto_Sans/NotoSans-BoldItalic.ttf") format("truetype");
+  font-family: "circular";
+  src: url("../font/CircularStd-Bold.otf") format("opentype");
   font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "circular";
+  src: url("../font/CircularStd-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "circular";
+  src: url("../font/CircularStd-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "circular";
+  src: url("../font/CircularStd-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "circular";
+  src: url("../font/CircularStd-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "circular";
+  src: url("../font/CircularStd-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: "circular";
+  src: url("../font/CircularStd-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "circular";
+  src: url("../font/CircularStd-LightItalic.otf") format("opentype");
+  font-weight: 300;
   font-style: italic;
 }

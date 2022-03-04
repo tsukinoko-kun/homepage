@@ -1,7 +1,7 @@
 @mixin button {
   padding: 10px 20px;
   font-size: $font-size;
-  font-family: $default-font;
+  font-family: #{$default-font};
   text-decoration: none !important;
   color: $foreground-primary;
   border-radius: $border-radius;
