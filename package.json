@@ -4,7 +4,7 @@
     "dev": "npx parcel serve 'src/**/*.html'",
     "clean": "rm -rf ./photon && rm -rf ./dist",
     "build": "parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache",
-    "ph": "photon './dist/browser'"
+    "postbuild": "photon './dist/browser'"
   },
   "targets": {
     "browser": {
