@@ -1,4 +1,7 @@
 main {
+  height: max-content !important;
+  overflow: visible;
+
   img.landscape {
     width: #{$main-width - $padding * 4};
     height: auto;
@@ -10,5 +13,17 @@ main {
     width: auto;
     text-align: center;
     margin: $padding 0;
+  }
+
+  img.landscape,
+  img.portrait {
+    transition: transform $timing ease-out, filter $timing ease-out;
+    will-change: transform, filter;
+
+    &:hover {
+      transform: scale(1.4);
+      z-index: 10;
+      filter: drop-shadow(0 0 $padding black);
+    }
   }
 }
