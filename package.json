@@ -2,7 +2,7 @@
   "name": "homepage",
   "scripts": {
     "dev": "npx parcel serve 'src/**/*.html'",
-    "clean": "rm -rf ./parcel-cache && rm -rf ./dist",
+    "clean": "rm -rf ./.parcel-cache && rm -rf ./dist",
     "build": "parcel build 'src/index.html' 'src/**/*.html' --no-source-maps --no-cache",
     "pb": "photon './dist'"
   },
@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "@frank-mayer/magic": "^1.5.0",
-    "photon-re": "^0.2.0"
+    "photon-re": "^0.2.1"
   }
 }
