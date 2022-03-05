@@ -2,23 +2,7 @@ import { Client } from "@frank-mayer/magic/bin";
 
 const observerFunction = (entries: Array<IntersectionObserverEntry>) => {
   for (const entry of entries) {
-    entry.target.animate(
-      [
-        {
-          opacity: 0,
-          transform: "translateX(2rem)",
-        },
-        {
-          opacity: 0,
-          transform: "translateX(2rem)",
-        },
-        {},
-      ],
-      {
-        easing: "ease-out",
-        duration: 500,
-      }
-    );
+    entry.target.classList.toggle("faded-out", !entry.isIntersecting);
   }
 };
 

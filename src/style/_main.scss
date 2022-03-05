@@ -7,16 +7,18 @@ main {
   max-width: $main-width;
   min-height: calc(100vh - #{58px + $main-margin-t + $main-margin-b});
 
-  @keyframes fade-in {
-    from {
-      transform: translateY(-5rem);
-      opacity: 0;
-    }
+  &.loading > *,
+  *.faded-out {
+    filter: blur(8px);
+    transform: translateX(2vw);
+    opacity: 0;
+  }
 
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  > * {
+    transition: filter #{$timing * 1.5} ease-out,
+      transform #{$timing * 1.5} #{$timing * 0.5} ease-out,
+      opacity #{$timing * 1.5} ease-out;
+    will-change: filter, transform, opacity;
   }
 
   h1 {
