@@ -7,6 +7,18 @@ main {
   max-width: $main-width;
   min-height: calc(100vh - #{58px + $main-margin-t + $main-margin-b});
 
+  @keyframes fade-in {
+    from {
+      transform: translateY(-5rem);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
   h1 {
     font-size: $font-size-h1;
     font-weight: bold;

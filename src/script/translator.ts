@@ -1,4 +1,4 @@
-import { Client, getParentChain } from "@frank-mayer/magic/bin";
+import { Client, getParentChain } from "@frank-mayer/magic";
 import type { path, RoutedEvent } from "photon-re";
 import { routerEl } from "./router";
 
