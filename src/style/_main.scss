@@ -47,7 +47,8 @@ main {
     font-weight: normal;
     color: $foreground-secondary;
 
-    strong {
+    strong,
+    b {
       font-size: $font-size;
       font-weight: normal;
       color: $foreground-primary !important;
