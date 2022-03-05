@@ -15,4 +15,6 @@ routerEl.addEventListener("routed", () => {
   setTimeout(() => {
     routerEl.classList.remove("loading");
   }, 200);
+
+  window.scrollTo(0, 0);
 });
