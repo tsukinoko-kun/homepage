@@ -1,4 +1,4 @@
-import { Client } from "@frank-mayer/magic/bin";
+import { Client, getParentChain } from "@frank-mayer/magic/bin";
 import type { path, RoutedEvent } from "photon-re";
 import { routerEl } from "./router";
 
@@ -16,16 +16,27 @@ if (Client.mobile) {
       }
     );
 
-    document.addEventListener(
-      "touchmove",
-      () => {
-        translateEl.classList.remove("open");
-      },
-      {
-        passive: true,
-        capture: false,
+    const onTouch = (ev: TouchEvent) => {
+      if ((ev.target as Element).id === "translate") {
+        return;
       }
-    );
+
+      for (const el of getParentChain(ev.target as Node)) {
+        if ((el as Element).id === "translate") {
+          return;
+        }
+      }
+
+      translateEl.classList.remove("open");
+    };
+
+    const touchEvOptions: AddEventListenerOptions = {
+      passive: true,
+      capture: false,
+    };
+
+    document.addEventListener("touchend", onTouch, touchEvOptions);
+    document.addEventListener("touchmove", onTouch, touchEvOptions);
   }
 }
 
