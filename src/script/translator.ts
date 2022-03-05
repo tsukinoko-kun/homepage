@@ -1,5 +1,33 @@
+import { Client } from "@frank-mayer/magic/bin";
 import type { path, RoutedEvent } from "photon-re";
 import { routerEl } from "./router";
+
+if (Client.mobile) {
+  const translateEl = document.getElementById("translate");
+  if (translateEl) {
+    translateEl.addEventListener(
+      "click",
+      () => {
+        translateEl.classList.toggle("open");
+      },
+      {
+        passive: true,
+        capture: true,
+      }
+    );
+
+    document.addEventListener(
+      "touchmove",
+      () => {
+        translateEl.classList.remove("open");
+      },
+      {
+        passive: true,
+        capture: false,
+      }
+    );
+  }
+}
 
 const makePath: {
   (path: string): path;
