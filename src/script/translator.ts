@@ -2,7 +2,6 @@ import { Client, getParentChain } from "@frank-mayer/magic";
 import { makePath } from "photon-re";
 import type { path, RoutedEvent } from "photon-re";
 import { routerEl } from "./router";
-import { setPageNameAsBodyClass } from "./setPageNameAsBodyClass";
 
 if (Client.isTouchDevice) {
   const translateEl = document.getElementById("translate");
@@ -42,8 +41,10 @@ if (Client.isTouchDevice) {
   }
 }
 
-const setLangEn = document.getElementById("set-lang-en") as HTMLAnchorElement;
-const setLangDe = document.getElementById("set-lang-de") as HTMLAnchorElement;
+const setLangMap = new Map([
+  ["en", document.getElementById("set-lang-en") as HTMLAnchorElement],
+  ["de", document.getElementById("set-lang-de") as HTMLAnchorElement],
+]);
 
 const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
   path[0] = lang;
@@ -52,52 +53,28 @@ const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
   el.dataset.route = href;
 };
 
-{
-  const path = makePath(location.pathname);
-  const currentLang = path[0];
-
-  if (setLangEn) {
-    if (currentLang === "en") {
-      setLangEn.classList.add("active");
+const applyLanguage = (path: path, lang?: string) => {
+  lang ??= path[0];
+  for (const [k, v] of setLangMap) {
+    if (k === lang) {
+      if (!v.classList.contains("active")) {
+        v.classList.add("active");
+      }
     } else {
-      setLangEn.classList.remove("active");
+      if (v.classList.contains("active")) {
+        v.classList.remove("active");
+      }
     }
-    setLangAnchorHref(path, "en", setLangEn);
+    setLangAnchorHref(path, k, v);
   }
+};
 
-  if (setLangDe) {
-    if (currentLang === "de") {
-      setLangDe.classList.add("active");
-    } else {
-      setLangDe.classList.remove("active");
-    }
-    setLangAnchorHref(path, "de", setLangDe);
-  }
-}
+applyLanguage(makePath(routerEl.dataset.route ?? location.pathname));
 
 routerEl.addEventListener(
   "routed",
   (ev) => {
-    setPageNameAsBodyClass((ev as RoutedEvent).detail.route);
-    const currentLang = (ev as RoutedEvent).detail.route[0];
-
-    if (setLangEn) {
-      if (currentLang === "en") {
-        setLangEn.classList.add("active");
-      } else {
-        setLangEn.classList.remove("active");
-      }
-      setLangAnchorHref((ev as RoutedEvent).detail.route, "en", setLangEn);
-    }
-
-    if (setLangDe) {
-      if (currentLang === "de") {
-        setLangDe.classList.add("active");
-      } else {
-        setLangDe.classList.remove("active");
-      }
-      setLangAnchorHref((ev as RoutedEvent).detail.route, "de", setLangDe);
-    }
+    applyLanguage((ev as RoutedEvent).detail.route);
   },
   {
     passive: true,
