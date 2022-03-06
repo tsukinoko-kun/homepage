@@ -32,10 +32,10 @@
     domhandler "^4.3.0"
     entities "^3.0.1"
 
-"@frank-mayer/magic@^1.5.0", "@frank-mayer/magic@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.9.0.tgz#83a0f5bcfb347195e3726dc1a5fbb42e82530439"
-  integrity sha512-AgYsnVpCtq8RiPkFKvcf4Bksf54n2BSHrmGnTp67FGK6+4REXczbqPcWnWIS6lHO0FgMst3K5BKZ1yxpVfs5Gg==
+"@frank-mayer/magic@^1.9.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.9.1.tgz#f8cf690349e1687b5eebe211392dcb8177530b1e"
+  integrity sha512-pAe/tupMHSez82UplCruCIJ0TMbucYizElkhf/zN0yJ6eSIUPFkwGdGDoY4hAtW126ueHRdH2/XVEu4aSJcHJw==
   dependencies:
     tslib "^2.3.1"
 
@@ -1269,22 +1269,22 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-photon-cli@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/photon-cli/-/photon-cli-0.2.0.tgz#03652bc49d6262dd93c91dd2063ccc718dae7ddc"
-  integrity sha512-aeZzUjeETOmr5ds5gc9/kWbJrTsVKweXZbNdLpy0b2tG3tsmAJ1tuWBlKSDnIrtz+fLRsxUkZK2YtoF67W9hyw==
+photon-cli@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/photon-cli/-/photon-cli-0.3.0.tgz#83d580e11d68fba2572a24bf8fc5855a1a95b50e"
+  integrity sha512-fen37GWdRL/4eeP6P2RYbNh/Wb/z7bpAZ2whXBY3VjBI56if6YET/cQzq10XCia9LahXKaflHW1k5wNkHovvHw==
   dependencies:
     "@frank-mayer/dom-serializer" "^2.0.2"
     domhandler "^4.3.0"
     domutils "^2.8.0"
     htmlparser2 "^7.2.0"
 
-photon-re@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/photon-re/-/photon-re-0.2.3.tgz#b73ed7aa83821131616199591d0feceff4e1847e"
-  integrity sha512-Pkl/MdsQkKT+RMq60nSX0oTt9syGac+UpUrUA1JXtWwpAVpsFWQXAmkmIe+c8EPD1kYrwqHesRwLiBgiXY+vzQ==
+photon-re@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/photon-re/-/photon-re-0.3.0.tgz#2126110281d77f240d1dbf30909563842b6d4b13"
+  integrity sha512-HV8FmocoiftdE4XJODUdTcDzzTfi8/cd6vbdY71eyGWHz1eCBuXFkmWXQhp1q8TbI7sQc166blgcy7toqGcl1w==
   dependencies:
-    "@frank-mayer/magic" "^1.5.0"
+    "@frank-mayer/magic" "^1.9.1"
     tslib "^2.3.1"
 
 picocolors@^1.0.0:
