@@ -1,4 +1,4 @@
-import { Client } from "@frank-mayer/magic/bin";
+import { client } from "@frank-mayer/magic";
 
 const fadedIn = new Set<Element>();
 
@@ -19,7 +19,7 @@ const observerFunction = (entries: Array<IntersectionObserverEntry>) => {
 const observer = new IntersectionObserver(observerFunction);
 
 export const addSlideInObserver = (el: Element) => {
-  if (!Client.prefersReducedMotion) {
+  if (!client.prefersReducedMotion) {
     observer.observe(el);
   }
 };

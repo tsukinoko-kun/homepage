@@ -1,7 +1,7 @@
 import type { RoutingEvent } from "photon-re";
 import {
   addDisposableEventListener,
-  Client,
+  client,
   disposeNode,
 } from "@frank-mayer/magic";
 import { routerEl } from "./router";
@@ -9,7 +9,7 @@ import { routerEl } from "./router";
 document.body.style.setProperty("--x", `${innerWidth / 2}px`);
 document.body.style.setProperty("--y", `${innerHeight / 2}px`);
 
-if (!Client.isTouchDevice) {
+if (!client.isTouchDevice) {
   document.body.classList.add("cursor-enabled");
 
   const evOptions: AddEventListenerOptions = { passive: true };

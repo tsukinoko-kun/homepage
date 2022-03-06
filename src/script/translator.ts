@@ -1,9 +1,9 @@
-import { Client, getParentChain } from "@frank-mayer/magic";
+import { client, getParentChain } from "@frank-mayer/magic";
 import { makePath } from "photon-re";
 import type { path, RoutedEvent } from "photon-re";
 import { routerEl } from "./router";
 
-if (Client.isTouchDevice) {
+if (client.isTouchDevice) {
   const translateEl = document.getElementById("translate");
   if (translateEl) {
     translateEl.addEventListener(
