@@ -1,8 +1,18 @@
 import { Client } from "@frank-mayer/magic/bin";
 
+const fadedIn = new Set<Element>();
+
 const observerFunction = (entries: Array<IntersectionObserverEntry>) => {
   for (const entry of entries) {
-    entry.target.classList.toggle("faded-out", !entry.isIntersecting);
+    const targetEl = entry.target;
+    const fadingOut = !entry.isIntersecting && !fadedIn.has(targetEl);
+
+    if (fadingOut && !targetEl.classList.contains("faded-out")) {
+      targetEl.classList.add("faded-out");
+    } else {
+      targetEl.classList.remove("faded-out");
+      fadedIn.add(targetEl);
+    }
   }
 };
 
@@ -15,7 +25,6 @@ export const addSlideInObserver = (el: Element) => {
 };
 
 export const cancelSlideInObserver = () => {
-  if (!Client.prefersReducedMotion) {
-    observer.disconnect();
-  }
+  observer.disconnect();
+  fadedIn.clear();
 };

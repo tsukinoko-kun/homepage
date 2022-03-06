@@ -9,7 +9,7 @@ main {
 
   &.loading > *,
   *.faded-out {
-    filter: blur(8px);
+    filter: blur(8px) grayscale(100%);
     transform: translateX(2vw);
     opacity: 0;
   }

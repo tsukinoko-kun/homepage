@@ -1,6 +1,8 @@
 import { Client, getParentChain } from "@frank-mayer/magic";
+import { makePath } from "photon-re";
 import type { path, RoutedEvent } from "photon-re";
 import { routerEl } from "./router";
+import { setPageNameAsBodyClass } from "./setPageNameAsBodyClass";
 
 if (Client.mobile) {
   const translateEl = document.getElementById("translate");
@@ -40,31 +42,6 @@ if (Client.mobile) {
   }
 }
 
-const makePath: {
-  (path: string): path;
-  (path: path): string;
-} = (path: any): any => {
-  if (typeof path === "string") {
-    return path.split("/").filter(Boolean);
-  } else if (Array.isArray(path)) {
-    return "/" + path.join("/");
-  } else {
-    throw new Error(`Invalid path: ${JSON.stringify(path)}`);
-  }
-};
-
-const setPageNameAsBodyClass = (path: path) => {
-  const pageName = path[1];
-  if (pageName) {
-    document.body.classList.remove("home");
-    document.body.classList.remove("info");
-    document.body.classList.remove("portfolio");
-    document.body.classList.remove("links");
-    document.body.classList.remove("404");
-    document.body.classList.add(pageName);
-  }
-};
-
 const setLangEn = document.getElementById("set-lang-en") as HTMLAnchorElement;
 const setLangDe = document.getElementById("set-lang-de") as HTMLAnchorElement;
 
@@ -78,8 +55,6 @@ const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
 {
   const path = makePath(location.pathname);
   const currentLang = path[0];
-
-  setPageNameAsBodyClass(path);
 
   if (setLangEn) {
     if (currentLang === "en") {
@@ -99,16 +74,6 @@ const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
     setLangAnchorHref(path, "de", setLangDe);
   }
 }
-
-const insertEMail = () => {
-  const mailEl = document.getElementById("mail") as HTMLAnchorElement;
-  if (mailEl) {
-    const mail = atob("bWFpbEBmcmFuay1tYXllci5pbw==");
-    mailEl.href = "mailto:" + mail;
-    mailEl.innerText = mail;
-  }
-};
-insertEMail();
 
 routerEl.addEventListener(
   "routed",
@@ -133,8 +98,6 @@ routerEl.addEventListener(
       }
       setLangAnchorHref((ev as RoutedEvent).detail.route, "de", setLangDe);
     }
-
-    insertEMail();
   },
   {
     passive: true,

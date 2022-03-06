@@ -1282,12 +1282,13 @@ photon-cli@^0.2.0:
     domutils "^2.8.0"
     htmlparser2 "^7.2.0"
 
-photon-re@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/photon-re/-/photon-re-0.2.1.tgz#da9ff72f9b78bc7c4cb39762bdb43a41c589e44c"
-  integrity sha512-0ssrQmphqheUS7u03OJPbG6lX+MSLYDtapshbYw8ZLX1pPz8Xip1CzMRaDVOPf20pJVpJuVzpdXO0ljzumgHsQ==
+photon-re@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/photon-re/-/photon-re-0.2.3.tgz#b73ed7aa83821131616199591d0feceff4e1847e"
+  integrity sha512-Pkl/MdsQkKT+RMq60nSX0oTt9syGac+UpUrUA1JXtWwpAVpsFWQXAmkmIe+c8EPD1kYrwqHesRwLiBgiXY+vzQ==
   dependencies:
     "@frank-mayer/magic" "^1.5.0"
+    tslib "^2.3.1"
 
 picocolors@^1.0.0:
   version "1.0.0"
@@ -1676,6 +1677,11 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
+
+tslib@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
 
 type-fest@^0.20.2:
   version "0.20.2"
