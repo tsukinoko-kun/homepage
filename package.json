@@ -26,7 +26,7 @@
     "typescript": "^4.6.2"
   },
   "dependencies": {
-    "@frank-mayer/magic": "^1.7.2",
+    "@frank-mayer/magic": "^1.8.0",
     "photon-re": "^0.2.3"
   }
 }

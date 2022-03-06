@@ -37,10 +37,12 @@
   resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.5.0.tgz#93e64d7bf3408a8ad3707ce2c8114586bfa3380b"
   integrity sha512-z9NG1uVwwdmFn8QeKzbKpwugdi3Aw0tb5iFg54IRzRloZsDd5qObcba3ziFzyrr2ZJX5VJC8kuyJMOCjXVUMfQ==
 
-"@frank-mayer/magic@^1.7.2":
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.7.2.tgz#0541169f26e38e55f92e2eca6c7fad789ad35596"
-  integrity sha512-2a4yU/1NAQhlpU4x239zaDzGgoxfLG9yUHWE/k8RO2GQt+WPsr2nNdI99VSBLgimZGfrco2+EtZhRVmEmfOSvw==
+"@frank-mayer/magic@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-1.8.0.tgz#47df83b118fbe655e95e3bbc463f51b6a3947e4a"
+  integrity sha512-8tdmOdA+hzkul8+q3DfwcWN3Vu+QlF9HMDQIoFL4ceA9pCdusAT0QBWZo6FqkKY7aTiHQhsOboDHjdtEzXQg+Q==
+  dependencies:
+    tslib "^2.3.1"
 
 "@parcel/bundler-default@2.3.2":
   version "2.3.2"

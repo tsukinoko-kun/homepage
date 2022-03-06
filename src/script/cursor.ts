@@ -9,7 +9,7 @@ import { routerEl } from "./router";
 document.body.style.setProperty("--x", `${innerWidth / 2}px`);
 document.body.style.setProperty("--y", `${innerHeight / 2}px`);
 
-if (!Client.mobile) {
+if (!Client.isTouchDevice) {
   document.body.classList.add("cursor-enabled");
 
   const evOptions: AddEventListenerOptions = { passive: true };
