@@ -41,10 +41,12 @@ if (Client.isTouchDevice) {
   }
 }
 
-const setLangMap = new Map([
-  ["en", document.getElementById("set-lang-en") as HTMLAnchorElement],
-  ["de", document.getElementById("set-lang-de") as HTMLAnchorElement],
-]);
+const setLangMap = Object.freeze(
+  new Map([
+    ["en", document.getElementById("set-lang-en") as HTMLAnchorElement],
+    ["de", document.getElementById("set-lang-de") as HTMLAnchorElement],
+  ])
+);
 
 const setLangAnchorHref = (path: path, lang: string, el: HTMLAnchorElement) => {
   path[0] = lang;
