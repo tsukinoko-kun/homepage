@@ -4,7 +4,7 @@ import type { path, RoutedEvent } from "photon-re";
 import { routerEl } from "./router";
 import { setPageNameAsBodyClass } from "./setPageNameAsBodyClass";
 
-if (Client.mobile) {
+if (Client.isTouchDevice) {
   const translateEl = document.getElementById("translate");
   if (translateEl) {
     translateEl.addEventListener(
