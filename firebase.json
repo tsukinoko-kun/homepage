@@ -9,15 +9,23 @@
           {
             "key": "Cache-Control",
             "value": "public,no-cache,no-store,max-age=0,s-maxage=0"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
           }
         ]
       },
       {
-        "source": "img/fav.webp",
+        "source": "img/fav.@(webp|png)",
         "headers": [
           {
             "key": "Cache-Control",
             "value": "public,max-age=172800,s-maxage=172800,stale-while-revalidate=86400,immutable"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
           }
         ]
       },
@@ -27,6 +35,10 @@
           {
             "key": "Cache-Control",
             "value": "public,max-age=31536000,s-maxage=31536000,stale-while-revalidate=172800,immutable"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
           }
         ]
       }
