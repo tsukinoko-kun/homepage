@@ -4,7 +4,20 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "headers": [
       {
-        "source": "**/*.@(html|xml|txt)",
+        "source": "**/*.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,no-cache,no-store,max-age=0,s-maxage=0"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "self,*.frank-mayer.io,frank-mayer.io"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(xml|txt)",
         "headers": [
           {
             "key": "Cache-Control",
@@ -25,7 +38,7 @@
           },
           {
             "key": "Access-Control-Allow-Origin",
-            "value": "*"
+            "value": "self,*.frank-mayer.io,frank-mayer.io"
           }
         ]
       },
@@ -38,7 +51,7 @@
           },
           {
             "key": "Access-Control-Allow-Origin",
-            "value": "*"
+            "value": "self,*.frank-mayer.io,frank-mayer.io"
           }
         ]
       }
