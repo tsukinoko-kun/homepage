@@ -30,6 +30,19 @@
         ]
       },
       {
+        "source": "**/hotlink-ok/*",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,no-cache,no-store,max-age=0,s-maxage=0"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      },
+      {
         "source": "img/fav.@(webp|png)",
         "headers": [
           {
