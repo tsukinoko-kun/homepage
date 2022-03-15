@@ -39,6 +39,13 @@
   dependencies:
     tslib "^2.3.1"
 
+"@frank-mayer/magic@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-2.0.0.tgz#953d230d26c2ea852783a3bef59177cb108fa88a"
+  integrity sha512-Adlg4hdQmbQ81NYLnywZ+/QMgrE80Yy1rrPw1bupMv/Dd82HXpyHJh0sUw4g6xIJ+PB40GoEI0XdtHNF3v9Eng==
+  dependencies:
+    tslib "^2.3.1"
+
 "@parcel/bundler-default@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@parcel/bundler-default/-/bundler-default-2.3.2.tgz#329f171e210dfb22beaa52ae706ccde1dae384c1"
