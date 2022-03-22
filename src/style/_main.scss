@@ -7,13 +7,6 @@ main {
   max-width: $main-width;
   min-height: calc(100vh - #{58px + $main-margin-t + $main-margin-b});
 
-  &.loading > *,
-  *.faded-out {
-    filter: blur(8px) grayscale(100%);
-    transform: translateX(2vw);
-    opacity: 0;
-  }
-
   > * {
     transition: filter #{$timing * 1.5} ease-out,
       transform #{$timing * 1.5} #{$timing * 0.5} ease-out,
@@ -31,6 +24,8 @@ main {
       var(--theme-color-a) -10%,
       var(--theme-color-b) 110%
     );
+    transition: background-image $timing ease-out;
+    will-change: background-image;
     width: fit-content;
     background-clip: text;
     color: transparent !important;
