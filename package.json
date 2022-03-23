@@ -16,7 +16,7 @@
     }
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "2.3.2",
+    "@parcel/transformer-sass": "2.4.0",
     "autoprefixer": "^10.4.4",
     "parcel": "^2.3.2",
     "photon-cli": "^0.4.0",
