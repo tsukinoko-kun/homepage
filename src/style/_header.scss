@@ -7,6 +7,9 @@ body.links nav a[data-route]:not([data-route="../links"]) {
 
 header {
   user-select: none;
+  background-color: rgba(black, 0.45);
+  backdrop-filter: blur(8px) saturate(180%);
+  border-bottom: 1px solid rgba(white, 0.1);
 
   a[data-route] {
     text-decoration: none;
