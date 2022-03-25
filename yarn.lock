@@ -39,10 +39,10 @@
   dependencies:
     tslib "^2.3.1"
 
-"@frank-mayer/magic@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-2.0.1.tgz#9ea4f4fc1881a8c1972fad0ab0471930ce04d9d7"
-  integrity sha512-k9sGsV2a3RNL1r+h1vSha/yWcWxKyF5GvL6hV1y3/uIPB74D7eSCmWl0BPjrctw40CyZTNJ58AGNm1sGqGrcgA==
+"@frank-mayer/magic@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-2.1.0.tgz#8fb8e7978b9f256573f9e3b29eb7d61271a3a926"
+  integrity sha512-IW+MHe+plc2lDHRysi2qZo7kGiMdPzPCUaxkSDSM8RZJUrVblREeGlvDNRhgzF8OaGeCTU5r1lzxRt3zdY0QFw==
   dependencies:
     tslib "^2.3.1"
 
