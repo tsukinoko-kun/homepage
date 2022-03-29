@@ -1,26 +1,31 @@
 @use "sass:math";
 
-@keyframes rotation {
+$sharingan-red: #d03030;
+$sharingan-black: #000000;
+$iris-size: 50vmin;
+$gap: 10vmin;
+$timing: 1s;
+
+@keyframes ems {
   from {
-    transform: rotate(0deg);
+    transform: rotateZ(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateZ(180deg);
   }
 }
 
-$sharingan-red: #d03030;
-
 .sharingan {
   overflow: hidden;
-  background-color: $sharingan-red;
+  transition: background-color $timing ease-out, transform $timing ease-out;
+  will-change: background-color, transform;
+
   border: {
-    color: black;
+    color: $sharingan-black;
     style: solid;
     width: 2px;
     radius: 50%;
   }
-  $iris-size: 50vmin;
   width: $iris-size;
   height: $iris-size;
   margin: 0 auto;
@@ -28,14 +33,13 @@ $sharingan-red: #d03030;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  $gap: 10vmin;
   grid-column-gap: $gap;
   grid-row-gap: $gap;
-  animation: rotation 10s linear infinite;
 
   > .pupil {
+    transition: background-color $timing ease-out;
     grid-area: 2 / 2 / 3 / 3;
-    background-color: black;
+    z-index: 5;
     border-radius: 50%;
     width: 100%;
     height: 100%;
@@ -43,32 +47,102 @@ $sharingan-red: #d03030;
   }
 
   > .tomoe {
-    grid-area: 1 / 2 / 2 / 3;
-    overflow: visible !important;
-    &::after {
-      content: "";
-      border-left: #{0.1 * $iris-size} solid #000;
-      border-radius: 100% 0 0 0;
-      position: relative;
-      display: block;
-      width: 75%;
-      height: 75%;
-      transform: translateY(-45%);
+    transition: background-color $timing ease-out, border-width $timing ease-out,
+      width $timing ease-out, height $timing ease-out;
+  }
+  > .tomoe::after,
+  > .tomoe::before {
+    transition: background-color $timing ease-out, border-width $timing ease-out;
+  }
+
+  &:not(:hover) {
+    background-color: $sharingan-red;
+
+    > .pupil {
+      background-color: $sharingan-black;
     }
 
-    transform-origin: center #{math.div($iris-size, 2)};
+    > .tomoe {
+      grid-area: 1 / 2 / 2 / 3;
+      &::after {
+        content: "";
+        border-left: #{0.1 * $iris-size} solid #000;
+        border-radius: 100% 0 0 0;
+        position: relative;
+        display: block;
+        width: 75%;
+        height: 75%;
+        transform: translateY(-45%);
+      }
 
-    &:nth-child(1) {
-      transform: scale(0.75);
+      transform-origin: center #{math.div($iris-size, 2)};
+
+      &:nth-child(1) {
+        transform: scale(0.75);
+      }
+      &:nth-child(2) {
+        transform: scale(0.75) rotateZ(240deg);
+      }
+      &:nth-child(3) {
+        transform: scale(0.75) rotateZ(120deg);
+      }
+
+      background-color: black;
+      border-radius: 50%;
     }
-    &:nth-child(2) {
-      transform: scale(0.75) rotateZ(240deg);
-    }
-    &:nth-child(3) {
-      transform: scale(0.75) rotateZ(120deg);
+  }
+
+  &:hover {
+    animation: ems 1000ms, ems 5s 900ms infinite linear;
+    background-color: $sharingan-black;
+
+    > .pupil {
+      background-color: $sharingan-black;
     }
 
-    background-color: black;
-    border-radius: 50%;
+    > .tomoe {
+      z-index: 2;
+      grid-area: 1 / 1 / 4 / 4;
+      margin: 20%;
+
+      border: {
+        width: 0.5vmin;
+        style: solid;
+        color: $sharingan-black;
+        radius: 0% 100% 0% 100% / 0% 100% 0% 100%;
+      }
+      background-color: $sharingan-red;
+
+      &::before {
+        transform: rotateZ(60deg);
+      }
+      &::after {
+        transform: translateY(-100%) rotateZ(-60deg);
+      }
+
+      &::after,
+      &::before {
+        transform-origin: center center;
+        content: "";
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: {
+          width: 0.5vmin;
+          style: solid;
+          color: $sharingan-black;
+          radius: 0% 100% 0% 100% / 0% 100% 0% 100%;
+        }
+      }
+
+      &:nth-child(2) {
+        transform: rotateZ(120deg);
+      }
+
+      &:nth-child(3) {
+        transform: rotateZ(240deg);
+      }
+    }
   }
 }

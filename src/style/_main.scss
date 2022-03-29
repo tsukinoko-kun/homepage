@@ -6,6 +6,8 @@ main {
   width: 100vw;
   max-width: $main-width;
   min-height: calc(100vh - #{58px + $main-margin-t + $main-margin-b});
+  height: max-content;
+  overflow: visible;
 
   > * {
     transition: filter #{$timing * 1.5} ease-out,
