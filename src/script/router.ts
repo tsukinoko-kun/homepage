@@ -1,5 +1,6 @@
 import { setPageNameAsBodyClass } from "./setPageNameAsBodyClass";
 import type { RoutedEvent } from "photon-re";
+import path from "@frank-mayer/magic/Path";
 
 export const routerEl = document.getElementById("root")!;
 
@@ -16,3 +17,22 @@ routerEl.addEventListener("routed", (ev) => {
 
   window.scrollTo(0, 0);
 });
+
+setTimeout(() => {
+  if (
+    routerEl.dataset.route == "/404" ||
+    routerEl.dataset.route == "/404.html"
+  ) {
+    document.getElementById("translate")!.style.display = "none";
+
+    document
+      .getElementsByTagName("nav")[0]
+      ?.querySelectorAll("a[data-route]")
+      .forEach((el) => {
+        const a = el as HTMLAnchorElement;
+        console.debug(a.href);
+        console.debug(a);
+        a.dataset.route = a.href = "/" + path.join("en/en", a.dataset.route!);
+      });
+  }
+}, 1000);
