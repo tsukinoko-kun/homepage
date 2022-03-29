@@ -30,9 +30,8 @@ setTimeout(() => {
       ?.querySelectorAll("a[data-route]")
       .forEach((el) => {
         const a = el as HTMLAnchorElement;
-        console.debug(a.href);
-        console.debug(a);
-        a.dataset.route = a.href = "/" + path.join("en/en", a.dataset.route!);
+        const newHref = "/" + path.join("en/en", a.dataset.route!);
+        a.dataset.route = a.href = newHref;
       });
   }
 }, 1000);
