@@ -45,12 +45,6 @@ $timing: 1s;
   grid-row-gap: $gap;
 
   background-color: $sharingan-red;
-  background-image: radial-gradient(
-    circle at center,
-    $sharingan-red 30%,
-    darken($sharingan-red, 5%) 40%,
-    $sharingan-red 50%
-  ) !important;
 
   > .pupil {
     grid-area: 2 / 2 / 3 / 3;
