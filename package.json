@@ -21,7 +21,7 @@
     "parcel": "^2.3.2",
     "photon-cli": "^0.4.0",
     "postcss": "^8.4.12",
-    "sass": "^1.49.9",
+    "sass": "^1.49.10",
     "typescript": "^4.6.3"
   },
   "dependencies": {
