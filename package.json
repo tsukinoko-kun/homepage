@@ -2,7 +2,7 @@
   "name": "homepage",
   "scripts": {
     "dev": "parcel serve 'src/**/*.html'",
-    "clean": "rm -rf ./.parcel-cache && rm -rf ./dist",
+    "clean": "rm -rf './.parcel-cache' && rm -rf './dist'",
     "build": "parcel build 'src/index.html' 'src/**/*.html' 'src/hotlink-io/*' --no-source-maps --no-cache --public-url 'https://frank-mayer.io/'",
     "pb": "photon './dist'"
   },
@@ -16,12 +16,13 @@
     }
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "2.4.1",
+    "@parcel/transformer-sass": "2.3.x",
+    "@parcel/transformer-postcss": "2.3.x",
     "autoprefixer": "^10.4.4",
-    "parcel": "^2.4.1",
+    "parcel": "2.3.x",
     "photon-cli": "^0.4.0",
     "postcss": "^8.4.12",
-    "sass": "^1.49.11",
+    "sass": "^1.50.0",
     "typescript": "^4.6.3"
   },
   "dependencies": {
