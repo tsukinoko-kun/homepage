@@ -2,3 +2,12 @@
 @import "mobile/button";
 @import "mobile/header";
 @import "mobile/main";
+
+.spotify-widget.loaded {
+  margin: $padding;
+
+  > img {
+    width: calc(100vw - #{2 * $padding});
+    height: auto;
+  }
+}

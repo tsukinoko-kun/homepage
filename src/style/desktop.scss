@@ -5,3 +5,14 @@
 @import "desktop/main";
 @import "desktop/footer";
 @import "desktop/cursor";
+
+.spotify-widget.loaded {
+  position: fixed;
+  bottom: $padding;
+  right: $padding;
+
+  > img {
+    width: auto;
+    height: 8vh;
+  }
+}

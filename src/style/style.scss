@@ -45,6 +45,34 @@ hr {
   pointer-events: none;
 }
 
+.spotify-widget {
+  &.loaded {
+    color: $foreground-primary;
+    text-decoration: none !important;
+    display: flex;
+    gap: #{$padding * 0.5};
+    width: max-content;
+    height: max-content;
+    flex-direction: column;
+    align-items: flex-start;
+
+    user-select: none;
+    background-color: rgba(black, 0.45);
+    backdrop-filter: blur(8px) saturate(180%);
+    border: {
+      width: 1px;
+      style: solid;
+      color: rgba(white, 0.1);
+      radius: $border-radius;
+    }
+    padding: $padding;
+  }
+
+  &:not(.loaded) {
+    display: none !important;
+  }
+}
+
 @import "header";
 @import "main";
 @import "footer";
