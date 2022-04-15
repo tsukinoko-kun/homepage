@@ -5,6 +5,8 @@ class SpotifyCurrentlyPlayingWidget {
 
   public constructor() {
     this.widgetElement = document.createElement("a");
+    this.widgetElement.target = "_blank";
+    this.widgetElement.rel = "noopener noreferrer";
     this.widgetElement.classList.add("spotify-widget");
     this.widgetElement.href =
       "https://open.spotify.com/user/u73d67nen42ugnzo2zucxqotd?si=9f0df48fb51c42f5";
