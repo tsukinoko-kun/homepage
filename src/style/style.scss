@@ -66,6 +66,10 @@ hr {
       radius: $border-radius;
     }
     padding: $padding;
+
+    > img {
+      pointer-events: none !important;
+    }
   }
 
   &:not(.loaded) {
