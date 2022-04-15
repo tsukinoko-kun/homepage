@@ -47,8 +47,14 @@ class SpotifyCurrentlyPlayingWidget {
       soundWavesColor = "f1fa8c";
     }
 
-    const newSrc = `https://spotiwidget.vercel.app/widget?uid=u73d67nen42ugnzo2zucxqotd&theme=natemoo-re&invert_artist_title=true&cover=true&progress_bar=true&progress_color=%23B3B3B3&sound_waves=true&sound_waves_color=%23${soundWavesColor}&background=false`;
-    if (newSrc !== this.imageElement.src) {
+    const now = new Date();
+    const id =
+      now.getHours().toString() +
+      now.getMinutes().toString() +
+      Math.floor(now.getSeconds() / 10).toString();
+
+    const newSrc = `https://spotiwidget.vercel.app/widget?uid=u73d67nen42ugnzo2zucxqotd&theme=natemoo-re&invert_artist_title=true&cover=true&progress_bar=false&progress_color=%23B3B3B3&sound_waves=true&sound_waves_color=%23${soundWavesColor}&background=false#${id}`;
+    if (this.imageElement.src !== newSrc) {
       this.imageElement.src = newSrc;
     }
 
@@ -71,6 +77,13 @@ if (footer) {
   document.body.appendChild(widget.widgetElement);
 }
 
+widget.update();
 setInterval(() => {
-  widget.update();
+  if (
+    !document.hidden &&
+    !(document as any).webkitHidden &&
+    !(document as any).msHidden
+  ) {
+    widget.update();
+  }
 }, 1000);
