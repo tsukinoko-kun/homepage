@@ -67,7 +67,8 @@ hr {
     }
     padding: $padding;
 
-    > img {
+    > * {
+      user-select: none !important;
       pointer-events: none !important;
     }
   }

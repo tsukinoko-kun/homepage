@@ -7,7 +7,7 @@
   margin: $padding;
 
   > img {
-    width: calc(100vw - #{2 * $padding});
+    width: calc(100vw - #{20 + 2 * $padding});
     height: auto;
   }
 }
