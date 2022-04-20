@@ -1,6 +1,8 @@
 const debug = window.location.protocol !== "https:";
 
-console.info("Debug logger enabled");
+if (debug) {
+  console.info("Debug logger enabled");
+}
 
 const parseError = (
   message: string | Event,
