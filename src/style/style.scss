@@ -47,6 +47,7 @@ hr {
 
 .spotify-widget {
   &.loaded {
+    z-index: 10;
     color: $foreground-primary;
     text-decoration: none !important;
     display: flex;
