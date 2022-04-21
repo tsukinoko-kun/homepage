@@ -55,8 +55,8 @@ if (!client.isMobile && !client.saveData) {
         now.getFullYear().toString() +
           now.getMonth().toString() +
           now.getHours().toString() +
-          now.getMinutes().toString() +
-          Math.floor(now.getSeconds() / 10).toString()
+          now.getMinutes().toString()
+        ).toString()
       ).toString(36);
 
       const newSrc = `https://spotiwidget.vercel.app/widget?uid=u73d67nen42ugnzo2zucxqotd&theme=natemoo-re&invert_artist_title=true&cover=true&progress_bar=false&progress_color=%23B3B3B3&sound_waves=true&sound_waves_color=%23${soundWavesColor}&background=false&t=${id}`;
