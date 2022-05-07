@@ -3,21 +3,21 @@ footer {
   top: 100vh;
   width: 100%;
   height: fit-content;
-  margin: 20px auto 75px auto;
+  margin: 20px auto 50px auto;
   padding: 0 20px;
   max-width: $main-width;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   align-content: center;
   justify-content: space-between;
   align-items: center;
   user-select: none;
 
   > * {
+    width: fit-content;
     text-transform: lowercase;
     text-decoration: none;
-    font-size: #{$font-size-small + 2px} !important;
+    font-size: #{$font-size-small + 3px} !important;
 
     &:hover {
       color: $foreground-primary;

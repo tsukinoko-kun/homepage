@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Circular Book";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Circular Book"),
+    url("../fonts/lineto-circular-pro-book.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular Book";
+  font-style: normal;
+  font-weight: bold;
+  src: local("Circular Bold"),
+    url("../fonts/lineto-circular-pro-bold.woff") format("woff");
+  font-display: swap;
+}

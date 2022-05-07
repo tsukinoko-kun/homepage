@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html>
+  <style id="splash">
+    :root::before {
+      position: fixed;
+      display: block;
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 2000;
+      background-color: #000;
+      pointer-events: all;
+      overflow: hidden;
+    }
+
+    body * {
+      pointer-events: none !important;
+    }
+  </style>
   <head>
     <title>Frank Mayer</title>
     <script defer async type="module" src="./script/logger.ts"></script>
 
     <!-- Links -->
-    <link rel="preconnect" href="https://fonts.cdnfonts.com" />
     <link rel="canonical" href="https://frank-mayer.io" />
     <link rel="shortcut icon" href="./img/fav.webp" type="image/webp" />
     <link rel="alternate icon" href="./img/fav.png" type="image/png" />
@@ -48,6 +68,24 @@
     <meta property="twitter:description" content="web and frontend developer" />
     <meta property="twitter:url" content="https://frank-mayer.io" />
     <meta property="twitter:image" content="/hotlink-ok/preview.png" />
+
+    <link
+      rel="preload"
+      href="./fonts/lineto-circular-pro-book.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./fonts/lineto-circular-pro-bold.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./style/font.scss" />
+
+    <link rel="preload" href="./style/style.scss" as="style" />
   </head>
   <body>
     <header>
@@ -86,7 +124,7 @@
       <photon-ref
         src="./templates/anchor.html"
         data-href="https://github.com/Frank-Mayer/homepage"
-        data-content="content"
+        data-content="source"
       ></photon-ref>
       <photon-ref
         src="./templates/anchor.html"
@@ -101,10 +139,6 @@
     </footer>
 
     <link rel="stylesheet" href="./style/style.scss" />
-    <link
-      href="https://fonts.cdnfonts.com/css/circular-book"
-      rel="stylesheet"
-    />
     <link
       rel="stylesheet"
       media="all and (orientation: landscape)"
@@ -125,7 +159,6 @@
     <script defer async type="module" src="./script/router.ts"></script>
     <script defer async type="module" src="./script/translator.ts"></script>
     <script defer async type="module" src="./script/cursor.ts"></script>
+    <link rel="stylesheet" href="./style/sharingan.scss" />
   </body>
-
-  <link rel="stylesheet" href="./style/sharingan.scss" />
 </html>
