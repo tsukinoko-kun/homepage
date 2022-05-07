@@ -20,7 +20,7 @@
     "@parcel/transformer-postcss": "2.3.x",
     "@parcel/transformer-sass": "2.3.x",
     "autoprefixer": "^10.4.4",
-    "parcel": "2.3.x",
+    "parcel": "2.5.x",
     "photon-cli": "^0.4.0",
     "postcss": "^8.4.12",
     "sass": "^1.50.0",
