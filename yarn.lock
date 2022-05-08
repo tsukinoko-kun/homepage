@@ -1668,10 +1668,10 @@ photon-cli@^0.4.0:
     domutils "^2.8.0"
     htmlparser2 "^7.2.0"
 
-photon-re@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/photon-re/-/photon-re-0.3.2.tgz#f489fe319f4af29a9e3ebc53a5c96441bdda00b2"
-  integrity sha512-6hvY11LASNT9s9LEzdz9GdeLLi+3c4nFY8xoGYZ3FcapLu8CubBvxQQL/X7/hSdimaIho0FrL8fLjz6Ex0EVvg==
+photon-re@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/photon-re/-/photon-re-0.3.3.tgz#0f3f88291de2c4cfadab1ef452c2a47b2051a39f"
+  integrity sha512-JH8/WL3NR4LPTEZpcSc8f3aWgjl0HYNPVHBda53yqe7Zpgxym/RVQSCAXT2z7+V16BpdPdcnDV9GFkFZvdpbVQ==
   dependencies:
     "@frank-mayer/magic" "^3.0.0"
     tslib "^2.3.1"

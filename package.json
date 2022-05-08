@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "@frank-mayer/magic": "^3.0.0",
-    "photon-re": "^0.3.2"
+    "photon-re": "^0.3.3"
   }
 }
