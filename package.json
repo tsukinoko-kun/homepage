@@ -9,7 +9,6 @@
   "repository": "https://github.com/Frank-Mayer/homepage.git",
   "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
   "license": "MIT",
-  "private": false,
   "postcss": {
     "plugins": {
       "autoprefixer": {}
