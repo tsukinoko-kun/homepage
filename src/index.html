@@ -131,6 +131,23 @@
       ></photon-ref>
     </footer>
 
+    <div id="cookies-banner" class="hidden">
+      <div id="cookies-banner__close-button">[X]</div>
+      <div id="cookies-banner__content">
+        <p>
+          This website uses cookies to enhance the user experience. By using
+          this website, you agree to the use of cookies.
+        </p>
+        <p>
+          <photon-ref
+            src="./templates/anchor.html"
+            data-href="https://www.cloudflare.com/cookie-policy"
+            data-content="Learn more"
+          ></photon-ref>
+        </p>
+      </div>
+    </div>
+
     <link rel="stylesheet" href="./style/style.scss" />
     <link
       rel="stylesheet"
@@ -152,6 +169,7 @@
     <script defer async type="module" src="./script/router.ts"></script>
     <script defer async type="module" src="./script/translator.ts"></script>
     <script defer async type="module" src="./script/cursor.ts"></script>
+    <script defer async src="./script/cookies.ts"></script>
     <link rel="stylesheet" href="./style/sharingan.scss" />
   </body>
 </html>
