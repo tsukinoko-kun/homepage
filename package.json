@@ -7,28 +7,34 @@
     "build": "parcel build 'src/index.html' 'src/**/*.html' 'src/hotlink-io/*' --no-source-maps --no-cache --public-url 'https://frank-mayer.io/'",
     "post-b": "photon './dist'"
   },
+  "browserslist": [
+    "last 5 Android versions",
+    "last 5 Chrome versions",
+    "last 5 ChromeAndroid versions",
+    "last 5 Firefox versions",
+    "last 5 FirefoxAndroid versions",
+    "last 1 Explorer version",
+    "last 5 Opera versions",
+    "last 5 Safari versions",
+    "last 5 iOS versions",
+    "last 5 Samsung versions"
+  ],
   "repository": "https://github.com/Frank-Mayer/homepage.git",
   "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
   "license": "MIT",
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
   "devDependencies": {
-    "@frank-mayer/yahp": "^0.0.1",
-    "@parcel/transformer-postcss": "2.3.x",
-    "@parcel/transformer-sass": "2.3.x",
-    "autoprefixer": "^10.4.4",
-    "parcel": "2.3.x",
+    "@parcel/transformer-postcss": "2.6.0",
+    "@parcel/transformer-sass": "2.6.0",
+    "autoprefixer": "^10.4.7",
+    "parcel": "2.6.0",
     "photon-cli": "^0.4.0",
-    "postcss": "^8.4.12",
-    "sass": "^1.50.0",
+    "postcss": "^8.1.0",
+    "sass": "^1.52.3",
     "showdown": "^2.1.0",
-    "typescript": "^4.6.3"
+    "typescript": "^4.7.3"
   },
   "dependencies": {
-    "@frank-mayer/magic": "^3.0.0",
-    "photon-re": "^0.3.2"
+    "@frank-mayer/magic": "^4.0.0",
+    "photon-re": "^0.3.3"
   }
 }
