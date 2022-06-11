@@ -3,8 +3,9 @@
   "scripts": {
     "dev": "parcel serve 'src/**/*.html'",
     "clean": "rm -rf './.parcel-cache' && rm -rf './dist'",
+    "pre-b": "node ./html-proc.mjs",
     "build": "parcel build 'src/index.html' 'src/**/*.html' 'src/hotlink-io/*' --no-source-maps --no-cache --public-url 'https://frank-mayer.io/'",
-    "pb": "photon './dist'"
+    "post-b": "photon './dist'"
   },
   "repository": "https://github.com/Frank-Mayer/homepage.git",
   "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
@@ -23,6 +24,7 @@
     "photon-cli": "^0.4.0",
     "postcss": "^8.4.12",
     "sass": "^1.50.0",
+    "showdown": "^2.1.0",
     "typescript": "^4.6.3"
   },
   "dependencies": {
