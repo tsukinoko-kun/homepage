@@ -5,39 +5,25 @@ import showdown from "showdown";
 
 // h1 role heading
 showdown.extension("heading", () => ({
-  type: "lang",
-  regex: /^(#+)\s*(.*?)\s*#*$/,
-  replace: (txt, level, text) => {
-    if (level === 1) {
-      return `<h1 role="heading">${text}</h1>`;
-    } else {
-      return `<h${level}>${text}</h${level}>`;
-    }
-  },
+  type: "output",
+  regex: /<h1>/,
+  replace: '<h1 role="heading">',
 }));
 
 showdown.extension("anchor", () => ({
   type: "output",
-  regex: /<a href="(.*?)">(.*?)<\/a>/gi,
-  replace: (txt, href, text) => {
+  regex: /<a href="(.*?)">/gi,
+  replace: (_, href) => {
     if (href.startsWith(".") || href.startsWith("/")) {
-      return `<a data-route="${href}">${text}</a>`;
+      return `<a data-route="${href}">`;
     } else {
-      return `<a href="${href}" target="_blank">${text}</a>`;
+      return `<a href="${href}" target="_blank">`;
     }
   },
 }));
 
 const md = new showdown.Converter({
-  tables: true,
-  simplifiedAutoLink: true,
-  strikethrough: true,
-  tasklists: true,
   noHeaderId: true,
-  parseImgDimensions: true,
-  ghCodeBlocks: true,
-  emoji: true,
-  underline: true,
   extensions: ["heading", "anchor"],
 });
 
