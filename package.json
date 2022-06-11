@@ -16,7 +16,7 @@
     }
   },
   "devDependencies": {
-    "@frank-mayer/yahp": "^0.0.1",
+    "@frank-mayer/yahp": "^0.4.1",
     "@parcel/transformer-postcss": "2.3.x",
     "@parcel/transformer-sass": "2.3.x",
     "autoprefixer": "^10.4.4",
