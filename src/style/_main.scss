@@ -49,20 +49,20 @@ main {
     strong,
     b {
       font-size: $font-size;
-      font-weight: normal;
+      font-weight: bold;
       color: $foreground-primary !important;
     }
+  }
 
-    a {
-      color: $foreground-primary !important;
-      text-decoration: underline;
-      text-decoration-color: $foreground-primary;
-      text-decoration-thickness: 2px;
+  a {
+    color: $foreground-primary !important;
+    text-decoration: underline;
+    text-decoration-color: $foreground-primary;
+    text-decoration-thickness: 2px;
 
-      &:hover {
-        color: rgba($foreground-primary, 0.8) !important;
-        text-decoration-color: rgba($foreground-primary, 0.8) !important;
-      }
+    &:hover {
+      color: rgba($foreground-primary, 0.8) !important;
+      text-decoration-color: rgba($foreground-primary, 0.8) !important;
     }
   }
 }
