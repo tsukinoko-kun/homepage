@@ -14,7 +14,7 @@ Here are some of my projects. Older projects on this list are no longer maintain
 
 ## 2021
 
-- [Proton — Static site builder with Routing](https://github.com/photon-framework)
+- [Photon — Static site builder with Routing](https://github.com/photon-framework)
 - [Website for Minecraft server Reost.de](https://reost.de)
 - [Magic — _Useful stuff for JavaScript browser applications_](https://www.npmjs.com/package/@frank-mayer/magic)
 - [Popcorn Box — _DVD & Blu-ray Management App_](https://github.com/Frank-Mayer/popcornbox)
