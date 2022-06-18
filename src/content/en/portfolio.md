@@ -13,7 +13,7 @@ Here are some of my projects. Older projects on this list are no longer maintain
 - [Calculation tool for Minecraft store prices](https://mcstorecalc.web.app)
 
 ## 2021
-
+ 
 - [Photon — Static site builder with Routing](https://github.com/photon-framework)
 - [Website for Minecraft server Reost.de](https://reost.de)
 - [Magic — _Useful stuff for JavaScript browser applications_](https://www.npmjs.com/package/@frank-mayer/magic)
