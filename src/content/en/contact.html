@@ -1,0 +1,20 @@
+<form action="https://dusk.mztikk.de/Message" method="get">
+  <label for="mail">E-Mail</label>
+  <input name="mail" type="email" />
+
+  <label for="message">Message</label>
+  <textarea name="message" cols="30" rows="10"></textarea>
+
+  <input type="submit" />
+</form>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form > textarea {
+    resize: none;
+  }
+</style>
