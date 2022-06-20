@@ -23,7 +23,7 @@
   "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@parcel/transformer-postcss": "2.6.0",
+    "@parcel/transformer-postcss": "2.6.1",
     "@parcel/transformer-sass": "2.6.0",
     "autoprefixer": "^10.4.7",
     "parcel": "2.6.0",
