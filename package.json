@@ -24,7 +24,7 @@
   "license": "MIT",
   "devDependencies": {
     "@parcel/transformer-postcss": "2.6.0",
-    "@parcel/transformer-sass": "2.6.0",
+    "@parcel/transformer-sass": "2.6.1",
     "autoprefixer": "^10.4.7",
     "parcel": "2.6.0",
     "photon-cli": "^0.4.0",
