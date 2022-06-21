@@ -1,7 +1,7 @@
 import { makePath } from "photon-re";
 import type { path } from "photon-re";
 
-const pages = ["home", "info", "portfolio", "links", "404"];
+const pages = ["home", "info", "portfolio", "links", "contact", "404"];
 
 export const setPageNameAsBodyClass = (path: path) => {
   const pageName = path[1];

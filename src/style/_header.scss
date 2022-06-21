@@ -1,7 +1,8 @@
 body.home nav a[data-route]:not([data-route="../home"]),
 body.info nav a[data-route]:not([data-route="../info"]),
 body.portfolio nav a[data-route]:not([data-route="../portfolio"]),
-body.links nav a[data-route]:not([data-route="../links"]) {
+body.links nav a[data-route]:not([data-route="../links"]),
+body.contact nav a[data-route]:not([data-route="../contact"]) {
   color: $foreground-secondary !important;
 }
 

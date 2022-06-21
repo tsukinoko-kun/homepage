@@ -1,20 +1,11 @@
+<h1>Contact</h1>
+
 <form action="https://dusk.mztikk.de/Message" method="get">
   <label for="mail">E-Mail</label>
-  <input name="mail" type="email" />
+  <input name="mail" type="email" autocomplete="email" />
 
-  <label for="message">Message</label>
-  <textarea name="message" cols="30" rows="10"></textarea>
+  <label for="message">Message<span>(max. 512 characters)</span></label>
+  <textarea name="message" autocorrect="on" maxlength="512"></textarea>
 
   <input type="submit" />
 </form>
-
-<style>
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  form > textarea {
-    resize: none;
-  }
-</style>

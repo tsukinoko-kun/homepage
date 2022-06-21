@@ -17,3 +17,6 @@ body.portfolio {
 body.links {
   @include page-color($yellow, $orange);
 }
+body.contact {
+  @include page-color($green, $yellow);
+}
