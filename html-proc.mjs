@@ -75,4 +75,4 @@ const fromDir = async (startPath) => {
 };
 
 await fromDir(processDir);
-await fs.writeFile(join(processDir, ".gitignore"), gitignore.join("\n"));
+await fs.writeFile(join(processDir, ".gitignore"), gitignore.join("\n") + "\n");

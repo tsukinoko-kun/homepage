@@ -45,6 +45,7 @@ const setLangMap = Object.freeze(
   new Map([
     ["en", document.getElementById("set-lang-en") as HTMLAnchorElement],
     ["de", document.getElementById("set-lang-de") as HTMLAnchorElement],
+    ["jp", document.getElementById("set-lang-jp") as HTMLAnchorElement],
   ])
 );
 

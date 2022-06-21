@@ -1,6 +1,6 @@
 # Info
 
-**My name is Frank Mayer** Currently, I'm in an **apprenticeship** to become an IT specialist for application development at LogiSoft-S GmbH. There, I am mainly working as a **frontend developer**.
+**My name is Frank Mayer**. Currently, I'm in an **apprenticeship** to become an IT specialist for application development at LogiSoft-S GmbH. There, I am mainly working as a **frontend developer**.
 
 The main technologies used there are MFC and Xamarin, as well as the tools Figma and Visual Studio.
 
