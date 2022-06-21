@@ -17,7 +17,7 @@ footer {
     width: fit-content;
     text-transform: lowercase;
     text-decoration: none;
-    font-size: #{$font-size-small + 3px} !important;
+    font-size: $font-size !important;
 
     &:hover {
       color: $foreground-primary;
