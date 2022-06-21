@@ -13,6 +13,10 @@
   filter: drop-shadow(0 0 32px #fff1);
   display: grid;
 
+  * {
+    border-radius: 0 !important;
+  }
+
   #cookies-banner__close-button {
     grid-area: 1 / 2 / 3 / 3;
   }

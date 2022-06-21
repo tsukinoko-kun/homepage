@@ -62,6 +62,9 @@ if (!client.isTouchDevice) {
       clickable
     );
     Array.from(document.body.getElementsByTagName("button")).forEach(clickable);
+    Array.from(
+      document.body.querySelectorAll('form input[type="submit"]')
+    ).forEach(clickable);
   };
 
   applyAllClickable();
