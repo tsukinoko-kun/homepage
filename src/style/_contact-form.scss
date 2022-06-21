@@ -19,7 +19,7 @@ body.contact > main > form {
   }
 
   > input[type="submit"] {
-    padding: $padding #{$padding * 2};
+    padding: #{$padding * 2} $padding;
     cursor: pointer;
   }
 
