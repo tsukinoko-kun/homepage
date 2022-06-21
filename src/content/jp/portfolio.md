@@ -4,11 +4,11 @@
 
 ## 2022
 
-- [Days Without Failure — _build server monitor_](https://github.com/Frank-Mayer/days-without-failure)
-- [Open Props — _Sass port_](https://github.com/Frank-Mayer/open-props)
-- [Yet another HTML preprocessor](https://github.com/Frank-Mayer/yahp)
+- [Days Without Failure — _ビルドエラーが発生しない日数_](https://github.com/Frank-Mayer/days-without-failure)
+- [Open Props — _Sass」へのポーティング_](https://github.com/Frank-Mayer/open-props)
+- [Yet another HTML preprocessor — _もうひとつの HTML プリプロセッサ_](https://github.com/Frank-Mayer/yahp)
 - [Send — _ファイル転送サービス_](https://send.frank-mayer.io)
-- [Cron Job Minecraft Plugin](https://github.com/Frank-Mayer/minecraft-tasker)
+- [Cron Job Minecraft プラグイン](https://github.com/Frank-Mayer/minecraft-tasker)
 - [Naruto -ナルト- Minecraft プラグイン](https://github.com/Frank-Mayer/naruto-minecraft)
 - [Minecraft ストア価格計算ツール](https://mcstorecalc.web.app)
 
