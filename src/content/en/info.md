@@ -8,4 +8,4 @@ In addition, I work as a freelancer for privates or do on my own projects. I spe
 
 Most of my projects are available **open source** on [GitHub](https://github.com/Frank-Mayer).
 
-I am proficient in the programming languages TypeScript, JavaScript, Kotlin, C# and C++.
+I am proficient in the programming languages TypeScript, JavaScript, Kotlin, C#, F# and C++.

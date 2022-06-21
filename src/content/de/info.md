@@ -8,4 +8,4 @@ Nebenher bin ich als Freelancer für Privatpersonen tätig oder arbeite an eigen
 
 Meine meisten Projekte sind **quelloffen** auf [GitHub](https://github.com/Frank-Mayer) verfügbar.
 
-Ich beherrsche die Programmiersprachen TypeScript, JavaScript, Kotlin, C# und C++.
+Ich beherrsche die Programmiersprachen TypeScript, JavaScript, Kotlin, C#, F# und C++.
