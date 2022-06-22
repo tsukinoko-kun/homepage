@@ -41,7 +41,7 @@ if (client.isTouchDevice) {
   }
 }
 
-const setLangMap = Object.freeze(
+const setLangMap: ReadonlyMap<string, HTMLAnchorElement> = Object.freeze(
   new Map([
     ["en", document.getElementById("set-lang-en") as HTMLAnchorElement],
     ["de", document.getElementById("set-lang-de") as HTMLAnchorElement],
