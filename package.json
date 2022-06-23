@@ -29,7 +29,7 @@
     "parcel": "2.6.0",
     "photon-cli": "^0.4.0",
     "postcss": "^8.1.0",
-    "sass": "^1.52.3",
+    "sass": "^1.53.0",
     "showdown": "^2.1.0",
     "typescript": "^4.7.3"
   },
