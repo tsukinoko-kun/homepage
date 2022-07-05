@@ -4,12 +4,13 @@
 
 ## 2022
 
+- [ウェブサイトフレームワーク「Photon」のプロジェクトクリエイター。](https://photonprojectcreator.web.app)
 - [Days Without Failure — _ビルドエラーが発生しない日数_](https://github.com/Frank-Mayer/days-without-failure)
 - [Open Props — _Sass」へのポーティング_](https://github.com/Frank-Mayer/open-props)
 - [Yet another HTML preprocessor — _もうひとつの HTML プリプロセッサ_](https://github.com/Frank-Mayer/yahp)
 - [Send — _ファイル転送サービス_](https://send.frank-mayer.io)
 - [Cron Job Minecraft プラグイン](https://github.com/Frank-Mayer/minecraft-tasker)
-- [Naruto -ナルト- Minecraft プラグイン](https://github.com/Frank-Mayer/naruto-minecraft)
+- [-ナルト- Minecraft プラグイン](https://github.com/Frank-Mayer/naruto-minecraft)
 - [Minecraft ストア価格計算ツール](https://mcstorecalc.web.app)
 
 ## 2021
