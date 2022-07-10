@@ -87,6 +87,10 @@ web_modules/
 .cache
 .parcel-cache
 
+# Photon Framework
+.photon-cache
+photon.log
+
 # Next.js build output
 .next
 out

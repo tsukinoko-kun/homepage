@@ -1,11 +1,12 @@
 {
   "name": "homepage",
+  "homepage": "https://frank-mayer.io",
   "scripts": {
-    "dev": "parcel serve 'src/**/*.html'",
-    "clean": "rm -rf './.parcel-cache' && rm -rf './dist'",
+    "dev": "parcel serve \"src/**/*.html\" --open",
+    "clean": "rm -rf \"./.parcel-cache\" && rm -rf \"./dist\"",
     "pre-b": "node ./html-proc.mjs",
-    "build": "parcel build 'src/index.html' 'src/**/*.html' 'src/hotlink-io/*' --no-source-maps --no-cache --public-url 'https://frank-mayer.io/'",
-    "post-b": "photon './dist'"
+    "build": "parcel build \"src/index.html\" \"src/**/*.html\" \"src/hotlink-io/*\" --no-source-maps --no-cache --public-url \"https://frank-mayer.io/\"",
+    "post-b": "photon \"./dist\""
   },
   "browserslist": [
     "last 5 Android versions",
@@ -22,11 +23,16 @@
   "repository": "https://github.com/Frank-Mayer/homepage.git",
   "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
   "license": "MIT",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
   "devDependencies": {
-    "@parcel/transformer-postcss": "2.6.0",
-    "@parcel/transformer-sass": "2.6.0",
+    "@parcel/transformer-postcss": "2.6.2",
+    "@parcel/transformer-sass": "2.6.2",
     "autoprefixer": "^10.4.7",
-    "parcel": "2.6.0",
+    "parcel": "2.6.2",
     "photon-cli": "^0.4.0",
     "postcss": "^8.1.0",
     "sass": "^1.52.3",
