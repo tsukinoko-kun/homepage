@@ -15,11 +15,7 @@ showdown.extension("anchor", () => ({
   type: "output",
   regex: /<a href="(.*?)">/gi,
   replace: (_, href) => {
-    if (href.startsWith(".") || href.startsWith("/")) {
-      return `<a data-route="${href}">`;
-    } else {
-      return `<a href="${href}" target="_blank">`;
-    }
+    return `<a href="${href}" target="_blank">`;
   },
 }));
 
