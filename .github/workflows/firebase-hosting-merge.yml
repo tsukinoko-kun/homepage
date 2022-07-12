@@ -14,7 +14,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: lts/*
+          node-version: latest
           cache: "yarn"
       - run: yarn
       - run: yarn build

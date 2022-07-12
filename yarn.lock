@@ -2115,7 +2115,7 @@ __metadata:
   dependencies:
     "@frank-mayer/magic": ^4.0.0
     photon-cli: ^1.0.2
-    photon-re: ^1.0.2
+    photon-re: ^1.0.3
     sass: ^1.53.0
     typescript: ^4.7.4
   languageName: unknown
@@ -3094,9 +3094,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"photon-re@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "photon-re@npm:1.0.2"
+"photon-re@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "photon-re@npm:1.0.3"
   dependencies:
     "@frank-mayer/magic": ^4.0.0
     "@types/mustache": ^4.1.3
@@ -3104,7 +3104,7 @@ __metadata:
     mustache: ^4.2.0
     tslib: ^2.4.0
     xxhash-wasm: ^1.0.1
-  checksum: 5bc9d0ff7400bfa1317591819546f10db2cf7469e0a820df7c07cfbfc90e6bb8f8f1863c2ecc4049633757e588dc10068331cf7f8b0eb4065ab5fbf06dbdb54f
+  checksum: 93b16ccb3f465de6804e04e24cf1cb4f5f73ce8c0e75f85df2de00d417b75436ca98c102a22bcf15a443c37b313f41f2c7025275b6b7529f67f3f6dc33928c93
   languageName: node
   linkType: hard
 
