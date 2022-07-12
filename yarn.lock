@@ -3054,9 +3054,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.172":
-  version: 1.4.186
-  resolution: "electron-to-chromium@npm:1.4.186"
-  checksum: 9f87db963070473702c0a999dc4066fdd12abff0b2b98dfae1c7492b62fe3feb42bae64ff7fd837e4e347dab043a411e82cab64ada902726b782c60bf9fc40de
+  version: 1.4.187
+  resolution: "electron-to-chromium@npm:1.4.187"
+  checksum: 258be88d92b3f34ffba8ea1d90ecc918f6aa74954af67d0439a649648a17738dad3042ef3f26be141177f5ffb0c5c90dfcaa18ae4dba7bc2937ff21d64a9acb6
   languageName: node
   linkType: hard
 
@@ -3557,8 +3557,8 @@ __metadata:
   linkType: hard
 
 "firebase-tools@npm:^11.2.1":
-  version: 11.2.1
-  resolution: "firebase-tools@npm:11.2.1"
+  version: 11.2.2
+  resolution: "firebase-tools@npm:11.2.2"
   dependencies:
     "@google-cloud/pubsub": ^3.0.1
     abort-controller: ^3.0.0
@@ -3621,7 +3621,7 @@ __metadata:
     ws: ^7.2.3
   bin:
     firebase: lib/bin/firebase.js
-  checksum: ecb76a09573b22beebe8f72e06961ec73f7e6762c275a9fb8506aaa7b102888d346c64b69f8db76c38d798f4d41417b731d13851d3b855b11dba6780e3e74ec5
+  checksum: 744f320ad6bd5ece142ac38212219da8275283e525cbbf78e7ace70d495689cfdf3047b964304f459a3ed141ad5bfa7d20b29423ab55d8164031d26ada50fb92
   languageName: node
   linkType: hard
 
@@ -4195,8 +4195,8 @@ __metadata:
   dependencies:
     "@frank-mayer/magic": ^4.0.0
     firebase-tools: ^11.2.1
-    photon-cli: ^1.0.2
-    photon-re: ^1.0.3
+    photon-cli: ^1.1.0
+    photon-re: ^1.1.2
     sass: ^1.53.0
     typescript: ^4.7.4
   languageName: unknown
@@ -4375,13 +4375,13 @@ __metadata:
   linkType: hard
 
 "image-size@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "image-size@npm:1.0.1"
+  version: 1.0.2
+  resolution: "image-size@npm:1.0.2"
   dependencies:
     queue: 6.0.2
   bin:
     image-size: bin/image-size.js
-  checksum: ffa74672dc7a1b6529c66255adbfe4e7865408004db88ed100855816f03175494ec21ef9dad199b8685b5b194996ebe83ab27803af152adb66a301172fdd622d
+  checksum: 01745fdb47f87cecf538e69c63f9adc5bfab30a345345c2de91105f3afbd1bfcfba1256af02bf3323077b33b0004469a837e077bf0cbb9c907e9c1e9e7547585
   languageName: node
   linkType: hard
 
@@ -6271,9 +6271,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"photon-cli@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "photon-cli@npm:1.0.2"
+"photon-cli@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "photon-cli@npm:1.1.0"
   dependencies:
     "@parcel/config-default": ^2.6.2
     "@parcel/core": ^2.6.2
@@ -6290,13 +6290,13 @@ __metadata:
     try-to-catch: ^3.0.1
   bin:
     photon: index.js
-  checksum: f1f1022819cb633a5358d81e8e0f8681d10acbf73508e6c5c7bb969ec0fb5943078148fbc438916d966424ae426642a4f73848be345d6dd25cd7485a9e27b68f
+  checksum: f33a94776210eb974bb0126620d8c023676f5d3af51daa63df465e7e29df9ae0816622776f93098e72ee5009984502914c2cb695f31c8fbe003e32b33b2285c7
   languageName: node
   linkType: hard
 
-"photon-re@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "photon-re@npm:1.0.3"
+"photon-re@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "photon-re@npm:1.1.2"
   dependencies:
     "@frank-mayer/magic": ^4.0.0
     "@types/mustache": ^4.1.3
@@ -6304,7 +6304,7 @@ __metadata:
     mustache: ^4.2.0
     tslib: ^2.4.0
     xxhash-wasm: ^1.0.1
-  checksum: 93b16ccb3f465de6804e04e24cf1cb4f5f73ce8c0e75f85df2de00d417b75436ca98c102a22bcf15a443c37b313f41f2c7025275b6b7529f67f3f6dc33928c93
+  checksum: fe4f8bb953a088ea484e6e7f03d9a141996fc622dd706badcc8b33785289fa02833bdfa956dc18982c3e06d3c3f36beebb7185e830d1b5f7b2759bc44ef9578c
   languageName: node
   linkType: hard
 

@@ -16,7 +16,7 @@ if (!client.isTouchDevice) {
       document.body.style.setProperty("--y", `${ev.clientY}px`);
 
       if (!notClickableTimeout) {
-        notClickableTimeout = setTimeout(() => {
+        notClickableTimeout = window.setTimeout(() => {
           document.body.classList.remove("cursor-active");
         }, 250);
       }

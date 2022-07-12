@@ -1,4 +1,4 @@
-import { dotenv } from "photon-re/src/dotenv";
+import { dotenv } from "photon-re";
 
 // #region CookieStore
 

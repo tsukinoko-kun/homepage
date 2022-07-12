@@ -2,23 +2,24 @@
   "name": "homepage",
   "homepage": "https://frank-mayer.io",
   "scripts": {
-    "dev": "photon \"./src\" --serve 8080",
+    "dev": "photon \"./src\" --serve 12345 --open",
     "clean": "yarn clean-windows || yarn clean-linux",
     "clean-linux": "rm -rf \"./.photon-cache\" && rm -rf \"./dist\"",
     "clean-windows": "rmdir /Q/S \"./.photon-cache\" && rmdir /Q/S \"./dist\"",
-    "build": "photon \"./src\""
+    "build": "photon \"./src\"",
+    "deploy": "yarn firebase deploy --only hosting"
   },
   "repository": "https://github.com/Frank-Mayer/homepage.git",
   "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
   "license": "MIT",
   "devDependencies": {
     "firebase-tools": "^11.2.1",
-    "photon-cli": "^1.0.2",
+    "photon-cli": "^1.1.0",
     "sass": "^1.53.0",
     "typescript": "^4.7.4"
   },
   "dependencies": {
     "@frank-mayer/magic": "^4.0.0",
-    "photon-re": "^1.0.3"
+    "photon-re": "^1.1.2"
   }
 }
