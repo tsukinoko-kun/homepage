@@ -1,6 +1,6 @@
 import { page } from "photon-re";
 
-class Router {
+export class Router {
   private readonly pages = [
     "home",
     "info",
