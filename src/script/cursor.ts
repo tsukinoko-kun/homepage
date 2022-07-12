@@ -5,7 +5,6 @@ let notClickableTimeout: number | undefined;
 
 if (!client.isTouchDevice) {
   document.body.classList.add("cursor-enabled");
-  let evOptions: AddEventListenerOptions = { passive: true, capture: false };
 
   document.body.style.setProperty("--x", `${innerWidth / 2}px`);
   document.body.style.setProperty("--y", `${innerHeight / 2}px`);

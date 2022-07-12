@@ -1326,9 +1326,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001359":
-  version: 1.0.30001364
-  resolution: "caniuse-lite@npm:1.0.30001364"
-  checksum: 4765640fcc28acfd6f51742f2b315792df09648d3590fedcd1051cb5a5201c70df315aaff9bf29ad41bd1176926ce25d8b3b597c4f5bf6361c1f6c3d29250b15
+  version: 1.0.30001365
+  resolution: "caniuse-lite@npm:1.0.30001365"
+  checksum: 5d043006e9bd9de1ae06c0e12c31997f0ed26f889f47ea6403dc2d08f46a5bd4bf0fe1a5b1099561fc447201ddf13083f277de68829e77fd238ff2af8c05e0a6
   languageName: node
   linkType: hard
 
@@ -1740,9 +1740,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.172":
-  version: 1.4.185
-  resolution: "electron-to-chromium@npm:1.4.185"
-  checksum: 1d079d8a4c4f6a228eeab0023462ce419ce811ed698d91d5ca7cfbf61d9cc5297c7a1ba97d312fda5411d3c9b379d7c0e8af31b14b7c143c0213ce22681b761d
+  version: 1.4.186
+  resolution: "electron-to-chromium@npm:1.4.186"
+  checksum: 9f87db963070473702c0a999dc4066fdd12abff0b2b98dfae1c7492b62fe3feb42bae64ff7fd837e4e347dab043a411e82cab64ada902726b782c60bf9fc40de
   languageName: node
   linkType: hard
 
@@ -2114,8 +2114,8 @@ __metadata:
   resolution: "homepage@workspace:."
   dependencies:
     "@frank-mayer/magic": ^4.0.0
-    photon-cli: ^1.0.1
-    photon-re: ^1.0.0
+    photon-cli: ^1.0.2
+    photon-re: ^1.0.2
     sass: ^1.53.0
     typescript: ^4.7.4
   languageName: unknown
@@ -3071,9 +3071,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"photon-cli@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "photon-cli@npm:1.0.1"
+"photon-cli@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "photon-cli@npm:1.0.2"
   dependencies:
     "@parcel/config-default": ^2.6.2
     "@parcel/core": ^2.6.2
@@ -3090,13 +3090,13 @@ __metadata:
     try-to-catch: ^3.0.1
   bin:
     photon: index.js
-  checksum: a2e982c686a04039fbe9272b10a0709f384cabecf78cdbe97568a9a1992dfd89bb77543953c52ffe101f412efae5ae32ab9e59a9df659bb76690bb534a4a6234
+  checksum: f1f1022819cb633a5358d81e8e0f8681d10acbf73508e6c5c7bb969ec0fb5943078148fbc438916d966424ae426642a4f73848be345d6dd25cd7485a9e27b68f
   languageName: node
   linkType: hard
 
-"photon-re@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "photon-re@npm:1.0.0"
+"photon-re@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "photon-re@npm:1.0.2"
   dependencies:
     "@frank-mayer/magic": ^4.0.0
     "@types/mustache": ^4.1.3
@@ -3104,7 +3104,7 @@ __metadata:
     mustache: ^4.2.0
     tslib: ^2.4.0
     xxhash-wasm: ^1.0.1
-  checksum: 895b00c16ef1a72d02fa1278681759c4bdb9406b82d1ca4f0a1a0add2f65d3efa74d6be3a10b1e1d00cd13bec77a8b962f2979384ed0dff6abd83db99a96f936
+  checksum: 5bc9d0ff7400bfa1317591819546f10db2cf7469e0a820df7c07cfbfc90e6bb8f8f1863c2ecc4049633757e588dc10068331cf7f8b0eb4065ab5fbf06dbdb54f
   languageName: node
   linkType: hard
 
