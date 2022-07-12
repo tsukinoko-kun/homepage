@@ -1,3 +1,5 @@
+import { dotenv } from "./dotenv";
+
 // #region CookieStore
 
 declare type cookieOptions = {
@@ -54,47 +56,52 @@ declare const cookieStore: CookieStore | undefined;
 // #endregion CookieStore
 
 const cookieBannerEl = document.getElementById("cookies-banner");
-const cookiesBannerCloseButtonEl = document.getElementById(
-  "cookies-banner__close-button"
-);
-if (cookieBannerEl && cookiesBannerCloseButtonEl) {
-  const close = () => {
+if (dotenv.production) {
+  const cookiesBannerCloseButtonEl = document.getElementById(
+    "cookies-banner__close-button"
+  );
+
+  if (cookieBannerEl && cookiesBannerCloseButtonEl) {
+    const close = () => {
+      if (cookieStore) {
+        cookieStore
+          .set({
+            domain: document.domain,
+            expires: Date.now() + 1000 * 60 * 60 * 24 * 365,
+            name: "cookie-banner-closed",
+            path: "/",
+            sameSite: "lax",
+            secure: false,
+            value: "true",
+          })
+          .catch(console.error)
+          .finally(() => {
+            cookieBannerEl.remove();
+          });
+      } else {
+        cookieBannerEl.remove();
+      }
+    };
+
     if (cookieStore) {
       cookieStore
-        .set({
-          domain: document.domain,
-          expires: Date.now() + 1000 * 60 * 60 * 24 * 365,
-          name: "cookie-banner-closed",
-          path: "/",
-          sameSite: "lax",
-          secure: false,
-          value: "true",
+        .get("cookie-banner-closed")
+        .then((cookie) => {
+          if (cookie.value === "true") {
+            cookieBannerEl.remove();
+          } else {
+            cookiesBannerCloseButtonEl.addEventListener("click", close);
+            cookieBannerEl.classList.remove("hidden");
+          }
         })
-        .catch(console.error)
-        .finally(() => {
-          cookieBannerEl.remove();
-        });
-    } else {
-      cookieBannerEl.remove();
-    }
-  };
-
-  if (cookieStore) {
-    cookieStore
-      .get("cookie-banner-closed")
-      .then((cookie) => {
-        if (cookie.value === "true") {
-          cookieBannerEl.remove();
-        } else {
+        .catch(() => {
           cookiesBannerCloseButtonEl.addEventListener("click", close);
           cookieBannerEl.classList.remove("hidden");
-        }
-      })
-      .catch(() => {
-        cookiesBannerCloseButtonEl.addEventListener("click", close);
-        cookieBannerEl.classList.remove("hidden");
-      });
-  } else {
-    cookieBannerEl.classList.remove("hidden");
+        });
+    } else {
+      cookieBannerEl.classList.remove("hidden");
+    }
   }
+} else {
+  cookieBannerEl?.remove();
 }

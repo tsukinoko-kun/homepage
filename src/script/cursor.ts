@@ -1,9 +1,11 @@
 import { client } from "@frank-mayer/magic";
 import { CPage, page } from "photon-re";
 
+let notClickableTimeout: number | undefined;
+
 if (!client.isTouchDevice) {
   document.body.classList.add("cursor-enabled");
-  let evOptions: AddEventListenerOptions = { passive: true };
+  let evOptions: AddEventListenerOptions = { passive: true, capture: false };
 
   document.body.style.setProperty("--x", `${innerWidth / 2}px`);
   document.body.style.setProperty("--y", `${innerHeight / 2}px`);
@@ -11,62 +13,49 @@ if (!client.isTouchDevice) {
   document.addEventListener(
     "mousemove",
     (ev) => {
-      let isClickable = false;
-
-      const targetChain = [ev.target!];
-      while (targetChain.length > 0) {
-        const target = targetChain.pop() as Element;
-        if (!target) {
-          break;
-        }
-
-        if (target.hasAttribute("data-clickable")) {
-          isClickable = true;
-          break;
-        }
-
-        if ("children" in target) {
-          for (let i = 0; i < target.children.length; i++) {
-            targetChain.push(target.children.item(i)!);
-          }
-        }
-      }
-
       document.body.style.setProperty("--x", `${ev.clientX}px`);
       document.body.style.setProperty("--y", `${ev.clientY}px`);
-      if (isClickable) {
-        document.body.classList.add("cursor-active");
-      } else {
-        document.body.classList.remove("cursor-active");
+
+      if (!notClickableTimeout) {
+        notClickableTimeout = setTimeout(() => {
+          document.body.classList.remove("cursor-active");
+        }, 250);
       }
     },
-    evOptions
+    { passive: true, capture: true }
   );
 }
 
 @page("/**")
 export class Cursor implements CPage {
   onRouted(): void {
-    this.applyAllClickable();
+    if (!client.isTouchDevice) {
+      this.applyAllClickable();
+    }
   }
+
   private applyAllClickable() {
-    Array.from(document.body.getElementsByTagName("a")).forEach(this.clickable);
-    Array.from(document.body.getElementsByClassName("button")).forEach(
-      this.clickable
-    );
-    Array.from(document.body.getElementsByTagName("button")).forEach(
-      this.clickable
-    );
-    Array.from(
-      document.body.querySelectorAll('form input[type="submit"]')
+    Array.from<HTMLElement>(
+      document.querySelectorAll("a[href], button, input[type=submit]")
     ).forEach(this.clickable);
   }
 
-  private clickable(el: Element) {
+  private clickable(el: HTMLElement) {
     if (el.hasAttribute("data-clickable")) {
       return;
     }
 
     el.toggleAttribute("data-clickable", true);
+    el.addEventListener(
+      "mousemove",
+      () => {
+        if (notClickableTimeout) {
+          clearTimeout(notClickableTimeout);
+          notClickableTimeout = undefined;
+        }
+        document.body.classList.add("cursor-active");
+      },
+      { passive: true, capture: false }
+    );
   }
 }
