@@ -4206,7 +4206,7 @@ __metadata:
     firebase-tools: ^11.2.2
     js-cookie: ^3.0.1
     photon-cli: ^1.1.2
-    photon-re: ^1.1.3
+    photon-re: ^1.1.4
     sass: ^1.53.0
     typescript: ^4.7.4
   languageName: unknown
@@ -6310,9 +6310,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"photon-re@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "photon-re@npm:1.1.3"
+"photon-re@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "photon-re@npm:1.1.4"
   dependencies:
     "@frank-mayer/magic": ^4.0.0
     "@types/mustache": ^4.1.3
@@ -6320,7 +6320,7 @@ __metadata:
     mustache: ^4.2.0
     tslib: ^2.4.0
     xxhash-wasm: ^1.0.1
-  checksum: 11d60259f4d7b7db4d733de4d34ed2ae8bd9ca3a549ce8f995baf867bd467a7bff5d9d5c7da5fac33a986bf4d1c9bb71fb3a321e5bc017d0f1b64a8cdbca1fe5
+  checksum: 51b08d1144793439d59e4cd67f3e9059c4e4c53be43ad9df5eda72a78cd0b3b98add241e8dbd8b8c238a1e351eaf5af2eede93e3a2c4c9346f7254494ef20604
   languageName: node
   linkType: hard
 
