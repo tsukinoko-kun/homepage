@@ -1053,17 +1053,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/transformer-sass@npm:^2.6.2":
-  version: 2.6.2
-  resolution: "@parcel/transformer-sass@npm:2.6.2"
-  dependencies:
-    "@parcel/plugin": 2.6.2
-    "@parcel/source-map": ^2.0.0
-    sass: ^1.38.0
-  checksum: b35e8d272f12ae9e3d21b1c8fecf901327117a114724221c5144cb055a9d9d7155b12cdfd4ffc1b5ba2838ab17ac3613055b2cff1e913b57a9dcac2d27ec04cc
-  languageName: node
-  linkType: hard
-
 "@parcel/transformer-svg@npm:2.6.2":
   version: 2.6.2
   resolution: "@parcel/transformer-svg@npm:2.6.2"
@@ -3563,7 +3552,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"firebase-tools@npm:^11.2.1":
+"firebase-tools@npm:^11.2.2":
   version: 11.2.2
   resolution: "firebase-tools@npm:11.2.2"
   dependencies:
@@ -4202,9 +4191,9 @@ __metadata:
   dependencies:
     "@frank-mayer/magic": ^4.0.0
     "@types/js-cookie": ^3.0.2
-    firebase-tools: ^11.2.1
+    firebase-tools: ^11.2.2
     js-cookie: ^3.0.1
-    photon-cli: ^1.1.0
+    photon-cli: ^1.1.1
     photon-re: ^1.1.2
     sass: ^1.53.0
     typescript: ^4.7.4
@@ -4383,7 +4372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"image-size@npm:^1.0.1":
+"image-size@npm:^1.0.2":
   version: 1.0.2
   resolution: "image-size@npm:1.0.2"
   dependencies:
@@ -6287,17 +6276,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"photon-cli@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "photon-cli@npm:1.1.0"
+"photon-cli@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "photon-cli@npm:1.1.1"
   dependencies:
     "@parcel/config-default": ^2.6.2
     "@parcel/core": ^2.6.2
-    "@parcel/transformer-sass": ^2.6.2
     cli-color: ^2.0.3
     command-line-args: ^5.2.1
     html-minifier: ^4.0.0
-    image-size: ^1.0.1
+    image-size: ^1.0.2
     jsdom: ^20.0.0
     mustache: ^4.2.0
     open: ^8.4.0
@@ -6306,7 +6294,7 @@ __metadata:
     try-to-catch: ^3.0.1
   bin:
     photon: index.js
-  checksum: f33a94776210eb974bb0126620d8c023676f5d3af51daa63df465e7e29df9ae0816622776f93098e72ee5009984502914c2cb695f31c8fbe003e32b33b2285c7
+  checksum: 3013e2ac7f7ce7cb13fec4edd19dcaf6cf49a38bd5d23ed029ae2e7a4452e6cc4a9ca8f5d4a91fa1663e8598f3e8e865e908a66a8494ae419b270315af04b55e
   languageName: node
   linkType: hard
 
@@ -6913,7 +6901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.38.0, sass@npm:^1.53.0":
+"sass@npm:^1.53.0":
   version: 1.53.0
   resolution: "sass@npm:1.53.0"
   dependencies:
