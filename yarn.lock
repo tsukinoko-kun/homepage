@@ -1053,6 +1053,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@parcel/transformer-sass@npm:2.6.2":
+  version: 2.6.2
+  resolution: "@parcel/transformer-sass@npm:2.6.2"
+  dependencies:
+    "@parcel/plugin": 2.6.2
+    "@parcel/source-map": ^2.0.0
+    sass: ^1.38.0
+  checksum: b35e8d272f12ae9e3d21b1c8fecf901327117a114724221c5144cb055a9d9d7155b12cdfd4ffc1b5ba2838ab17ac3613055b2cff1e913b57a9dcac2d27ec04cc
+  languageName: node
+  linkType: hard
+
 "@parcel/transformer-svg@npm:2.6.2":
   version: 2.6.2
   resolution: "@parcel/transformer-svg@npm:2.6.2"
@@ -4190,11 +4201,12 @@ __metadata:
   resolution: "homepage@workspace:."
   dependencies:
     "@frank-mayer/magic": ^4.0.0
+    "@parcel/transformer-sass": 2.6.2
     "@types/js-cookie": ^3.0.2
     firebase-tools: ^11.2.2
     js-cookie: ^3.0.1
-    photon-cli: ^1.1.1
-    photon-re: ^1.1.2
+    photon-cli: ^1.1.2
+    photon-re: ^1.1.3
     sass: ^1.53.0
     typescript: ^4.7.4
   languageName: unknown
@@ -6276,9 +6288,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"photon-cli@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "photon-cli@npm:1.1.1"
+"photon-cli@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "photon-cli@npm:1.1.2"
   dependencies:
     "@parcel/config-default": ^2.6.2
     "@parcel/core": ^2.6.2
@@ -6294,13 +6306,13 @@ __metadata:
     try-to-catch: ^3.0.1
   bin:
     photon: index.js
-  checksum: 3013e2ac7f7ce7cb13fec4edd19dcaf6cf49a38bd5d23ed029ae2e7a4452e6cc4a9ca8f5d4a91fa1663e8598f3e8e865e908a66a8494ae419b270315af04b55e
+  checksum: 8c020a2c22c30aef310e56998f7ed83fc7d061d78a2913eb4fd6f0916b36b4c0785fb9f5a576e52f693cb1dc6f6b8912d89f71a511b87ca099b15dc62d9b076e
   languageName: node
   linkType: hard
 
-"photon-re@npm:^1.1.2":
-  version: 1.1.2
-  resolution: "photon-re@npm:1.1.2"
+"photon-re@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "photon-re@npm:1.1.3"
   dependencies:
     "@frank-mayer/magic": ^4.0.0
     "@types/mustache": ^4.1.3
@@ -6308,7 +6320,7 @@ __metadata:
     mustache: ^4.2.0
     tslib: ^2.4.0
     xxhash-wasm: ^1.0.1
-  checksum: fe4f8bb953a088ea484e6e7f03d9a141996fc622dd706badcc8b33785289fa02833bdfa956dc18982c3e06d3c3f36beebb7185e830d1b5f7b2759bc44ef9578c
+  checksum: 11d60259f4d7b7db4d733de4d34ed2ae8bd9ca3a549ce8f995baf867bd467a7bff5d9d5c7da5fac33a986bf4d1c9bb71fb3a321e5bc017d0f1b64a8cdbca1fe5
   languageName: node
   linkType: hard
 
@@ -6901,7 +6913,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.53.0":
+"sass@npm:^1.38.0, sass@npm:^1.53.0":
   version: 1.53.0
   resolution: "sass@npm:1.53.0"
   dependencies:
