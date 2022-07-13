@@ -13,6 +13,7 @@
   "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/js-cookie": "^3.0.2",
     "firebase-tools": "^11.2.1",
     "photon-cli": "^1.1.0",
     "sass": "^1.53.0",
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "@frank-mayer/magic": "^4.0.0",
+    "js-cookie": "^3.0.1",
     "photon-re": "^1.1.2"
   }
 }
