@@ -88,17 +88,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/precise-date@npm:^2.0.0":
-  version: 2.0.4
-  resolution: "@google-cloud/precise-date@npm:2.0.4"
-  checksum: d1cdd321ec7ab09acc46cea428554d70b9bf759e427c4bf57d45b63ad51f99ce1ca8d102c6ce5c31063db7259e52a1bcf5f6fe0cdbffe66a6b48e14c5b847205
+"@google-cloud/precise-date@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@google-cloud/precise-date@npm:3.0.0"
+  checksum: 0c4f7a98c69941be0301c2319498681d8e34cef789c507042063b87a2396255236d459f2bc6e1ac8bec351c9ea0de5e82beac3120fdf983bad59d8468c36c126
   languageName: node
   linkType: hard
 
-"@google-cloud/projectify@npm:^2.0.0":
-  version: 2.1.1
-  resolution: "@google-cloud/projectify@npm:2.1.1"
-  checksum: 4e773269b773068e86df9b4f9119948d9bda770a1be33eeda77a9034d795d8e07718c1f6ee048e1f2329f40f8d2eee7149d7a4692436cfbd3fbea4363fdac05b
+"@google-cloud/projectify@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@google-cloud/projectify@npm:3.0.0"
+  checksum: 4fa7ad689422b0b9c152fb00260e54e39d81678f9c51518bdb34bc57ee00604524fcdd5837fa97eb2f8ff4811afee3f345b1b0993bc4a2fa1b803bdd6554839a
   languageName: node
   linkType: hard
 
@@ -110,15 +110,15 @@ __metadata:
   linkType: hard
 
 "@google-cloud/pubsub@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@google-cloud/pubsub@npm:3.0.1"
+  version: 3.0.3
+  resolution: "@google-cloud/pubsub@npm:3.0.3"
   dependencies:
     "@google-cloud/paginator": ^4.0.0
-    "@google-cloud/precise-date": ^2.0.0
-    "@google-cloud/projectify": ^2.0.0
+    "@google-cloud/precise-date": ^3.0.0
+    "@google-cloud/projectify": ^3.0.0
     "@google-cloud/promisify": ^2.0.0
     "@opentelemetry/api": ^1.0.0
-    "@opentelemetry/semantic-conventions": ^1.0.0
+    "@opentelemetry/semantic-conventions": ~1.3.0
     "@types/duplexify": ^3.6.0
     "@types/long": ^4.0.0
     arrify: ^2.0.0
@@ -128,7 +128,7 @@ __metadata:
     is-stream-ended: ^0.1.4
     lodash.snakecase: ^4.1.1
     p-defer: ^3.0.0
-  checksum: 30c2f2f6aa10b55b357794524a18265fd9ad55faf5fa24a55db22617af69023a6222688c1e2ca4582e18f47fde32d4827092ef0a4f90147e406c41b0d5935011
+  checksum: 65e1ef29f734fafb5054d571266295534a103abe3092b9c0cc44f9133563323d5bdb0c6dce7691c6a1f0fbeaba35bd291ed65888aa660c7777da620acf1944e4
   languageName: node
   linkType: hard
 
@@ -354,10 +354,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/semantic-conventions@npm:^1.0.0":
-  version: 1.4.0
-  resolution: "@opentelemetry/semantic-conventions@npm:1.4.0"
-  checksum: 9e8ac93f048dd62d1ba93f38bf119720aa4da8d6b00f75fddda56c8c87c944d4d81d18438739c167c0133b25dabaa6ac7a3f4245f8ab4994dc25e7605d1faa0e
+"@opentelemetry/semantic-conventions@npm:~1.3.0":
+  version: 1.3.1
+  resolution: "@opentelemetry/semantic-conventions@npm:1.3.1"
+  checksum: 83fa3b8a8198f6a5265a4191a89cfcce042240b92e034cf29631b0fe749993f4f74f4d21d89b10f6b05984246424adf8d037f8be507fcf0adf60933ab7143f07
   languageName: node
   linkType: hard
 
@@ -478,74 +478,74 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/css-darwin-arm64@npm:1.11.2":
-  version: 1.11.2
-  resolution: "@parcel/css-darwin-arm64@npm:1.11.2"
+"@parcel/css-darwin-arm64@npm:1.12.0":
+  version: 1.12.0
+  resolution: "@parcel/css-darwin-arm64@npm:1.12.0"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@parcel/css-darwin-x64@npm:1.11.2":
-  version: 1.11.2
-  resolution: "@parcel/css-darwin-x64@npm:1.11.2"
+"@parcel/css-darwin-x64@npm:1.12.0":
+  version: 1.12.0
+  resolution: "@parcel/css-darwin-x64@npm:1.12.0"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@parcel/css-linux-arm-gnueabihf@npm:1.11.2":
-  version: 1.11.2
-  resolution: "@parcel/css-linux-arm-gnueabihf@npm:1.11.2"
+"@parcel/css-linux-arm-gnueabihf@npm:1.12.0":
+  version: 1.12.0
+  resolution: "@parcel/css-linux-arm-gnueabihf@npm:1.12.0"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@parcel/css-linux-arm64-gnu@npm:1.11.2":
-  version: 1.11.2
-  resolution: "@parcel/css-linux-arm64-gnu@npm:1.11.2"
+"@parcel/css-linux-arm64-gnu@npm:1.12.0":
+  version: 1.12.0
+  resolution: "@parcel/css-linux-arm64-gnu@npm:1.12.0"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@parcel/css-linux-arm64-musl@npm:1.11.2":
-  version: 1.11.2
-  resolution: "@parcel/css-linux-arm64-musl@npm:1.11.2"
+"@parcel/css-linux-arm64-musl@npm:1.12.0":
+  version: 1.12.0
+  resolution: "@parcel/css-linux-arm64-musl@npm:1.12.0"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@parcel/css-linux-x64-gnu@npm:1.11.2":
-  version: 1.11.2
-  resolution: "@parcel/css-linux-x64-gnu@npm:1.11.2"
+"@parcel/css-linux-x64-gnu@npm:1.12.0":
+  version: 1.12.0
+  resolution: "@parcel/css-linux-x64-gnu@npm:1.12.0"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@parcel/css-linux-x64-musl@npm:1.11.2":
-  version: 1.11.2
-  resolution: "@parcel/css-linux-x64-musl@npm:1.11.2"
+"@parcel/css-linux-x64-musl@npm:1.12.0":
+  version: 1.12.0
+  resolution: "@parcel/css-linux-x64-musl@npm:1.12.0"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@parcel/css-win32-x64-msvc@npm:1.11.2":
-  version: 1.11.2
-  resolution: "@parcel/css-win32-x64-msvc@npm:1.11.2"
+"@parcel/css-win32-x64-msvc@npm:1.12.0":
+  version: 1.12.0
+  resolution: "@parcel/css-win32-x64-msvc@npm:1.12.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
 "@parcel/css@npm:^1.10.1":
-  version: 1.11.2
-  resolution: "@parcel/css@npm:1.11.2"
+  version: 1.12.0
+  resolution: "@parcel/css@npm:1.12.0"
   dependencies:
-    "@parcel/css-darwin-arm64": 1.11.2
-    "@parcel/css-darwin-x64": 1.11.2
-    "@parcel/css-linux-arm-gnueabihf": 1.11.2
-    "@parcel/css-linux-arm64-gnu": 1.11.2
-    "@parcel/css-linux-arm64-musl": 1.11.2
-    "@parcel/css-linux-x64-gnu": 1.11.2
-    "@parcel/css-linux-x64-musl": 1.11.2
-    "@parcel/css-win32-x64-msvc": 1.11.2
+    "@parcel/css-darwin-arm64": 1.12.0
+    "@parcel/css-darwin-x64": 1.12.0
+    "@parcel/css-linux-arm-gnueabihf": 1.12.0
+    "@parcel/css-linux-arm64-gnu": 1.12.0
+    "@parcel/css-linux-arm64-musl": 1.12.0
+    "@parcel/css-linux-x64-gnu": 1.12.0
+    "@parcel/css-linux-x64-musl": 1.12.0
+    "@parcel/css-win32-x64-msvc": 1.12.0
     detect-libc: ^1.0.3
   dependenciesMeta:
     "@parcel/css-darwin-arm64":
@@ -564,7 +564,7 @@ __metadata:
       optional: true
     "@parcel/css-win32-x64-msvc":
       optional: true
-  checksum: dc77084b4ad79bf6986c6f50d80a539fcbf7059130f4225a774d6915de95505211108b6f228278785364096cd64e10fa60312fb382aed8e52a51f8ce53cb9162
+  checksum: 4623116c1afd0d616044a922be52685ee96c72b0539714c1a46c80b7ef32df6b5cda138020b2186975d27bc721495471f0839ebc364bc0240a7144bb75abaf17
   languageName: node
   linkType: hard
 
@@ -1303,9 +1303,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=12.12.47, @types/node@npm:>=13.7.0":
-  version: 18.0.3
-  resolution: "@types/node@npm:18.0.3"
-  checksum: 5dec59fbbc1186c808b53df1ca717dad034dbd6a901c75f5b052c845618b531b05f27217122c6254db99529a68618e4cfc534ae3dbf4e88754e9e572df80defa
+  version: 18.0.4
+  resolution: "@types/node@npm:18.0.4"
+  checksum: 981284fd57941f233f0e77038087c122f56e3c2b4fc4e090dfc7f0a93abfc526d5ccdd59eb3ef551d713245cf3943e37c7b957f12ba699209341a447c39fab59
   languageName: node
   linkType: hard
 
@@ -1913,16 +1913,16 @@ __metadata:
   linkType: hard
 
 "browserslist@npm:^4.6.6":
-  version: 4.21.1
-  resolution: "browserslist@npm:4.21.1"
+  version: 4.21.2
+  resolution: "browserslist@npm:4.21.2"
   dependencies:
-    caniuse-lite: ^1.0.30001359
-    electron-to-chromium: ^1.4.172
-    node-releases: ^2.0.5
+    caniuse-lite: ^1.0.30001366
+    electron-to-chromium: ^1.4.188
+    node-releases: ^2.0.6
     update-browserslist-db: ^1.0.4
   bin:
     browserslist: cli.js
-  checksum: 4904a9ded0702381adc495e003e7f77970abb7f8c8b8edd9e54f026354b5a96b1bddc26e6d9a7df9f043e468ecd2fcff2c8f40fc489909a042880117c2aca8ff
+  checksum: 30fe59f8b065f99665ea63819d29c797660f7975857c290f61f570403abed4d7039ca15b6fd21e39a57b87e1a9262f94676114040766fc0da6ccc11faf9fc377
   languageName: node
   linkType: hard
 
@@ -2074,10 +2074,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001359":
-  version: 1.0.30001365
-  resolution: "caniuse-lite@npm:1.0.30001365"
-  checksum: 5d043006e9bd9de1ae06c0e12c31997f0ed26f889f47ea6403dc2d08f46a5bd4bf0fe1a5b1099561fc447201ddf13083f277de68829e77fd238ff2af8c05e0a6
+"caniuse-lite@npm:^1.0.30001366":
+  version: 1.0.30001366
+  resolution: "caniuse-lite@npm:1.0.30001366"
+  checksum: eeb878e0be4090a4247dd3de5392ff1a864d086e5401790c7c81697918ce6ce3dac75956a21f9404b5ac770bfdabdb18619d0f920dc2295f3211ee893355f697
   languageName: node
   linkType: hard
 
@@ -3060,10 +3060,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-to-chromium@npm:^1.4.172":
-  version: 1.4.187
-  resolution: "electron-to-chromium@npm:1.4.187"
-  checksum: 258be88d92b3f34ffba8ea1d90ecc918f6aa74954af67d0439a649648a17738dad3042ef3f26be141177f5ffb0c5c90dfcaa18ae4dba7bc2937ff21d64a9acb6
+"electron-to-chromium@npm:^1.4.188":
+  version: 1.4.189
+  resolution: "electron-to-chromium@npm:1.4.189"
+  checksum: 3971bf78de177d66663076393ceeca761ba72f1b080205202f04868791da613c8312fdb08aeaa855f39a739f67781722903d198a1591b2f02382dc65f289e3d6
   languageName: node
   linkType: hard
 
@@ -4008,8 +4008,8 @@ __metadata:
   linkType: hard
 
 "google-auth-library@npm:^8.0.2":
-  version: 8.1.0
-  resolution: "google-auth-library@npm:8.1.0"
+  version: 8.1.1
+  resolution: "google-auth-library@npm:8.1.1"
   dependencies:
     arrify: ^2.0.0
     base64-js: ^1.3.0
@@ -4020,7 +4020,7 @@ __metadata:
     gtoken: ^6.0.0
     jws: ^4.0.0
     lru-cache: ^6.0.0
-  checksum: 1394d61eda9557823bcbb7e8fae3c4978928cd572e987f5f81d0da1bf8997d53bb55726a6f9415c81b888a7449badac01159ad4aab36da96ffbf9c6722ecd285
+  checksum: 581badf70974b900cdf6fa1749a14f8a42885cfab8ce5731101e40de286d977e30845e6815f58ea329eaf7ee4678262415ab1ea13aa29bce3609131be967787c
   languageName: node
   linkType: hard
 
@@ -4206,7 +4206,7 @@ __metadata:
     firebase-tools: ^11.2.2
     js-cookie: ^3.0.1
     photon-cli: ^1.1.2
-    photon-re: ^1.1.4
+    photon-re: ^1.1.5
     sass: ^1.53.0
     typescript: ^4.7.4
   languageName: unknown
@@ -4920,9 +4920,9 @@ __metadata:
   linkType: hard
 
 "json-ptr@npm:^3.0.1":
-  version: 3.1.0
-  resolution: "json-ptr@npm:3.1.0"
-  checksum: b64990594e77d562f5d6dfdf866d4dc338788ddfee6493ce09d2d0b373571dbafbc71364ab02b277c05f911ad4e1ec26e2a05ef899029d747153e51bf8a7de3b
+  version: 3.1.1
+  resolution: "json-ptr@npm:3.1.1"
+  checksum: 58da208d842647e8c2681452508eb4af4bb29a9470bebccf0040ad4d6c49eb0a4f1ae726a62918a22b3e5b13765f36642e2c23670cba152f4eb03676449dba6c
   languageName: node
   linkType: hard
 
@@ -5365,9 +5365,9 @@ __metadata:
   linkType: hard
 
 "lru-cache@npm:^7.7.1":
-  version: 7.12.0
-  resolution: "lru-cache@npm:7.12.0"
-  checksum: fdb62262978393df7a4bd46a072bc5c3808c50ca5a347a82bb9459410efd841b7bae50655c3cf9004c70d12c756cf6d018f6bff155a16cdde9eba9a82899b5eb
+  version: 7.13.0
+  resolution: "lru-cache@npm:7.13.0"
+  checksum: 95a13e0f3691db9be3e78b597e347c2a4911f7303a514076dbc185b472683fa6e06dcaad74b5fc35fa1192c2cfe4b0bbaf3778b5066503eedd1b92bfec864c4c
   languageName: node
   linkType: hard
 
@@ -5864,8 +5864,8 @@ __metadata:
   linkType: hard
 
 "node-gyp@npm:^9.0.0, node-gyp@npm:latest":
-  version: 9.0.0
-  resolution: "node-gyp@npm:9.0.0"
+  version: 9.1.0
+  resolution: "node-gyp@npm:9.1.0"
   dependencies:
     env-paths: ^2.2.0
     glob: ^7.1.4
@@ -5879,11 +5879,11 @@ __metadata:
     which: ^2.0.2
   bin:
     node-gyp: bin/node-gyp.js
-  checksum: 4d8ef8860f7e4f4d86c91db3f519d26ed5cc23b48fe54543e2afd86162b4acbd14f21de42a5db344525efb69a991e021b96a68c70c6e2d5f4a5cb770793da6d3
+  checksum: 1437fa4a879b5b9010604128e8da8609b57c66034262087539ee04a8b764b8436af2be01bab66f8fc729a3adba2dcc21b10a32b9f552696c3fa8cd657d134fc4
   languageName: node
   linkType: hard
 
-"node-releases@npm:^2.0.5":
+"node-releases@npm:^2.0.6":
   version: 2.0.6
   resolution: "node-releases@npm:2.0.6"
   checksum: e86a926dc9fbb3b41b4c4a89d998afdf140e20a4e8dbe6c0a807f7b2948b42ea97d7fd3ad4868041487b6e9ee98409829c6e4d84a734a4215dff060a7fbeb4bf
@@ -6310,9 +6310,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"photon-re@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "photon-re@npm:1.1.4"
+"photon-re@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "photon-re@npm:1.1.5"
   dependencies:
     "@frank-mayer/magic": ^4.0.0
     "@types/mustache": ^4.1.3
@@ -6320,7 +6320,7 @@ __metadata:
     mustache: ^4.2.0
     tslib: ^2.4.0
     xxhash-wasm: ^1.0.1
-  checksum: 51b08d1144793439d59e4cd67f3e9059c4e4c53be43ad9df5eda72a78cd0b3b98add241e8dbd8b8c238a1e351eaf5af2eede93e3a2c4c9346f7254494ef20604
+  checksum: c16fddabc3ae9662594be204ed41e09b346e39c879c513c4e024c2db098b530b2117f8a14652363b7e8f986d41c28f81acc06100c54788be381d509c08ff831e
   languageName: node
   linkType: hard
 
@@ -7457,8 +7457,8 @@ __metadata:
   linkType: hard
 
 "terser@npm:^5.2.0":
-  version: 5.14.1
-  resolution: "terser@npm:5.14.1"
+  version: 5.14.2
+  resolution: "terser@npm:5.14.2"
   dependencies:
     "@jridgewell/source-map": ^0.3.2
     acorn: ^8.5.0
@@ -7466,7 +7466,7 @@ __metadata:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-  checksum: 7b0e51f3d193a11cad82f07e3b0c1d62122eec786f809bdf2a54b865aaa1450872c3a7b6c33b5a40e264834060ffc1d4e197f971a76da5b0137997d756eb7548
+  checksum: cabb50a640d6c2cfb351e4f43dc7bf7436f649755bb83eb78b2cacda426d5e0979bd44e6f92d713f3ca0f0866e322739b9ced888ebbce6508ad872d08de74fcc
   languageName: node
   linkType: hard
 
