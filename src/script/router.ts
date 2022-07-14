@@ -48,5 +48,31 @@ export class Router {
   contact() {
     this.updatePageClass("contact");
     document.title = "{{title}} – Contact";
+
+    for (const formEl of Array.from(document.getElementsByTagName("form"))) {
+      formEl.addEventListener(
+        "submit",
+        (ev) => {
+          ev.preventDefault();
+          const form = ev.target as HTMLFormElement;
+          const formData = new FormData(form);
+          const xhr = new XMLHttpRequest();
+          xhr.open("POST", form.action);
+          xhr.onload = () => {
+            if (xhr.status === 200) {
+              form.reset();
+              alert("Message sent!");
+            } else {
+              alert("Error sending message!");
+            }
+          };
+          xhr.send(formData);
+        },
+        {
+          passive: false,
+          capture: true,
+        }
+      );
+    }
   }
 }
