@@ -133,10 +133,10 @@ header {
   }
 }
 
-body.info a[data-route="../info"],
-body.portfolio a[data-route="../portfolio"],
-body.links a[data-route="../links"],
-body.contact a[data-route="../contact"] {
+body.info a[data-menu="info"],
+body.portfolio a[data-menu="portfolio"],
+body.links a[data-menu="links"],
+body.contact a[data-menu="contact"] {
   color: $foreground-primary !important;
   background-color: transparent !important;
   pointer-events: none !important;

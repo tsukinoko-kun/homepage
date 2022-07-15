@@ -121,6 +121,8 @@ header {
     > a {
       text-transform: uppercase;
       font-size: $font-size-small !important;
+      text-decoration: none !important;
+
       &.button {
         background-color: transparent !important;
         border: none !important;
@@ -137,10 +139,10 @@ header {
   }
 }
 
-body.info a[data-route="../info"],
-body.portfolio a[data-route="../portfolio"],
-body.links a[data-route="../links"],
-body.contact a[data-route="../contact"] {
+body.info a[data-menu="info"],
+body.portfolio a[data-menu="portfolio"],
+body.links a[data-menu="links"],
+body.contact a[data-menu="contact"] {
   color: $foreground-primary !important;
   pointer-events: none !important;
 
@@ -156,7 +158,7 @@ body.contact a[data-route="../contact"] {
   }
 }
 
-.home #home[data-route="../home"] {
+.home #home[data-menu="home"] {
   font-size: 0 !important;
   color: transparent !important;
 }
