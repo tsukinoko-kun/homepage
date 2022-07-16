@@ -14,6 +14,7 @@
   "license": "MIT",
   "devDependencies": {
     "@parcel/transformer-sass": "2.6.2",
+    "@types/animejs": "^3.1.5",
     "@types/js-cookie": "^3.0.2",
     "firebase-tools": "^11.2.2",
     "photon-cli": "^1.1.2",

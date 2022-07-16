@@ -1,127 +1,90 @@
 @use "sass:math";
 @use "sass:color";
 
-$sharingan-red: #d03030;
-$sharingan-black: #000000;
-$iris-size: 50vmin;
-$gap: 10vmin;
-$timing: 1s;
+$sharingan-red: firebrick;
+$sharingan-black: black;
+$eye-size: 30vmin;
 
-@keyframes ems {
-  from {
-    transform: rotateZ(0deg);
-  }
-  to {
-    transform: rotateZ(360deg);
-  }
-}
-
-@keyframes ems1 {
-  from {
-    transform: rotateZ(0deg);
-  }
-  to {
-    transform: rotateZ(360deg);
-  }
-}
-
-.sharingan {
-  overflow: hidden;
-
-  border: {
-    color: $sharingan-black;
-    style: solid;
-    width: 2px;
-    radius: 50%;
-  }
-  width: $iris-size;
-  height: $iris-size;
+#sharingan-holder {
+  overflow: visible;
+  display: block;
   margin: 0 auto;
-  position: relative;
+
+  background-color: whitesmoke;
+  height: #{$eye-size * 1.25};
+  width: #{$eye-size * 2};
+
+  $eye-scale: math.div($eye-size, 50);
+
+  border-radius: 65% 0;
+  border-top: solid black 15px;
+  border-left: solid black 5px;
+  border-right: solid black 7px;
+  border-bottom: solid black 2px;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: $gap;
-  grid-row-gap: $gap;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "eye";
+  grid-gap: 0;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 0;
 
-  background-color: $sharingan-red;
-
-  > .pupil {
-    grid-area: 2 / 2 / 3 / 3;
-    z-index: 5;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    display: block;
-    background-color: $sharingan-black;
-
-    transition: background-color $timing ease-in-out #{$timing * 0.5},
-      transform $timing ease-in-out;
+  > * {
+    grid-area: eye;
   }
 
-  > .tomoe {
-    background-color: $sharingan-black;
-    border-radius: 50%;
-
-    grid-area: 1 / 2 / 2 / 3;
-
-    &::after {
-      content: "";
-      background-color: $sharingan-black;
-      border-radius: 100% 0 0 0;
-      position: relative;
-      display: block;
-      width: 75%;
-      height: 75%;
-      transform: translateY(-45%);
-
-      transition: width $timing ease-in-out, height $timing ease-in-out,
-        transform $timing ease-in-out;
-    }
-
-    transform-origin: center #{math.div($iris-size, 2)};
-
-    &:nth-child(1) {
-      transform: scale(0.65);
-    }
-    &:nth-child(2) {
-      transform: scale(0.65) rotateZ(240deg);
-    }
-    &:nth-child(3) {
-      transform: scale(0.65) rotateZ(120deg);
-    }
-
-    transition: background-color $timing ease-in-out,
-      transform $timing ease-in-out;
-  }
-
-  &:not(:hover) {
-    animation: ems1 #{$timing * 2};
-  }
-
-  &:hover {
-    animation: ems #{$timing * 2};
+  &:hover > #sharingan {
+    transform: rotate(360deg);
 
     > .pupil {
-      background-color: $sharingan-red;
-      transform: scale(0.7);
+      transform: scale(0.9);
+      fill: $sharingan-red;
+      z-index: 1;
+    }
+  }
+
+  &:not(:hover) > #sharingan {
+    > .pupil {
+      fill: $sharingan-black;
+    }
+  }
+
+  > #sharingan {
+    overflow: hidden;
+    transition: transform 500ms ease-out;
+    transform-origin: center;
+    will-change: transform;
+
+    border: {
+      color: $sharingan-black;
+      style: solid;
+      width: 2px;
+      radius: 50%;
+    }
+    width: $eye-size;
+    height: $eye-size;
+    position: relative;
+
+    background-color: $sharingan-red;
+
+    > * {
+      transform-origin: center;
     }
 
     > .tomoe {
-      &:nth-child(1) {
-        transform: scale(0.5) translateY(40%);
-      }
+      z-index: 0;
+      fill: $sharingan-black;
+
       &:nth-child(2) {
-        transform: scale(0.5) rotateZ(240deg) translateY(40%);
-      }
-      &:nth-child(3) {
-        transform: scale(0.5) rotateZ(120deg) translateY(40%);
+        transform: rotate(120deg);
       }
 
-      &::after {
-        transform: translate(-15%, -45%);
-        height: 500%;
-        width: 175%;
+      &:nth-child(3) {
+        transform: rotate(240deg);
       }
     }
   }
