@@ -5,7 +5,12 @@
   <input name="mail" type="email" autocomplete="email" />
 
   <label for="message">Nachricht<span>(max. 512 Zeichen)</span></label>
-  <textarea name="message" autocorrect="on" maxlength="512"></textarea>
+  <textarea
+    name="message"
+    autocorrect="on"
+    minlength="10"
+    maxlength="512"
+  ></textarea>
 
   <input type="submit" value="Senden" />
 
