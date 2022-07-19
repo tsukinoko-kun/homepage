@@ -4230,7 +4230,7 @@ __metadata:
     "@types/js-cookie": ^3.0.2
     firebase-tools: ^11.3.0
     js-cookie: ^3.0.1
-    photon-cli: ^1.2.0
+    photon-cli: ^1.2.1
     photon-re: ^1.1.5
     sass: ^1.53.0
     typescript: ^4.7.4
@@ -6320,9 +6320,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"photon-cli@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "photon-cli@npm:1.2.0"
+"photon-cli@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "photon-cli@npm:1.2.1"
   dependencies:
     "@parcel/config-default": ^2.6.2
     "@parcel/core": ^2.6.2
@@ -6339,7 +6339,7 @@ __metadata:
     xxhash-wasm: ^1.0.1
   bin:
     photon: index.js
-  checksum: 451df9617ef3b1b919bf3af8cd6d7063b3b61bd0a809bcdb438c0da060db83c3c4c31b476aaee6a045cfce7e81468dc3c761e035bdee9883e8016e69bf88b7dc
+  checksum: 4a05cbdd474abd3b07cc4314f76c9b159881a5ca6fee94d370d1def4cd26de021f9063557a85e75b27e92c9a2212a079f6c591c53c978286334b6c26131ee03c
   languageName: node
   linkType: hard
 
