@@ -30,37 +30,47 @@
 <link rel="stylesheet" href="../style/sharingan.scss" />
 
 <script>
-  const tomoePath =
-    "M168.003 72C168.003 83.0457 159.048 92 148.003 92C136.957 92 128.003 83.0457 128.003 72C128.003 65.0179 127.003 36 164.503 31C147.503 39 146.503 52 146.503 52C159.003 52 168.003 60.9543 168.003 72Z";
+  if (
+    !(
+      "ontouchstart" in window &&
+      (Number(navigator.maxTouchPoints) > 0 ||
+        Number(navigator.msMaxTouchPoints) > 0)
+    )
+  ) {
+    const tomoePath =
+      "M168.003 72C168.003 83.0457 159.048 92 148.003 92C136.957 92 128.003 83.0457 128.003 72C128.003 65.0179 127.003 36 164.503 31C147.503 39 146.503 52 146.503 52C159.003 52 168.003 60.9543 168.003 72Z";
 
-  const mangekyouPath =
-    "M149.5 193C172.972 193 192 173.972 192 150.5C192 127.028 178 120 173 114.5C136 85.5 155.5 41 176 12C97.5 19 107 138.035 107 150.5C107 173.972 126.028 193 149.5 193Z";
+    const mangekyouPath =
+      "M149.5 193C172.972 193 192 173.972 192 150.5C192 127.028 178 120 173 114.5C136 85.5 155.5 41 176 12C97.5 19 107 138.035 107 150.5C107 173.972 126.028 193 149.5 193Z";
 
-  const sharinganEl = document.getElementById("sharingan-holder");
+    const sharinganEl = document.getElementById("sharingan-holder");
 
-  if (sharinganEl) {
-    sharinganEl.addEventListener("mousemove", () => {
-      const tl = anime.timeline({
-        easing: "easeOutElastic",
-        duration: 500,
+    if (sharinganEl) {
+      sharinganEl.classList.add("hoverable");
+
+      sharinganEl.addEventListener("mousemove", () => {
+        const tl = anime.timeline({
+          easing: "easeOutElastic",
+          duration: 1200,
+        });
+
+        tl.add({
+          targets: sharinganEl.getElementsByClassName("tomoe"),
+          d: [{ value: mangekyouPath }],
+        });
       });
 
-      tl.add({
-        targets: sharinganEl.getElementsByClassName("tomoe"),
-        d: [{ value: mangekyouPath }],
-      });
-    });
+      sharinganEl.addEventListener("mouseleave", () => {
+        const tl = anime.timeline({
+          easing: "easeOutElastic",
+          duration: 1200,
+        });
 
-    sharinganEl.addEventListener("mouseleave", () => {
-      const tl = anime.timeline({
-        easing: "easeOutElastic",
-        duration: 500,
+        tl.add({
+          targets: sharinganEl.getElementsByClassName("tomoe"),
+          d: [{ value: tomoePath }],
+        });
       });
-
-      tl.add({
-        targets: sharinganEl.getElementsByClassName("tomoe"),
-        d: [{ value: tomoePath }],
-      });
-    });
+    }
   }
 </script>

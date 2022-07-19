@@ -37,8 +37,8 @@ $eye-size: 30vmin;
     grid-area: eye;
   }
 
-  &:hover > #sharingan {
-    transform: rotate(360deg);
+  &.hoverable:hover > #sharingan {
+    transform: rotate(720deg);
 
     > .pupil {
       transform: scale(0.9);
@@ -47,17 +47,22 @@ $eye-size: 30vmin;
     }
   }
 
-  &:not(:hover) > #sharingan {
+  &:not(.hoverable) > #sharingan,
+  &.hoverable:not(:hover) > #sharingan {
     > .pupil {
       fill: $sharingan-black;
     }
   }
 
+  &.hoverable > #sharingan,
+  &.hoverable > #sharingan > .pupil {
+    transition: transform 1000ms ease-out;
+    will-change: transform;
+  }
+
   > #sharingan {
     overflow: hidden;
-    transition: transform 500ms ease-out;
     transform-origin: center;
-    will-change: transform;
 
     border: {
       color: $sharingan-black;
