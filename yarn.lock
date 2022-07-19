@@ -3570,9 +3570,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"firebase-tools@npm:^11.2.2":
-  version: 11.2.2
-  resolution: "firebase-tools@npm:11.2.2"
+"firebase-tools@npm:^11.3.0":
+  version: 11.3.0
+  resolution: "firebase-tools@npm:11.3.0"
   dependencies:
     "@google-cloud/pubsub": ^3.0.1
     abort-controller: ^3.0.0
@@ -3635,7 +3635,7 @@ __metadata:
     ws: ^7.2.3
   bin:
     firebase: lib/bin/firebase.js
-  checksum: 744f320ad6bd5ece142ac38212219da8275283e525cbbf78e7ace70d495689cfdf3047b964304f459a3ed141ad5bfa7d20b29423ab55d8164031d26ada50fb92
+  checksum: 05f3139e8e3e4cf28b3209f38700781e2b2817807aeffdbb16af553323355ab8c2089a1f5c03333e65c5726b6d43464dcdc21a57f2255ef74eef3a716cd4dfd1
   languageName: node
   linkType: hard
 
@@ -4211,7 +4211,7 @@ __metadata:
     "@parcel/transformer-sass": 2.6.2
     "@types/animejs": ^3.1.5
     "@types/js-cookie": ^3.0.2
-    firebase-tools: ^11.2.2
+    firebase-tools: ^11.3.0
     js-cookie: ^3.0.1
     photon-cli: ^1.1.2
     photon-re: ^1.1.5
