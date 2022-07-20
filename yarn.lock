@@ -71,12 +71,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@frank-mayer/service-worker@npm:^0.0.2":
-  version: 0.0.2
-  resolution: "@frank-mayer/service-worker@npm:0.0.2"
+"@frank-mayer/service-worker@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "@frank-mayer/service-worker@npm:0.0.3"
   dependencies:
     "@parcel/service-worker": ^2.6.2
-  checksum: b664b2a339a2dab65126a109a25413dbb4375412ea52c5ec5371957a1e7fd864b2b1ea15e94132fc9ba344160cd9bb565a29bb56fbeb810ea82bff8c565f9576
+  checksum: 5d880361c59e63d7650fdbf0b9d3713f0882c0dfe2fc659429fb8afb6f692573f727148dda40db58c10aa393361f0c8aafc74b9104fb85c0b05594866c71b7b9
   languageName: node
   linkType: hard
 
@@ -4224,7 +4224,7 @@ __metadata:
   resolution: "homepage@workspace:."
   dependencies:
     "@frank-mayer/magic": ^4.0.0
-    "@frank-mayer/service-worker": ^0.0.2
+    "@frank-mayer/service-worker": ^0.0.3
     "@parcel/transformer-sass": 2.6.2
     "@types/animejs": ^3.1.5
     "@types/js-cookie": ^3.0.2
