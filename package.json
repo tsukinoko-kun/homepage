@@ -17,7 +17,7 @@
     "@types/animejs": "^3.1.5",
     "@types/js-cookie": "^3.0.2",
     "firebase-tools": "^11.3.0",
-    "photon-cli": "^1.2.1",
+    "photon-cli": "^1.2.2",
     "sass": "^1.53.0",
     "typescript": "^4.7.4"
   },
