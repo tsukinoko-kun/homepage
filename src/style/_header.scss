@@ -7,6 +7,10 @@ body.contact nav a[data-route]:not([data-route="../contact"]) {
 }
 
 header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100vw;
   user-select: none;
   background-color: rgba(black, 0.45);
   backdrop-filter: blur(8px) saturate(180%);
