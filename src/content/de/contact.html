@@ -2,7 +2,7 @@
 
 <form action="https://eo4hr3kdzumsq1q.m.pipedream.net" method="post">
   <label for="mail">E-Mail</label>
-  <input name="mail" type="email" autocomplete="email" />
+  <input name="mail" type="email" autocomplete="email" required />
 
   <label for="message">Nachricht<span>(max. 512 Zeichen)</span></label>
   <textarea
@@ -10,6 +10,7 @@
     autocorrect="on"
     minlength="10"
     maxlength="512"
+    required
   ></textarea>
 
   <input type="submit" value="Senden" />
