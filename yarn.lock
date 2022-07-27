@@ -41,9 +41,9 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
-"@frank-mayer/magic@^4.0.0":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-4.0.1.tgz#af830de6561d19ec3d166f9d404ad8e3f2e565a5"
+"@frank-mayer/magic@^4.0.0", "@frank-mayer/magic@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@frank-mayer/magic/-/magic-4.0.2.tgz#1a87a1424a9be5885e3e823be7506d2cbb64fcef"
   dependencies:
     tslib "^2.4.0"
 
