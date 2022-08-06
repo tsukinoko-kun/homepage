@@ -15,9 +15,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: latest
-          cache: yarn
-      - run: yarn
-      - run: yarn build
+      - run: npm install
+      - run: npm run build
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

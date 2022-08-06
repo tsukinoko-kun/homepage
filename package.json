@@ -3,11 +3,11 @@
   "homepage": "https://frank-mayer.io",
   "scripts": {
     "dev": "photon \"./src\" --serve 12345 --open",
-    "clean": "yarn clean-windows || yarn clean-linux",
+    "clean": "npm run clean-windows || npm run clean-linux",
     "clean-linux": "rm -rf \"./.photon-cache\" && rm -rf \"./dist\"",
     "clean-windows": "rmdir /Q/S \"./.photon-cache\" & rmdir /Q/S \"./dist\"",
     "build": "photon \"./src\" --sw \"./src/script/service-worker.ts\"",
-    "deploy": "yarn firebase deploy --only hosting"
+    "deploy": "npm run firebase deploy --only hosting"
   },
   "repository": "https://github.com/Frank-Mayer/homepage.git",
   "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
