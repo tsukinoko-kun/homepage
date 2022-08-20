@@ -15,7 +15,7 @@ body,
 main {
   background-color: $background;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
   margin: 0;
 }
 
