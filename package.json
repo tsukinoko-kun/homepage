@@ -25,6 +25,6 @@
     "@frank-mayer/magic": "^4.0.2",
     "@frank-mayer/service-worker": "^1.0.1",
     "js-cookie": "^3.0.1",
-    "photon-re": "^1.1.5"
+    "photon-re": "^1.1.6"
   }
 }
