@@ -41,6 +41,17 @@ ul.project-list {
           font-size: 0.8rem;
         }
 
+        &.fs {
+          background-image: linear-gradient(
+            150deg,
+            rgb(55, 139, 186) 50%,
+            rgb(49, 185, 220) 50%
+          );
+          &::before {
+            content: "F#";
+          }
+        }
+
         &.ts {
           background-color: #007acc;
           &::before {
