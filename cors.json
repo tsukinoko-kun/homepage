@@ -1,7 +1,0 @@
-[
-  {
-    "origin": ["self", "*.frank-mayer.io", "frank-mayer.io"],
-    "responseHeader": ["*"],
-    "method": ["GET", "POST", "HEAD"]
-  }
-]

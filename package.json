@@ -1,30 +1,25 @@
 {
   "name": "homepage",
-  "homepage": "https://frank-mayer.io",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "photon \"./src\" --serve 12345 --open",
-    "clean": "npm run clean-windows || npm run clean-linux",
-    "clean-linux": "rm -rf \"./.photon-cache\" && rm -rf \"./dist\"",
-    "clean-windows": "rmdir /Q/S \"./.photon-cache\" & rmdir /Q/S \"./dist\"",
-    "build": "photon \"./src\" --sw \"./src/script/service-worker.ts\"",
-    "deploy": "npm run firebase deploy --only hosting"
-  },
-  "repository": "https://github.com/Frank-Mayer/homepage.git",
-  "author": "Frank Mayer <frank.mayer1907@protonmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.7.0",
-    "@types/animejs": "^3.1.5",
-    "@types/js-cookie": "^3.0.2",
-    "firebase-tools": "^11.7.0",
-    "photon-cli": "^1.2.4",
-    "sass": "^1.54.5",
-    "typescript": "^4.7.4"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@frank-mayer/magic": "^4.0.2",
-    "@frank-mayer/service-worker": "^1.0.1",
-    "js-cookie": "^3.0.1",
-    "photon-re": "^1.1.6"
+    "next": "12.2.5",
+    "preact": "^10.10.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.13",
+    "@types/react": "18.0.17",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.23.0",
+    "eslint-config-next": "12.2.5",
+    "typescript": "4.8.2"
   }
 }
