@@ -1,0 +1,19 @@
+@use "theme";
+
+@import "preflight";
+@import "fonts";
+
+@import "main";
+@import "footer";
+
+:root {
+  font-family: theme.$font;
+  background-color: theme.$background;
+}
+
+:root,
+html,
+body,
+#__next {
+  min-height: 100vh;
+}
