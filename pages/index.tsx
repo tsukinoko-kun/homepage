@@ -22,46 +22,53 @@ const Page: NextPage = () => (
               the professional way
             </h1>
             <p>
-              Let a professional developer take care of your website, so you can
-              focus on what you love.
+              Let a pro&shy;fes&shy;sion&shy;al de&shy;vel&shy;op&shy;er take
+              care of your web&shy;site, so you can focus on what you love.
             </p>
             <Link href="/contact">
               <a className={styles["call-to-action"]}>Get in touch</a>
             </Link>
             <hr />
-            <h2>What do you want your website to be?</h2>
+            <h2>What do you want your web&shy;site to be?</h2>
             <section>
+              <h3>Look breathtaking?</h3>
               <img
                 decoding="async"
                 className="float right"
                 src="/img/research.webp"
+                style={{
+                  shapeOutside: "url(/img/research.webp)",
+                }}
                 alt=""
               />
-              <h3>Look breathtaking?</h3>
               <p>
-                After an initial exchange, I create a concept that we review
-                together and possibly revise.
+                After an initial ex&shy;change, I create a concept that we
+                review together and possibly revise.
               </p>
               <p>
-                I have professional experience with different technologies and
-                can easily choose the right one for your website.
+                I have pro&shy;fes&shy;sion&shy;al experience with different
+                tech&shy;nolo&shy;gies and can easily choose the right one for
+                your web&shy;site.
               </p>
             </section>
             <section>
+              <h3>Support Internet Explorer?</h3>
               <img
                 decoding="async"
-                className="float left"
+                className="float right"
                 src="/img/grandma.webp"
+                style={{
+                  shapeOutside: "url(/img/grandma.webp)",
+                }}
                 alt=""
               />
-              <h3>Support Internet Explorer?</h3>
               <p>
                 <strong>No way!</strong>
               </p>
               <p>
                 Internet Explorer is dead, and for good reason. A modern
-                interface is simply not possible with this browser. It is also
-                very insecure. Read more about it{" "}
+                in&shy;ter&shy;face is simply not pos&shy;si&shy;ble with this
+                browser. It is also very in&shy;secure. Read more about it{" "}
                 <a
                   target="_blank"
                   href="https://www.ezcomputersolutions.com/blog/stop-using-internet-explorer"
@@ -72,7 +79,7 @@ const Page: NextPage = () => (
               </p>
             </section>
             <hr />
-            <h2>Did I convince you?</h2>
+            <h2>Did I con&shy;vince you?</h2>
             <Link href="/contact">
               <a className={styles["call-to-action"]}>Get in touch</a>
             </Link>
@@ -82,52 +89,60 @@ const Page: NextPage = () => (
           "de",
           <>
             <h1 className={styles.heading}>
-              Hole dir deine professionelle Webseite
+              Hole dir deine pro&shy;fes&shy;sio&shy;nelle Webseite
             </h1>
             <p>
-              Gib deine Webseite an einen professionellen Entwickler ab, damit
-              du dich auf das konzentrieren kannst, was du liebst.
+              Gib deine Web&shy;seite an einen pro&shy;fes&shy;sio&shy;nellen
+              Entwickler ab, damit du dich auf das kon&shy;zen&shy;trie&shy;ren
+              kannst, was du liebst.
             </p>
             <Link href="/contact">
               <a className={styles["call-to-action"]}>
-                Jetzt Kontakt aufnehmen
+                Jetzt Kontakt auf&shy;nehmen
               </a>
             </Link>
             <hr />
             <h2>Was soll deine Webseite können?</h2>
             <section>
+              <h3>Atem&shy;beraubend aussehen?</h3>
               <img
                 decoding="async"
                 className="float right"
                 src="/img/research.webp"
+                style={{
+                  shapeOutside: "url(/img/research.webp)",
+                }}
                 alt=""
               />
-              <h3>Atemberaubend aussehen?</h3>
               <p>
                 Nach einem ersten Austausch entwerfe ich ein Konzept, welches
-                wir zusammen durchgehen und eventuell überarbeiten.
+                wir zusammen durch&shy;gehen und eventuell über&shy;arbeiten.
               </p>
               <p>
-                Ich habe professionelle Erfahrung mit unterschiedlichen
-                Technologien und kann mit leichtigkeit das passende für deine
-                Webseite auswählen.
+                Ich habe pro&shy;fes&shy;sio&shy;nelle Erfahrung mit
+                unter&shy;schied&shy;lichen Tech&shy;no&shy;lo&shy;gien und kann
+                mit leich&shy;tig&shy;keit das passende für deine Web&shy;seite
+                auswählen.
               </p>
             </section>
             <section>
+              <h3>Internet Explorer unterstützen?</h3>
               <img
                 decoding="async"
-                className="float left"
+                className="float right"
                 src="/img/grandma.webp"
+                style={{
+                  shapeOutside: "url(/img/grandma.webp)",
+                }}
                 alt=""
               />
-              <h3>Internet Explorer unterstützen?</h3>
               <p>
                 <strong>Nein!</strong>
               </p>
               <p>
                 Der Internet Explorer ist tot und das aus gutem Grund. Eine
-                Moderne Oberfläche ist mit diesem Browser einfach nicht möglich.
-                Zudem ist er sehr unsicher. Mehr dazu{" "}
+                Moderne Ober&shy;fläche ist mit diesem Browser einfach nicht
+                möglich. Zudem ist er sehr unsicher. Mehr dazu{" "}
                 <a
                   target="_blank"
                   href="https://www.computerbild.de/artikel/cb-Tipps-Software-Kommentar-Warum-ist-der-Internet-Explorer-so-schlecht-Rauswurf-der-IE-aus-Windows-11-30623631.html"

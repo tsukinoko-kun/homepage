@@ -1,7 +1,8 @@
 @use "sass:math";
 @use "desktop/desktoptheme";
+@use "theme";
 
-@media screen and (min-width: 512px) {
+@media screen and (min-width: #{theme.$breakpoint}) {
   :root {
     --page-space: max(
       1rem,

@@ -3,6 +3,8 @@ import Head from "next/head";
 import { Lang } from "../components/LanguageSwitcher";
 import { title } from "../lib/title";
 
+import styles from "../styles/contact.module.scss";
+
 const Page: NextPage = () => (
   <Lang>
     {[
@@ -13,15 +15,28 @@ const Page: NextPage = () => (
             <title>{title("Contact")}</title>
           </Head>
           <h1>Contact</h1>
-          <form action="https://eo4hr3kdzumsq1q.m.pipedream.net" method="post">
-            <label>
+          <form
+            className={styles.form}
+            action="https://eo4hr3kdzumsq1q.m.pipedream.net"
+            method="post"
+          >
+            <label className={styles.field}>
               E-Mail{" "}
-              <input name="mail" type="email" autoComplete="email" required />
+              <input
+                className={styles["field-input"]}
+                placeholder="your@email.com"
+                name="mail"
+                type="email"
+                autoComplete="email"
+                required
+              />
             </label>
 
-            <label>
-              Message<span>(max. 512 characters)</span>
+            <label className={styles.field}>
+              Message (max. 512 characters)
               <textarea
+                className={styles["field-input"]}
+                placeholder="Your message..."
                 name="message"
                 autoCorrect="on"
                 minLength={10}
@@ -30,7 +45,7 @@ const Page: NextPage = () => (
               ></textarea>
             </label>
 
-            <input type="submit" value="Send" />
+            <input className={styles.submit} type="submit" value="Send" />
 
             <input
               type="hidden"
@@ -47,15 +62,28 @@ const Page: NextPage = () => (
             <title>{title("Kontakt")}</title>
           </Head>
           <h1>Kontakt</h1>
-          <form action="https://eo4hr3kdzumsq1q.m.pipedream.net" method="post">
-            <label>
+          <form
+            className={styles.form}
+            action="https://eo4hr3kdzumsq1q.m.pipedream.net"
+            method="post"
+          >
+            <label className={styles.field}>
               E-Mail{" "}
-              <input name="mail" type="email" autoComplete="email" required />
+              <input
+                className={styles["field-input"]}
+                placeholder="deine@email.de"
+                name="mail"
+                type="email"
+                autoComplete="email"
+                required
+              />
             </label>
 
-            <label>
-              Nachricht<span>(max. 512 Zeichen)</span>
+            <label className={styles.field}>
+              Nachricht (max. 512 Zeichen)
               <textarea
+                className={styles["field-input"]}
+                placeholder="Deine Nachricht..."
                 name="message"
                 autoCorrect="on"
                 minLength={10}
@@ -64,7 +92,7 @@ const Page: NextPage = () => (
               ></textarea>
             </label>
 
-            <input type="submit" value="Absenden" />
+            <input className={styles.submit} type="submit" value="Absenden" />
 
             <input
               type="hidden"
