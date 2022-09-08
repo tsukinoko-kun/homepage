@@ -1,12 +1,19 @@
 @use "theme";
 
 main {
-  max-width: theme.$page-width;
-  width: 100vw;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
 
   p {
     color: theme.$foreground-secondary;
+  }
+
+  > hr {
+    margin: 2rem auto;
+    width: 75%;
+    border: 0.5px solid rgba(theme.$foreground-secondary, 0.25);
   }
 
   b {
@@ -14,10 +21,10 @@ main {
   }
 
   a {
-    text-decoration: none;
     word-break: keep-all;
     will-change: color;
     transition: color theme.$timing;
+    text-decoration: none;
     border-bottom: {
       width: 0.5px;
       style: solid;
@@ -52,5 +59,12 @@ main {
     font-size: 1.25rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
+  }
+
+  > section {
+    p {
+      display: block;
+      margin: 0.5rem 0;
+    }
   }
 }

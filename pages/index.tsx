@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Lang } from "../components/LanguageSwitcher";
 import { title } from "../lib/title";
 
+import styles from "../styles/hero-section.module.scss";
+
 const Page: NextPage = () => (
   <>
     <Head>
@@ -14,73 +16,134 @@ const Page: NextPage = () => (
         [
           "en",
           <>
-            <h1>Frank Mayer</h1>
+            <h1 className={styles.heading}>
+              Get your website,
+              <br />
+              the professional way
+            </h1>
             <p>
-              Professional developer for <b>high-performance</b> web
-              applications.
+              Let a professional developer take care of your website, so you can
+              focus on what you love.
             </p>
-            <p>
-              <b>My name is Frank Mayer</b>, I am a{" "}
-              <b>certified IT specialist</b> for application development. I am
-              mainly working as a frontend developer. Here I prefer to work with
-              HTML5, Scss and TypeScript. I also have experience at backend with
-              C#, Kotlin and F#.
-            </p>
-            <p>
-              Besides, I freelance for private clients or work on my projects.
-            </p>
-            <p>
-              Most of my projects are <b>open source</b> available on{" "}
-              <a href="https://github.com/Frank-Mayer">GitHub</a>. You can find
-              a selection in my{" "}
-              <Link href="/portfolio">
-                <a>portfolio</a>
-              </Link>
-              .
-            </p>
-            <p>
-              Want to start a project with me? Then just get in touch{" "}
-              <Link href="/contact">
-                <a>here</a>
-              </Link>
-              .
-            </p>
+            <Link href="/contact">
+              <a className={styles["call-to-action"]}>Get in touch</a>
+            </Link>
+            <hr />
+            <h2>What do you want your website to be?</h2>
+            <section>
+              <img
+                decoding="async"
+                className="float right"
+                src="/img/research.webp"
+                alt=""
+              />
+              <h3>Look breathtaking?</h3>
+              <p>
+                After an initial exchange, I create a concept that we review
+                together and possibly revise.
+              </p>
+              <p>
+                I have professional experience with different technologies and
+                can easily choose the right one for your website.
+              </p>
+            </section>
+            <section>
+              <img
+                decoding="async"
+                className="float left"
+                src="/img/grandma.webp"
+                alt=""
+              />
+              <h3>Support Internet Explorer?</h3>
+              <p>
+                <strong>No way!</strong>
+              </p>
+              <p>
+                Internet Explorer is dead, and for good reason. A modern
+                interface is simply not possible with this browser. It is also
+                very insecure. Read more about it{" "}
+                <a
+                  target="_blank"
+                  href="https://www.ezcomputersolutions.com/blog/stop-using-internet-explorer"
+                >
+                  here
+                </a>
+                .
+              </p>
+            </section>
+            <hr />
+            <h2>Did I convince you?</h2>
+            <Link href="/contact">
+              <a className={styles["call-to-action"]}>Get in touch</a>
+            </Link>
           </>,
         ],
         [
           "de",
           <>
-            <h1>Frank Mayer</h1>
+            <h1 className={styles.heading}>
+              Hole dir deine professionelle Webseite
+            </h1>
             <p>
-              Professioneller Entwickler für <b>performante</b> Web-Anwendungen.
+              Gib deine Webseite an einen professionellen Entwickler ab, damit
+              du dich auf das konzentrieren kannst, was du liebst.
             </p>
-            <p>
-              <b>Mein Name ist Frank Mayer</b>, ich bin{" "}
-              <b>ausgebildeter Fachinformatiker</b> für Anwendungsentwicklung.
-              Hauptsächlich bin ich in der Frontendentwicklung tätig, hier
-              arbeite ich am liebsten mit HTML5, Scss und TypeScript. Auch im
-              Backend habe ich Erfahrung mit C#, Kotlin und F#.
-            </p>
-            <p>
-              Nebenher bin ich als Freelancer für Privatpersonen tätig oder
-              arbeite an eigenen Projekten.
-            </p>
-            <p>
-              Die meisten meiner Projekte sind <b>quelloffen</b> auf{" "}
-              <a href="https://github.com/Frank-Mayer">GitHub</a> verfügbar.
-              Eine Auswahl findest Du in meinem{" "}
-              <Link href="/portfolio">
-                <a>portfolio</a>
-              </Link>
-              .
-            </p>
-            <p>
-              Du willst ein Projekt mit mir starten? Du kannst mich{" "}
-              <Link href="/contact">
-                <a>hier</a>
-              </Link>{" "}
-              kontaktieren.
-            </p>
+            <Link href="/contact">
+              <a className={styles["call-to-action"]}>
+                Jetzt Kontakt aufnehmen
+              </a>
+            </Link>
+            <hr />
+            <h2>Was soll deine Webseite können?</h2>
+            <section>
+              <img
+                decoding="async"
+                className="float right"
+                src="/img/research.webp"
+                alt=""
+              />
+              <h3>Atemberaubend aussehen?</h3>
+              <p>
+                Nach einem ersten Austausch entwerfe ich ein Konzept, welches
+                wir zusammen durchgehen und eventuell überarbeiten.
+              </p>
+              <p>
+                Ich habe professionelle Erfahrung mit unterschiedlichen
+                Technologien und kann mit leichtigkeit das passende für deine
+                Webseite auswählen.
+              </p>
+            </section>
+            <section>
+              <img
+                decoding="async"
+                className="float left"
+                src="/img/grandma.webp"
+                alt=""
+              />
+              <h3>Internet Explorer unterstützen?</h3>
+              <p>
+                <strong>Nein!</strong>
+              </p>
+              <p>
+                Der Internet Explorer ist tot und das aus gutem Grund. Eine
+                Moderne Oberfläche ist mit diesem Browser einfach nicht möglich.
+                Zudem ist er sehr unsicher. Mehr dazu{" "}
+                <a
+                  target="_blank"
+                  href="https://www.computerbild.de/artikel/cb-Tipps-Software-Kommentar-Warum-ist-der-Internet-Explorer-so-schlecht-Rauswurf-der-IE-aus-Windows-11-30623631.html"
+                >
+                  hier
+                </a>
+                .
+              </p>
+            </section>
+            <hr />
+            <h2>Konnte ich dich begeistern?</h2>
+            <Link href="/contact">
+              <a className={styles["call-to-action"]}>
+                Jetzt Kontakt aufnehmen
+              </a>
+            </Link>
           </>,
         ],
       ]}

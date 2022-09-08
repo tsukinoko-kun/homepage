@@ -5,4 +5,12 @@
   font-weight: inherit;
   font-family: inherit;
   box-sizing: border-box;
+  border: none;
+  outline: none;
+
+  shape-rendering: geometricPrecision;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  image-rendering: crisp-edges;
 }
