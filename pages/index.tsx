@@ -34,11 +34,8 @@ const Page: NextPage = () => (
               <h3>Look breathtaking?</h3>
               <img
                 decoding="async"
-                className="float right"
+                className="float left"
                 src="/img/research.webp"
-                style={{
-                  shapeOutside: "url(/img/research.webp)",
-                }}
                 alt=""
               />
               <p>
@@ -57,9 +54,6 @@ const Page: NextPage = () => (
                 decoding="async"
                 className="float right"
                 src="/img/grandma.webp"
-                style={{
-                  shapeOutside: "url(/img/grandma.webp)",
-                }}
                 alt=""
               />
               <p>
@@ -107,11 +101,8 @@ const Page: NextPage = () => (
               <h3>Atem&shy;beraubend aussehen?</h3>
               <img
                 decoding="async"
-                className="float right"
+                className="float left"
                 src="/img/research.webp"
-                style={{
-                  shapeOutside: "url(/img/research.webp)",
-                }}
                 alt=""
               />
               <p>
@@ -131,9 +122,6 @@ const Page: NextPage = () => (
                 decoding="async"
                 className="float right"
                 src="/img/grandma.webp"
-                style={{
-                  shapeOutside: "url(/img/grandma.webp)",
-                }}
                 alt=""
               />
               <p>
