@@ -3,6 +3,7 @@
 // width
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 
 // Track
@@ -18,4 +19,9 @@
 // Handle on hover
 ::-webkit-scrollbar-thumb:hover {
   background: theme.$foreground;
+}
+
+// corner
+::-webkit-scrollbar-corner {
+  background: theme.$background;
 }
