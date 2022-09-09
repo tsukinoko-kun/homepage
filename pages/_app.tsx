@@ -5,39 +5,37 @@ import type { AppProps } from "next/app";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/router";
 
-const MyApp = (props: AppProps) => {
-  const router = useRouter();
-  return (
+const MyApp = (props: AppProps) => (
+  <>
+    <Nav />
     <AnimatePresence mode="wait">
-      <Nav />
       <motion.main
-        key={router.route}
-        initial="initialState"
-        animate="animateState"
-        exit="exitState"
-        transition={{ duration: 0.2 }}
+        key={props.router.locale + props.router.route}
+        initial="before"
+        animate="idle"
+        exit="after"
+        transition={{ duration: 0.25 }}
         variants={{
-          initialState: {
+          before: {
             opacity: 0,
-            y: 100,
+            y: 75,
           },
-          animateState: {
+          idle: {
             opacity: 1,
             y: 0,
           },
-          exitState: {
+          after: {
             opacity: 0,
-            y: -100,
+            y: -75,
           },
         }}
       >
         <props.Component {...props.pageProps} />
       </motion.main>
-      <Footer />
     </AnimatePresence>
-  );
-};
+    <Footer />
+  </>
+);
 
 export default MyApp;
