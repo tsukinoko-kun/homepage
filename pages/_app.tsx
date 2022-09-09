@@ -5,13 +5,24 @@ import type { AppProps } from "next/app";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
+import Head from "next/head";
 
 const MyApp = (props: AppProps) => (
   <>
+    <Head>
+      <link
+        rel="canonical"
+        href={
+          "https://www.frank-mayer.io/" +
+          props.router.locale +
+          props.router.asPath
+        }
+      />
+    </Head>
     <Nav />
     <AnimatePresence mode="wait">
       <motion.main
-        key={props.router.locale + props.router.route}
+        key={props.router.locale + props.router.asPath}
         initial="before"
         animate="idle"
         exit="after"
