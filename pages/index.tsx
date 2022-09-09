@@ -64,6 +64,29 @@ const Page: NextPage = () => (
                 look.
               </p>
             </section>
+            <section>
+              <h2>My Tools</h2>
+              <img className="float left" src="img/tools.webp" alt="" />
+              <p>
+                For design and concept I use{" "}
+                <a target="_blank" href="https://www.figma.com">
+                  Figma
+                </a>
+                .
+              </p>
+              <p>
+                Depending on the programming language I use{" "}
+                <a href="https://code.visualstudio.com">Visual Studio Code</a>,{" "}
+                <a href="https://www.jetbrains.com/idea">IntelliJ IDEA</a> or{" "}
+                <a href="https://www.jetbrains.com/rider">Rider</a> for the
+                development.
+              </p>
+              <p>
+                All of my source code is on{" "}
+                <a href="https://github.com">GitHub</a>, managed by the desktop
+                application <a href="https://www.gitkraken.com">GitKraken</a>.
+              </p>
+            </section>
             <hr />
             <h2>Did I con&shy;vince you?</h2>
             <Link href="/contact">
@@ -122,6 +145,30 @@ const Page: NextPage = () => (
                 Sicherheit und Such&shy;maschinen&shy;optimierung funktionieren.
                 Ich alles von fancy 3D-Animationen hin zu schlichtem 90er look
                 alles realisieren.
+              </p>
+            </section>
+            <section>
+              <h2>Meine Tools</h2>
+              <img className="float left" src="img/tools.webp" alt="" />
+              <p>
+                Für das Design nutze ich{" "}
+                <a target="_blank" href="https://www.figma.com">
+                  Figma
+                </a>
+                .
+              </p>
+              <p>
+                Abhängig von der Programmiersprache nutze ich{" "}
+                <a href="https://code.visualstudio.com">Visual Studio Code</a>,{" "}
+                <a href="https://www.jetbrains.com/de-de/idea">IntelliJ IDEA</a>{" "}
+                oder <a href="https://www.jetbrains.com/de-de/rider">Rider</a>{" "}
+                für die Entwicklung.
+              </p>
+              <p>
+                Mein gesammter Quellcode ist auf{" "}
+                <a href="https://github.com">GitHub</a>, verwaltet mit der
+                Desktop&shy;anwendung{" "}
+                <a href="https://www.gitkraken.com">GitKraken</a>.
               </p>
             </section>
             <hr />
