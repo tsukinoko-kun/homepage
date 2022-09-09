@@ -22,14 +22,15 @@ const Page: NextPage = () => (
               the professional way
             </h1>
             <p>
-              Let a pro&shy;fes&shy;sion&shy;al de&shy;vel&shy;op&shy;er take
-              care of your web&shy;site, so you can focus on what you love.
+              Let a pro&#173;fes&#173;sion&#173;al de&#173;vel&#173;op&#173;er
+              take care of your web&#173;site, so you can focus on what you
+              love.
             </p>
             <Link href="/contact">
               <a className={styles["call-to-action"]}>Get in touch</a>
             </Link>
             <hr />
-            <h2>What do you want your web&shy;site to be?</h2>
+            <h2>What do you want your web&#173;site to be?</h2>
             <section>
               <h3>Look breathtaking?</h3>
               <img
@@ -39,13 +40,13 @@ const Page: NextPage = () => (
                 alt=""
               />
               <p>
-                After an initial ex&shy;change, I create a concept that we
+                After an initial ex&#173;change, I create a concept that we
                 review together and possibly revise.
               </p>
               <p>
-                I have pro&shy;fes&shy;sion&shy;al experience with different
-                tech&shy;nolo&shy;gies and can easily choose the right one for
-                your web&shy;site.
+                I have pro&#173;fes&#173;sion&#173;al experience with different
+                tech&#173;nolo&#173;gies and can easily choose the right one for
+                your web&#173;site.
               </p>
             </section>
             <section>
@@ -88,7 +89,7 @@ const Page: NextPage = () => (
               </p>
             </section>
             <hr />
-            <h2>Did I con&shy;vince you?</h2>
+            <h2>Did I con&#173;vince you?</h2>
             <Link href="/contact">
               <a className={styles["call-to-action"]}>Get in touch</a>
             </Link>
@@ -98,21 +99,21 @@ const Page: NextPage = () => (
           "de",
           <>
             <h1 className={styles.heading}>
-              Hole dir deine pro&shy;fes&shy;sio&shy;nelle Webseite
+              Hole dir deine professionelle Webseite
             </h1>
             <p>
-              Gib deine Web&shy;seite an einen pro&shy;fes&shy;sio&shy;nellen
-              Entwickler ab, damit du dich auf das kon&shy;zen&shy;trie&shy;ren
-              kannst, was du liebst.
+              Gib deine Web&#173;seite an einen
+              pro&#173;fes&#173;sio&#173;nellen Entwickler ab, damit du dich auf
+              das kon&#173;zen&#173;trie&#173;ren kannst, was du liebst.
             </p>
             <Link href="/contact">
               <a className={styles["call-to-action"]}>
-                Jetzt Kontakt auf&shy;nehmen
+                Jetzt Kontakt auf&#173;nehmen
               </a>
             </Link>
             <hr />
             <section>
-              <h2>Deine Webseite soll Atem&shy;beraubend aussehen?</h2>
+              <h2>Deine Webseite soll Atem&#173;beraubend aussehen?</h2>
               <img
                 decoding="async"
                 className="float left"
@@ -121,13 +122,13 @@ const Page: NextPage = () => (
               />
               <p>
                 Nach einem ersten Austausch entwerfe ich ein Konzept, welches
-                wir zusammen durch&shy;gehen und eventuell über&shy;arbeiten.
+                wir zusammen durch&#173;gehen und eventuell über&#173;arbeiten.
               </p>
               <p>
-                Ich habe pro&shy;fes&shy;sio&shy;nelle Erfahrung mit
-                unter&shy;schied&shy;lichen Tech&shy;no&shy;lo&shy;gien und kann
-                mit leich&shy;tig&shy;keit das passende für deine Web&shy;seite
-                auswählen.
+                Ich habe pro&#173;fes&#173;sio&#173;nelle Erfahrung mit
+                unter&#173;schied&#173;lichen Tech&#173;no&#173;lo&#173;gien und
+                kann mit leich&#173;tig&#173;keit das passende für deine
+                Web&#173;seite auswählen.
               </p>
             </section>
             <section>
@@ -142,9 +143,9 @@ const Page: NextPage = () => (
               <p>
                 Worin ich jedoch hervorragend bin, ist eine Webseite zu
                 erstellen, die funktioniert. Ich weiß, wie Performance,
-                Sicherheit und Such&shy;maschinen&shy;optimierung funktionieren.
-                Ich alles von fancy 3D-Animationen hin zu schlichtem 90er look
-                alles realisieren.
+                Sicherheit und Such&#173;maschinen&#173;optimierung
+                funktionieren. Ich alles von fancy 3D-Animationen hin zu
+                schlichtem 90er look alles realisieren.
               </p>
             </section>
             <section>
@@ -167,7 +168,7 @@ const Page: NextPage = () => (
               <p>
                 Mein gesammter Quellcode ist auf{" "}
                 <a href="https://github.com">GitHub</a>, verwaltet mit der
-                Desktop&shy;anwendung{" "}
+                Desktop&#173;anwendung{" "}
                 <a href="https://www.gitkraken.com">GitKraken</a>.
               </p>
             </section>
