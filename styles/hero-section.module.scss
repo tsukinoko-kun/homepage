@@ -1,7 +1,7 @@
 @use "theme";
 
 .heading {
-  font-size: 3rem;
+  font-size: min(9vw, 2.5rem);
   text-transform: uppercase;
   font-weight: 900;
 }
