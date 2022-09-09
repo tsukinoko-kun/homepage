@@ -1,0 +1,19 @@
+@use "desktoptheme";
+
+main {
+  width: var(--page-width);
+  margin: 6rem auto;
+
+  img.float {
+    width: min(50%, 16rem);
+    opacity: 0.85;
+  }
+
+  img.float.right {
+    float: right;
+  }
+
+  img.float.left {
+    float: left;
+  }
+}

@@ -1,0 +1,7 @@
+@use "theme";
+
+@media screen and (max-width: #{theme.$breakpoint - 1px}) {
+  @import "mobile/nav";
+  @import "mobile/main";
+  @import "mobile/footer";
+}

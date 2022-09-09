@@ -1,0 +1,25 @@
+@use "theme";
+
+.heading {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.call-to-action {
+  color: theme.$background;
+  padding: 1rem 2rem;
+
+  border: none !important;
+  border-radius: theme.$border-radius;
+
+  will-change: background-color;
+  transition: background-color theme.$timing;
+
+  &:not(:hover) {
+    background-color: theme.$foreground-secondary;
+  }
+  &:hover {
+    background-color: theme.$foreground;
+  }
+}

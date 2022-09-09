@@ -1,0 +1,74 @@
+@use "theme";
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  > * {
+    max-width: 100%;
+  }
+
+  p {
+    color: theme.$foreground-secondary;
+  }
+
+  > hr {
+    margin: 2rem auto;
+    width: 75%;
+    border: 0.5px solid rgba(theme.$foreground-secondary, 0.25);
+  }
+
+  b {
+    color: theme.$foreground;
+  }
+
+  a {
+    word-break: keep-all;
+    will-change: color;
+    transition: color theme.$timing;
+    text-decoration: none;
+    border-bottom: {
+      width: 0.5px;
+      style: solid;
+      color: theme.$foreground;
+    }
+    color: theme.$foreground;
+  }
+
+  h1 {
+    color: theme.$foreground;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    color: theme.$foreground;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    color: theme.$foreground;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  h4 {
+    color: theme.$foreground;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  > section {
+    p {
+      display: block;
+      margin: 0.5rem 0;
+    }
+  }
+}
