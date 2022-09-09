@@ -49,27 +49,19 @@ const Page: NextPage = () => (
               </p>
             </section>
             <section>
-              <h3>Support Internet Explorer?</h3>
-              <img
-                decoding="async"
-                className="float right"
-                src="/img/grandma.webp"
-                alt=""
-              />
+              <h2>Designer vs Programmer</h2>
+              <img className="float right" src="img/hacker.webp" alt="" />
+              <p>I am a programmer.</p>
               <p>
-                <strong>No way!</strong>
+                Although I know a lot about design thanks to some courses, I am
+                far from being a designer. I can't design logos or create a
+                complete brand identity.
               </p>
               <p>
-                Internet Explorer is dead, and for good reason. A modern
-                in&shy;ter&shy;face is simply not pos&shy;si&shy;ble with this
-                browser. It is also very in&shy;secure. Read more about it{" "}
-                <a
-                  target="_blank"
-                  href="https://www.ezcomputersolutions.com/blog/stop-using-internet-explorer"
-                >
-                  here
-                </a>
-                .
+                What I am good at is creating a website that works. I know how
+                performance, security and search engine optimization work. I can
+                implement everything from fancy 3D animations to simple 90s
+                look.
               </p>
             </section>
             <hr />
@@ -96,9 +88,8 @@ const Page: NextPage = () => (
               </a>
             </Link>
             <hr />
-            <h2>Was soll deine Webseite können?</h2>
             <section>
-              <h3>Atem&shy;beraubend aussehen?</h3>
+              <h2>Deine Webseite soll Atem&shy;beraubend aussehen?</h2>
               <img
                 decoding="async"
                 className="float left"
@@ -117,27 +108,20 @@ const Page: NextPage = () => (
               </p>
             </section>
             <section>
-              <h3>Internet Explorer unterstützen?</h3>
-              <img
-                decoding="async"
-                className="float right"
-                src="/img/grandma.webp"
-                alt=""
-              />
+              <h2>Designer vs Programmierer</h2>
+              <img className="float right" src="img/hacker.webp" alt="" />
+              <p>Ich bin ein Programmierer.</p>
               <p>
-                <strong>Nein!</strong>
+                Obwohl ich dank einiger Kurse Ahnung von Design habe, bin ich
+                noch lange kein Designer. Ich kann keine Logos gestalten oder
+                eine komplette Brand Identity erstellen.
               </p>
               <p>
-                Der Internet Explorer ist tot und das aus gutem Grund. Eine
-                Moderne Ober&shy;fläche ist mit diesem Browser einfach nicht
-                möglich. Zudem ist er sehr unsicher. Mehr dazu{" "}
-                <a
-                  target="_blank"
-                  href="https://www.computerbild.de/artikel/cb-Tipps-Software-Kommentar-Warum-ist-der-Internet-Explorer-so-schlecht-Rauswurf-der-IE-aus-Windows-11-30623631.html"
-                >
-                  hier
-                </a>
-                .
+                Worin ich jedoch hervorragend bin, ist eine Webseite zu
+                erstellen, die funktioniert. Ich weiß, wie Performance,
+                Sicherheit und Such&shy;maschinen&shy;optimierung funktionieren.
+                Ich alles von fancy 3D-Animationen hin zu schlichtem 90er look
+                alles realisieren.
               </p>
             </section>
             <hr />
