@@ -144,8 +144,8 @@ const Page: NextPage = () => (
                 Worin ich jedoch hervorragend bin, ist eine Webseite zu
                 erstellen, die funktioniert. Ich weiß, wie Performance,
                 Sicherheit und Such&#173;maschinen&#173;optimierung
-                funktionieren. Ich alles von fancy 3D-Animationen hin zu
-                schlichtem 90er look alles realisieren.
+                funktionieren. Von fancy 3D-Animationen hin zu
+                schlichtem 90er look, kann ich alles realisieren.
               </p>
             </section>
             <section>
