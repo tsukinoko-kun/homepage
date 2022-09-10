@@ -1,0 +1,12 @@
+@supports (backdrop-filter: blur(16px)) {
+  nav {
+    background-color: rgba(theme.$background, 0.5);
+    backdrop-filter: blur(16px);
+  }
+}
+
+@supports not (backdrop-filter: blur(16px)) {
+  nav {
+    background-color: theme.$background;
+  }
+}
