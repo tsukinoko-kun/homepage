@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { Lang } from "../../components/LanguageSwitcher";
+import { SEO } from "../../components/SEO";
 
 export const getStaticPaths = () => {
   return {
@@ -22,6 +23,11 @@ const Page: NextPage = (props: any) => (
       [
         "en",
         <>
+          <SEO
+            title="Your Browser is outdated"
+            description="This page supports only current browsers to use new features"
+            keywords={["browser", "outdated"]}
+          />
           <h1>Your Browser is outdated</h1>
           <p>It seems that you are using {props.browser}.</p>
           <p>This page supports only current browsers to use new features.</p>
@@ -37,6 +43,11 @@ const Page: NextPage = (props: any) => (
       [
         "de",
         <>
+          <SEO
+            title="Dein Browser ist veraltet"
+            description="Diese Seite unterstützt nur aktuelle Browser, um neue Features verwenden zu können"
+            keywords={["browser", "veraltet", "outdated"]}
+          />
           <h1>Dein Browser ist veraltet</h1>
           <p>Es scheint, als würdest du {props.browser} verwenden.</p>
           <p>

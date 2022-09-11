@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
 import { Lang } from "../components/LanguageSwitcher";
-import { title } from "../lib/title";
+import { SEO } from "../components/SEO";
 
 import styles from "../styles/portfolio.module.scss";
 
@@ -193,9 +192,6 @@ const renderYears = (lang: string) =>
 
 const Page: NextPage = () => (
   <>
-    <Head>
-      <title>{title("Portfolio")}</title>
-    </Head>
     <h1>Portfolio</h1>
 
     <Lang>
@@ -203,6 +199,11 @@ const Page: NextPage = () => (
         [
           "en",
           <>
+            <SEO
+              title="Portfolio"
+              description="Here are some of my projects. Older projects on this list are no longer maintained."
+              keywords={["portfolio", "projects", "code", "programming"]}
+            />
             <p>
               Here are some of my projects. Older projects on this list are no
               longer maintained.
@@ -213,6 +214,11 @@ const Page: NextPage = () => (
         [
           "de",
           <>
+            <SEO
+              title="Portfolio"
+              description="Hier sind einige meiner Projekte. Ältere Projekte dieser Liste werden nicht mehr weiterentwickelt."
+              keywords={["portfolio", "projekte", "code", "programmierung"]}
+            />
             <p>
               Hier sind einige meiner Projekte. Ältere Projekte dieser Liste
               werden nicht mehr weiterentwickelt.

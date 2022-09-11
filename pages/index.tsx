@@ -1,21 +1,27 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
 import { Lang } from "../components/LanguageSwitcher";
-import { title } from "../lib/title";
+import { SEO } from "../components/SEO";
 
 import styles from "../styles/hero-section.module.scss";
 
 const Page: NextPage = () => (
   <>
-    <Head>
-      <title>{title()}</title>
-    </Head>
     <Lang>
       {[
         [
           "en",
           <>
+            <SEO
+              description="Let a professional developer take care of your website, so you can focus on what you love"
+              keywords={[
+                "professional",
+                "developer",
+                "website",
+                "web",
+                "design",
+              ]}
+            />
             <h1 className={styles.heading}>
               Get your website,
               <br />
@@ -98,6 +104,16 @@ const Page: NextPage = () => (
         [
           "de",
           <>
+            <SEO
+              description="Gib deine Webseite an einen professionellen Entwickler ab, damit du dich auf das konzentrieren kannst, was du liebst"
+              keywords={[
+                "professionell",
+                "Webseite",
+                "Entwickler",
+                "Designer",
+                "3D-Animationen",
+              ]}
+            />
             <h1 className={styles.heading}>
               Hole dir deine professionelle Webseite
             </h1>
@@ -144,8 +160,8 @@ const Page: NextPage = () => (
                 Worin ich jedoch hervorragend bin, ist eine Webseite zu
                 erstellen, die funktioniert. Ich weiß, wie Performance,
                 Sicherheit und Such&#173;maschinen&#173;optimierung
-                funktionieren. Von fancy 3D-Animationen hin zu
-                schlichtem 90er look, kann ich alles realisieren.
+                funktionieren. Von fancy 3D-Animationen hin zu schlichtem 90er
+                look, kann ich alles realisieren.
               </p>
             </section>
             <section>

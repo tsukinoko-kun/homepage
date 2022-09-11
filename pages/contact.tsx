@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { Lang } from "../components/LanguageSwitcher";
-import { title } from "../lib/title";
+import { SEO } from "../components/SEO";
 
 import styles from "../styles/contact.module.scss";
 
@@ -11,9 +10,11 @@ const Page: NextPage = () => (
       [
         "en",
         <>
-          <Head>
-            <title>{title("Contact")}</title>
-          </Head>
+          <SEO
+            title="Contact"
+            description="Contact me via email to start a project or just to say hello"
+            keywords={["contact", "email", "hello"]}
+          />
           <h1>Contact</h1>
           <form
             className={styles.form}
@@ -58,9 +59,11 @@ const Page: NextPage = () => (
       [
         "de",
         <>
-          <Head>
-            <title>{title("Kontakt")}</title>
-          </Head>
+          <SEO
+            title="Kontakt"
+            description="Kontaktiere mich und starte ein Projekt mit mir"
+            keywords={["kontakt", "kontaktieren", "kontaktformular"]}
+          />
           <h1>Kontakt</h1>
           <form
             className={styles.form}
