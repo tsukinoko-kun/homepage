@@ -40,6 +40,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script defer async src="/checkBrowser.js" />
         </body>
       </Html>
     );
