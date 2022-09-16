@@ -19,7 +19,9 @@ const Anchor = (props: {
 
   return (
     <Link href={props.href}>
-      <a className={classList.join(" ")}>{props.children}</a>
+      <a hrefLang={props.router.locale} className={classList.join(" ")}>
+        {props.children}
+      </a>
     </Link>
   );
 };

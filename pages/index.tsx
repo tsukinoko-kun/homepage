@@ -34,7 +34,9 @@ const Page: NextPage = () => (
               love.
             </p>
             <Link href="/contact">
-              <a className={styles["call-to-action"]}>Get in touch</a>
+              <a hrefLang="en" className={styles["call-to-action"]}>
+                Get in touch
+              </a>
             </Link>
             <hr />
             <h2>What do you want your web&#173;site to be?</h2>
@@ -77,28 +79,48 @@ const Page: NextPage = () => (
               <img className="float left" src="img/tools.webp" alt="" />
               <p>
                 For design and concept I use{" "}
-                <a target="_blank" href="https://www.figma.com">
+                <a
+                  hrefLang="en-US"
+                  target="_blank"
+                  href="https://www.figma.com"
+                >
                   Figma
                 </a>
                 .
               </p>
               <p>
                 Depending on the programming language I use{" "}
-                <a href="https://code.visualstudio.com">Visual Studio Code</a>,{" "}
-                <a href="https://www.jetbrains.com/idea">IntelliJ IDEA</a> or{" "}
-                <a href="https://www.jetbrains.com/rider">Rider</a> for the
-                development.
+                <a hrefLang="en-US" href="https://code.visualstudio.com">
+                  Visual Studio Code
+                </a>
+                ,{" "}
+                <a hrefLang="en-US" href="https://www.jetbrains.com/idea">
+                  IntelliJ IDEA
+                </a>{" "}
+                or{" "}
+                <a hrefLang="es-US" href="https://www.jetbrains.com/rider">
+                  Rider
+                </a>{" "}
+                for the development.
               </p>
               <p>
                 All of my source code is on{" "}
-                <a href="https://github.com">GitHub</a>, managed by the desktop
-                application <a href="https://www.gitkraken.com">GitKraken</a>.
+                <a hrefLang="en-US" href="https://github.com">
+                  GitHub
+                </a>
+                , managed by the desktop application{" "}
+                <a hrefLang="en-US" href="https://www.gitkraken.com">
+                  GitKraken
+                </a>
+                .
               </p>
             </section>
             <hr />
             <h2>Did I con&#173;vince you?</h2>
             <Link href="/contact">
-              <a className={styles["call-to-action"]}>Get in touch</a>
+              <a hrefLang="en" className={styles["call-to-action"]}>
+                Get in touch
+              </a>
             </Link>
           </>,
         ],
@@ -125,7 +147,7 @@ const Page: NextPage = () => (
               das kon&#173;zen&#173;trie&#173;ren kannst, was du liebst.
             </p>
             <Link href="/contact">
-              <a className={styles["call-to-action"]}>
+              <a hrefLang="de" className={styles["call-to-action"]}>
                 Jetzt Kontakt auf&#173;nehmen
               </a>
             </Link>
@@ -171,29 +193,49 @@ const Page: NextPage = () => (
               <img className="float left" src="img/tools.webp" alt="" />
               <p>
                 Für das Design nutze ich{" "}
-                <a target="_blank" href="https://www.figma.com">
+                <a
+                  hrefLang="en-US"
+                  target="_blank"
+                  href="https://www.figma.com"
+                >
                   Figma
                 </a>
                 .
               </p>
               <p>
                 Abhängig von der Programmiersprache nutze ich{" "}
-                <a href="https://code.visualstudio.com">Visual Studio Code</a>,{" "}
-                <a href="https://www.jetbrains.com/de-de/idea">IntelliJ IDEA</a>{" "}
-                oder <a href="https://www.jetbrains.com/de-de/rider">Rider</a>{" "}
+                <a hrefLang="en-US" href="https://code.visualstudio.com">
+                  Visual Studio Code
+                </a>
+                ,{" "}
+                <a hrefLang="de-DE" href="https://www.jetbrains.com/de-de/idea">
+                  IntelliJ IDEA
+                </a>{" "}
+                oder{" "}
+                <a
+                  hrefLang="de-DE"
+                  href="https://www.jetbrains.com/de-de/rider"
+                >
+                  Rider
+                </a>{" "}
                 für die Entwicklung.
               </p>
               <p>
                 Mein gesammter Quellcode ist auf{" "}
-                <a href="https://github.com">GitHub</a>, verwaltet mit der
-                Desktop&#173;anwendung{" "}
-                <a href="https://www.gitkraken.com">GitKraken</a>.
+                <a hrefLang="en-US" href="https://github.com">
+                  GitHub
+                </a>
+                , verwaltet mit der Desktop&#173;anwendung{" "}
+                <a hrefLang="en-US" href="https://www.gitkraken.com">
+                  GitKraken
+                </a>
+                .
               </p>
             </section>
             <hr />
             <h2>Konnte ich dich begeistern?</h2>
             <Link href="/contact">
-              <a className={styles["call-to-action"]}>
+              <a hrefLang="de" className={styles["call-to-action"]}>
                 Jetzt Kontakt aufnehmen
               </a>
             </Link>
