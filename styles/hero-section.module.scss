@@ -6,6 +6,21 @@
   font-weight: 900;
 }
 
+.hero {
+  min-height: calc(100vh - 6rem);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding-bottom: 1rem;
+
+  > svg {
+    margin: 0 auto;
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
 .call-to-action {
   color: theme.$background;
   padding: 1rem 2rem;

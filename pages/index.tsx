@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import { Lang } from "../components/LanguageSwitcher";
 import { SEO } from "../components/SEO";
+import { ArrowDownShort } from "react-bootstrap-icons";
 
 import styles from "../styles/hero-section.module.scss";
 
@@ -23,25 +24,26 @@ const Page: NextPage = () => (
                 "design",
               ]}
             />
-            <h1 className={styles.heading}>
-              Get your website,
-              <br />
-              the professional way
-            </h1>
-            <p>
-              Let a pro&#173;fes&#173;sion&#173;al de&#173;vel&#173;op&#173;er
-              take care of your web&#173;site, so you can focus on what you
-              love.
-            </p>
-            <Link href="/contact">
-              <a hrefLang="en" className={styles["call-to-action"]}>
-                Get in touch
-              </a>
-            </Link>
-            <hr />
-            <h2>What do you want your web&#173;site to be?</h2>
+            <section className={styles.hero}>
+              <h1 className={styles.heading}>
+                Get your website,
+                <br />
+                the professional way
+              </h1>
+              <p>
+                Let a pro&#173;fes&#173;sion&#173;al de&#173;vel&#173;op&#173;er
+                take care of your web&#173;site, so you can focus on what you
+                love.
+              </p>
+              <Link href="/contact">
+                <a hrefLang="en" className={styles["call-to-action"]}>
+                  Get in touch
+                </a>
+              </Link>
+              <ArrowDownShort />
+            </section>
             <section>
-              <h3>Look breathtaking?</h3>
+              <h2>Your website should look breathtaking?</h2>
               <img
                 decoding="async"
                 className="float left"
@@ -138,20 +140,22 @@ const Page: NextPage = () => (
                 "3D-Animationen",
               ]}
             />
-            <h1 className={styles.heading}>
-              Hole dir deine professionelle Webseite
-            </h1>
-            <p>
-              Gib deine Web&#173;seite an einen
-              pro&#173;fes&#173;sio&#173;nellen Entwickler ab, damit du dich auf
-              das kon&#173;zen&#173;trie&#173;ren kannst, was du liebst.
-            </p>
-            <Link href="/contact">
-              <a hrefLang="de" className={styles["call-to-action"]}>
-                Jetzt Kontakt auf&#173;nehmen
-              </a>
-            </Link>
-            <hr />
+            <section className={styles.hero}>
+              <h1 className={styles.heading}>
+                Hole dir deine professionelle Webseite
+              </h1>
+              <p>
+                Gib deine Web&#173;seite an einen
+                pro&#173;fes&#173;sio&#173;nellen Entwickler ab, damit du dich
+                auf das kon&#173;zen&#173;trie&#173;ren kannst, was du liebst.
+              </p>
+              <Link href="/contact">
+                <a hrefLang="de" className={styles["call-to-action"]}>
+                  Jetzt Kontakt auf&#173;nehmen
+                </a>
+              </Link>
+              <ArrowDownShort />
+            </section>
             <section>
               <h2>Deine Webseite soll Atem&#173;beraubend aussehen?</h2>
               <img
