@@ -13,6 +13,7 @@ const Page: NextPage = () => (
           "en",
           <>
             <SEO
+              title="Home"
               description="Let a professional developer take care of your website, so you can focus on what you love"
               keywords={[
                 "professional",
@@ -105,6 +106,7 @@ const Page: NextPage = () => (
           "de",
           <>
             <SEO
+              title="Startseite"
               description="Gib deine Webseite an einen professionellen Entwickler ab, damit du dich auf das konzentrieren kannst, was du liebst"
               keywords={[
                 "professionell",
