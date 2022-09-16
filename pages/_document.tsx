@@ -15,7 +15,6 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#000000" />
           <meta name="color-scheme" content="dark" />
           <meta name="hostname" content="frank-mayer.io" />
-          <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="author" content="Frank Mayer" />
           <meta name="msapplication-TileColor" content="#000000" />
