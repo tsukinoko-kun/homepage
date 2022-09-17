@@ -25,7 +25,18 @@ nav {
       top: 0.5rem;
       left: 0.5rem;
       color: transparent;
-      background-image: url(/favicon.svg);
+      mask-image: url(/favicon.webp);
+      mask-size: 3rem;
+      mask-repeat: no-repeat;
+      mask-position: center;
+
+      background-color: #4158d0;
+      background-image: linear-gradient(
+        43deg,
+        #4158d0 0%,
+        #c850c0 46%,
+        #ffcc70 100%
+      );
       background-size: 3rem 3rem;
       width: 3rem;
       height: 3rem;
