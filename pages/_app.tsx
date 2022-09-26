@@ -6,16 +6,26 @@ import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import Head from "next/head";
+import { hash } from "../lib/hash";
 
 const MyApp = (props: AppProps) => {
   const canonical =
     "https://www.frank-mayer.io/" + props.router.locale + props.router.asPath;
+  const hue = hash(props.router.asPath) % 360;
+  const colorA = `hsl(${hue},75%,40%)`;
+  const colorB = `hsl(${(hue + 100) % 360},75%,50%)`;
+
   return (
     <>
       <Head>
         <link rel="canonical" href={canonical} />
         <meta property="og:url" content={canonical} />
         <meta property="twitter:url" content={canonical} />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `:root{--color-a:${colorA};--color-b:${colorB};}`,
+          }}
+        ></style>
       </Head>
       <Nav />
       <AnimatePresence mode="wait">

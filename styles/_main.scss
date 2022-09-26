@@ -72,3 +72,14 @@ main {
     }
   }
 }
+
+@supports (-webkit-background-clip: text) {
+  main > h1,
+  main > section > h1 {
+    @include theme.gradient();
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
