@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Link from "next/link";
+import { AnimateOnScroll } from "../components/AnimateOnScroll";
 import { Lang } from "../components/LanguageSwitcher";
 import { SEO } from "../components/SEO";
 
@@ -164,7 +166,7 @@ const renderYears = (lang: string) =>
       <h2>{year}</h2>
       <ul className={styles["proj-list"]}>
         {projects.map((proj) => (
-          <li key={proj.name}>
+          <AnimateOnScroll motionElement={motion.li} key={proj.name}>
             <Link href={proj.href}>
               <a target="_blank">
                 <p>
@@ -184,7 +186,7 @@ const renderYears = (lang: string) =>
                 </p>
               </a>
             </Link>
-          </li>
+          </AnimateOnScroll>
         ))}
       </ul>
     </section>

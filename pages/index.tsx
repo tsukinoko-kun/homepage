@@ -5,6 +5,8 @@ import { SEO } from "../components/SEO";
 import { ArrowDownShort } from "react-bootstrap-icons";
 
 import styles from "../styles/hero-section.module.scss";
+import { AnimateOnScroll } from "../components/AnimateOnScroll";
+import { motion } from "framer-motion";
 
 const Page: NextPage = () => (
   <>
@@ -42,7 +44,7 @@ const Page: NextPage = () => (
               </Link>
               <ArrowDownShort />
             </section>
-            <section>
+            <AnimateOnScroll motionElement={motion.section}>
               <h2>Your website should look breathtaking?</h2>
               <img
                 decoding="async"
@@ -59,8 +61,8 @@ const Page: NextPage = () => (
                 tech&#173;nolo&#173;gies and can easily choose the right one for
                 your web&#173;site.
               </p>
-            </section>
-            <section>
+            </AnimateOnScroll>
+            <AnimateOnScroll motionElement={motion.section}>
               <h2>Designer vs Programmer</h2>
               <img className="float right" src="img/hacker.webp" alt="" />
               <p>I am a programmer.</p>
@@ -75,8 +77,8 @@ const Page: NextPage = () => (
                 implement everything from fancy 3D animations to simple 90s
                 look.
               </p>
-            </section>
-            <section>
+            </AnimateOnScroll>
+            <AnimateOnScroll motionElement={motion.section}>
               <h2>My Tools</h2>
               <img className="float left" src="img/tools.webp" alt="" />
               <p>
@@ -116,7 +118,7 @@ const Page: NextPage = () => (
                 </a>
                 .
               </p>
-            </section>
+            </AnimateOnScroll>
             <hr />
             <h2>Did I con&#173;vince you?</h2>
             <Link href="/contact">
@@ -156,7 +158,7 @@ const Page: NextPage = () => (
               </Link>
               <ArrowDownShort />
             </section>
-            <section>
+            <AnimateOnScroll motionElement={motion.section}>
               <h2>Deine Webseite soll Atem&#173;beraubend aussehen?</h2>
               <img
                 decoding="async"
@@ -174,8 +176,8 @@ const Page: NextPage = () => (
                 kann mit leich&#173;tig&#173;keit das passende für deine
                 Web&#173;seite auswählen.
               </p>
-            </section>
-            <section>
+            </AnimateOnScroll>
+            <AnimateOnScroll motionElement={motion.section}>
               <h2>Designer vs Programmierer</h2>
               <img className="float right" src="img/hacker.webp" alt="" />
               <p>Ich bin ein Programmierer.</p>
@@ -191,8 +193,8 @@ const Page: NextPage = () => (
                 funktionieren. Von fancy 3D-Animationen hin zu schlichtem 90er
                 look, kann ich alles realisieren.
               </p>
-            </section>
-            <section>
+            </AnimateOnScroll>
+            <AnimateOnScroll motionElement={motion.section}>
               <h2>Meine Tools</h2>
               <img className="float left" src="img/tools.webp" alt="" />
               <p>
@@ -235,7 +237,7 @@ const Page: NextPage = () => (
                 </a>
                 .
               </p>
-            </section>
+            </AnimateOnScroll>
             <hr />
             <h2>Konnte ich dich begeistern?</h2>
             <Link href="/contact">
