@@ -1,7 +1,6 @@
-import { motion, useAnimation } from "framer-motion";
-import type { ForwardRefComponent, HTMLMotionProps } from "framer-motion";
+import { useAnimation } from "framer-motion";
+import type { motion } from "framer-motion";
 import { useEffect } from "react";
-import type { ReactHTML } from "react";
 import { useInView } from "react-intersection-observer";
 
 type Props = {
