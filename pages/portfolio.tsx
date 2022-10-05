@@ -20,6 +20,15 @@ const years: Array<{
     year: 2022,
     projects: [
       {
+        name: "slix",
+        description: {
+          en: "React powered slides framework",
+          de: "React basiertes Framework für Präsentationen",
+        },
+        lang: ["ts"],
+        href: "https://github.com/Frank-Mayer/slix",
+      },
+      {
         name: "World Architect",
         description: {
           en: "Minecraft World Generator",
