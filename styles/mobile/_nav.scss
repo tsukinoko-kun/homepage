@@ -16,14 +16,12 @@ nav {
       overflow: hidden;
       mask-image: url(/favicon.svg);
       mask-border-mode: alpha;
-      background-color: #4158d0;
-      background-image: linear-gradient(
-        43deg,
-        #4158d0 0%,
-        #c850c0 46%,
-        #ffcc70 100%
-      );
-      background-size: 2rem 2rem;
+      mask-size: 2rem;
+      mask-repeat: no-repeat;
+      mask-position: center;
+
+      @include theme.gradient();
+
       width: 2rem;
       height: 2rem;
     }
