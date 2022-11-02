@@ -94,5 +94,5 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Get a website, the professional way",
+  title: "",
 };
