@@ -10,12 +10,13 @@ export const onGet: RequestHandler<{}> = async (request) => {
     request.response.status = 301;
     request.response.headers.set("Location", `/${match[2]}`);
   } else {
-    const resp = await fetch(
+    const cdnUrl =
       "https://raw.githubusercontent.com/Frank-Mayer/homepage/main/public" +
-        url.pathname
-    );
+      url.pathname;
+    const resp = await fetch(cdnUrl);
     if (resp.ok) {
-      return await resp.blob();
+      request.response.status = 301;
+      request.response.headers.set("Location", cdnUrl);
     } else {
       request.response.status = resp.status;
     }
