@@ -8,6 +8,8 @@ header {
   left: 0;
   bottom: 0;
   width: 5rem;
+  filter: drop-shadow(0 0 0.5rem #00000030);
+  z-index: 100;
 }
 
 header > nav {
@@ -16,6 +18,19 @@ header > nav {
   flex-direction: column;
   align-items: center;
   gap: 1.75rem;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    bottom: unset !important;
+    flex-direction: row !important;
+    width: 100vw !important;
+    height: 5rem;
+  }
+
+  header > nav {
+    flex-direction: row !important;
+  }
 }
 
 header > nav > a {

@@ -38,6 +38,54 @@
   --title-l-letter-spacing: 0;
 }
 
+/* light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-primary-container-background: #0b57d0;
+    --color-on-primary-container: #fff;
+
+    --color-secondary-container: #c2e7ff;
+    --color-on-secondary-container: #001d35;
+
+    --color-surface-1: #f5f5f5;
+    --color-surface-2: #f3f6fc;
+    --color-surface-3: #e5e5e5;
+    --color-surface-4: #d9d9d9;
+    --color-surface-5: #cfcfcf;
+
+    --color-on-surface-variant: #4d4d4d;
+    --color-on-surface-variant-2: linear-gradient(
+      0deg,
+      hsla(140, 3%, 77%, 0.08),
+      hsla(140, 3%, 77%, 0.08)
+    );
+
+    --color-ref-neutral-100: #1f1f1f;
+
+    --color-background: #fff;
+  }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  :root {
+    --display-xl-font-size: 3.2rem;
+    --display-xl-line-height: 3.4rem;
+    --display-xl-font-weight: 475;
+    --display-xl-letter-spacing: 0;
+
+    --display-l-font-size: 2.25rem;
+    --display-l-line-height: 2.3rem;
+    --display-l-font-weight: 475;
+    --display-l-letter-spacing: 0;
+
+    --title-l-font-size: 1.2rem;
+    --title-l-line-height: 1.25rem;
+    --title-l-font-weight: 400;
+    --title-l-letter-spacing: 0;
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -87,6 +135,13 @@ body > main {
   padding: 0.5rem;
   padding-left: 5.5rem;
   color: var(--color-ref-neutral-100);
+}
+
+@media screen and (max-width: 768px) {
+  body > main {
+    padding-left: 0.5rem !important;
+    padding-top: 5.5rem !important;
+  }
 }
 
 body > main > h1 {

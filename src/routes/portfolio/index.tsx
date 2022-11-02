@@ -13,7 +13,7 @@ export default component$(() => {
         title="Portfolio"
         description="Here are some of my projects. Older projects on this list are no longer maintained."
         cta={{
-          label: "Take a look at my GitHub",
+          label: "My GitHub",
           href: "https://github.com/Frank-Mayer",
         }}
         background="cubes"
