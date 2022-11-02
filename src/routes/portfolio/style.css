@@ -1,0 +1,61 @@
+section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin: 1rem 0;
+}
+
+.projects {
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1rem;
+}
+
+.project-container {
+  grid-column-start: auto;
+  grid-row-start: auto;
+
+  border-radius: 1rem;
+  background: var(--color-surface-1);
+  padding: 1rem;
+
+  font-family: "JetBrains Mono", monospace;
+}
+
+.project-container > * {
+  display: block;
+}
+
+.project-container .indent-1 {
+  margin-left: 1rem;
+}
+
+.project-container .indent-2 {
+  margin-left: 2rem;
+}
+
+.project-container .key {
+  color: teal;
+}
+
+.project-container a {
+  text-decoration: none;
+  color: var(--color-ref-neutral-100);
+}
+.project-container .url {
+  word-wrap: break-word;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.project-container .string {
+  color: var(--color-primary-container-background);
+}
+.project-container .string::before {
+  content: '"';
+}
+.project-container .string::after {
+  content: '"';
+}
