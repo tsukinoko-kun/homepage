@@ -22,7 +22,7 @@ export default component$(() => {
         <img
           decoding="async"
           className="float left"
-          src="/research.webp"
+          src="https://raw.githubusercontent.com/Frank-Mayer/homepage/main/public/images/research.webp"
           alt=""
         />
         <h2>Your website should look breathtaking?</h2>
@@ -38,7 +38,11 @@ export default component$(() => {
       </section>
 
       <section>
-        <img className="float right" src="/hacker.webp" alt="" />
+        <img
+          className="float right"
+          src="https://raw.githubusercontent.com/Frank-Mayer/homepage/main/public/images/hacker.webp"
+          alt=""
+        />
         <h2>Designer vs Programmer</h2>
         <p>I am a programmer.</p>
         <p>
@@ -53,7 +57,11 @@ export default component$(() => {
         </p>
       </section>
       <section>
-        <img className="float left" src="/tools.webp" alt="" />
+        <img
+          className="float left"
+          src="https://raw.githubusercontent.com/Frank-Mayer/homepage/main/public/images/tools.webp"
+          alt=""
+        />
         <h2>My Tools</h2>
         <p>
           For design and concept I use{" "}
