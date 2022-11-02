@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import { PrimaryContainer } from "../../components/container";
 import { Link, type RequestHandler, useLocation } from "@builder.io/qwik-city";
 
-export const onGet: RequestHandler<{}> = (request) => {
+export const onGet: RequestHandler<{}> = async (request) => {
   const redirectRegex = /^\/(de|en)\/(home|portfolio|contact)/g;
   const url = new URL(request.url);
   const match = redirectRegex.exec(url.pathname);
@@ -10,7 +10,15 @@ export const onGet: RequestHandler<{}> = (request) => {
     request.response.status = 301;
     request.response.headers.set("Location", `/${match[2]}`);
   } else {
-    request.response.status = 404;
+    const resp = await fetch(
+      "https://raw.githubusercontent.com/Frank-Mayer/homepage/main/public" +
+        url.pathname
+    );
+    if (resp.ok) {
+      return await resp.blob();
+    } else {
+      request.response.status = resp.status;
+    }
   }
 };
 

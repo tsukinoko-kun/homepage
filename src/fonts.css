@@ -2,8 +2,7 @@
   font-family: "JetBrains Sans";
   font-style: normal;
   font-weight: normal;
-  src: url("https://raw.githubusercontent.com/Frank-Mayer/homepage/main/public/JetBrainsSans.woff2")
-    format("woff2");
+  src: url("/JetBrainsSans.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -11,7 +10,6 @@
   font-family: "JetBrains Mono";
   font-style: normal;
   font-weight: normal;
-  src: url("https://raw.githubusercontent.com/Frank-Mayer/homepage/main/public/JetBrainsMono.woff2")
-    format("woff2");
+  src: url("/JetBrainsMono.woff2") format("woff2");
   font-display: swap;
 }
