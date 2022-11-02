@@ -137,6 +137,11 @@ body > main {
   color: var(--color-ref-neutral-100);
 }
 
+body > main h2 {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
 @media screen and (max-width: 768px) {
   body > main {
     padding-left: 0.5rem !important;

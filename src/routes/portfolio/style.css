@@ -2,10 +2,6 @@ section {
   margin-bottom: 2rem;
 }
 
-h2 {
-  margin: 1rem 0;
-}
-
 .projects {
   display: grid;
   grid-auto-rows: 1fr;
