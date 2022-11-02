@@ -51,6 +51,7 @@ export default component$(() => {
                       <span class="string">"{language}"</span>,
                     </p>
                   ))}
+                  <p class="indent-1">],</p>
                   {project.live && (
                     <a
                       class="indent-1"
@@ -73,7 +74,6 @@ export default component$(() => {
                       <span class="url string">"{project.source}"</span>,
                     </a>
                   )}
-                  <p class="indent-1">],</p>
                   <p>{"}"}</p>
                 </li>
               ))}
