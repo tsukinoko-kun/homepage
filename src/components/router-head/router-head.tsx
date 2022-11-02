@@ -7,12 +7,14 @@ import { useDocumentHead, useLocation } from "@builder.io/qwik-city";
 export const RouterHead = component$(() => {
   const head = useDocumentHead();
   const loc = useLocation();
+  const url = new URL(loc.pathname, "https://www.frank-mayer.io");
 
   return (
     <>
       <title>Frank Mayer{head.title ? " \\\\ " + head.title : undefined}</title>
 
-      <link rel="canonical" href={loc.href} />
+      <link rel="canonical" href={url.href} />
+      <link rel="preconnect" href="https://raw.githubusercontent.com" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
