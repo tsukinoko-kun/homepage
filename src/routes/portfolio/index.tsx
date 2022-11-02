@@ -37,18 +37,18 @@ export default component$(() => {
                   <p>{"{"}</p>
                   <p class="indent-1">
                     <span class="key">name</span>:{" "}
-                    <span class="string">{project.name}</span>,
+                    <span class="string">"{project.name}"</span>,
                   </p>
                   <p class="indent-1">
                     <span class="key">description</span>:{" "}
-                    <span class="string">{project.description}</span>,
+                    <span class="string">"{project.description}"</span>,
                   </p>
                   <p class="indent-1">
                     <span class="key">languages</span>: [
                   </p>
                   {project.languages.map((language) => (
                     <p class="indent-2">
-                      <span class="string">{language}</span>,
+                      <span class="string">"{language}"</span>,
                     </p>
                   ))}
                   {project.live && (
@@ -59,7 +59,7 @@ export default component$(() => {
                       target="_blank"
                     >
                       <span class="key">live</span>:{" "}
-                      <span class="url string">{project.live}</span>,
+                      <span class="url string">"{project.live}"</span>,
                     </a>
                   )}
                   {project.source && (
@@ -70,7 +70,7 @@ export default component$(() => {
                       target="_blank"
                     >
                       <span class="key">source</span>:{" "}
-                      <span class="url string">{project.source}</span>,
+                      <span class="url string">"{project.source}"</span>,
                     </a>
                   )}
                   <p class="indent-1">],</p>

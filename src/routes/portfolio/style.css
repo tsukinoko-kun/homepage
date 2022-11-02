@@ -62,9 +62,3 @@ section {
 .project-container .string {
   color: var(--color-primary-container-background);
 }
-.project-container .string::before {
-  content: '"';
-}
-.project-container .string::after {
-  content: '"';
-}
