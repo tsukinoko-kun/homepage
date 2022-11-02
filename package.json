@@ -2,7 +2,7 @@
   "name": "homepage",
   "description": "My personal homepage",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=17.0.0"
   },
   "private": true,
   "scripts": {
