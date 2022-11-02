@@ -9,6 +9,17 @@ section {
   gap: 1rem;
 }
 
+@media screen and (max-width: calc(350px + 10rem)) {
+  .projects {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects > * {
+    flex: 1;
+  }
+}
+
 .project-container {
   grid-column-start: auto;
   grid-row-start: auto;
