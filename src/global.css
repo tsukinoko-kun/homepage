@@ -149,6 +149,12 @@ body > main h2 {
   }
 }
 
+body > main > * {
+  max-width: 1300px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 body > main > h1 {
   font-size: var(--display-xl-font-size);
   font-weight: var(--display-xl-font-weight);

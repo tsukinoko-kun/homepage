@@ -1,5 +1,8 @@
 .container {
   background-image: url("https://lh3.googleusercontent.com/1g_8dMsxYAfoZ_VS338syoSlyVpl5yD9Ho5eV7clDTqPGwaKElIciZTvzvxZeaM_-dE3vYWh6oZ4FyuUg3bRo21f6Ue56_ADwSBmh6kasSKS3EA5gQE=w2400-rj");
+  max-width: 1800px !important;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
   text-align: center;
   display: flex;
