@@ -24,7 +24,7 @@ export const projects: ReadonlyArray<Project> = [
     description:
       "The current version of my website was to test out the Qwik framework.",
     languages: ["TypeScript"],
-    source: "https://github.com/Frank-Mayer/slix",
+    source: "https://github.com/Frank-Mayer/homepage",
     year: 2022,
   },
   {
