@@ -22,7 +22,6 @@ export const PrimaryContainer = component$((props: Props) => {
       <p dangerouslySetInnerHTML={props.description}></p>
       {props.cta && (
         <Link
-          target={props.cta.href.startsWith("http") ? "_blank" : undefined}
           style={{
             textDecoration: "none",
             background: "var(--color-primary-container-background)",
