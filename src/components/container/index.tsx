@@ -1,5 +1,4 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
 import classNames from "classnames";
 import styles from "./container.css?inline";
 
@@ -21,7 +20,7 @@ export const PrimaryContainer = component$((props: Props) => {
       <h1 dangerouslySetInnerHTML={props.title}></h1>
       <p dangerouslySetInnerHTML={props.description}></p>
       {props.cta && (
-        <Link
+        <a
           style={{
             textDecoration: "none",
             background: "var(--color-primary-container-background)",
@@ -37,7 +36,7 @@ export const PrimaryContainer = component$((props: Props) => {
           href={props.cta.href}
         >
           {props.cta.label}
-        </Link>
+        </a>
       )}
     </div>
   );
