@@ -38,6 +38,32 @@
   --title-l-letter-spacing: 0;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-background);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-4);
+  border-radius: 0.25rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-5);
+}
+
 /* light mode */
 @media (prefers-color-scheme: light) {
   :root {
