@@ -1,5 +1,5 @@
 import { PrimaryContainer } from "../../components/container";
-import { projects, years } from "./projects";
+import { projects, years } from "../../data/projects";
 import styles from "./portfolio.module.scss";
 import classNames from "classnames";
 
