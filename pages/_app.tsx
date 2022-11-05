@@ -15,6 +15,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         <Footer />
       </main>
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "navigator.serviceWorker.getRegistrations().then(function(registrations) {for(const registration of registrations) {registration.unregister()}})",
+        }}
+      ></script>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { PrimaryContainer } from "../../components/container";
 import { projects, years } from "./projects";
-import styles from "./index.module.scss";
+import styles from "./portfolio.module.scss";
 import classNames from "classnames";
 
 const Page = () => (

@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { PrimaryContainer } from "../components/container";
-import styles from "./index.module.scss";
+import styles from "./home.module.scss";
 
 const Page = () => {
   return (

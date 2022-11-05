@@ -1,6 +1,5 @@
 @use "header";
 @use "container";
-@use "form";
 @use "footer";
 
 :root {
@@ -159,6 +158,19 @@ body {
     overflow: hidden;
   }
 
+  > * {
+    max-width: 1300px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  > h1 {
+    font-size: var(--display-xl-font-size);
+    font-weight: var(--display-xl-font-weight);
+    line-height: var(--display-xl-line-height);
+    letter-spacing: var(--display-xl-letter-spacing);
+  }
+
   > main {
     overflow-x: hidden;
     grid-area: 1 / 2 / 2 / 3;
@@ -174,21 +186,11 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  body > main {
-    padding-left: 0.5rem !important;
-    padding-top: 5.5rem !important;
+  #__next {
+    > main {
+      padding-left: 0.5rem !important;
+      padding-top: 5.5rem !important;
+      width: 100vw !important;
+    }
   }
-}
-
-body > main > * {
-  max-width: 1300px;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-body > main > h1 {
-  font-size: var(--display-xl-font-size);
-  font-weight: var(--display-xl-font-weight);
-  line-height: var(--display-xl-line-height);
-  letter-spacing: var(--display-xl-letter-spacing);
 }

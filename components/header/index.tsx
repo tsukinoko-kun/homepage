@@ -1,6 +1,7 @@
 import { links } from "./links";
-import c from "classnames";
+import classNames from "classnames";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export const Header = () => {
   const router = useRouter();
@@ -9,16 +10,19 @@ export const Header = () => {
     <header>
       <nav>
         {links.map(({ href, icon: Icon, label }) => (
-          <a
+          <Link
             key={href}
             href={href}
-            className={c("anchor", router.pathname === href ? "active" : false)}
+            className={classNames(
+              "anchor",
+              router.pathname === href ? "active" : false
+            )}
           >
             <div>
               <Icon />
             </div>
             <span>{label}</span>
-          </a>
+          </Link>
         ))}
       </nav>
     </header>

@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import Link from "next/link";
 
 type Props = {
   title: string;
@@ -16,7 +17,7 @@ export const PrimaryContainer = (props: Props) => {
       <h1 dangerouslySetInnerHTML={{ __html: props.title }}></h1>
       <p dangerouslySetInnerHTML={{ __html: props.description }}></p>
       {props.cta && (
-        <a
+        <Link
           style={{
             textDecoration: "none",
             background: "var(--color-primary-container-background)",
@@ -32,7 +33,7 @@ export const PrimaryContainer = (props: Props) => {
           href={props.cta.href}
         >
           {props.cta.label}
-        </a>
+        </Link>
       )}
     </div>
   );
