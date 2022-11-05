@@ -1,4 +1,3 @@
-import { Link } from "@builder.io/qwik-city";
 import { links } from "./links";
 import c from "classnames";
 
@@ -6,7 +5,7 @@ export default (props: { pathname: string }) => (
   <header>
     <nav>
       {links.map(({ href, icon: Icon, label }) => (
-        <Link
+        <a
           href={href}
           class={c("anchor", props.pathname === href ? "active" : false)}
         >
@@ -14,7 +13,7 @@ export default (props: { pathname: string }) => (
             <Icon />
           </div>
           <span>{label}</span>
-        </Link>
+        </a>
       ))}
     </nav>
   </header>

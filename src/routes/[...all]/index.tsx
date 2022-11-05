@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { PrimaryContainer } from "../../components/container";
-import { Link, type RequestHandler, useLocation } from "@builder.io/qwik-city";
+import { type RequestHandler, useLocation } from "@builder.io/qwik-city";
 
 export const onGet: RequestHandler<{}> = async (request) => {
   const redirectRegex = /^\/(de|en)\/(home|portfolio|contact)/g;
@@ -37,7 +37,7 @@ export default component$(() => {
       <p>Sorry, we couldn't find the page you were looking for.</p>
       <p>
         Try the{" "}
-        <Link
+        <a
           style={{
             color: "var(--color-primary)",
             textDecoration: "underline",
@@ -45,7 +45,7 @@ export default component$(() => {
           href="/"
         >
           Home page
-        </Link>
+        </a>
         ?
       </p>
     </>
