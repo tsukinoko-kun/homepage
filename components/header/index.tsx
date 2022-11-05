@@ -2,20 +2,21 @@ import { links } from "./links";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import styles from "./header.module.scss";
 
 export const Header = () => {
   const router = useRouter();
 
   return (
-    <header>
-      <nav>
+    <header className={styles.header}>
+      <nav className={styles.navigation}>
         {links.map(({ href, icon: Icon, label }) => (
           <Link
             key={href}
             href={href}
             className={classNames(
-              "anchor",
-              router.pathname === href ? "active" : false
+              styles.link,
+              router.pathname === href ? styles.active : false
             )}
           >
             <div>

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { PrimaryContainer } from "../../components/container";
-import { Input } from "../../components/Input";
+import { Input } from "./Input";
 import styles from "./contact.module.scss";
 
 const Page = () => {

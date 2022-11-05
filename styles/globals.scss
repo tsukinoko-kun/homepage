@@ -1,6 +1,5 @@
-@use "header";
-@use "container";
-@use "footer";
+@use "fonts";
+@use "scrollbar";
 
 :root {
   --color-primary-container-background: #a8c7fa;
@@ -40,32 +39,6 @@
   --title-l-line-height: 1.875rem;
   --title-l-font-weight: 400;
   --title-l-letter-spacing: 0;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 0.5rem;
-  height: 0.5rem;
-}
-
-::-webkit-scrollbar-corner {
-  background: var(--color-background);
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: var(--color-background);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: var(--color-surface-4);
-  border-radius: 0.25rem;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-surface-5);
 }
 
 /* light mode */
@@ -158,12 +131,6 @@ body {
     overflow: hidden;
   }
 
-  > * {
-    max-width: 1300px;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
   > h1 {
     font-size: var(--display-xl-font-size);
     font-weight: var(--display-xl-font-weight);
@@ -181,6 +148,12 @@ body {
     h2 {
       margin-top: 4rem;
       margin-bottom: 2rem;
+    }
+
+    > * {
+      max-width: 1300px;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
   }
 }

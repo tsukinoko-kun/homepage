@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { PrimaryContainer } from "../components/container";
 import styles from "./home.module.scss";
+import Image from "next/image";
 
 const Page = () => {
   return (
@@ -16,7 +17,13 @@ const Page = () => {
       />
 
       <section className={classNames(styles.section)}>
-        <img decoding="async" src="/images/research.webp" alt="" />
+        <Image
+          width={256}
+          height={197}
+          decoding="async"
+          src="/images/research.webp"
+          alt=""
+        />
         <h2>Your website should look breathtaking?</h2>
         <p>
           After an initial ex&#173;change, I create a concept that we review
@@ -30,7 +37,7 @@ const Page = () => {
       </section>
 
       <section className={classNames(styles.section)}>
-        <img src="/images/hacker.webp" alt="" />
+        <Image width={256} height={389} src="/images/hacker.webp" alt="" />
         <h2>Designer vs Programmer</h2>
         <p>I am a programmer.</p>
         <p>
@@ -45,7 +52,7 @@ const Page = () => {
         </p>
       </section>
       <section className={classNames(styles.section)}>
-        <img src="/images/tools.webp" alt="" />
+        <Image width={256} height={250} src="/images/tools.webp" alt="" />
         <h2>My Tools</h2>
         <p>
           For design and concept I use{" "}

@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import Link from "next/link";
+import styles from "./container.module.scss";
 
 type Props = {
   title: string;
@@ -13,7 +14,7 @@ type Props = {
 
 export const PrimaryContainer = (props: Props) => {
   return (
-    <div className={classNames("container", "primary", props.background)}>
+    <div className={classNames(styles.primary, styles[props.background])}>
       <h1 dangerouslySetInnerHTML={{ __html: props.title }}></h1>
       <p dangerouslySetInnerHTML={{ __html: props.description }}></p>
       {props.cta && (
