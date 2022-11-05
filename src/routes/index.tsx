@@ -21,7 +21,7 @@ export default component$(() => {
       <section>
         <img
           decoding="async"
-          className="float left"
+          class="float left"
           src="/images/research.webp"
           alt=""
         />
@@ -38,7 +38,7 @@ export default component$(() => {
       </section>
 
       <section>
-        <img className="float right" src="/images/hacker.webp" alt="" />
+        <img class="float right" src="/images/hacker.webp" alt="" />
         <h2>Designer vs Programmer</h2>
         <p>I am a programmer.</p>
         <p>
@@ -53,7 +53,7 @@ export default component$(() => {
         </p>
       </section>
       <section>
-        <img className="float left" src="/images/tools.webp" alt="" />
+        <img class="float left" src="/images/tools.webp" alt="" />
         <h2>My Tools</h2>
         <p>
           For design and concept I use{" "}

@@ -5,7 +5,7 @@ export default component$(() => {
   useStylesScoped$(styles);
 
   return (
-    <footer className="footer">
+    <footer class="footer">
       <a
         target="_blank"
         href="https://github.com/Frank-Mayer"

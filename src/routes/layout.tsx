@@ -1,11 +1,16 @@
-import { component$, Slot } from "@builder.io/qwik";
+import { component$, Slot, useStylesScoped$ } from "@builder.io/qwik";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
+import { useLocation } from "@builder.io/qwik-city";
+import headerStyles from "../components/header/header.css";
 
 export default component$(() => {
+  const pathname = useLocation().pathname;
+  useStylesScoped$(headerStyles);
+
   return (
     <>
-      <Header />
+      <Header pathname={pathname} />
       <main>
         <Slot />
         <Footer />

@@ -1,25 +1,21 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
-import { useLocation } from "@builder.io/qwik-city";
-import styles from "./header.css?inline";
+import { Link } from "@builder.io/qwik-city";
 import { links } from "./links";
+import c from "classnames";
 
-export default component$(() => {
-  useStylesScoped$(styles);
-
-  const path = useLocation().pathname;
-
-  return (
-    <header>
-      <nav>
-        {links.map(({ href, icon: Icon, label }) => (
-          <a href={href} className={path === href ? "active" : ""}>
-            <div>
-              <Icon />
-            </div>
-            <span>{label}</span>
-          </a>
-        ))}
-      </nav>
-    </header>
-  );
-});
+export default (props: { pathname: string }) => (
+  <header>
+    <nav>
+      {links.map(({ href, icon: Icon, label }) => (
+        <Link
+          href={href}
+          class={c("anchor", props.pathname === href ? "active" : false)}
+        >
+          <div>
+            <Icon />
+          </div>
+          <span>{label}</span>
+        </Link>
+      ))}
+    </nav>
+  </header>
+);

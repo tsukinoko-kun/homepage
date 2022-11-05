@@ -33,23 +33,22 @@ header > nav {
   }
 }
 
-header > nav > a {
+a.anchor {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: var(--color-on-surface-variant);
-  fill: var(--color-on-surface-variant);
   text-decoration: none;
 }
 
-header > nav > a > span {
+a.anchor > span {
   font-size: 0.75rem;
   line-height: 1rem;
   margin-top: 0.2rem;
 }
 
-header > nav > a > div {
+a.anchor > div {
   width: 3.45rem;
   height: 2rem;
   border-radius: 1.2rem;
@@ -59,29 +58,30 @@ header > nav > a > div {
   align-items: center;
 }
 
-header > nav > a > div > svg {
+a.anchor > div > svg {
   width: 1.25rem;
   height: 1.25rem;
   will-change: transform;
   transition: transform 0.2s ease-out;
+  fill: currentColor;
 }
 
-header > nav > a.active {
+a.anchor.active {
   color: var(--color-on-secondary-container) !important;
 }
 
-header > nav > a.active > div {
+a.anchor.active > div {
   background: var(--color-secondary-container) !important;
 }
 
-header > nav > a:not(.active):hover {
+a.anchor:not(.active):hover {
   color: var(--color-ref-neutral-100);
 }
 
-header > nav > a:not(.active):hover > div {
+a.anchor:not(.active):hover > div {
   background: var(--color-on-surface-variant-2);
 }
 
-header > nav > a:hover > div > svg {
+a.anchor:hover > div > svg {
   transform: scale(1.1);
 }
