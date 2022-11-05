@@ -46,4 +46,6 @@ const Page = () => {
   );
 };
 
+Page.displayName = "Contact";
+
 export default Page;

@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>{Component.displayName}</title>
+        <title>{`Frank Mayer \\\\ ${Component.displayName}`}</title>
       </Head>
       <Header />
       <main>

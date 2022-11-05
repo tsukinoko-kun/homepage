@@ -122,4 +122,6 @@ const Page = () => {
   );
 };
 
+Page.displayName = "Home";
+
 export default Page;

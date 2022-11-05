@@ -94,6 +94,6 @@ const Page = () => (
   </>
 );
 
-Page.pageTitle = "Portfolio";
+Page.displayName = "Portfolio";
 
 export default Page;
