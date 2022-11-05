@@ -19,6 +19,7 @@ export const PrimaryContainer = (props: Props) => {
       <p dangerouslySetInnerHTML={{ __html: props.description }}></p>
       {props.cta && (
         <Link
+          scroll={false}
           style={{
             textDecoration: "none",
             background: "var(--color-primary-container-background)",

@@ -2,6 +2,13 @@ import { PrimaryContainer } from "../components/container";
 import Link from "next/link";
 import styles from "./home.module.scss";
 
+export const getStaticProps = async () => ({
+  props: {
+    title: "404",
+    description: "This page does not exist",
+  },
+});
+
 const Page = () => (
   <>
     <PrimaryContainer
@@ -13,7 +20,11 @@ const Page = () => (
     <section className={styles.section}>
       <h2>This is not the page you are looking for!</h2>
       <p>
-        Maybe try the <Link href="/">home page</Link>?
+        Maybe try the{" "}
+        <Link scroll={false} href="/">
+          home page
+        </Link>
+        ?
       </p>
     </section>
   </>

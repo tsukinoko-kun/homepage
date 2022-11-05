@@ -3,6 +3,13 @@ import { PrimaryContainer } from "../components/container";
 import styles from "./home.module.scss";
 import Image from "next/image";
 
+export const getStaticProps = async () => ({
+  props: {
+    title: "Home",
+    description: "Frank Mayer's personal website",
+  },
+});
+
 const Page = () => {
   return (
     <>
@@ -121,7 +128,5 @@ const Page = () => {
     </>
   );
 };
-
-Page.displayName = "Home";
 
 export default Page;

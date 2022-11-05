@@ -3,6 +3,13 @@ import { projects, years } from "../../data/projects";
 import styles from "./portfolio.module.scss";
 import classNames from "classnames";
 
+export const getStaticProps = async () => ({
+  props: {
+    title: "Portfolio",
+    description: "Here are some of my projects",
+  },
+});
+
 const Page = () => (
   <>
     <PrimaryContainer
@@ -93,7 +100,5 @@ const Page = () => (
     ))}
   </>
 );
-
-Page.displayName = "Portfolio";
 
 export default Page;

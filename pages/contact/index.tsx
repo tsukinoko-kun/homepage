@@ -3,6 +3,13 @@ import { PrimaryContainer } from "../../components/container";
 import { Input } from "../../components/Input";
 import styles from "./contact.module.scss";
 
+export const getStaticProps = async () => ({
+  props: {
+    title: "Contact",
+    description: "Contact me to get more information",
+  },
+});
+
 const Page = () => {
   const router = useRouter();
 

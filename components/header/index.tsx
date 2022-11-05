@@ -12,6 +12,7 @@ export const Header = () => {
       <nav className={styles.navigation}>
         {links.map(({ href, icon: Icon, label }) => (
           <Link
+            scroll={false}
             key={href}
             href={href}
             className={classNames(

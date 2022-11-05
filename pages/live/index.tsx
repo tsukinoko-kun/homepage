@@ -27,6 +27,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       youtubeLive: youtubeLiveValue,
+      title: "Live",
+      description: "Watch me live on YouTube",
     },
     revalidate: 120,
   };
