@@ -1,0 +1,41 @@
+.section {
+  display: block;
+  height: fit-content;
+  min-height: 40vmin;
+}
+
+.section > * {
+  display: block;
+}
+
+.section a {
+  text-decoration: underline;
+  color: var(--color-ref-neutral-100);
+}
+.section a:hover {
+  color: var(--color-primary-container-background);
+}
+
+.section > img {
+  width: 35vmin;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.section:nth-child(even) > img {
+  float: left;
+  margin-right: 0.5rem;
+}
+
+.section:nth-child(odd) > img {
+  float: right;
+  margin-left: 0.5rem;
+}
+
+@media screen and (min-width: 1800px) {
+  .section {
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
