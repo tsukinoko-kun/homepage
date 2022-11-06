@@ -1,6 +1,5 @@
 import { PrimaryContainer } from "../../components/container";
 import { projects, years } from "../../data/projects";
-import styles from "./portfolio.module.scss";
 import classNames from "classnames";
 
 export const getStaticProps = async () => ({
@@ -25,12 +24,12 @@ const Page = () => (
     {years.map((year) => (
       <section key={year}>
         <h2 id={year.toString()}>{year}</h2>
-        <ul className={styles.projects}>
+        <ul className="projects">
           {projects
             .filter((project) => project.year === year)
             .map((project) => (
               <li
-                className={styles["project-container"]}
+                className="project-container"
                 key={project.name}
                 id={project.name
                   .replace(/\s+/g, "-")
@@ -38,41 +37,35 @@ const Page = () => (
                   .replace(/[^a-z0-9-]+/g, "")}
               >
                 <p>{"{"}</p>
-                <p className={styles["indent-1"]}>
-                  <span className={styles.key}>name</span>:{" "}
-                  <span className={styles.string}>
-                    &quot;{project.name}&quot;
-                  </span>
-                  ,
+                <p className="indent-1">
+                  <span className="key">name</span>:{" "}
+                  <span className="string">&quot;{project.name}&quot;</span>,
                 </p>
-                <p className={styles["indent-1"]}>
-                  <span className={styles.key}>description</span>:{" "}
-                  <span className={styles.string}>
+                <p className="indent-1">
+                  <span className="key">description</span>:{" "}
+                  <span className="string">
                     &quot;{project.description}&quot;
                   </span>
                   ,
                 </p>
-                <p className={styles["indent-1"]}>
-                  <span className={styles.key}>languages</span>: [
+                <p className="indent-1">
+                  <span className="key">languages</span>: [
                 </p>
                 {project.languages.map((language, i) => (
-                  <p className={styles["indent-2"]} key={i}>
-                    <span className={styles.string}>
-                      &quot;{language}&quot;
-                    </span>
-                    ,
+                  <p className="indent-2" key={i}>
+                    <span className="string">&quot;{language}&quot;</span>,
                   </p>
                 ))}
-                <p className={styles["indent-1"]}>],</p>
+                <p className="indent-1">],</p>
                 {project.live && (
                   <a
-                    className={styles["indent-1"]}
+                    className="indent-1"
                     href={project.live}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    <span className={styles.key}>live</span>:{" "}
-                    <span className={classNames(styles.url, styles.string)}>
+                    <span className="key">live</span>:{" "}
+                    <span className={classNames("url", "string")}>
                       &quot;{project.live}&quot;
                     </span>
                     ,
@@ -80,13 +73,13 @@ const Page = () => (
                 )}
                 {project.source && (
                   <a
-                    className={styles["indent-1"]}
+                    className="indent-1"
                     href={project.source}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    <span className={styles.key}>source</span>:{" "}
-                    <span className={classNames(styles.url, styles.string)}>
+                    <span className="key">source</span>:{" "}
+                    <span className={classNames("url", "string")}>
                       &quot;{project.source}&quot;
                     </span>
                     ,

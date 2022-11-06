@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { PrimaryContainer } from "../../components/container";
 import { Input } from "../../components/Input";
-import styles from "./contact.module.scss";
 
 export const getStaticProps = async () => ({
   props: {
@@ -20,11 +19,7 @@ const Page = () => {
         description="Contact me for more information"
         background="triangle"
       />
-      <form
-        action="https://eo4hr3kdzumsq1q.m.pipedream.net"
-        method="post"
-        className={styles.form}
-      >
+      <form action="https://eo4hr3kdzumsq1q.m.pipedream.net" method="post">
         <Input
           label="E-Mail"
           placeholder="your@email.com"

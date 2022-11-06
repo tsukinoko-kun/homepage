@@ -1,6 +1,4 @@
-import classNames from "classnames";
 import { PrimaryContainer } from "../components/container";
-import styles from "./home.module.scss";
 import Image from "next/image";
 
 export const getStaticProps = async () => ({
@@ -23,7 +21,7 @@ const Page = () => {
         background="shutter"
       />
 
-      <section className={classNames(styles.section)}>
+      <section className="section">
         <Image
           width={256}
           height={197}
@@ -43,7 +41,7 @@ const Page = () => {
         </p>
       </section>
 
-      <section className={classNames(styles.section)}>
+      <section className="section">
         <Image width={256} height={389} src="/images/hacker.webp" alt="" />
         <h2>Designer vs Programmer</h2>
         <p>I am a programmer.</p>
@@ -58,7 +56,7 @@ const Page = () => {
           implement everything from fancy 3D animations to simple 90s look.
         </p>
       </section>
-      <section className={classNames(styles.section)}>
+      <section className="section">
         <Image width={256} height={250} src="/images/tools.webp" alt="" />
         <h2>My Tools</h2>
         <p>
