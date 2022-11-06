@@ -48,7 +48,7 @@ const Page = (props: Props) => (
         margin: "2rem auto",
         display: "block",
       }}
-      src={`https://www.youtube-nocookie.com/embed/${props.youtubeLive}?controls=0`}
+      src={`https://www.youtube-nocookie.com/embed/${props.youtubeLive}`}
       frameBorder={0}
       allow="encrypted-media; picture-in-picture"
       allowFullScreen
