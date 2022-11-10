@@ -41,18 +41,24 @@ const Page = (props: Props) => (
       title="Live"
       description="YouTube"
     />
-    <iframe
-      style={{
-        width: "75vmin",
-        height: "50vmin",
-        margin: "2rem auto",
-        display: "block",
-      }}
-      src={`https://www.youtube-nocookie.com/embed/${props.youtubeLive}`}
-      frameBorder={0}
-      allow="encrypted-media; picture-in-picture"
-      allowFullScreen
-    />
+    {props.youtubeLive ? (
+      <iframe
+        style={{
+          width: "75vmin",
+          height: "50vmin",
+          margin: "2rem auto",
+          display: "block",
+        }}
+        src={`https://www.youtube-nocookie.com/embed/${props.youtubeLive}`}
+        frameBorder={0}
+        allow="encrypted-media; picture-in-picture"
+        allowFullScreen
+      />
+    ) : (
+      <p style={{ textAlign: "center" }}>
+        I&apos;m not live on YouTube right now.
+      </p>
+    )}
   </>
 );
 
