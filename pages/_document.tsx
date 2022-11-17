@@ -3,7 +3,9 @@ import { Html, Head, Main, NextScript } from "next/document";
 const Document = () => {
   return (
     <Html lang="en-US">
-      <Head />
+      <Head>
+        <link rel="preconnect" href="https://www.amagumo.cloud" />
+      </Head>
       <body>
         <Main />
         <NextScript />
