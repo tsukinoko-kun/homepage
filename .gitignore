@@ -3,6 +3,11 @@
 # environment
 .env
 
+# ide
+/.idea/
+/.vs/
+/.vscode/
+
 # dependencies
 /node_modules
 /.pnp
