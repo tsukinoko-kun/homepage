@@ -26,5 +26,13 @@ export const Footer = () => (
     >
       LinkedIn
     </a>
+    <a
+      rel="me noopener noreferrer"
+      className={styles.link}
+      target="_blank"
+      href="https://mastodontech.de/@tsukinoko"
+    >
+      Mastodon
+    </a>
   </footer>
 );
