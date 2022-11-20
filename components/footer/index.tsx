@@ -30,7 +30,7 @@ export const Footer = () => (
       rel="me noopener noreferrer"
       className={styles.link}
       target="_blank"
-      href="https://mastodontech.de/@tsukinoko"
+      href="https://hello.2heng.xin/@tsukinoko"
     >
       Mastodon
     </a>
