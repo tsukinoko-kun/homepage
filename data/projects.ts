@@ -7,7 +7,9 @@ type Language =
   | "F#"
   | "Rust"
   | "Kotlin"
-  | "Python";
+  | "Python"
+  | "Markdown"
+  | "BibTeX";
 
 type Project = {
   name: string;
@@ -20,11 +22,12 @@ type Project = {
 
 export const projects: ReadonlyArray<Project> = [
   {
-    name: "This website",
+    name: "Blog",
     description:
-      "The current version of my website was to test out the Qwik framework.",
-    languages: ["TypeScript"],
-    source: "https://github.com/Frank-Mayer/homepage",
+      "This blog contains short summaries of topics I have studied recently.",
+    languages: ["TypeScript", "Sass", "Markdown", "BibTeX"],
+    source: "https://github.com/Frank-Mayer/blog",
+    live: "https://blog.frank-mayer.io",
     year: 2022,
   },
   {
