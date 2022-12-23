@@ -1,3 +1,9 @@
+@use "../../styles/theme";
+
 .wobble {
   display: inline-block;
+
+  &:hover {
+    color: theme.$color-accent;
+  }
 }
