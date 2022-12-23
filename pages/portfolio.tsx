@@ -1,5 +1,7 @@
+import Link from "next/link"
+import { XmlTag } from "../components/XmlTag"
 import { projects, years } from "../data/projects"
-import classNames from "classnames"
+import type { Project } from "../data/projects"
 
 export const getStaticProps = () => ({
     props: {
@@ -8,78 +10,41 @@ export const getStaticProps = () => ({
     },
 })
 
+const makeId = (name: string) => name
+    .toLowerCase()
+    .replace(/[()[\]{}]+/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+
+const mapProject = (project: Project) => {
+    const id = makeId(`project-${project.year}-${project.name}`)
+
+    return (
+        <Link key={project.name} href={"#" + id} className="hidden">
+            <XmlTag tag="section" id={id}>
+                <XmlTag tag="h3">{project.name}</XmlTag>
+                <XmlTag tag="script" language="json">
+                    {JSON.stringify(project, null, 4)}
+                </XmlTag>
+            </XmlTag>
+        </Link>
+    )
+}
+
 const Page = () => (
     <>
-        {years.map((year) => (
-            <section key={year}>
-                <h2 id={year.toString()}>{year}</h2>
-                <ul className="projects">
+        {years.map((year) => {
+            const id = makeId("projects-year-" + year)
+            return (
+                <XmlTag key={year} tag="section" id={id}>
+                    <Link href={"#" + id} className="hidden">
+                        <XmlTag tag="h2">{year}</XmlTag>
+                    </Link>
                     {projects
                         .filter((project) => project.year === year)
-                        .map((project) => (
-                            <li
-                                className="project-container"
-                                key={project.name}
-                                id={project.name
-                                    .replace(/\s+/g, "-")
-                                    .toLowerCase()
-                                    .replace(/[^a-z0-9-]+/g, "")}
-                            >
-                                <p>{"{"}</p>
-                                <p className="indent-1">
-                                    <span className="key">name</span>:{" "}
-                                    <span className="string">&quot;{project.name}&quot;</span>,
-                                </p>
-                                <p className="indent-1">
-                                    <span className="key">description</span>:{" "}
-                                    <span className="string">
-                    &quot;{project.description}&quot;
-                                    </span>
-                  ,
-                                </p>
-                                <p className="indent-1">
-                                    <span className="key">languages</span>: [
-                                </p>
-                                {project.languages.map((language, i) => (
-                                    <p className="indent-2" key={i}>
-                                        <span className="string">&quot;{language}&quot;</span>,
-                                    </p>
-                                ))}
-                                <p className="indent-1">],</p>
-                                {project.live && (
-                                    <a
-                                        className="indent-1"
-                                        href={project.live}
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
-                                        <span className="key">live</span>:{" "}
-                                        <span className={classNames("url", "string")}>
-                      &quot;{project.live}&quot;
-                                        </span>
-                    ,
-                                    </a>
-                                )}
-                                {project.source && (
-                                    <a
-                                        className="indent-1"
-                                        href={project.source}
-                                        rel="noopener noreferrer"
-                                        target="_blank"
-                                    >
-                                        <span className="key">source</span>:{" "}
-                                        <span className={classNames("url", "string")}>
-                      &quot;{project.source}&quot;
-                                        </span>
-                    ,
-                                    </a>
-                                )}
-                                <p>{"}"}</p>
-                            </li>
-                        ))}
-                </ul>
-            </section>
-        ))}
+                        .map(mapProject)}
+                </XmlTag>
+            )
+        })}
     </>
 )
 

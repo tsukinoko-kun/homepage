@@ -3,7 +3,7 @@ import { createElement } from "react"
 import styles from "./XmlTag.module.scss"
 import Link from "next/link"
 import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism-async"
-import monokai from "react-syntax-highlighter/dist/cjs/styles/prism/darcula"
+import syntaxStyle from "react-syntax-highlighter/dist/cjs/styles/prism/darcula"
 
 type Props = {
     tag: string;
@@ -11,11 +11,12 @@ type Props = {
     children?: ReactNode;
     classList?: Array<string>;
     role?: string;
+    id?: string;
 };
 
 type AnchorProps = { tag: "a"; href: string } & Props;
 
-type ScriptProps = { tag: "script"; children: string } & Props;
+type ScriptProps = { tag: "script"; children: string, language: "tsx" | "jsx" | "json" } & Props;
 
 type LabelProps = { tag: "label"; children: string, for: string } & Props;
 
@@ -83,12 +84,12 @@ const mapTag = (props: XmlTagProps) => {
         role: props.role,
     }
 
-    if (props.tag === "script" && typeof props.children === "string") {
+    if (props.tag === "script" && typeof props.children === "string" && "language" in props) {
         return (
             <SyntaxHighlighter
                 {...attributes}
-                language="jsx"
-                style={monokai}
+                language={props.language}
+                style={syntaxStyle}
                 customStyle={{ background: "none", padding: "0", margin: "0 0 0 var(--tab-size)" }}
             >
                 {props.children.trim()}
@@ -119,6 +120,14 @@ export const XmlTag = (props: XmlTagProps) => {
     const isAnchor = props.tag === "a" && "href" in props
     let additionalAttributes: Record<string, string|number|boolean|undefined> = {}
 
+    if ("id" in props) {
+        additionalAttributes.id = props.id
+        attr = {
+            ...attr,
+            id: props.id,
+        }
+    }
+
     if (isAnchor) {
         const url = new URL(props.href, "https://www.frank-mayer.io")
         if (attr) {
@@ -142,6 +151,20 @@ export const XmlTag = (props: XmlTagProps) => {
         additionalAttributes = {
             ...additionalAttributes,
             htmlFor: props.for,
+        }
+    }
+    else if (props.tag === "script" && "language" in props) {
+        let type = "application/" + props.language
+        switch (props.language) {
+        case "tsx":
+        case "jsx":
+            type = "module"
+            break
+        }
+
+        attr = {
+            ...attr,
+            type,
         }
     }
 

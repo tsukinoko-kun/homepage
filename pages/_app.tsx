@@ -45,7 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     </motion.main>
                 </AnimatePresence>
                 <Footer/>
-                <XmlTag tag="script" attributes={{ type: "module" }}>
+                <XmlTag tag="script" language="jsx">
                     {`import React from "react"
 import { createRoot } from "react-dom/client"
 import ${title}Page from "./pages/${title}"

@@ -37,9 +37,14 @@ code {
   font-size: 0.8rem;
 }
 
-a {
+a:not(.hidden) {
   color: theme.$color-foreground;
   text-decoration: underline;
+}
+
+a.hidden {
+  color: inherit;
+  text-decoration: none;
 }
 
 p {
