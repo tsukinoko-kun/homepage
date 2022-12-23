@@ -183,7 +183,7 @@ export const XmlTag = (props: XmlTagProps) => {
         createElement(
             (parentlylyUsedTags.has(props.tag) ? parentlylyUsedTags.get(props.tag) : "span") as string,
             isAnchor
-                ? { ...additionalAttributes, className: styles["xml-tag"], href: props.href }
+                ? { ...additionalAttributes, className: styles["xml-tag"], href: (props as AnchorProps).href }
                 : { ...additionalAttributes, className: styles["xml-tag"] },
             <span className={styles["opening"]} role="presentation" aria-hidden>
                 {attr ? (
