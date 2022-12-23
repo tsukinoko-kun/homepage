@@ -14,7 +14,7 @@ html,
 body {
   background-color: theme.$color-background;
   color: theme.$color-foreground;
-  font-family: "JetBrains Sans", "JetBrains Mono", sans-serif;
+  font-family: "JetBrains Mono", "Cascadia Code", "Fira Code", monospace;
   font-size: 1rem;
   overflow-x: hidden;
 }
@@ -25,21 +25,20 @@ body {
 
 #__next {
   width: 100%;
-  max-width: max(golden-ratio.vert(0), 800px);
-  padding: 0.5rem;
+  max-width: max(golden-ratio.hor(1), 800px);
+  padding: golden-ratio.min(11) golden-ratio.min(9);
 }
 
 @media screen and (min-width: 101vh) {
   #__next {
     margin: 2rem auto;
-    box-shadow: 0 0 5rem 0 rgba(black, 0.2);
+    box-shadow: 0 0 golden-ratio.hor(7) 0 rgba(black, 0.2);
     border-radius: 0.5rem;
   }
 }
 
 pre,
 code {
-  font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.8rem;
 }
 
@@ -78,25 +77,25 @@ textarea {
 }
 
 h1 {
-  font-size: min(golden-ratio.vert(4), 21vw);
+  font-size: golden-ratio.min(4);
 }
 
 h2 {
-  font-size: golden-ratio.vert(5);
+  font-size: golden-ratio.min(5);
 }
 
 h3 {
-  font-size: golden-ratio.vert(6);
+  font-size: golden-ratio.min(6);
 }
 
 h4 {
-  font-size: golden-ratio.vert(7);
+  font-size: golden-ratio.min(7);
 }
 
 h5 {
-  font-size: golden-ratio.vert(8);
+  font-size: golden-ratio.min(8);
 }
 
 h6 {
-  font-size: golden-ratio.vert(9);
+  font-size: golden-ratio.min(9);
 }

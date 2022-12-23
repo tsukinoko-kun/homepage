@@ -9,3 +9,7 @@ $phi: 1.61803398875;
 @function hor($n) {
   @return math.div(100vw, math.pow($phi, $n));
 }
+
+@function min($n) {
+  @return math.div(100vmin, math.pow($phi, $n));
+}
