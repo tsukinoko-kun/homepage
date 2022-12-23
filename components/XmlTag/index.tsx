@@ -14,7 +14,7 @@ type Props = {
     id?: string;
 };
 
-type AnchorProps = { tag: "a"; href: string } & Props;
+type AnchorProps = { tag: "a"; href: string, scroll?: boolean } & Props;
 
 type ScriptProps = { tag: "script"; children: string, language: "tsx" | "jsx" | "json" } & Props;
 
@@ -136,7 +136,11 @@ export const XmlTag = (props: XmlTagProps) => {
         else {
             attr = { href: url.href }
         }
-        if (!url.hostname.endsWith("frank-mayer.io")) {
+
+        if (url.hostname.endsWith("frank-mayer.io")) {
+            additionalAttributes.scroll = props.scroll
+        }
+        else {
             attr.target = "_blank"
             additionalAttributes.target = "_blank"
             additionalAttributes.rel = "noopener noreferrer"
