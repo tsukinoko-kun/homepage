@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { XmlTag } from "../components/XmlTag"
 
 export const getStaticProps = () => ({
     props: {
@@ -9,17 +9,15 @@ export const getStaticProps = () => ({
 
 const Page = () => (
     <>
-
-        <section className="section">
-            <h2>This is not the page you are looking for!</h2>
-            <p>
+        <XmlTag tag="h1">404</XmlTag>
+        <XmlTag tag="h2">This is not the page you are looking for!</XmlTag>
+        <XmlTag tag="p">
         Maybe try the{" "}
-                <Link scroll={false} href="/">
+            <XmlTag tag="a" href="/" scroll={false}>
           home page
-                </Link>
+            </XmlTag>
         ?
-            </p>
-        </section>
+        </XmlTag>
     </>
 )
 

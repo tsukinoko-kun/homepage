@@ -38,7 +38,7 @@ const Page = () => (
             return (
                 <XmlTag key={year} tag="section" id={id}>
                     <Link href={"#" + id} className="hidden">
-                        <XmlTag tag="h2">{year}</XmlTag>
+                        <XmlTag tag="h2">{year.toString()}</XmlTag>
                     </Link>
                     {projects
                         .filter((project) => project.year === year)

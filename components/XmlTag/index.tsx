@@ -4,6 +4,7 @@ import styles from "./XmlTag.module.scss"
 import Link from "next/link"
 import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism-async"
 import syntaxStyle from "react-syntax-highlighter/dist/cjs/styles/prism/darcula"
+import { Wobble } from "../Wobble"
 
 type Props = {
     tag: string;
@@ -169,6 +170,12 @@ export const XmlTag = (props: XmlTagProps) => {
         attr = {
             ...attr,
             type,
+        }
+    }
+    else if (/^h[1-6]$/.test(props.tag) && typeof props.children == "string") {
+        props = {
+            ...props,
+            children: createElement(Wobble, null, props.children)
         }
     }
 
