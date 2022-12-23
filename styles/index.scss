@@ -20,16 +20,20 @@ body {
 }
 
 body {
-  padding: 0.5rem;
   width: 100vw;
 }
 
 #__next {
   width: 100%;
   max-width: max(golden-ratio.vert(0), 800px);
-  margin: {
-    left: auto;
-    right: auto;
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 101vh) {
+  #__next {
+    margin: 2rem auto;
+    box-shadow: 0 0 5rem 0 rgba(black, 0.2);
+    border-radius: 0.5rem;
   }
 }
 
@@ -75,24 +79,24 @@ textarea {
 
 h1 {
   font-size: min(golden-ratio.vert(4), 21vw);
-  margin: {
-    top: 0.5rem;
-    bottom: 0.5rem;
-  }
 }
 
 h2 {
   font-size: golden-ratio.vert(5);
-  margin: {
-    top: 0.5rem;
-    bottom: 0.5rem;
-  }
 }
 
 h3 {
   font-size: golden-ratio.vert(6);
-  margin: {
-    top: 0.5rem;
-    bottom: 0.5rem;
-  }
+}
+
+h4 {
+  font-size: golden-ratio.vert(7);
+}
+
+h5 {
+  font-size: golden-ratio.vert(8);
+}
+
+h6 {
+  font-size: golden-ratio.vert(9);
 }
