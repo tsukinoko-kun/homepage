@@ -130,7 +130,7 @@ export const XmlTag = (props: XmlTagProps) => {
     }
 
     if (isAnchor) {
-        const url = new URL(props.href, "https://www.frank-mayer.io")
+        const url = new URL((props as AnchorProps).href, "https://www.frank-mayer.io")
         if (attr) {
             attr = { ...props.attributes, href: url.href }
         }
@@ -139,7 +139,7 @@ export const XmlTag = (props: XmlTagProps) => {
         }
 
         if (url.hostname.endsWith("frank-mayer.io")) {
-            additionalAttributes.scroll = props.scroll
+            additionalAttributes.scroll = (props as AnchorProps).scroll
         }
         else {
             attr.target = "_blank"
@@ -207,7 +207,7 @@ export const XmlTag = (props: XmlTagProps) => {
         createElement(
             (isAnchor ? Link : "span") as string,
             isAnchor
-                ? { ...additionalAttributes, className: styles["xml-tag"], href: props.href, role: "presentation", "aria-hidden": true }
+                ? { ...additionalAttributes, className: styles["xml-tag"], href: (props as AnchorProps).href, role: "presentation", "aria-hidden": true }
                 : { ...additionalAttributes, className: styles["xml-tag"] },
             <span className={styles["opening"]}>
                 <span>&lt;{props.tag}&ensp;</span>
