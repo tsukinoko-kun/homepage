@@ -1,9 +1,13 @@
 import { initializeApp } from "firebase/app"
 import { get, getDatabase, ref } from "firebase/database"
 import type { GetStaticProps } from "next/types"
+import { XmlTag } from "../components/XmlTag"
 
 type Props = {
-  youtubeLive: string;
+  youtubeLive: {
+    isRecording: boolean;
+    id: string;
+  };
 };
 
 // eslint-disable-next-line no-restricted-syntax
@@ -20,7 +24,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
     const database = getDatabase(app)
 
-    const youtubeLiveRef = ref(database, "youtube_live")
+    const youtubeLiveRef = ref(database, "youtubeLive")
     const youtubeLiveSnapshot = await get(youtubeLiveRef)
     const youtubeLiveValue = youtubeLiveSnapshot.val()
 
@@ -34,27 +38,42 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     }
 }
 
-const Page = (props: Props) => (
-    <>
-        {props.youtubeLive ? (
-            <iframe
-                style={{
-                    width: "75vmin",
-                    height: "50vmin",
-                    margin: "2rem auto",
-                    display: "block",
-                }}
-                src={`https://www.youtube-nocookie.com/embed/${props.youtubeLive}`}
-                frameBorder={0}
-                allow="encrypted-media; picture-in-picture"
-                allowFullScreen
-            />
-        ) : (
-            <p style={{ textAlign: "center" }}>
-        I&apos;m not live on YouTube right now.
-            </p>
-        )}
-    </>
-)
+const Page = (props: Props) => {
+    const url = new URL("https://www.youtube-nocookie.com/embed/" + props.youtubeLive.id)
+    if (!props.youtubeLive.isRecording) {
+        url.searchParams.set("controls", "0")
+    }
+    url.searchParams.set("autoplay", "1")
+
+    return (
+        <>
+            <XmlTag tag="h1">Live on YouTube</XmlTag>
+            {props.youtubeLive.id ? (
+                <>
+                    <XmlTag tag="iframe" attributes={{
+                        src: url.href,
+                        allow: "encrypted-media; picture-in-picture",
+                        allowFullScreen: true
+                    }}>
+                        <iframe
+                            style={{
+                                width: "75vmin",
+                                height: "50vmin",
+                                margin: "2rem auto",
+                                display: "block",
+                            }}
+                            src={url.href}
+                            frameBorder={0}
+                            allow="autoplay; encrypted-media; picture-in-picture"
+                            allowFullScreen />
+                    </XmlTag>
+                    {props.youtubeLive.isRecording ? <XmlTag tag="p">This video is a recording of the last stream</XmlTag> : null}
+                </>
+            ) : (
+                <XmlTag tag="p">There is no live stream avaliable</XmlTag>
+            )}
+        </>
+    )
+}
 
 export default Page
