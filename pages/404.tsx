@@ -1,32 +1,24 @@
-import { PrimaryContainer } from "../components/container";
-import Link from "next/link";
+import { XmlTag } from "../components/XmlTag"
 
-export const getStaticProps = async () => ({
-  props: {
-    title: "404",
-    description: "This page does not exist",
-  },
-});
+export const getStaticProps = () => ({
+    props: {
+        title: "404",
+        description: "This page does not exist",
+    },
+})
 
 const Page = () => (
-  <>
-    <PrimaryContainer
-      title="404"
-      description="Page not found"
-      background="rect"
-    />
-
-    <section className="section">
-      <h2>This is not the page you are looking for!</h2>
-      <p>
+    <>
+        <XmlTag tag="h1">404</XmlTag>
+        <XmlTag tag="h2">This is not the page you are looking for!</XmlTag>
+        <XmlTag tag="p">
         Maybe try the{" "}
-        <Link scroll={false} href="/">
+            <XmlTag tag="a" href="/" scroll={false}>
           home page
-        </Link>
+            </XmlTag>
         ?
-      </p>
-    </section>
-  </>
-);
+        </XmlTag>
+    </>
+)
 
-export default Page;
+export default Page

@@ -1,0 +1,49 @@
+@use "../../styles/theme";
+
+.xml-tag {
+    display: block;
+    width: 100%;
+    margin: {
+        top: 0.25rem;
+        bottom: 0.25rem;
+    }
+    transform: translateY(
+        calc((var(--box-position) - var(--scroll-y) - 0.4) * 1vmin)
+    );
+
+    .opening,
+    .closing {
+        color: theme.$color-foreground-secondary !important;
+        font-family: Caveat, cursive;
+        width: fit-content;
+        max-width: 100%;
+        user-select: none;
+
+        > * {
+            display: inline-block;
+        }
+    }
+
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .p {
+        .children {
+            transform: translateY(
+                calc((var(--box-position) - var(--scroll-y) - 0.3) * 8vmin)
+            );
+        }
+    }
+
+    .children {
+        display: block;
+        margin-left: var(--tab-size);
+
+        &.script {
+            opacity: 0.8;
+        }
+    }
+}

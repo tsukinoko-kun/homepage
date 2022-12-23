@@ -1,0 +1,122 @@
+@use "theme";
+@use "fonts";
+@use "reset";
+@use "scrollbar";
+@use "golden-ratio";
+@use "my-math";
+
+:root {
+    --tab-size: 0.75rem;
+}
+
+:root,
+html,
+body {
+    background-color: theme.$color-background;
+    color: theme.$color-foreground;
+    font-family: "JetBrains Mono", "Cascadia Code", "Fira Code", monospace;
+    font-size: 1rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100vw;
+}
+
+#__next {
+    width: 100%;
+    max-width: max(golden-ratio.hor(1), 800px);
+    padding: golden-ratio.min(11) golden-ratio.min(9);
+
+    * {
+        overflow-y: visible;
+        background: transparent;
+    }
+}
+
+@media screen and (min-width: 101vh) {
+    #__next {
+        margin: 2rem auto;
+        box-shadow: 0 0 golden-ratio.hor(7) 0 rgba(black, 0.2);
+        border-radius: 0.5rem;
+    }
+}
+
+pre,
+code {
+    font-size: 0.8rem;
+}
+
+a:not(.hidden) {
+    color: theme.$color-foreground;
+    text-decoration: underline;
+}
+
+a.hidden {
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    margin: {
+        top: 0.5em;
+        bottom: 0.5em;
+    }
+}
+
+table {
+    th,
+    td {
+        text-align: left;
+    }
+}
+
+a,
+label {
+    cursor: pointer;
+    will-change: color, filter;
+    transition: filter theme.$timing ease-out;
+
+    &:hover {
+        @include theme.glow;
+
+        * {
+            color: theme.$color-accent !important;
+        }
+    }
+}
+
+input,
+textarea {
+    padding: 0.2em 0.5em;
+}
+
+h1 {
+    font-size: golden-ratio.min(4);
+}
+
+h2 {
+    font-size: golden-ratio.min(5);
+}
+
+h3 {
+    font-size: golden-ratio.min(6);
+}
+
+h4 {
+    font-size: golden-ratio.min(7);
+}
+
+h5 {
+    font-size: golden-ratio.min(8);
+}
+
+h6 {
+    font-size: golden-ratio.min(9);
+}
+
+::selection {
+    background-color: theme.$color-accent;
+    color: theme.$color-background;
+}
