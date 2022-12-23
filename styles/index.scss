@@ -3,6 +3,10 @@
 @use "reset";
 @use "scrollbar";
 
+:root {
+  --tab-size: 0.75em;
+}
+
 :root,
 html,
 body {

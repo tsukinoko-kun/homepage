@@ -20,7 +20,7 @@
 
   .children {
     display: block;
-    margin-left: 0.75em;
+    margin-left: var(--tab-size);
 
     &.script {
       opacity: 0.8;

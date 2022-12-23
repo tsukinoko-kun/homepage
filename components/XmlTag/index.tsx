@@ -89,7 +89,7 @@ const mapTag = (props: XmlTagProps) => {
                 {...attributes}
                 language="jsx"
                 style={monokai}
-                customStyle={{ background: "none" }}
+                customStyle={{ background: "none", padding: "0", margin: "0 0 0 var(--tab-size)" }}
             >
                 {props.children.trim()}
             </SyntaxHighlighter>
