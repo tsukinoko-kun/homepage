@@ -52,7 +52,7 @@ const Page = (props: Props) => {
 
                 <XmlTag tag="iframe" attributes={{
                     src: url.href,
-                    allow: "encrypted-media; picture-in-picture",
+                    allow: "autoplay; encrypted-media; picture-in-picture",
                     allowFullScreen: true
                 }}>
                     <iframe
