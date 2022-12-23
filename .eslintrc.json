@@ -1,3 +1,6 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "@frank-mayer/eslint-config"],
+  "rules": {
+    "max-lines-per-function": ["error", 256]
+  }
 }

@@ -1,0 +1,63 @@
+@use "theme";
+@use "fonts";
+@use "reset";
+@use "scrollbar";
+
+:root,
+html,
+body {
+  background-color: theme.$color-background;
+  color: theme.$color-foreground;
+  font-family: "JetBrains Sans", "JetBrains Mono", sans-serif;
+  font-size: 1rem;
+  overflow-x: hidden;
+}
+
+body {
+  padding: 1rem;
+  width: 100vw;
+}
+
+#__next {
+  width: 100%;
+  max-width: 750px;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+pre,
+code {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.8rem;
+}
+
+a {
+  color: theme.$color-foreground;
+  text-decoration: underline;
+}
+
+p {
+  margin: {
+    top: 0.5em;
+    bottom: 0.5em;
+  }
+}
+
+table {
+  th,
+  td {
+    text-align: left;
+  }
+}
+
+a,
+label {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  padding: 0.2em 0.5em;
+}

@@ -1,0 +1,29 @@
+@use "../../styles/theme";
+
+.xml-tag {
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+
+  .opening,
+  .closing {
+    color: theme.$color-foreground-secondary !important;
+    font-family: Caveat, cursive;
+    width: fit-content;
+    max-width: 100%;
+    user-select: none;
+
+    > * {
+      display: inline-block;
+    }
+  }
+
+  .children {
+    display: block;
+    margin-left: 0.75em;
+
+    &.script {
+      opacity: 0.8;
+    }
+  }
+}

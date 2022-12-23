@@ -1,3 +1,5 @@
+@use "theme";
+
 // width
 ::-webkit-scrollbar {
   width: 0.5rem;
@@ -5,21 +7,23 @@
 }
 
 ::-webkit-scrollbar-corner {
-  background: var(--color-background);
+  background: theme.$color-background;
 }
 
 // Track
 ::-webkit-scrollbar-track {
-  background: var(--color-background);
+  background: theme.$color-background;
 }
 
 // Handle
 ::-webkit-scrollbar-thumb {
-  background: var(--color-surface-4);
   border-radius: 0.25rem;
-}
 
-// Handle on hover
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-surface-5);
+  &:hover {
+    background: theme.$color-foreground;
+  }
+
+  &:not(:hover) {
+    background: theme.$color-foreground-secondary;
+  }
 }
