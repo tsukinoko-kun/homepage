@@ -28,6 +28,11 @@ body {
     width: 100%;
     max-width: max(golden-ratio.hor(1), 800px);
     padding: golden-ratio.min(11) golden-ratio.min(9);
+
+    * {
+        overflow-y: visible;
+        background: transparent;
+    }
 }
 
 @media screen and (min-width: 101vh) {

@@ -5,6 +5,7 @@ import Head from "next/head"
 import { XmlTag } from "../components/XmlTag"
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
+import { useEffect } from "react"
 
 const variants = {
     hidden: { opacity: 0, x: -100, y: 0 },
@@ -14,6 +15,23 @@ const variants = {
 
 export default function App({ Component, pageProps }: AppProps) {
     const { title, description } = pageProps
+
+    useEffect(() => {
+        if (!window || "scrollEventRegistered" in window) {
+            return
+        }
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).scrollEventRegistered = true
+
+        window.addEventListener(
+            "scroll",
+            () => {
+                document.documentElement.style.setProperty("--scroll-y", (window.scrollY / screen.height).toString())
+            },
+            { passive: true }
+        )
+    })
 
     return (
         <>
