@@ -26,4 +26,9 @@
     &:not(:hover) {
         background: theme.$color-foreground-secondary;
     }
+
+    &:active {
+        @include theme.glow;
+        background: theme.$color-accent;
+    }
 }
