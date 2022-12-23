@@ -32,6 +32,7 @@ const mapProject = (project: Project) => {
 
 const Page = () => (
     <>
+        <XmlTag tag="h1">Portfolio</XmlTag>
         {years.map((year) => {
             const id = makeId("projects-year-" + year)
             return (

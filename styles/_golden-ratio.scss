@@ -1,0 +1,11 @@
+@use "sass:math";
+
+$phi: 1.61803398875;
+
+@function vert($n) {
+  @return math.div(100vh, math.pow($phi, $n));
+}
+
+@function hor($n) {
+  @return math.div(100vw, math.pow($phi, $n));
+}

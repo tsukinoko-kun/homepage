@@ -2,9 +2,11 @@
 @use "fonts";
 @use "reset";
 @use "scrollbar";
+@use "golden-ratio";
+@use "my-math";
 
 :root {
-  --tab-size: 0.75em;
+  --tab-size: 0.75rem;
 }
 
 :root,
@@ -18,13 +20,13 @@ body {
 }
 
 body {
-  padding: 1rem;
+  padding: 0.5rem;
   width: 100vw;
 }
 
 #__next {
   width: 100%;
-  max-width: 750px;
+  max-width: max(golden-ratio.vert(0), 800px);
   margin: {
     left: auto;
     right: auto;
@@ -69,4 +71,28 @@ label {
 input,
 textarea {
   padding: 0.2em 0.5em;
+}
+
+h1 {
+  font-size: min(golden-ratio.vert(4), 21vw);
+  margin: {
+    top: 0.5rem;
+    bottom: 0.5rem;
+  }
+}
+
+h2 {
+  font-size: golden-ratio.vert(5);
+  margin: {
+    top: 0.5rem;
+    bottom: 0.5rem;
+  }
+}
+
+h3 {
+  font-size: golden-ratio.vert(6);
+  margin: {
+    top: 0.5rem;
+    bottom: 0.5rem;
+  }
 }
