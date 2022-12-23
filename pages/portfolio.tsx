@@ -20,7 +20,7 @@ const mapProject = (project: Project) => {
 
     return (
         <XmlTag key={project.name} tag="div" id={id}>
-            <Link href={"#" + id} className="hidden">
+            <Link href={"#" + id} className="hidden" scroll={false}>
                 <XmlTag tag="h3">{project.name}</XmlTag>
             </Link>
             <XmlTag tag="script" language="json">
@@ -37,7 +37,7 @@ const Page = () => (
             const id = makeId("projects-year-" + year)
             return (
                 <XmlTag key={year} tag="section" id={id}>
-                    <Link href={"#" + id} className="hidden">
+                    <Link href={"#" + id} className="hidden" scroll={false}>
                         <XmlTag tag="h2">{year.toString()}</XmlTag>
                     </Link>
                     {projects
