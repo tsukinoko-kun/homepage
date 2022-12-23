@@ -10,7 +10,7 @@ const getWobbleAnimation = (char: string) => {
 
     return [
         { transform: "scale(1)", transformOrigin: charIsTall ? "50% 50%" : "50% 60%" },
-        { transform: "scale(0.7, 0.1)" },
+        { transform: "scale(1.2, 0.1)" },
         { transform: "scale(0.975, 0.9)" },
         { transform: "scale(0.875, 0.4)" },
         { transform: "scale(0.9875, 0.95)" },

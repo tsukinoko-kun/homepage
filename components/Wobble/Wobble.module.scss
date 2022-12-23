@@ -3,6 +3,8 @@
 .wobble {
   display: inline-block;
 
+  will-change: color, transform;
+
   &:hover {
     color: theme.$color-accent;
   }
