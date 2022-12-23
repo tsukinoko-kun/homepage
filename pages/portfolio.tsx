@@ -19,14 +19,14 @@ const mapProject = (project: Project) => {
     const id = makeId(`project-${project.year}-${project.name}`)
 
     return (
-        <Link key={project.name} href={"#" + id} className="hidden">
-            <XmlTag tag="section" id={id}>
+        <XmlTag key={project.name} tag="div" id={id}>
+            <Link href={"#" + id} className="hidden">
                 <XmlTag tag="h3">{project.name}</XmlTag>
-                <XmlTag tag="script" language="json">
-                    {JSON.stringify(project, null, 4)}
-                </XmlTag>
+            </Link>
+            <XmlTag tag="script" language="json">
+                {JSON.stringify(project, null, 4)}
             </XmlTag>
-        </Link>
+        </XmlTag>
     )
 }
 
