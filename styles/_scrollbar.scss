@@ -2,28 +2,28 @@
 
 // width
 ::-webkit-scrollbar {
-  width: 0.5rem;
-  height: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
 }
 
 ::-webkit-scrollbar-corner {
-  background: theme.$color-background;
+    background: theme.$color-background;
 }
 
 // Track
 ::-webkit-scrollbar-track {
-  background: theme.$color-background;
+    background: theme.$color-background;
 }
 
 // Handle
 ::-webkit-scrollbar-thumb {
-  border-radius: 0.25rem;
+    border-radius: 0.25rem;
 
-  &:hover {
-    background: theme.$color-foreground;
-  }
+    &:hover {
+        background: theme.$color-foreground;
+    }
 
-  &:not(:hover) {
-    background: theme.$color-foreground-secondary;
-  }
+    &:not(:hover) {
+        background: theme.$color-foreground-secondary;
+    }
 }

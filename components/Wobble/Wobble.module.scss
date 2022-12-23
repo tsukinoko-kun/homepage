@@ -1,11 +1,11 @@
 @use "../../styles/theme";
 
 .wobble {
-  display: inline-block;
+    display: inline-block;
 
-  will-change: color, transform;
+    will-change: color, transform;
 
-  &:hover {
-    color: theme.$color-accent;
-  }
+    &:hover {
+        @include theme.glow;
+    }
 }

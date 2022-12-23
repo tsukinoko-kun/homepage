@@ -1,6 +1,6 @@
 root=true
 
-[*.{js,jsx,ts,tsx}]
+[*.{js,jsx,ts,tsx,scss,sass,css}]
 indent_style = space
 indent_size = 4
 trim_trailing_whitespace = true
