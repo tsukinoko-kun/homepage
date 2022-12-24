@@ -1,5 +1,6 @@
 import { client } from "@frank-mayer/magic"
 import styles from "./Wobble.module.scss"
+import { Fragment } from "react"
 
 type Props = {
     children: string;
@@ -25,7 +26,7 @@ export const Wobble = (props: Props) => (
     <>
         {props.children.split("").map((char, index) => {
             if (char == " ") {
-                return " "
+                return <Fragment key={index}>&ensp;<wbr/></Fragment>
             }
 
             const wobbleAnimation = getWobbleAnimation(char)

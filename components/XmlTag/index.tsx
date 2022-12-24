@@ -26,7 +26,7 @@ type XmlTagProps = Props | AnchorProps | ScriptProps | LabelProps;
 const mapAttribute = ([key, value]: [string, unknown], i: number) => {
     let html: {__html: string}|null = null
 
-    const spacer = i !== 0 ? "&thinsp;" : ""
+    const spacer = i !== 0 ? "&ensp;" : ""
 
     switch (typeof value) {
     case "boolean":
