@@ -39,7 +39,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <title>{`Frank Mayer \\\\ ${title}`}</title>
                 <meta name="description" content={description} />
             </Head>
-            <XmlTag tag="html" attributes={{ lang: "en" }} />
+            <XmlTag tag="html" attributes={{ lang: "en-US" }} />
             <XmlTag tag="head">
                 <XmlTag tag="title">{`Frank Mayer \\\\ ${title}`}</XmlTag>
                 <XmlTag tag="meta" attributes={{ name: "description", content: description }} />
