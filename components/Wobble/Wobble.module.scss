@@ -3,8 +3,12 @@
 .wobble {
     display: inline-block;
     will-change: color, transform;
+}
 
-    &:hover {
-        @include theme.glow;
+@media (hover: hover) {
+    .wobble {
+        &:hover {
+            @include theme.glow;
+        }
     }
 }

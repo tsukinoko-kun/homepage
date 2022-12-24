@@ -82,12 +82,17 @@ label {
     cursor: pointer;
     will-change: color, filter;
     transition: filter theme.$timing ease-out;
+}
 
-    &:hover {
-        @include theme.glow;
+@media (hover: hover) {
+    a,
+    label {
+        &:hover {
+            @include theme.glow;
 
-        * {
-            color: theme.$color-accent !important;
+            * {
+                color: theme.$color-accent !important;
+            }
         }
     }
 }
