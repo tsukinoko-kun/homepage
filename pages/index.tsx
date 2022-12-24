@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { XmlTag } from "../components/XmlTag"
 
 export const getStaticProps = () => ({
@@ -9,14 +10,16 @@ export const getStaticProps = () => ({
 
 const Page = () => (
     <>
-        <XmlTag tag="h1">Frank Mayer</XmlTag>
+        <XmlTag tag="h1">Hey, &#x1F44B;<br/>I&apos;m Frank</XmlTag>
         <XmlTag tag="p">
-            <p>I am a Software Engineer located in Heilbronn, Germany.</p>
-            <p>Well organised problem solver with high attention to the detail
-            and a passion for clean code and good architecture.
-            Huge fan of functional programming and a strong believer in the power of the type system.</p>
+            Software Engineer located in Heilbronn, Germany.
             <XmlTag tag="br"/>
-            <p>In my free time I like to watch anime, play video games and listen to jazz and 80s rock music.</p>
+            Well organised problem solver with high attention to the detail
+            and a passion for clean code and good architecture.
+            Huge fan of functional programming, criticizer of semicolons and a strong believer in the power of the type system.
+        </XmlTag>
+        <XmlTag tag="p">
+            In my free time I like to watch anime, play video games and listen to jazz and rock music.
         </XmlTag>
     </>
 )
