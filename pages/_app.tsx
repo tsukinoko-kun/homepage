@@ -29,9 +29,6 @@ export default function App({ Component, pageProps }: AppProps) {
             <XmlTag tag="html" attributes={{ lang: "en-US" }} />
             <XmlTag tag="head">
                 <XmlTag tag="title">{`Frank Mayer \\\\ ${title}`}</XmlTag>
-                <XmlTag tag="meta" attributes={{ name: "description", content: description }} />
-                <XmlTag tag="meta" attributes={{ name: "viewport", content: "width=device-width, initial-scale=1" }} />
-                <XmlTag tag="link" attributes={{ rel: "icon", href: "/favicon.ico" }} />
             </XmlTag>
             <XmlTag tag="body">
                 <Header />
