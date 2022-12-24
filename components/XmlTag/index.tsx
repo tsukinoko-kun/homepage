@@ -194,7 +194,7 @@ export const XmlTag = (props: XmlTagProps) => {
 
     additionalAttributes.ref = ref
     additionalAttributes.style = {
-        "--box-position": (box ? (box.top - (box.height / 2)) / screen.height : 0).toString(),
+        "--box-position": (box ? (box.top + window.scrollY + (box.height / 2)) / screen.height : 0).toString(),
     }
 
     return props.children ? (

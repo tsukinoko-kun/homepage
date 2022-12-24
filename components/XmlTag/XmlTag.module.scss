@@ -8,7 +8,7 @@
         bottom: 0.25rem;
     }
     transform: translateY(
-        calc((var(--box-position) - var(--scroll-y) - 0.4) * 1vmin)
+        calc((var(--box-position) - var(--scroll-y) - 0.5) * 2vmin)
     );
 
     .opening,
@@ -33,7 +33,7 @@
     .p {
         .children {
             transform: translateY(
-                calc((var(--box-position) - var(--scroll-y) - 0.3) * 8vmin)
+                calc((var(--box-position) - var(--scroll-y) - 0.5) * 4vmin)
             );
         }
     }

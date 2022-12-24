@@ -24,6 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (window as any).scrollEventRegistered = true
 
+        document.documentElement.style.setProperty("--scroll-y", "0")
         window.addEventListener(
             "scroll",
             () => {
