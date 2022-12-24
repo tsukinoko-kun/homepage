@@ -4,7 +4,11 @@ $color-foreground-secondary: rgb(101, 99, 101);
 $color-accent: rgb(128, 255, 204);
 $timing: 200ms;
 
+@mixin glow-no-color {
+    filter: drop-shadow(0 0 0.5rem rgba($color-accent, 0.5)) !important;
+}
+
 @mixin glow {
     color: $color-accent !important;
-    filter: drop-shadow(0 0 0.5rem rgba($color-accent, 0.5)) !important;
+    @include glow-no-color;
 }
