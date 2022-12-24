@@ -7,6 +7,12 @@
 
 :root {
     --tab-size: 0.75rem;
+    overflow-y: auto;
+}
+
+body,
+#__next {
+    overflow-y: hidden;
 }
 
 :root,
