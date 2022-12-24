@@ -33,7 +33,7 @@ const Page = () => (
         </XmlTag>
         <XmlTag tag="section">
             <XmlTag tag="h3">Other</XmlTag>
-            <TagCloud className="other">{["Git", "GitHub", "Gimp", "Figma", "Inkscape", "PlantUML", "LaTeX", "Markdown"]}</TagCloud>
+            <TagCloud className="other">{["Git", "GitHub", "Figma", "Inkscape", "PlantUML", "LaTeX", "Markdown"]}</TagCloud>
         </XmlTag>
     </>
 )
