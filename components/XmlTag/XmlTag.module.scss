@@ -7,14 +7,14 @@
         top: 0.25rem;
         bottom: 0.25rem;
     }
-    transform: translateY(
-        calc((var(--box-position) - var(--scroll-y) - 0.5) * 2vmin)
-    );
+    // transform: translateY(
+    //     calc((var(--box-position) - var(--scroll-y) - 0.5) * 2vmin)
+    // );
 
     .opening,
     .closing {
         color: theme.$color-foreground-secondary !important;
-        font-family: Caveat, cursive;
+        font-family: Caveat, monospace;
         width: fit-content;
         max-width: 100%;
         user-select: none;
@@ -24,19 +24,19 @@
         }
     }
 
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6,
-    .p {
-        .children {
-            transform: translateY(
-                calc((var(--box-position) - var(--scroll-y) - 0.5) * 4vmin)
-            );
-        }
-    }
+    // .h1,
+    // .h2,
+    // .h3,
+    // .h4,
+    // .h5,
+    // .h6,
+    // .p {
+    //     .children {
+    //         transform: translateY(
+    //             calc((var(--box-position) - var(--scroll-y) - 0.5) * 4vmin)
+    //         );
+    //     }
+    // }
 
     .children {
         display: block;

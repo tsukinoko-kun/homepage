@@ -5,7 +5,9 @@ import Head from "next/head"
 import { XmlTag } from "../components/XmlTag"
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
-import { useEffect } from "react"
+import CaveatFont from "../fonts/Caveat.woff2"
+import JetBrainsMonoFont from "../fonts/JetBrainsMono.woff2"
+import { LoadFonts, PreLoadFonts } from "../components/LoadFonts"
 
 const variants = {
     hidden: { opacity: 0, x: -100, y: 0 },
@@ -16,30 +18,14 @@ const variants = {
 export default function App({ Component, pageProps }: AppProps) {
     const { title, description } = pageProps
 
-    useEffect(() => {
-        if (!window || "scrollEventRegistered" in window) {
-            return
-        }
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (window as any).scrollEventRegistered = true
-
-        document.documentElement.style.setProperty("--scroll-y", "0")
-        window.addEventListener(
-            "scroll",
-            () => {
-                document.documentElement.style.setProperty("--scroll-y", (window.scrollY / screen.height).toString())
-            },
-            { passive: true }
-        )
-    })
-
     return (
         <>
             <Head>
                 <title>{`Frank Mayer \\\\ ${title}`}</title>
                 <meta name="description" content={description} />
+                <PreLoadFonts fonts={[{ name:"Caveat", url:CaveatFont }, { name:"JetBrainsMono", url: JetBrainsMonoFont }]} />
             </Head>
+            <LoadFonts fonts={[{ name:"Caveat", url:CaveatFont }, { name:"JetBrainsMono", url: JetBrainsMonoFont }]} />
             <XmlTag tag="html" attributes={{ lang: "en-US" }} />
             <XmlTag tag="head">
                 <XmlTag tag="title">{`Frank Mayer \\\\ ${title}`}</XmlTag>

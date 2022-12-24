@@ -1,4 +1,4 @@
-import { FunctionComponent, ComponentClass, ReactNode, useState, useEffect, createRef, RefObject } from "react"
+import { FunctionComponent, ComponentClass, ReactNode, RefObject } from "react"
 import { createElement } from "react"
 import styles from "./XmlTag.module.scss"
 import Link from "next/link"
@@ -121,18 +121,18 @@ export const XmlTag = (props: XmlTagProps) => {
     const isAnchor = props.tag === "a" && "href" in props
     let additionalAttributes: Record<string, string|number|boolean|undefined|RefObject<Element>|object> = {}
 
-    const [box, setBox] = useState<DOMRect>()
-    const ref = createRef<HTMLElement>()
-    useEffect(() => {
-        if (box) {
-            return
-        }
+    // const [box, setBox] = useState<DOMRect>()
+    // const ref = createRef<HTMLElement>()
+    // useEffect(() => {
+    //     if (box) {
+    //         return
+    //     }
 
-        const element = ref.current
-        if (element) {
-            setBox(element.getBoundingClientRect())
-        }
-    }, [box, ref])
+    //     const element = ref.current
+    //     if (element) {
+    //         setBox(element.getBoundingClientRect())
+    //     }
+    // }, [box, ref])
 
     if ("id" in props) {
         additionalAttributes.id = props.id
@@ -192,17 +192,17 @@ export const XmlTag = (props: XmlTagProps) => {
         }
     }
 
-    additionalAttributes.ref = ref
-    additionalAttributes.style = {
-        "--box-position": (box ? (box.top + window.scrollY + (box.height / 2)) / screen.height : 0).toString(),
-    }
+    // additionalAttributes.ref = ref
+    // additionalAttributes.style = {
+    //     "--box-position": (box ? (box.top + window.scrollY + (box.height / 2)) / screen.height : 0).toString(),
+    // }
 
     return props.children ? (
         createElement(
             (parentlylyUsedTags.has(props.tag) ? parentlylyUsedTags.get(props.tag) : "span") as string,
             isAnchor
-                ? { ...additionalAttributes, className: styles["xml-tag"] + " " + styles[props.tag], href: (props as AnchorProps).href }
-                : { ...additionalAttributes, className: styles["xml-tag"] + " " + styles[props.tag] },
+                ? { ...additionalAttributes, className: styles["xml-tag"], href: (props as AnchorProps).href }
+                : { ...additionalAttributes, className: styles["xml-tag"] },
             <span className={styles["opening"]} role="presentation" aria-hidden>
                 {attr ? (
                     <>
@@ -225,8 +225,8 @@ export const XmlTag = (props: XmlTagProps) => {
         createElement(
             (isAnchor ? Link : "span") as string,
             isAnchor
-                ? { ...additionalAttributes, className: styles["xml-tag"] + " " + styles[props.tag], href: (props as AnchorProps).href, role: "presentation", "aria-hidden": true }
-                : { ...additionalAttributes, className: styles["xml-tag"] + " " + styles[props.tag] },
+                ? { ...additionalAttributes, className: styles["xml-tag"], href: (props as AnchorProps).href, role: "presentation", "aria-hidden": true }
+                : { ...additionalAttributes, className: styles["xml-tag"] },
             <span className={styles["opening"]}>
                 <span>&lt;{props.tag}&ensp;</span>
                 {props.attributes
