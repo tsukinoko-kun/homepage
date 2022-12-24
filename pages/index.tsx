@@ -1,9 +1,11 @@
 /* eslint-disable max-len */
-import { TagCloud } from "../components/TagCloud"
 import { XmlTag } from "../components/XmlTag"
-import Image from "next/image"
 import WavingHand from "../images/waving-hand.gif"
 import { Wobble } from "../components/Wobble"
+import { lazy } from "react"
+
+const TagCloud = lazy(() => import("../components/TagCloud"))
+const Image = lazy(() => import("next/image"))
 
 export const getStaticProps = () => ({
     props: {

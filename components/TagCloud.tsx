@@ -44,3 +44,5 @@ export const TagCloud = (props: Props) => {
         <div className={props.className} />
     )
 }
+
+export default TagCloud
