@@ -17,3 +17,7 @@ updates:
     rebase-strategy: "auto"
     reviewers:
       - "Frank-Mayer"
+    ignore:
+      - dependency-name: "framer-motion"
+        versions:
+          - ">= 8.0.0"
