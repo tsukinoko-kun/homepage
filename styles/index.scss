@@ -6,12 +6,17 @@
 
 :root {
     --tab-size: 0.75rem;
+}
+
+body {
+    height: 100vh;
     overflow-y: auto;
 }
 
-body,
+:root,
 #__next {
     overflow-y: hidden;
+    height: fit-content;
 }
 
 :root,
