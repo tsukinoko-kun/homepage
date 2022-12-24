@@ -2,7 +2,7 @@
 const nextConfig = {
     webpack: (config) => {
         config.module.rules.push({
-            test: /.+\.(woff|woff2)$/,
+            test: /.+\.(woff|woff2|ttf)$/,
             use: {
                 loader: "file-loader",
                 options: {

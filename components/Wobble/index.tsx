@@ -20,7 +20,7 @@ const getWobbleAnimation = (char: string) => {
     ]
 }
 
-const isTall = (char: string) => /^[A-Z0-9ltfi]$/.test(char)
+const isTall = (char: string) => /^[A-Z0-9ltfi'"]$/.test(char)
 
 export const Wobble = (props: Props) => (
     <>

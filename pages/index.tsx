@@ -1,6 +1,9 @@
 /* eslint-disable max-len */
 import { TagCloud } from "../components/TagCloud"
 import { XmlTag } from "../components/XmlTag"
+import Image from "next/image"
+import WavingHand from "../images/waving-hand.gif"
+import { Wobble } from "../components/Wobble"
 
 export const getStaticProps = () => ({
     props: {
@@ -11,7 +14,11 @@ export const getStaticProps = () => ({
 
 const Page = () => (
     <>
-        <XmlTag tag="h1">Hey, &#x1F44B;<br/>I&apos;m Frank</XmlTag>
+        <XmlTag tag="h1">
+            <Wobble>Hey,</Wobble> <Image src={WavingHand} alt="" placeholder="empty" loading="lazy" decoding="async" width={512} height={512} style={{ height:"1em", width: "1em" }} />
+            <br/>
+            <Wobble>{"I'm Frank"}</Wobble>
+        </XmlTag>
         <XmlTag tag="p">
             Software Engineer located in Heilbronn, Germany.
             <XmlTag tag="br"/>
