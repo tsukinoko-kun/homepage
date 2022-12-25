@@ -62,7 +62,7 @@ body {
         transform: translateY(
                 calc(-1 * var(--scroll-y) * min(50vh, var(--size-y) / 5))
             )
-            scale(0.9) rotateZ(20deg);
+            scale(0.8) rotateZ(20deg);
     }
 }
 
@@ -134,6 +134,18 @@ label {
             }
         }
     }
+}
+
+.section {
+    margin: {
+        top: golden-ratio.min(6) !important;
+        bottom: golden-ratio.min(6) !important;
+    }
+}
+
+.error,
+.error *:not(button) {
+    color: theme.$color-error !important;
 }
 
 input,

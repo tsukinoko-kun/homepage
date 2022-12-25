@@ -1,15 +1,41 @@
 @use "../../styles/theme";
 
 .xml-tag {
-    display: block;
+    &:not(.inline) {
+        display: block;
+
+        > .opening,
+        > .closing,
+        > .children {
+            display: block;
+        }
+        > .children {
+            margin-left: var(--tab-size);
+        }
+    }
+
+    &.inline {
+        display: inline-block;
+
+        > .opening,
+        > .closing,
+        > .children {
+            display: inline-block;
+        }
+
+        > .children {
+            margin: {
+                left: 0.25rem;
+                right: 0.25rem;
+            }
+        }
+    }
+
     width: 100%;
     margin: {
         top: 0.25rem;
         bottom: 0.25rem;
     }
-    // transform: translateY(
-    //     calc((var(--box-position) - var(--scroll-y) - 0.5) * 2vmin)
-    // );
 
     .opening,
     .closing {
@@ -24,24 +50,7 @@
         }
     }
 
-    // .h1,
-    // .h2,
-    // .h3,
-    // .h4,
-    // .h5,
-    // .h6,
-    // .p {
-    //     .children {
-    //         transform: translateY(
-    //             calc((var(--box-position) - var(--scroll-y) - 0.5) * 4vmin)
-    //         );
-    //     }
-    // }
-
     .children {
-        display: block;
-        margin-left: var(--tab-size);
-
         &.script {
             opacity: 0.8;
         }

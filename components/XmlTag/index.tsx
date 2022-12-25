@@ -14,6 +14,7 @@ type Props = {
     role?: string;
     id?: string;
     style?: CSSProperties;
+    inline?: boolean;
 };
 
 type AnchorProps = { tag: "a"; href: string, scroll?: boolean } & Props;
@@ -70,7 +71,7 @@ const makeStringBreakable = (str: string) =>
         ? str.replace(/[^a-zA-Z0-9"'@=_\s]+/g, (x) => x + "&#8203;")
         : str
 
-const directlyUsedTags = new Set(["h1", "h2", "h3", "h4", "h5", "h6", "header", "nav"])
+const directlyUsedTags = new Set(["h1", "h2", "h3", "h4", "h5", "h6", "header", "nav", "footer"])
 const parentlylyUsedTags: ReadonlyMap<string, FunctionComponent|ComponentClass|string>
     = new Map([["a", (Link as never)]])
 const mapTag = (props: XmlTagProps) => {
@@ -124,19 +125,6 @@ export const XmlTag = (props: XmlTagProps) => {
         style: props.style,
     }
 
-    // const [box, setBox] = useState<DOMRect>()
-    // const ref = createRef<HTMLElement>()
-    // useEffect(() => {
-    //     if (box) {
-    //         return
-    //     }
-
-    //     const element = ref.current
-    //     if (element) {
-    //         setBox(element.getBoundingClientRect())
-    //     }
-    // }, [box, ref])
-
     if ("id" in props) {
         additionalAttributes.id = props.id
         attr = {
@@ -188,24 +176,21 @@ export const XmlTag = (props: XmlTagProps) => {
             type,
         }
     }
-    else if (/^h[1-6]$/.test(props.tag) && typeof props.children == "string") {
+    else if (/^h[1-4]$/.test(props.tag) && typeof props.children == "string") {
         props = {
             ...props,
             children: createElement(Wobble, null, props.children)
         }
     }
 
-    // additionalAttributes.ref = ref
-    // additionalAttributes.style = {
-    //     "--box-position": (box ? (box.top + window.scrollY + (box.height / 2)) / screen.height : 0).toString(),
-    // }
+    const className = styles["xml-tag"] + " " + props.tag + (props.inline ? " " + styles.inline : "")
 
     return props.children ? (
         createElement(
             (parentlylyUsedTags.has(props.tag) ? parentlylyUsedTags.get(props.tag) : "span") as string,
             isAnchor
-                ? { ...additionalAttributes, className: styles["xml-tag"], href: (props as AnchorProps).href }
-                : { ...additionalAttributes, className: styles["xml-tag"] },
+                ? { ...additionalAttributes, className, href: (props as AnchorProps).href }
+                : { ...additionalAttributes, className },
             <span className={styles["opening"]} role="presentation" aria-hidden>
                 {attr ? (
                     <>
@@ -228,8 +213,8 @@ export const XmlTag = (props: XmlTagProps) => {
         createElement(
             (isAnchor ? Link : "span") as string,
             isAnchor
-                ? { ...additionalAttributes, className: styles["xml-tag"], href: (props as AnchorProps).href, role: "presentation", "aria-hidden": true }
-                : { ...additionalAttributes, className: styles["xml-tag"] },
+                ? { ...additionalAttributes, className, href: (props as AnchorProps).href, role: "presentation", "aria-hidden": true }
+                : { ...additionalAttributes, className },
             <span className={styles["opening"]}>
                 <span>&lt;{props.tag}&ensp;</span>
                 {props.attributes

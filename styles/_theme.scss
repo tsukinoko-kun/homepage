@@ -1,7 +1,14 @@
-$color-background: rgb(2, 2, 29);
+@use "sass:color";
+
+$color-background: rgb(20, 12, 23);
 $color-foreground: rgb(247, 247, 244);
-$color-foreground-secondary: rgba($color-foreground, 0.39);
+$color-foreground-secondary: color.mix(
+    $color-foreground,
+    $color-background,
+    39%
+);
 $color-accent: rgb(128, 255, 204);
+$color-error: rgb(255, 128, 128);
 $timing: 200ms;
 
 @mixin glow-no-color {

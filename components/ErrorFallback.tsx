@@ -6,7 +6,7 @@ type Props = {
 }
 
 export const ErrorFallback = (props: Props) => (
-    <XmlTag tag="ErrorFallback">
+    <XmlTag tag="error">
         <div role="alert">
             <XmlTag tag="p">Something went wrong:</XmlTag>
             <XmlTag tag="p"><pre>{props.error.message}</pre></XmlTag>

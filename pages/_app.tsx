@@ -42,7 +42,7 @@ const onWindowScroll = () => {
 
 const scrollAELOptions = { passive: true }
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
     const { title, description } = pageProps
 
     useEffect(() => {
@@ -76,7 +76,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 />
                 <XmlTag tag="html" attributes={{ lang: "en-US" }} />
                 <XmlTag tag="head">
-                    <XmlTag tag="title">{`Frank Mayer \\\\ ${title}`}</XmlTag>
+                    <XmlTag tag="title" inline>{`Frank Mayer \\\\ ${title}`}</XmlTag>
                 </XmlTag>
                 <XmlTag tag="body">
                     <ErrorBoundary FallbackComponent={ErrorFallback}>
@@ -125,3 +125,5 @@ if (appEl) {
         </>
     )
 }
+
+export default App
