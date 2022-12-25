@@ -4,6 +4,7 @@ import ILUImage from "../images/ilu.svg"
 import { Wobble } from "../components/Wobble"
 import { lazy } from "react"
 import type { TagCloudOptions } from "@frank-mayer/react-tag-cloud"
+import type { GetServerSidePropsContext } from "next/types"
 
 const TagCloud = lazy(() => import("@frank-mayer/react-tag-cloud"))
 
@@ -13,6 +14,17 @@ export const getStaticProps = () => ({
         description: "Frank Mayer's personal website",
     },
 })
+
+export const getServerSideProps = ({ res }: GetServerSidePropsContext) => {
+    res.setHeader(
+        "Cache-Control",
+        "public, max-age=3600, stale-while-revalidate=86400"
+    )
+
+    return {
+        props: {},
+    }
+}
 
 const getTagCloudOptions = (w: Window): TagCloudOptions => ({
     radius: Math.min(500, Math.min(w.innerWidth, w.innerHeight) - 32) / 2,

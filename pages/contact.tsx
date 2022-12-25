@@ -1,5 +1,6 @@
 import { useRouter } from "next/router"
 import { XmlTag } from "../components/XmlTag"
+import type { GetServerSidePropsContext } from "next/types"
 
 export const getStaticProps = () => ({
     props: {
@@ -7,6 +8,17 @@ export const getStaticProps = () => ({
         description: "Contact me to get more information",
     },
 })
+
+export const getServerSideProps = ({ res }: GetServerSidePropsContext) => {
+    res.setHeader(
+        "Cache-Control",
+        "public, max-age=3600, stale-while-revalidate=86400"
+    )
+
+    return {
+        props: {},
+    }
+}
 
 const Page = () => {
     const router = useRouter()
