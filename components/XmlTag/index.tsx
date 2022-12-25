@@ -1,4 +1,4 @@
-import { FunctionComponent, ComponentClass, ReactNode, RefObject } from "react"
+import { FunctionComponent, ComponentClass, ReactNode, RefObject, CSSProperties } from "react"
 import { createElement } from "react"
 import styles from "./XmlTag.module.scss"
 import Link from "next/link"
@@ -13,6 +13,7 @@ type Props = {
     classList?: Array<string>;
     role?: string;
     id?: string;
+    style?: CSSProperties;
 };
 
 type AnchorProps = { tag: "a"; href: string, scroll?: boolean } & Props;
@@ -119,7 +120,9 @@ export const XmlTag = (props: XmlTagProps) => {
     let attr = props.attributes || false
 
     const isAnchor = props.tag === "a" && "href" in props
-    let additionalAttributes: Record<string, string|number|boolean|undefined|RefObject<Element>|object> = {}
+    let additionalAttributes: Record<string, string|number|boolean|undefined|RefObject<Element>|object> = {
+        style: props.style,
+    }
 
     // const [box, setBox] = useState<DOMRect>()
     // const ref = createRef<HTMLElement>()

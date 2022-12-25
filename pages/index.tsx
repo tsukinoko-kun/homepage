@@ -1,12 +1,11 @@
 /* eslint-disable max-len */
 import { XmlTag } from "../components/XmlTag"
-import WavingHand from "../images/waving-hand.gif"
+import ILUImage from "../images/ilu.svg"
 import { Wobble } from "../components/Wobble"
 import { lazy } from "react"
 import type { TagCloudOptions } from "@frank-mayer/react-tag-cloud"
 
 const TagCloud = lazy(() => import("@frank-mayer/react-tag-cloud"))
-const Image = lazy(() => import("next/image"))
 
 export const getStaticProps = () => ({
     props: {
@@ -23,17 +22,16 @@ const getTagCloudOptions = (w: Window): TagCloudOptions => ({
 const Page = () => (
     <>
         <XmlTag tag="h1">
-            <Wobble>Hey,</Wobble>{" "}
-            <Image
-                src={WavingHand}
+            <Wobble>Hey,</Wobble>&thinsp;
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+                src={ILUImage.src}
                 alt=""
-                placeholder="empty"
                 loading="lazy"
                 decoding="async"
-                width={512}
-                height={512}
-                style={{ height: "1em", width: "1em" }}
+                style={{ height: "1em", width: "1em", display: "inline" }}
             />
+            <XmlTag tag="br" style={{ display: "inline-block", fontSize: "var(--rem)" }} />
             <br />
             <Wobble>{"I'm Frank"}</Wobble>
         </XmlTag>

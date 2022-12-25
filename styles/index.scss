@@ -9,6 +9,7 @@
     --tab-size: 0.75rem;
     height: 100vh;
     overflow-y: auto;
+    --rem: 1rem;
 }
 
 body,
@@ -23,7 +24,7 @@ body {
     background-color: theme.$color-background;
     color: theme.$color-foreground;
     font-family: "JetBrains Mono", "Cascadia Code", "Fira Code", monospace;
-    font-size: 1rem;
+    font-size: var(--rem);
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
