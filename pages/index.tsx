@@ -3,8 +3,9 @@ import { XmlTag } from "../components/XmlTag"
 import WavingHand from "../images/waving-hand.gif"
 import { Wobble } from "../components/Wobble"
 import { lazy } from "react"
+import type { TagCloudOptions } from "@frank-mayer/react-tag-cloud"
 
-const TagCloud = lazy(() => import("../components/TagCloud"))
+const TagCloud = lazy(() => import("@frank-mayer/react-tag-cloud"))
 const Image = lazy(() => import("next/image"))
 
 export const getStaticProps = () => ({
@@ -12,6 +13,11 @@ export const getStaticProps = () => ({
         title: "Home",
         description: "Frank Mayer's personal website",
     },
+})
+
+const getTagCloudOptions = (w: Window): TagCloudOptions => ({
+    radius: Math.min(500, Math.min(w.innerWidth, w.innerHeight) - 32) / 2,
+    maxSpeed: "fast"
 })
 
 const Page = () => (
@@ -34,15 +40,15 @@ const Page = () => (
         <XmlTag tag="h2">My tools</XmlTag>
         <XmlTag tag="section">
             <XmlTag tag="h3">Web</XmlTag>
-            <TagCloud className="web">{["VSCode", "TypeScript", "React", "Preact", "Jest", "Next", "ESLint", "Framer Motion", "Three.js"]}</TagCloud>
+            <TagCloud id="web" options={getTagCloudOptions}>{["VSCode", "TypeScript", "React", "Preact", "Jest", "Next", "ESLint", "Framer Motion", "Three.js"]}</TagCloud>
         </XmlTag>
         <XmlTag tag="section">
             <XmlTag tag="h3">Backend</XmlTag>
-            <TagCloud className="backend">{["ReSharper", "Rider", "C#", "F#", "ASP.NET Core", "Kotlin", "Spring", "JUnit"]}</TagCloud>
+            <TagCloud id="backend" options={getTagCloudOptions}>{["ReSharper", "Rider", "C#", "F#", "ASP.NET Core", "Kotlin", "Spring", "JUnit"]}</TagCloud>
         </XmlTag>
         <XmlTag tag="section">
             <XmlTag tag="h3">Other</XmlTag>
-            <TagCloud className="other">{["Git", "GitHub", "Figma", "Inkscape", "PlantUML", "LaTeX", "Markdown"]}</TagCloud>
+            <TagCloud id="other" options={getTagCloudOptions}>{["Git", "GitHub", "Figma", "Inkscape", "PlantUML", "LaTeX", "Markdown"]}</TagCloud>
         </XmlTag>
     </>
 )
