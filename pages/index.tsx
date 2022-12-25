@@ -56,6 +56,7 @@ const Page = () => (
                     "TypeScript",
                     "React",
                     "Preact",
+                    "Parcel",
                     "Jest",
                     "Next",
                     "ESLint",
