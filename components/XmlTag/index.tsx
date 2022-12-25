@@ -5,6 +5,7 @@ import Link from "next/link"
 import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/prism-async"
 import syntaxStyle from "react-syntax-highlighter/dist/cjs/styles/prism/darcula"
 import { Wobble } from "../Wobble"
+import { useInView } from "react-intersection-observer"
 
 type Props = {
     tag: string;
@@ -118,6 +119,10 @@ const mapTag = (props: XmlTagProps) => {
 }
 
 export const XmlTag = (props: XmlTagProps) => {
+    const { ref, inView } = useInView({
+        threshold: 0,
+    })
+
     let attr = props.attributes || false
 
     const isAnchor = props.tag === "a" && "href" in props
@@ -183,14 +188,21 @@ export const XmlTag = (props: XmlTagProps) => {
         }
     }
 
-    const className = styles["xml-tag"] + " " + props.tag + (props.inline ? " " + styles.inline : "")
+    const className = [
+        styles["xml-tag"],
+        props.tag,
+        (props.inline ? styles.inline : null),
+        inView ? styles["in-view"] : null,
+    ]
+        .filter((x) => Boolean(x))
+        .join(" ")
 
     return props.children ? (
         createElement(
             (parentlylyUsedTags.has(props.tag) ? parentlylyUsedTags.get(props.tag) : "span") as string,
             isAnchor
-                ? { ...additionalAttributes, className, href: (props as AnchorProps).href }
-                : { ...additionalAttributes, className },
+                ? { ...additionalAttributes, ref, className, href: (props as AnchorProps).href }
+                : { ...additionalAttributes, ref, className },
             <span className={styles["opening"]} role="presentation" aria-hidden>
                 {attr ? (
                     <>
@@ -213,8 +225,8 @@ export const XmlTag = (props: XmlTagProps) => {
         createElement(
             (isAnchor ? Link : "span") as string,
             isAnchor
-                ? { ...additionalAttributes, className, href: (props as AnchorProps).href, role: "presentation", "aria-hidden": true }
-                : { ...additionalAttributes, className },
+                ? { ...additionalAttributes, ref, className, href: (props as AnchorProps).href, role: "presentation", "aria-hidden": true }
+                : { ...additionalAttributes, ref, className },
             <span className={styles["opening"]}>
                 <span>&lt;{props.tag}&ensp;</span>
                 {props.attributes

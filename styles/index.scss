@@ -72,7 +72,7 @@ body {
     overflow-x: hidden;
     padding: golden-ratio.min(11) golden-ratio.min(9);
 
-    * {
+    > * {
         overflow-y: visible;
         background: transparent;
     }

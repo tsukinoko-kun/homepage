@@ -55,4 +55,12 @@
             opacity: 0.8;
         }
     }
+
+    transition: opacity theme.$timing ease-out, transform theme.$timing ease-out;
+    will-change: opacity, transform;
+
+    &:not(.in-view) {
+        opacity: 0.5;
+        transform: translate(-1rem, 2rem);
+    }
 }
