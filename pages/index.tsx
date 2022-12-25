@@ -92,6 +92,7 @@ const Page = () => (
                     "Kotlin",
                     "Spring",
                     "JUnit",
+                    "Docker",
                 ]}
             </TagCloud>
             <XmlTag tag="h3" inline>Other</XmlTag>
