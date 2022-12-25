@@ -2,7 +2,6 @@ import Link from "next/link"
 import { XmlTag } from "../components/XmlTag"
 import { projects, years } from "../data/projects"
 import type { Project } from "../data/projects"
-import type { GetServerSidePropsContext } from "next/types"
 
 export const getStaticProps = () => ({
     props: {
@@ -10,17 +9,6 @@ export const getStaticProps = () => ({
         description: "Here are some of my projects",
     },
 })
-
-export const getServerSideProps = ({ res }: GetServerSidePropsContext) => {
-    res.setHeader(
-        "Cache-Control",
-        "public, max-age=3600, stale-while-revalidate=86400"
-    )
-
-    return {
-        props: {},
-    }
-}
 
 const makeId = (name: string) => name
     .toLowerCase()

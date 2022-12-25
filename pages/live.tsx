@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app"
 import { get, getDatabase, ref } from "firebase/database"
-import type { GetServerSidePropsContext, GetStaticProps } from "next/types"
+import type { GetStaticProps } from "next/types"
 import { XmlTag } from "../components/XmlTag"
 
 type Props = {
@@ -35,17 +35,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
             description: "Watch me live on YouTube",
         },
         revalidate: 120,
-    }
-}
-
-export const getServerSideProps = ({ res }: GetServerSidePropsContext) => {
-    res.setHeader(
-        "Cache-Control",
-        "public, max-age=60, stale-while-revalidate=120"
-    )
-
-    return {
-        props: {},
     }
 }
 
