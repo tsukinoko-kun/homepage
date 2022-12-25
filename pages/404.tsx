@@ -10,13 +10,9 @@ export const getStaticProps = () => ({
 const Page = () => (
     <>
         <XmlTag tag="h1">404</XmlTag>
-        <XmlTag tag="h2">This is not the page you are looking for!</XmlTag>
+        <XmlTag tag="p">This is not the page you are looking for!</XmlTag>
         <XmlTag tag="p">
-        Maybe try the{" "}
-            <XmlTag tag="a" href="/" scroll={false}>
-          home page
-            </XmlTag>
-        ?
+            <XmlTag tag="a" href="/" scroll={false}>Maybe try the home page?</XmlTag>
         </XmlTag>
     </>
 )
