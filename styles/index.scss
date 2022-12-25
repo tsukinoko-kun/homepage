@@ -4,12 +4,14 @@
 @use "golden-ratio";
 @use "my-math";
 @use "tag-cloud";
+@use "sass:color";
 
 :root {
     --tab-size: 0.75rem;
     height: 100vh;
     overflow-y: auto;
     --rem: 1rem;
+    background-color: theme.$color-background;
 }
 
 body,
@@ -21,7 +23,6 @@ body,
 :root,
 html,
 body {
-    background-color: theme.$color-background;
     color: theme.$color-foreground;
     font-family: "CircularSp", "Comic Sans", serif; //"Circular Std", "Segoe UI", sans-serif;
     font-size: var(--rem);
@@ -31,6 +32,27 @@ body {
 
 body {
     width: 100vw;
+
+    &::before {
+        content: "";
+        position: fixed;
+        top: -25vh;
+        right: -25vw;
+        bottom: -25vh;
+        left: -25vw;
+        width: 150vw;
+        height: 500vh;
+        background-color: transparent;
+        background-image: url("/images/universe.png");
+        transform: translateY(
+            calc(-1 * var(--scroll-y) * min(75vh, var(--size-y) / 3))
+        );
+        background-size: 1000px 400px;
+        background-repeat: repeat;
+        z-index: -1;
+        opacity: 0.5;
+        pointer-events: none;
+    }
 }
 
 #__next {
@@ -45,10 +67,9 @@ body {
     }
 }
 
-@media screen and (min-width: 101vh) {
+@media screen and (min-width: 150vh) {
     #__next {
         margin: 2rem auto;
-        box-shadow: 0 0 golden-ratio.hor(7) 0 rgba(black, 0.2);
         border-radius: 0.5rem;
     }
 }
