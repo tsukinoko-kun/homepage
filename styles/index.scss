@@ -23,7 +23,7 @@ html,
 body {
     background-color: theme.$color-background;
     color: theme.$color-foreground;
-    font-family: "JetBrains Mono", "Cascadia Code", "Fira Code", monospace;
+    font-family: "CircularSp", "Comic Sans", serif; //"Circular Std", "Segoe UI", sans-serif;
     font-size: var(--rem);
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -56,6 +56,7 @@ body {
 pre,
 code {
     font-size: 0.8rem;
+    font-family: "JetBrains Mono", "Fira Code", "Fira Mono", monospace;
 }
 
 a:not(.hidden) {

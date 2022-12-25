@@ -7,7 +7,8 @@ import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
 import CaveatFont from "../fonts/Caveat.woff2"
 import JetBrainsMonoFont from "../fonts/JetBrainsMono.woff2"
-import { LoadFonts, PreLoadFonts } from "../components/LoadFonts"
+import CircularSpBookFont from "../fonts/CircularSp-Book.woff2"
+import { LoadFonts } from "../components/LoadFonts"
 
 const variants = {
     hidden: { opacity: 0, x: -100, y: 0 },
@@ -23,9 +24,8 @@ export default function App({ Component, pageProps }: AppProps) {
             <Head>
                 <title>{`Frank Mayer \\\\ ${title}`}</title>
                 <meta name="description" content={description} />
-                <PreLoadFonts fonts={[{ name:"Caveat", url:CaveatFont }, { name:"JetBrainsMono", url: JetBrainsMonoFont }]} />
             </Head>
-            <LoadFonts fonts={[{ name:"Caveat", url:CaveatFont }, { name:"JetBrainsMono", url: JetBrainsMonoFont }]} />
+            <LoadFonts fonts={[{ name:"Caveat", url:CaveatFont }, { name:"JetBrainsMono", url: JetBrainsMonoFont }, { name:"CircularSp", url: CircularSpBookFont }]} />
             <XmlTag tag="html" attributes={{ lang: "en-US" }} />
             <XmlTag tag="head">
                 <XmlTag tag="title">{`Frank Mayer \\\\ ${title}`}</XmlTag>
