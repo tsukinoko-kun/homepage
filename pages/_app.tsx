@@ -12,6 +12,8 @@ import CircularSpBookFont from "../fonts/CircularSp-Book.woff2"
 import { LoadFonts } from "../components/LoadFonts"
 import { lazy, useEffect } from "react"
 import { ErrorBoundary } from "react-error-boundary"
+import { useRouter } from "next/router"
+import OGImage from "../images/og-image.jpg"
 
 const ErrorFallback = lazy(() => import("../components/ErrorFallback"))
 
@@ -44,6 +46,8 @@ const scrollAELOptions = { passive: true }
 
 const App = ({ Component, pageProps }: AppProps) => {
     const { title, description } = pageProps
+    const router = useRouter()
+    const canonical = new URL(router.pathname, "https://www.frank-mayer.io")
 
     useEffect(() => {
         if (!window || (window as any)["__app_effect__"]) {
@@ -64,7 +68,12 @@ const App = ({ Component, pageProps }: AppProps) => {
         <>
             <Head>
                 <title>{`Frank Mayer \\\\ ${title}`}</title>
+                <meta property="og:title" content={`Frank Mayer \\\\ ${title}`} />
                 <meta name="description" content={description} />
+                <meta property="og:description" content={description} />
+                <meta property="og:url" content={canonical.href} />
+                <meta property="canonical" content={canonical.href} />
+                <meta property="og:image" content={OGImage.src} />
             </Head>
             <ErrorBoundary FallbackComponent={ErrorFallback}>
                 <LoadFonts
