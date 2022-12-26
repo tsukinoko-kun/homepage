@@ -57,6 +57,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         (window as any)["__app_effect__"] = true
 
         window.addEventListener("scroll", onWindowScroll, scrollAELOptions)
+        onWindowScroll()
 
         return () => {
             (window as any)["__app_effect__"] = false
