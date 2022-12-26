@@ -15,11 +15,6 @@ export const getStaticProps = () => ({
     },
 })
 
-const getTagCloudOptions = (w: Window): TagCloudOptions => ({
-    radius: Math.min(500, Math.min(w.innerWidth, w.innerHeight) - 32) / 2,
-    maxSpeed: "normal"
-})
-
 const Page = () => (
     <>
         <XmlTag tag="h1">
@@ -65,50 +60,161 @@ const Page = () => (
                 <XmlTag tag="h2" inline>Tools I use</XmlTag>
             </Link>
             <XmlTag tag="h3" inline>Web</XmlTag>
-            <TagCloud id="web" options={getTagCloudOptions}>
-                {[
-                    "VSCode",
-                    "TypeScript",
-                    "React",
-                    "Preact",
-                    "Parcel",
-                    "Jest",
-                    "Next",
-                    "ESLint",
-                    "Framer Motion",
-                    "Three.js",
-                ]}
-            </TagCloud>
+            <TagCloudFromData>{web}</TagCloudFromData>
+
             <XmlTag tag="h3" inline>Backend</XmlTag>
-            <TagCloud id="backend" options={getTagCloudOptions}>
-                {[
-                    "ReSharper",
-                    "Rider",
-                    "C#",
-                    "F#",
-                    "ASP.NET Core",
-                    "Nginx",
-                    "IntelliJ IDEA",
-                    "Kotlin",
-                    "Spring",
-                    "JUnit",
-                    "Docker",
-                ]}
-            </TagCloud>
+            <TagCloudFromData>{backend}</TagCloudFromData>
+
             <XmlTag tag="h3" inline>Other</XmlTag>
-            <TagCloud id="other" options={getTagCloudOptions}>
-                {[
-                    "Git",
-                    "GitHub",
-                    "Figma",
-                    "Inkscape",
-                    "PlantUML",
-                    "LaTeX",
-                    "Markdown",
-                ]}
-            </TagCloud>
+            <TagCloudFromData>{other}</TagCloudFromData>
         </XmlTag>
     </>
 )
 
 export default Page
+
+const getTagCloudOptions = (w: Window): TagCloudOptions => ({
+    radius: Math.min(500, Math.min(w.innerWidth, w.innerHeight) - 32) / 2,
+    maxSpeed: "normal"
+})
+
+const TagCloudFromData = (props: {children: Array<{text: string, href: string}>}) => (
+    <TagCloud options={getTagCloudOptions} onClick={(tag) => {
+        const link = props.children.find(x => x.text === tag)
+
+        // eslint-disable-next-line no-alert
+        if (link && window.confirm(`Do you want to open the website of ${tag}?`)) {
+            const w = window.open(link.href, "_blank")
+            if (w) {
+                w.focus()
+            }
+        }
+    }}>
+        {props.children.map(x => x.text)}
+    </TagCloud>
+)
+
+const web = [
+    {
+        text: "VSCode",
+        href: "https://code.visualstudio.com",
+    },
+    {
+        text: "TypeScript",
+        href: "https://www.typescriptlang.org",
+    },
+    {
+        text: "React",
+        href: "https://reactjs.org",
+    },
+    {
+        text: "Preact",
+        href: "https://preactjs.com",
+    },
+    {
+        text: "Parcel",
+        href: "https://parceljs.org",
+    },
+    {
+        text: "Jest",
+        href: "https://jestjs.io",
+    },
+    {
+        text: "Next",
+        href: "https://nextjs.org",
+    },
+    {
+        text: "ESLint",
+        href: "https://eslint.org",
+    },
+    {
+        text: "Framer Motion",
+        href: "https://www.framer.com/motion",
+    },
+    {
+        text: "Three.js",
+        href: "https://threejs.org",
+    },
+]
+
+const backend = [
+    {
+        text: "ReSharper",
+        href: "https://www.jetbrains.com/resharper",
+    },
+    {
+        text: "Visual Studio",
+        href: "https://visualstudio.microsoft.com",
+    },
+    {
+        text: "Rider",
+        href: "https://www.jetbrains.com/rider",
+    },
+    {
+        text: "C#",
+        href: "https://docs.microsoft.com/en-us/dotnet/csharp",
+    },
+    {
+        text: "F#",
+        href: "https://fsharp.org",
+    },
+    {
+        text: "ASP.NET Core",
+        href: "https://docs.microsoft.com/en-us/aspnet/core",
+    },
+    {
+        text: "Nginx",
+        href: "https://www.nginx.com",
+    },
+    {
+        text: "IntelliJ IDEA",
+        href: "https://www.jetbrains.com/idea",
+    },
+    {
+        text: "Kotlin",
+        href: "https://kotlinlang.org",
+    },
+    {
+        text: "Spring",
+        href: "https://spring.io",
+    },
+    {
+        text: "JUnit",
+        href: "https://junit.org",
+    },
+    {
+        text: "Docker",
+        href: "https://www.docker.com",
+    },
+]
+
+const other =  [
+    {
+        text: "Git",
+        href: "https://git-scm.com",
+    },
+    {
+        text: "GitHub",
+        href: "https://github.com",
+    },
+    {
+        text: "Figma",
+        href: "https://www.figma.com",
+    },
+    {
+        text: "Inkscape",
+        href: "https://inkscape.org",
+    },
+    {
+        text: "PlantUML",
+        href: "https://plantuml.com",
+    },
+    {
+        text: "LaTeX",
+        href: "https://www.latex-project.org",
+    },
+    {
+        text: "Markdown",
+        href: "https://daringfireball.net/projects/markdown",
+    },
+]
