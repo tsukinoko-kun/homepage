@@ -60,7 +60,7 @@
     will-change: opacity, transform;
 
     &:not(.in-view) {
-        opacity: 0.5;
-        transform: translate(-1rem, 2rem);
+        opacity: 0.25;
+        transform: translateX(-2rem);
     }
 }
