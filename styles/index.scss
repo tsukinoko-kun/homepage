@@ -91,7 +91,7 @@ code {
     font-family: "JetBrains Mono", "Fira Code", "Fira Mono", monospace;
 }
 
-a:not(.hidden) {
+a:not(.hidden):not(.current) {
     color: theme.$color-foreground;
     text-decoration: underline;
 }
@@ -99,6 +99,14 @@ a:not(.hidden) {
 a.hidden {
     color: inherit;
     text-decoration: none;
+}
+
+a.current {
+    color: theme.$color-foreground-secondary;
+
+    > div::before {
+        content: "\25B6\0020";
+    }
 }
 
 p {

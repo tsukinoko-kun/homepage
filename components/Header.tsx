@@ -1,12 +1,43 @@
+import { useRouter } from "next/router"
 import { XmlTag } from "./XmlTag"
 
-export const Header = () => (
-    <header>
-        <XmlTag tag="nav" role="header">
-            <XmlTag scroll={false} tag="a" href="/">Home</XmlTag>
-            <XmlTag scroll={false} tag="a" href="/portfolio">Portfolio</XmlTag>
-            <XmlTag scroll={false} tag="a" href="/contact">Contact</XmlTag>
-            <XmlTag scroll={false} tag="a" href="/live">Live (YouTube)</XmlTag>
-        </XmlTag>
-    </header>
-)
+const data = [
+    {
+        href: "/",
+        text: "Home",
+    },
+    {
+        href: "/portfolio",
+        text: "Portfolio",
+    },
+    {
+        href: "/contact",
+        text: "Contact",
+    },
+    {
+        href: "/live",
+        text: "YouTube Stream",
+    }
+]
+
+export const Header = () => {
+    const router = useRouter()
+
+    return (
+        <header>
+            <XmlTag tag="nav" role="header">
+                {data.map(({ href, text }) => {
+                    if (router.pathname === href) {
+                        return (
+                            <XmlTag key={text} scroll={false} classList={["current"]} tag="a" href={href}>{text}</XmlTag>
+                        )
+                    }
+
+                    return (
+                        <XmlTag key={text} scroll={false} tag="a" href={href}>{text}</XmlTag>
+                    )
+                })}
+            </XmlTag>
+        </header>
+    )
+}

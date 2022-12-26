@@ -76,7 +76,7 @@ const directlyUsedTags = new Set(["h1", "h2", "h3", "h4", "h5", "h6", "header", 
 const parentlylyUsedTags: ReadonlyMap<string, FunctionComponent|ComponentClass|string>
     = new Map([["a", (Link as never)]])
 const mapTag = (props: XmlTagProps) => {
-    const classList = props.classList ?? []
+    const classList = []
     classList.push(styles["children"])
 
     if (props.tag === "script") {
@@ -191,6 +191,7 @@ export const XmlTag = (props: XmlTagProps) => {
     const className = [
         styles["xml-tag"],
         props.tag,
+        ...(props.classList ?? []),
         (props.inline ? styles.inline : null),
         (!entry || inView) ? styles["in-view"] : null,
     ]
