@@ -119,7 +119,7 @@ const mapTag = (props: XmlTagProps) => {
 }
 
 export const XmlTag = (props: XmlTagProps) => {
-    const { ref, inView } = useInView({
+    const { ref, inView, entry } = useInView({
         threshold: 0,
     })
 
@@ -192,7 +192,7 @@ export const XmlTag = (props: XmlTagProps) => {
         styles["xml-tag"],
         props.tag,
         (props.inline ? styles.inline : null),
-        inView ? styles["in-view"] : null,
+        (!entry || inView) ? styles["in-view"] : null,
     ]
         .filter((x) => Boolean(x))
         .join(" ")
