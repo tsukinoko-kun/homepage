@@ -120,7 +120,7 @@ const mapTag = (props: XmlTagProps) => {
 
 export const XmlTag = (props: XmlTagProps) => {
     const { ref, inView, entry } = useInView({
-        threshold: 0,
+        threshold: 0.001,
     })
 
     let attr = props.attributes || false
