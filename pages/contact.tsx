@@ -59,8 +59,8 @@ const Page = () => {
                     </label>
 
                     <label>
-                        <XmlTag tag="input" attributes={{ type: "submit", value: "Absenden" }}>
-                            <input type="submit" value="Absenden" />
+                        <XmlTag tag="input" attributes={{ type: "submit", value: "Send" }}>
+                            <input type="submit" value="Send" />
                         </XmlTag>
                     </label>
                     <input
