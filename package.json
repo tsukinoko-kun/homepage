@@ -11,7 +11,7 @@
   "dependencies": {
     "@frank-mayer/magic": "^4.0.2",
     "@frank-mayer/react-tag-cloud": "^1.1.1",
-    "@types/node": "^18.11.17",
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
     "classnames": "^2.3.2",
