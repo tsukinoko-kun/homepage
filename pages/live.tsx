@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app"
 import { get, getDatabase, ref } from "firebase/database"
-import type { GetStaticProps } from "next/types"
+import type { GetServerSideProps } from "next/types"
 import { XmlTag } from "../components/XmlTag"
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 };
 
 // eslint-disable-next-line no-restricted-syntax
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const app = initializeApp({
         apiKey: process.env.FIREBASE_API_KEY,
         authDomain: process.env.FIREBASE_AUTH_DOMAIN,

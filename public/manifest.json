@@ -1,0 +1,19 @@
+{
+  "name": "Frank Mayer",
+  "short_name": "Frank Mayer",
+  "scope": "/",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#140c17",
+  "theme_color": "#140c17",
+  "orientation": "any",
+  "description": "Software Engineer located in Heilbronn, Germany.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "splash_pages": null
+}
