@@ -186,6 +186,10 @@ const backend = [
         text: "Docker",
         href: "https://www.docker.com",
     },
+    {
+        text: "MariaDB",
+        href: "https://mariadb.org",
+    },
 ]
 
 const other =  [
@@ -200,6 +204,10 @@ const other =  [
     {
         text: "Figma",
         href: "https://www.figma.com",
+    },
+    {
+        text: "Unreal Engine",
+        href: "https://www.unrealengine.com",
     },
     {
         text: "Inkscape",
