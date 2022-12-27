@@ -51,6 +51,7 @@ export const LoadFont = (props: Font) => (
                 font-family: "${props.name}";
                 src: url("${props.url}") format("${getFontFormat(props.url)}");
                 display: block;
+                font-display: block;
             }
         `}
     </style>
