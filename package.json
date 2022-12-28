@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@frank-mayer/magic": "^4.0.2",
+    "@frank-mayer/magic": "^4.1.0",
     "@frank-mayer/react-tag-cloud": "^1.1.1",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
