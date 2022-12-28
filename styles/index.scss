@@ -8,7 +8,7 @@
 @use "sass:color";
 
 :root {
-    --tab-size: 0.75rem;
+    --tab-size: 1ch;
     height: 100vh;
     overflow-y: auto;
     --rem: 1rem;
@@ -108,7 +108,7 @@ a.current {
     > div::before {
         content: "\25C7";
         display: inline-block;
-        margin-right: 0.5em;
+        margin-right: 1ch;
     }
 }
 
