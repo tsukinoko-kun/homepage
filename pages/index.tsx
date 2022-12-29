@@ -59,12 +59,13 @@ const Page = () => (
             <Link href="#tools-i-use" className="hidden" scroll={false}>
                 <XmlTag tag="h2" inline>Tools I use</XmlTag>
             </Link>
+            <br /><br />
             <XmlTag tag="h3" inline>Web</XmlTag>
             <TagCloudFromData>{web}</TagCloudFromData>
-
+            <br /><br />
             <XmlTag tag="h3" inline>Backend</XmlTag>
             <TagCloudFromData>{backend}</TagCloudFromData>
-
+            <br /><br />
             <XmlTag tag="h3" inline>Other</XmlTag>
             <TagCloudFromData>{other}</TagCloudFromData>
         </XmlTag>

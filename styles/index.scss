@@ -172,9 +172,15 @@ textarea {
     padding: 0.2em 0.5em;
 }
 
+h1,
+h2,
+h3,
+h4 {
+    white-space: nowrap;
+}
+
 h1 {
     font-size: golden-ratio.min(4);
-    white-space: nowrap;
 }
 
 h2 {
