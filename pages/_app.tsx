@@ -73,37 +73,34 @@ const App = ({ Component, pageProps }: AppProps) => {
                 <meta property="og:image" content={OGImage.src} />
             </Head>
             <ErrorBoundary FallbackComponent={ErrorFallback}>
-                <XmlTag tag="html" attributes={{ lang: "en-US" }} />
-                <XmlTag tag="head">
-                    <XmlTag tag="title" inline>{`Frank Mayer \\\\ ${title}`}</XmlTag>
-                </XmlTag>
-                <XmlTag tag="body">
-                    <ErrorBoundary FallbackComponent={ErrorFallback}>
-                        <Header />
-                    </ErrorBoundary>
-                    <AnimatePresence
-                        mode="wait"
-                        initial={false}
-                        presenceAffectsLayout
-                    >
-                        <motion.main
-                            key={title}
-                            variants={variants}
-                            initial="hidden"
-                            animate="enter"
-                            exit="exit"
-                            transition={{ type: "linear", duration: 0.5 }}
+                <XmlTag tag="html" attributes={{ lang: "en-US" }}>
+                    <XmlTag tag="body">
+                        <ErrorBoundary FallbackComponent={ErrorFallback}>
+                            <Header />
+                        </ErrorBoundary>
+                        <AnimatePresence
+                            mode="wait"
+                            initial={false}
+                            presenceAffectsLayout
                         >
-                            <ErrorBoundary FallbackComponent={ErrorFallback}>
-                                <Component {...pageProps} />
-                            </ErrorBoundary>
-                        </motion.main>
-                    </AnimatePresence>
-                    <ErrorBoundary FallbackComponent={ErrorFallback}>
-                        <Footer />
-                    </ErrorBoundary>
-                    <XmlTag tag="script" language="jsx">
-                        {`import React from "react"
+                            <motion.main
+                                key={title}
+                                variants={variants}
+                                initial="hidden"
+                                animate="enter"
+                                exit="exit"
+                                transition={{ type: "linear", duration: 0.5 }}
+                            >
+                                <ErrorBoundary FallbackComponent={ErrorFallback}>
+                                    <Component {...pageProps} />
+                                </ErrorBoundary>
+                            </motion.main>
+                        </AnimatePresence>
+                        <ErrorBoundary FallbackComponent={ErrorFallback}>
+                            <Footer />
+                        </ErrorBoundary>
+                        <XmlTag tag="script" language="jsx">
+                            {`import React from "react"
 import { createRoot } from "react-dom/client"
 import ${title}Page from "./pages/${title}"
 
@@ -118,6 +115,7 @@ if (appEl) {
         </React.StrictMode>
     )
 }`}
+                        </XmlTag>
                     </XmlTag>
                 </XmlTag>
             </ErrorBoundary>

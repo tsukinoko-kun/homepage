@@ -34,18 +34,25 @@ const Page = () => (
             <br />
             <Wobble>{"I'm Frank"}</Wobble>
         </XmlTag>
-
+        <XmlTag tag="div">
+            <XmlTag tag="p" inline>
+                <span style={{ fontSize:"1.75rem" }}>
+                    {"Let's get together and create the next great app."}
+                </span>
+            </XmlTag>
+            <XmlTag tag="button" inline>
+                <Link style={{ display:"block", marginTop: "1em" }} href="contact"><button style={{ fontSize:"1.5rem" }}>Contact me</button></Link>
+            </XmlTag>
+        </XmlTag>
         <XmlTag tag="section" id="intro">
             <XmlTag tag="p">
-                Software Engineer located in Heilbronn, Germany.
-                <XmlTag tag="br" />
-                Well organised problem solver with high attention to the detail and
-                a passion for clean code and good architecture. Huge fan of
-                functional programming, criticizer of semicolons and a strong
-                believer in the power of the type system.
+                I love working on startups or mid-sized companies with ambitious goals.<br/>
+                As a Software Engineer I plan your software project and make sure that you get the best results possible.
+            </XmlTag>
+            <XmlTag tag="p">
+                I am a well organised problem solver with high attention to the detail and a passion for clean code and good architecture.
                 <XmlTag tag="br"/>
-                In my free time I like to watch anime, play video games and listen
-                to jazz and rock music.
+                In my free time I like to watch anime, play video games and listen to jazz and rock music.
             </XmlTag>
             <br />
             <XmlTag tag="p">

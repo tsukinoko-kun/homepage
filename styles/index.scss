@@ -73,7 +73,7 @@ body {
 
 #__next {
     width: 100%;
-    max-width: max(golden-ratio.hor(1), 800px);
+    max-width: 1000px;
     overflow-x: hidden;
     padding: golden-ratio.min(11) golden-ratio.min(9);
 
@@ -83,10 +83,23 @@ body {
     }
 }
 
-@media screen and (min-width: 150vh) {
+@media screen and (min-width: 130vh) {
     #__next {
         margin: 2rem auto;
         border-radius: 0.5rem;
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+
+            > * {
+                flex: 1 1 0;
+            }
+        }
     }
 }
 
@@ -148,7 +161,7 @@ label {
         &:hover {
             @include theme.glow;
 
-            * {
+            *:not(button) {
                 color: theme.$color-accent !important;
             }
         }

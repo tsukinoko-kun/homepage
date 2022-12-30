@@ -1,9 +1,11 @@
 import { client } from "@frank-mayer/magic"
 import styles from "./Wobble.module.scss"
 import { Fragment } from "react"
+import type { CSSProperties } from "react"
 
 type Props = {
     children: string;
+    style?: CSSProperties;
 }
 
 const getWobbleAnimation = (char: string) => {
@@ -25,13 +27,17 @@ const isTall = (char: string) => /^[A-Z0-9ltfi'"]$/.test(char)
 export const Wobble = (props: Props) => (
     <>
         {props.children.split("").map((char, index) => {
-            if (char == " ") {
+            if (/^\s$/.test(char)) {
+                if (props.style) {
+                    return <span style={props.style} key={index}>&ensp;<wbr/></span>
+                }
+
                 return <Fragment key={index}>&ensp;<wbr/></Fragment>
             }
 
             const wobbleAnimation = getWobbleAnimation(char)
 
-            return <span className={styles.wobble} key={index} onMouseMove={(ev) => {
+            return <span style={props.style} className={styles.wobble} key={index} onMouseMove={(ev) => {
                 if (client.isTouchDevice) {
                     return
                 }
