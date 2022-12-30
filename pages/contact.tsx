@@ -13,7 +13,18 @@ const Page = () => {
 
     return (
         <>
-            <XmlTag tag="h1">Contact</XmlTag>
+            <XmlTag tag="h1" inline>Contact</XmlTag>
+
+            <br />
+            <XmlTag tag="h2" inline>Social Media</XmlTag>
+            <XmlTag rel="me" tag="a" href="https://hello.2heng.xin/@tsukinoko" attributes={{
+                href: "https://littlefo.rest/@tsukinoko",
+            }}>Mastodon</XmlTag>
+            <XmlTag tag="a" href="https://twitter.com/FF1493FF">Twitter</XmlTag>
+
+            <XmlTag tag="h2" inline>Form</XmlTag>
+
+            <br />
             <XmlTag tag="form" attributes={{ action:"https://eo4hr3kdzumsq1q.m.pipedream.net", method:"post" }}>
                 <form action="https://eo4hr3kdzumsq1q.m.pipedream.net" method="post">
                     <label>

@@ -18,7 +18,7 @@ type Props = {
     inline?: boolean;
 };
 
-type AnchorProps = { tag: "a"; href: string, scroll?: boolean } & Props;
+type AnchorProps = { tag: "a"; href: string, scroll?: boolean, rel?: string } & Props;
 
 type ScriptProps = { tag: "script"; children: string, language: "tsx" | "jsx" | "json" } & Props;
 
@@ -141,7 +141,7 @@ export const XmlTag = (props: XmlTagProps) => {
     if (isAnchor) {
         const url = new URL((props as AnchorProps).href, "https://www.frank-mayer.io")
         if (attr) {
-            attr = { ...props.attributes, href: url.href }
+            attr = { ...props.attributes, href: url.href, ...attr }
         }
         else {
             attr = { href: url.href }
@@ -154,6 +154,18 @@ export const XmlTag = (props: XmlTagProps) => {
             attr.target = "_blank"
             additionalAttributes.target = "_blank"
             additionalAttributes.rel = "noopener noreferrer"
+        }
+
+        if ("rel" in props) {
+            attr = {
+                ...attr,
+                rel: props.rel,
+            }
+
+            additionalAttributes = {
+                ...additionalAttributes,
+                rel: props.rel,
+            }
         }
     }
     else if (props.tag === "label" && "for" in props) {
