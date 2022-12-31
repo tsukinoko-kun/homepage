@@ -15,5 +15,29 @@
       "sizes": "any"
     }
   ],
-  "splash_pages": null
+  "splash_pages": null,
+  "shortcuts": [
+    {
+      "name": "Contact",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/images/chat-quote.svg",
+          "type": "image/svg+xml",
+          "sizes": "any"
+        }
+      ]
+    },
+    {
+      "name": "Portfolio",
+      "url": "/portfolio",
+      "icons": [
+        {
+          "src": "/images/braces.svg",
+          "type": "image/svg+xml",
+          "sizes": "any"
+        }
+      ]
+    }
+  ]
 }
