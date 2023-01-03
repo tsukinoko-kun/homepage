@@ -104,7 +104,7 @@ const TagCloudFromData = (props: {children: Array<{text: string, href: string}>}
 
 const web = [
     {
-        text: "VSCode",
+        text: "Visual Studio Code",
         href: "https://code.visualstudio.com",
     },
     {
@@ -122,6 +122,10 @@ const web = [
     {
         text: "Parcel",
         href: "https://parceljs.org",
+    },
+    {
+        text: "Webassembly",
+        href: "https://webassembly.org",
     },
     {
         text: "Jest",
@@ -167,20 +171,36 @@ const backend = [
         href: "https://fsharp.org",
     },
     {
-        text: "ASP.NET Core",
-        href: "https://docs.microsoft.com/en-us/aspnet/core",
+        text: "Fable",
+        href: "https://fable.io",
     },
     {
-        text: "Nginx",
-        href: "https://www.nginx.com",
+        text: "ASP.NET Core",
+        href: "https://docs.microsoft.com/en-us/aspnet/core",
     },
     {
         text: "IntelliJ IDEA",
         href: "https://www.jetbrains.com/idea",
     },
     {
+        text: "Visual C++",
+        href: "https://docs.microsoft.com/en-us/cpp",
+    },
+    {
+        text: "Visual Studio",
+        href: "https://visualstudio.microsoft.com",
+    },
+    {
+        text: "Nginx",
+        href: "https://www.nginx.com",
+    },
+    {
         text: "Kotlin",
         href: "https://kotlinlang.org",
+    },
+    {
+        text: "Java",
+        href: "https://www.java.com",
     },
     {
         text: "Spring",
@@ -197,6 +217,14 @@ const backend = [
     {
         text: "MariaDB",
         href: "https://mariadb.org",
+    },
+    {
+        text: "MySQL",
+        href: "https://www.mysql.com",
+    },
+    {
+        text: "MSSQL",
+        href: "https://www.microsoft.com/en-us/sql-server",
     },
 ]
 
