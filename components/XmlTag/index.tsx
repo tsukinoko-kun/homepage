@@ -123,7 +123,7 @@ export const XmlTag = (props: XmlTagProps) => {
         threshold: 0.001,
     })
 
-    const _props = props
+    const _props = { ...props }
 
     let attr = _props.attributes || false
 
