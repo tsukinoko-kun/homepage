@@ -123,32 +123,34 @@ export const XmlTag = (props: XmlTagProps) => {
         threshold: 0.001,
     })
 
-    let attr = props.attributes || false
+    const _props = props
 
-    const isAnchor = props.tag === "a" && "href" in props
+    let attr = _props.attributes || false
+
+    const isAnchor = _props.tag === "a" && "href" in _props
     let additionalAttributes: Record<string, string|number|boolean|undefined|RefObject<Element>|object> = {
-        style: props.style,
+        style: _props.style,
     }
 
-    if ("id" in props) {
-        additionalAttributes.id = props.id
+    if ("id" in _props) {
+        additionalAttributes.id = _props.id
         attr = {
             ...attr,
-            id: props.id,
+            id: _props.id,
         }
     }
 
     if (isAnchor) {
-        const url = new URL((props as AnchorProps).href, "https://www.frank-mayer.io")
+        const url = new URL((_props as AnchorProps).href, "https://www.frank-mayer.io")
         if (attr) {
-            attr = { ...props.attributes, href: url.href, ...attr }
+            attr = { ..._props.attributes, href: url.href, ...attr }
         }
         else {
             attr = { href: url.href }
         }
 
         if (url.hostname.endsWith("frank-mayer.io")) {
-            additionalAttributes.scroll = (props as AnchorProps).scroll
+            additionalAttributes.scroll = (_props as AnchorProps).scroll
         }
         else {
             attr.target = "_blank"
@@ -156,32 +158,32 @@ export const XmlTag = (props: XmlTagProps) => {
             additionalAttributes.rel = "noopener noreferrer"
         }
 
-        if ("rel" in props) {
+        if ("rel" in _props) {
             attr = {
                 ...attr,
-                rel: props.rel,
+                rel: _props.rel,
             }
 
             additionalAttributes = {
                 ...additionalAttributes,
-                rel: props.rel,
+                rel: _props.rel,
             }
         }
     }
-    else if (props.tag === "label" && "for" in props) {
+    else if (_props.tag === "label" && "for" in _props) {
         attr = {
             ...attr,
-            htmlFor: props.for,
+            htmlFor: _props.for,
         }
 
         additionalAttributes = {
             ...additionalAttributes,
-            htmlFor: props.for,
+            htmlFor: _props.for,
         }
     }
-    else if (props.tag === "script" && "language" in props) {
-        let type = "application/" + props.language
-        switch (props.language) {
+    else if (_props.tag === "script" && "language" in _props) {
+        let type = "application/" + _props.language
+        switch (_props.language) {
         case "tsx":
         case "jsx":
             type = "module"
@@ -193,44 +195,41 @@ export const XmlTag = (props: XmlTagProps) => {
             type,
         }
     }
-    else if (/^h[1-4]$/.test(props.tag) && typeof props.children == "string") {
-        props = {
-            ...props,
-            children: createElement(Wobble, null, props.children)
-        }
+    else if (/^h[1-4]$/.test(_props.tag) && typeof _props.children == "string") {
+        _props.children = createElement(Wobble, null, _props.children)
     }
 
     const className = [
         styles["xml-tag"],
-        props.tag,
-        ...(props.classList ?? []),
-        (props.inline ? styles.inline : null),
+        _props.tag,
+        ...(_props.classList ?? []),
+        (_props.inline ? styles.inline : null),
         (!entry || inView) ? styles["in-view"] : null,
     ]
         .filter((x) => Boolean(x))
         .join(" ")
 
-    return props.children ? (
+    return _props.children ? (
         createElement(
-            (parentlylyUsedTags.has(props.tag) ? parentlylyUsedTags.get(props.tag) : "span") as string,
+            (parentlylyUsedTags.has(_props.tag) ? parentlylyUsedTags.get(_props.tag) : "span") as string,
             isAnchor
-                ? { ...additionalAttributes, ref, className, href: (props as AnchorProps).href }
+                ? { ...additionalAttributes, ref, className, href: (_props as AnchorProps).href }
                 : { ...additionalAttributes, ref, className },
             <span className={styles["opening"]} role="presentation" aria-hidden>
                 {attr ? (
                     <>
-                        <span>{`<${props.tag}`}&ensp;</span>
+                        <span>{`<${_props.tag}`}&ensp;</span>
                         {Object.entries(attr).map(mapAttribute)}
                         <span>&#8203;&gt;</span>
                     </>
                 ) : (
-                    <span>{`<${props.tag}>`}</span>
+                    <span>{`<${_props.tag}>`}</span>
                 )}
             </span>,
-            mapTag(props),
+            mapTag(_props),
             <span className={styles["closing"]} role="presentation" aria-hidden>
                 <span>&lt;/</span>
-                <span>{props.tag}</span>
+                <span>{_props.tag}</span>
                 <span>&gt;</span>
             </span>
         )
@@ -238,12 +237,12 @@ export const XmlTag = (props: XmlTagProps) => {
         createElement(
             (isAnchor ? Link : "span") as string,
             isAnchor
-                ? { ...additionalAttributes, ref, className, href: (props as AnchorProps).href, role: "presentation", "aria-hidden": true }
+                ? { ...additionalAttributes, ref, className, href: (_props as AnchorProps).href, role: "presentation", "aria-hidden": true }
                 : { ...additionalAttributes, ref, className },
             <span className={styles["opening"]}>
-                <span>&lt;{props.tag}&ensp;</span>
-                {props.attributes
-                    ? Object.entries(props.attributes).map(mapAttribute)
+                <span>&lt;{_props.tag}&ensp;</span>
+                {_props.attributes
+                    ? Object.entries(_props.attributes).map(mapAttribute)
                     : null}
                 <span>/&gt;</span>
             </span>
