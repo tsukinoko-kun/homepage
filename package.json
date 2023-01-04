@@ -10,7 +10,9 @@
     },
     "dependencies": {
         "@frank-mayer/magic": "^4.1.0",
+        "@frank-mayer/opsult": "^1.0.1",
         "@frank-mayer/react-tag-cloud": "^1.1.1",
+        "@frank-mayer/stream": "^1.0.0",
         "@types/node": "^18.11.18",
         "@types/react": "^18.0.26",
         "@types/react-dom": "^18.0.10",
@@ -21,6 +23,7 @@
         "framer-motion": "7.7.3",
         "next": "^13.1.1",
         "next-pwa": "^5.6.0",
+        "node-html-parser": "^6.1.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-error-boundary": "^3.1.4",

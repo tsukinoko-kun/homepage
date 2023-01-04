@@ -1,12 +1,14 @@
 import Link from "next/link"
 import { XmlTag } from "../components/XmlTag"
-import { projects, years } from "../data/projects"
-import type { Project } from "../data/projects"
+import { getPinnedReposAsync, RepoData } from "./lib/pinnedRepos"
+import { getOrigin } from "./lib/getOrigin"
 
-export const getStaticProps = () => ({
+// eslint-disable-next-line no-restricted-syntax
+export const getStaticProps = async () => ({
     props: {
         title: "Portfolio",
         description: "Here are some of my projects",
+        projects: await getPinnedReposAsync(getOrigin()),
     },
 })
 
@@ -15,37 +17,31 @@ const makeId = (name: string) => name
     .replace(/[()[\]{}]+/g, "")
     .replace(/[^a-z0-9]+/g, "-")
 
-const mapProject = (project: Project) => {
-    const id = makeId(`project-${project.year}-${project.name}`)
+const mapProject = (project: RepoData) => {
+    const id = makeId(`project-${project.name}`)
 
     return (
-        <XmlTag key={project.name} tag="div" id={id}>
-            <Link href={"#" + id} className="hidden" scroll={false}>
-                <XmlTag tag="h3">{project.name}</XmlTag>
-            </Link>
-            <XmlTag tag="script" language="json">
-                {JSON.stringify(project, null, 4)}
+        <>
+            <br />
+            <XmlTag key={project.name} tag="div" id={id}>
+                <Link href={"#" + id} className="hidden" scroll={false}>
+                    <XmlTag tag="h3">{project.name}</XmlTag>
+                </Link>
+                <Link href={project.url} target="_blank" rel="noopener noreferrer" className="hidden">
+                    <XmlTag tag="script" language="json">
+                        {JSON.stringify(project, null, 4)}
+                    </XmlTag>
+                    <button>Read more</button>
+                </Link>
             </XmlTag>
-        </XmlTag>
+        </>
     )
 }
 
-const Page = () => (
+const Page = (props: { projects: RepoData[] }) => (
     <>
         <XmlTag tag="h1">Portfolio</XmlTag>
-        {years.map((year) => {
-            const id = makeId("projects-year-" + year)
-            return (
-                <XmlTag key={year} tag="section" id={id}>
-                    <Link href={"#" + id} className="hidden" scroll={false}>
-                        <XmlTag tag="h2">{year.toString()}</XmlTag>
-                    </Link>
-                    {projects
-                        .filter((project) => project.year === year)
-                        .map(mapProject)}
-                </XmlTag>
-            )
-        })}
+        {props.projects.map(mapProject)}
     </>
 )
 
