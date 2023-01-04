@@ -147,6 +147,10 @@ const web = [
         text: "Three.js",
         href: "https://threejs.org",
     },
+    {
+        text: "Firebase",
+        href: "https://firebase.google.com",
+    }
 ]
 
 const backend = [
@@ -225,6 +229,26 @@ const backend = [
     {
         text: "MSSQL",
         href: "https://www.microsoft.com/en-us/sql-server",
+    },
+    {
+        text: "Google Cloud",
+        href: "https://cloud.google.com",
+    },
+    {
+        text: "Bun",
+        href: "https://bun.sh"
+    },
+    {
+        text: "Deno",
+        href: "https://deno.land"
+    },
+    {
+        text: "Node.js",
+        href: "https://nodejs.org"
+    },
+    {
+        text: "Express",
+        href: "https://expressjs.com"
     },
 ]
 
