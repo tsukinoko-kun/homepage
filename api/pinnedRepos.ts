@@ -1,5 +1,5 @@
-import type { RepoData } from "../api/pinned-repos"
-export type { RepoData } from "../api/pinned-repos"
+import type { RepoData } from "../pages/api/pinned-repos"
+export type { RepoData } from "../pages/api/pinned-repos"
 
 export const getPinnedReposAsync = async (origin: string): Promise<Array<RepoData>> => {
     const url = new URL("/api/pinned-repos", origin)

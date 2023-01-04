@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { XmlTag } from "../components/XmlTag"
-import { getPinnedReposAsync, RepoData } from "./lib/pinnedRepos"
-import { getOrigin } from "./lib/getOrigin"
+import { getPinnedReposAsync, RepoData } from "../api/pinnedRepos"
+import { getOrigin } from "../api/getOrigin"
 
 // eslint-disable-next-line no-restricted-syntax
 export const getStaticProps = async () => ({
