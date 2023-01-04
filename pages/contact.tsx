@@ -16,11 +16,15 @@ const Page = () => {
             <XmlTag tag="h1" inline>Contact</XmlTag>
 
             <br />
+            <br />
+
             <XmlTag tag="h2" inline>Social Media</XmlTag>
             <XmlTag rel="me" tag="a" href="https://hello.2heng.xin/@tsukinoko" attributes={{
                 href: "https://littlefo.rest/@tsukinoko",
             }}>Mastodon</XmlTag>
             <XmlTag tag="a" href="https://twitter.com/FF1493FF">Twitter</XmlTag>
+
+            <br />
 
             <XmlTag tag="h2" inline>Form</XmlTag>
 
