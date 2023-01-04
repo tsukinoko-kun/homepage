@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Fragment } from "react"
 import { XmlTag } from "../components/XmlTag"
 import { getPinnedReposAsync, RepoData } from "../wrap-api/pinnedRepos"
 import { getOrigin } from "../wrap-api/getOrigin"
@@ -24,20 +25,21 @@ const mapProject = (project: RepoData) => {
     const id = makeId(`project-${project.name}`)
 
     return (
-        <>
+        <Fragment key={id}>
             <br />
             <XmlTag key={project.name} tag="div" id={id}>
                 <Link href={"#" + id} className="hidden" scroll={false}>
                     <XmlTag tag="h3">{project.name}</XmlTag>
                 </Link>
+                <XmlTag tag="p" inline>{project.description}</XmlTag>
+                <XmlTag tag="p" inline>Lnguage: {project.language}</XmlTag>
                 <Link href={project.url} target="_blank" rel="noopener noreferrer" className="hidden">
-                    <XmlTag tag="script" language="json">
-                        {JSON.stringify(project, null, 4)}
+                    <XmlTag tag="button" inline>
+                        <button>Read more</button>
                     </XmlTag>
-                    <button>Read more</button>
                 </Link>
             </XmlTag>
-        </>
+        </Fragment>
     )
 }
 
