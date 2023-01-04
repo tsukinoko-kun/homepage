@@ -23,5 +23,4 @@ CI: ![Vercel](https://vercelbadge.vercel.app/api/Frank-Mayer/homepage)
 1. Build the project
    ```bash
    npm run build
-   npm run postbuild
    ```
