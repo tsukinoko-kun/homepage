@@ -45,6 +45,8 @@ const getPinnedReposAsync = async (): Promise<Result<Array<RepoData>, Error>> =>
                 if (!repoAnchorEl.hasAttribute("href")) {
                     return Option.None()
                 }
+                const url = new URL(repoAnchorEl.getAttribute("href")!.trim(), "https://github.com")
+                url.hash = "readme"
 
                 const repoDescriptionEl = repoPinEl.querySelector(".pinned-item-desc")
                 if (!repoDescriptionEl) {
@@ -59,7 +61,7 @@ const getPinnedReposAsync = async (): Promise<Result<Array<RepoData>, Error>> =>
                 return Option.Some({
                     name: repoTitleEl.innerText.trim(),
                     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                    url: new URL(repoAnchorEl.getAttribute("href")!.trim(), "https://github.com").href,
+                    url: url.href,
                     description: repoDescriptionEl.text.trim(),
                     language: repoLanguageEl.innerText.trim(),
                 })
