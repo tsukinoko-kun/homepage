@@ -10,6 +10,9 @@ export const getStaticProps = async () => ({
         description: "Here are some of my projects",
         projects: await getPinnedReposAsync(getOrigin()),
     },
+
+    // Revalidate every 30 minutes
+    revalidate: 30 * 60,
 })
 
 const makeId = (name: string) => name
