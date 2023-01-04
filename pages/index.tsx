@@ -83,7 +83,9 @@ export default Page
 
 const getTagCloudOptions = (w: Window): TagCloudOptions => ({
     radius: Math.min(500, Math.min(w.innerWidth, w.innerHeight) - 32) / 2,
-    maxSpeed: "normal"
+    maxSpeed: "fast",
+    initSpeed: "normal",
+    keep: false,
 })
 
 const TagCloudFromData = (props: {children: Array<{text: string, href: string}>}) => (
