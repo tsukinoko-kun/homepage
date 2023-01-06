@@ -8,9 +8,11 @@ export interface RepoData {
     url: string
     description: string
     language: string
+    owner: string
+    repo: string
 }
 
-const handlerAsync = async (req: NextApiRequest, res: NextApiResponse<Array<RepoData>|Error>) => {
+const handlerAsync = async (_req: NextApiRequest, res: NextApiResponse<Array<RepoData>|Error>) => {
     getPinnedReposAsync()
         .then((pinnedRepos) => {
             pinnedRepos.match(
@@ -45,6 +47,8 @@ const getPinnedReposAsync = async (): Promise<Result<Array<RepoData>, Error>> =>
                 if (!repoAnchorEl.hasAttribute("href")) {
                     return Option.None()
                 }
+
+                /* eslint-disable @typescript-eslint/no-non-null-assertion */
                 const url = new URL(repoAnchorEl.getAttribute("href")!.trim(), "https://github.com")
                 url.hash = "readme"
 
@@ -58,12 +62,16 @@ const getPinnedReposAsync = async (): Promise<Result<Array<RepoData>, Error>> =>
                     return Option.None()
                 }
 
+                const [owner, repo] = url.pathname.split("/").filter(Boolean)
+
                 return Option.Some({
                     name: repoTitleEl.innerText.trim(),
                     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                     url: url.href,
                     description: repoDescriptionEl.text.trim(),
                     language: repoLanguageEl.innerText.trim(),
+                    repo,
+                    owner
                 })
             })
             .filter((dataOp) => dataOp.isSome)

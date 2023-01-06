@@ -23,22 +23,20 @@ const makeId = (name: string) => name
 
 const mapProject = (project: RepoData) => {
     const id = makeId(`project-${project.name}`)
+    const cardUrl = new URL("https://github-readme-stats-zeta-bice-58.vercel.app/api/pin")
+    cardUrl.searchParams.set("username", project.owner)
+    cardUrl.searchParams.set("repo", project.repo)
+    cardUrl.searchParams.set("show_owner", "true")
+    cardUrl.searchParams.set("theme", "github_dark")
 
     return (
         <Fragment key={id}>
             <br />
-            <XmlTag key={project.name} tag="div" id={id}>
-                <Link href={"#" + id} className="hidden" scroll={false}>
-                    <XmlTag tag="h3">{project.name}</XmlTag>
-                </Link>
-                <XmlTag tag="p" inline>{project.description}</XmlTag>
-                <XmlTag tag="p" inline>Lnguage: {project.language}</XmlTag>
-                <Link href={project.url} target="_blank" rel="noopener noreferrer" className="hidden">
-                    <XmlTag tag="button" inline>
-                        <button>Read more</button>
-                    </XmlTag>
-                </Link>
-            </XmlTag>
+            <Link href={project.url} className="hidden" scroll={false} target="_blank" rel="noopener noreferrer">
+                <XmlTag tag="img" id={id}>
+                    <img src={cardUrl.href} alt={project.name} />
+                </XmlTag>
+            </Link>
         </Fragment>
     )
 }
