@@ -27,7 +27,8 @@ const mapProject = (project: RepoData) => {
     cardUrl.searchParams.set("username", project.owner)
     cardUrl.searchParams.set("repo", project.repo)
     cardUrl.searchParams.set("show_owner", "true")
-    cardUrl.searchParams.set("theme", "github_dark")
+    cardUrl.searchParams.set("theme", "react")
+    cardUrl.searchParams.set("hide_border", "true")
 
     return (
         <Fragment key={id}>
