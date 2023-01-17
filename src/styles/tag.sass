@@ -1,0 +1,35 @@
+@use "theme"
+
+.tag
+    &::before, &::after
+        opacity: 0.5
+    &--multiline
+        padding-left: theme.$tab-size
+        &::before, &::after
+            display: block
+            transform: translateX(#{theme.$tab-size * -1})
+    &--body
+        &::before
+            content: "<body>"
+        &::after
+            content: "</body>"
+    &--nav
+        &::before
+            content: "<nav>"
+        &::after
+            content: "</nav>"
+    &--anchor
+        &::before
+            content: "<a>"
+        &::after
+            content: "</a>"
+    &--paragraph
+        &::after
+            content: "</p>"
+        &::before
+            content: "<p>"
+    &--title
+        &::before
+            content: "<h1>"
+        &::after
+            content: "</h1>"

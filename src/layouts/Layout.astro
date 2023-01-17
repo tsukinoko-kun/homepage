@@ -1,0 +1,29 @@
+---
+import "../styles/index.sass";
+import "../styles/tag.sass";
+import "../styles/nav.sass";
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>Frank Mayer \\ {title}</title>
+    </head>
+    <body class="tag tag--body tag--multiline">
+        <nav class="tag tag--nav tag--multiline nav">
+            <a class="tag tag--anchor nav__item" href="/">Home</a>
+            <a class="tag tag--anchor nav__item" href="/portfolio">Portfolio</a>
+            <a class="tag tag--anchor nav__item" href="/contact">Contact</a>
+            <a class="tag tag--anchor nav__item" href="/live">YouTube Stream</a>
+        </nav>
+        <main><slot /></main>
+    </body>
+</html>

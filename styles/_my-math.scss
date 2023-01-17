@@ -1,3 +1,0 @@
-@function sclamp($min, $value, $max) {
-    @return #{max($min, min($value, $max))};
-}
