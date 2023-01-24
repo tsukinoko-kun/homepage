@@ -9,3 +9,37 @@
 .page-wrapper
     max-width: 1000px
     margin: 0 auto
+
+    &__content
+        padding:
+            top: 4rem
+            bottom: 4rem
+
+        > section
+            margin-bottom: 4rem
+
+        a
+            cursor: pointer
+
+        b
+            color: theme.$color-primary
+            white-space: break-spaces
+            display: inline
+            width: fit-content
+
+        h1
+            font-size: 4rem
+            font-weight: 800
+            margin-bottom: 1rem
+            @include theme.surround-with("h1")
+
+        h2
+            font-size: 3rem
+            font-weight: 700
+            margin-bottom: 1rem
+            @include theme.surround-with("h2")
+
+        h3
+            font-size: 1.25rem
+            font-weight: 500
+            margin-bottom: 0.5rem

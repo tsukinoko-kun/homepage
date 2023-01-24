@@ -1,3 +1,6 @@
+@use "theme"
+@use "sass:color"
+
 .nav
     display: flex
     flex-direction: row
@@ -5,6 +8,7 @@
     justify-content: space-between
     align-items: center
     margin: 1rem 0
+    @include theme.surround-with("nav")
 
     &__item
         width: 10rem
