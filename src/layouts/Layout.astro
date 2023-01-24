@@ -1,7 +1,8 @@
 ---
 import "../styles/index.sass";
-import "../styles/tag.sass";
 import "../styles/nav.sass";
+import "../styles/card.sass";
+
 export interface Props {
     title: string;
 }
@@ -15,15 +16,51 @@ const { title } = Astro.props;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>Frank Mayer \\ {title}</title>
+        <title>{title}</title>
     </head>
-    <body class="tag tag--body tag--multiline">
-        <nav class="tag tag--nav tag--multiline nav">
-            <a class="tag tag--anchor nav__item" href="/">Home</a>
-            <a class="tag tag--anchor nav__item" href="/portfolio">Portfolio</a>
-            <a class="tag tag--anchor nav__item" href="/contact">Contact</a>
-            <a class="tag tag--anchor nav__item" href="/live">YouTube Stream</a>
-        </nav>
-        <main><slot /></main>
+    <body>
+        <div class="page-wrapper">
+            <nav class="nav card-wrapper">
+                <a class="nav__item card-wrapper__card" href="/">
+                    <span class="card-wrapper__card__content">Home</span>
+                </a>
+                <a class="nav__item card-wrapper__card" href="/portfolio">
+                    <span class="card-wrapper__card__content">Portfolio</span>
+                </a>
+                <a class="nav__item card-wrapper__card" href="/contact">
+                    <span class="card-wrapper__card__content">Contact</span>
+                </a>
+                <a class="nav__item card-wrapper__card" href="/live">
+                    <span class="card-wrapper__card__content">Live Gaming</span>
+                </a>
+            </nav>
+            <slot />
+        </div>
+        <script defer>
+            const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
+            if (mql.matches) {
+                const cardsEls = Array.from(
+                    document.getElementsByClassName("card-wrapper__card")
+                );
+
+                window.addEventListener(
+                    "mousemove",
+                    (ev) => {
+                        for (const cardEl of cardsEls) {
+                            const rect = cardEl.getBoundingClientRect();
+
+                            const x = ev.clientX - rect.left;
+                            const y = ev.clientY - rect.top;
+
+                            cardEl.style.setProperty("--x-pos", `${x}px`);
+                            cardEl.style.setProperty("--y-pos", `${y}px`);
+                        }
+                    },
+                    {
+                        passive: true,
+                    }
+                );
+            }
+        </script>
     </body>
 </html>

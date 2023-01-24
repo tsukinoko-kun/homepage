@@ -1,16 +1,11 @@
-@use "theme"
+.nav
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+    margin: 1rem 0
 
-@media (min-width: 400px)
-    .nav
-        display: grid
-        grid-auto-flow: column
-        &__item
-            display: block
-            white-space: pre
-
-@media (max-width: 400px)
-    .nav
-        display: grid
-        grid-auto-flow: row
-        &__item
-            margin-left: theme.$tab-size
+    &__item
+        width: 10rem
+        height: 2rem
