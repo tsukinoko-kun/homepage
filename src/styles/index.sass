@@ -1,8 +1,9 @@
 @use "reset"
 @use "theme"
+@use "fonts"
 
 :root
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace
+    font-family: CircularSp, Satoshi, Gotham
     background: theme.$color-background
     color: theme.$color-foreground
 
@@ -29,13 +30,13 @@
 
     h1
         font-size: 4rem
-        font-weight: 800
+        font-weight: 600
         margin-bottom: 2rem
         @include theme.surround-with("h1")
 
     h2
         font-size: 3rem
-        font-weight: 700
+        font-weight: 600
         margin-bottom: 2rem
         @include theme.surround-with("h2")
 
