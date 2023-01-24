@@ -2,12 +2,17 @@
 @use "sass:color"
 
 .nav
+    position: sticky
+    top: 0
+    z-index: 100
+    background: rgba(theme.$color-background, 0.75)
+    backdrop-filter: blur(8px)
     display: flex
     flex-direction: row
     flex-wrap: wrap
     justify-content: space-between
     align-items: center
-    margin: 1rem 0
+    padding: 1rem 0
     @include theme.surround-with("nav")
 
     &__item

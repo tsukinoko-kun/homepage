@@ -15,31 +15,49 @@
             top: 4rem
             bottom: 4rem
 
-        > section
-            margin-bottom: 4rem
+    section
+        margin-bottom: 8rem
 
-        a
-            cursor: pointer
+    a
+        cursor: pointer
 
-        b
-            color: theme.$color-primary
-            white-space: break-spaces
-            display: inline
-            width: fit-content
+    b
+        color: theme.$color-primary
+        white-space: break-spaces
+        display: inline
+        width: fit-content
 
-        h1
-            font-size: 4rem
-            font-weight: 800
-            margin-bottom: 1rem
-            @include theme.surround-with("h1")
+    h1
+        font-size: 4rem
+        font-weight: 800
+        margin-bottom: 2rem
+        @include theme.surround-with("h1")
 
-        h2
-            font-size: 3rem
-            font-weight: 700
-            margin-bottom: 1rem
-            @include theme.surround-with("h2")
+    h2
+        font-size: 3rem
+        font-weight: 700
+        margin-bottom: 2rem
+        @include theme.surround-with("h2")
 
-        h3
-            font-size: 1.25rem
-            font-weight: 500
-            margin-bottom: 0.5rem
+    h3
+        font-size: 1.25rem
+        font-weight: 500
+        margin-bottom: 0.5rem
+
+    footer
+        margin:
+            bottom: 8rem
+
+    table
+        display: table !important
+        width: 100%
+        tbody
+            display: table-row-group !important
+        tr
+            display: table-row !important
+        td, th
+            display: table-cell !important
+            text-align: left
+
+            a
+                text-decoration: underline
