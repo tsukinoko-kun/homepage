@@ -4,7 +4,7 @@
 
         const scrollBehavior = {
             behavior: "smooth",
-            block: "start",
+            block: "center",
         };
 
         const scrollTo = (target) => {
@@ -35,26 +35,48 @@
             );
         }
 
-        const hash = window.location.hash;
-        if (hash) {
-            const target = document.querySelector(`h1${hash}, h2${hash}`);
-            if (target) {
-                scrollTo(target);
-                return;
-            }
-        }
+        const init = () => {
+            console.debug("init");
 
-        const path = window.location.pathname
-            .split("/")
-            .map((x) => x.trim())
-            .filter(Boolean)
-            .pop();
-
-        if (path) {
-            const target = document.querySelector(`h1#${path}, h2#${path}`);
-            if (target) {
-                scrollTo(target);
+            const hash = window.location.hash;
+            if (hash) {
+                const target = document.querySelector(`h1${hash}, h2${hash}`);
+                if (target) {
+                    scrollTo(target);
+                    return;
+                }
             }
+
+            const path = window.location.pathname
+                .split("/")
+                .map((x) => x.trim())
+                .filter(Boolean)
+                .pop();
+
+            if (path) {
+                const target = document.querySelector(`h1#${path}, h2#${path}`);
+                if (target) {
+                    scrollTo(target);
+                }
+            }
+        };
+
+        if (document.hasFocus()) {
+            console.debug("window has focus");
+            init();
+        } else {
+            console.debug("window does not have focus");
+            window.addEventListener(
+                "focus",
+                () => {
+                    console.debug("window has focus");
+                    init();
+                },
+                {
+                    passive: false,
+                    capture: false,
+                }
+            );
         }
     })();
 </script>
