@@ -1,0 +1,36 @@
+---
+import { getYoutubeLive } from "../utils/firebase";
+const youtubeLive = await getYoutubeLive();
+const url = new URL(
+    "https://www.youtube-nocookie.com/embed/" + (youtubeLive?.id ?? "")
+);
+
+url.searchParams.set("autoplay", "1");
+---
+
+<>
+    <h1>YouTube Livestream</h1>
+    {
+        youtubeLive && youtubeLive.id ? (
+            <>
+                {youtubeLive.isRecording ? (
+                    <p>This video is a recording of the last stream</p>
+                ) : null}
+                <br />
+                <iframe
+                    style={{
+                        width: "75vmin",
+                        height: "50vmin",
+                        margin: "0 auto",
+                        display: "block",
+                    }}
+                    src={url.href}
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen
+                />
+            </>
+        ) : (
+            <p>There is no live stream avaliable</p>
+        )
+    }
+</>

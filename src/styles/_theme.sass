@@ -1,0 +1,16 @@
+$tab-size: 1rem
+$color-background: #13161c
+$color-foreground: rgb(208, 208, 208)
+$color-primary: rgb(170, 81, 248)
+$timing: 250ms
+
+@mixin surround-with($name)
+    &::before
+        content: "<#{$name}>"
+    &::after
+        content: "</#{$name}>"
+    &::before, &::after
+        color: mix($color-background, $color-foreground, 50%)
+        font-size: 0.75rem
+        display: block
+        width: 100%

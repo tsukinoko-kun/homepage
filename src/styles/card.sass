@@ -1,0 +1,74 @@
+@use "theme"
+@use "sass:color"
+
+@mixin radial-gradient($size, $opacity, $x: var(--x-pos), $y: var(--y-pos))
+    background-image: radial-gradient($size circle at $x $y, mix(theme.$color-background, theme.$color-primary, $opacity), mix(theme.$color-background, theme.$color-primary, 75%) 25%)
+
+@mixin radial-gradient-back($size, $opacity, $x: var(--x-pos), $y: var(--y-pos))
+    background-image: radial-gradient($size circle at $x $y, mix(theme.$color-background, theme.$color-primary, $opacity), mix(theme.$color-background, theme.$color-primary, 95%) 15%)
+
+@media (hover: hover)
+    .card-wrapper
+        --x-pos: -200vw
+        --y-pos: -200vh
+        gap: 0.5rem
+
+        &__card
+            @include radial-gradient(100rem, 10%)
+            border-radius: 0.25rem
+            display: flex
+            justify-content: center
+            align-items: center
+            position: relative
+            transition: all theme.$timing
+
+            &:hover
+                transform: scale(0.99)
+                ::before
+                    opacity: 1
+
+            &:not(:hover)
+                ::before
+                    opacity: 0
+                .card-wrapper__card__content
+                    background-color: theme.$color-background
+
+            &::before
+                content: ""
+                z-index: -1
+                position: absolute
+                width: calc(100% - 0.1rem)
+                height: calc(100% - 0.1rem)
+                inset: 0.05rem
+                border-radius: inherit
+                transition: all theme.$timing
+                @include radial-gradient-back(100rem, 80%)
+
+            &__content
+                width: calc(100% - 0.1rem)
+                height: calc(100% - 0.1rem)
+                border-radius: inherit
+                display: flex
+                justify-content: center
+                align-items: center
+
+@media (hover: none)
+    .card-wrapper
+        gap: 0.5rem
+        &__card
+            @include radial-gradient(100rem, 10%, 50%, 50%)
+            border-radius: 0.5rem
+            display: flex
+            justify-content: center
+            align-items: center
+            position: relative
+            transition: all theme.$timing
+
+            &__content
+                background-color: theme.$color-background
+                border-radius: inherit
+                width: calc(100% - 0.1rem)
+                height: calc(100% - 0.1rem)
+                display: flex
+                justify-content: center
+                align-items: center

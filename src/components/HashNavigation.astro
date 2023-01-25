@@ -1,0 +1,82 @@
+<script defer>
+    (() => {
+        const hashAnchors = document.querySelectorAll("a[data-hash]");
+
+        const scrollBehavior = {
+            behavior: "smooth",
+            block: "center",
+        };
+
+        const scrollTo = (target) => {
+            console.debug("scroll to", target);
+            target.scrollIntoView(scrollBehavior);
+        };
+
+        for (let i = 0; i < hashAnchors.length; i++) {
+            const aEl = hashAnchors[i];
+
+            const hash = aEl.dataset.hash;
+            if (!hash) continue;
+
+            aEl.addEventListener(
+                "click",
+                (e) => {
+                    e.preventDefault();
+
+                    const target = document.querySelector(`#${hash}`);
+                    if (!target) return;
+
+                    scrollTo(target);
+                },
+                {
+                    passive: false,
+                    capture: false,
+                }
+            );
+        }
+
+        const init = () => {
+            console.debug("init");
+
+            const hash = window.location.hash;
+            if (hash) {
+                const target = document.querySelector(`h1${hash}, h2${hash}`);
+                if (target) {
+                    scrollTo(target);
+                    return;
+                }
+            }
+
+            const path = window.location.pathname
+                .split("/")
+                .map((x) => x.trim())
+                .filter(Boolean)
+                .pop();
+
+            if (path) {
+                const target = document.querySelector(`h1#${path}, h2#${path}`);
+                if (target) {
+                    scrollTo(target);
+                }
+            }
+        };
+
+        if (document.hasFocus()) {
+            console.debug("window has focus");
+            init();
+        } else {
+            console.debug("window does not have focus");
+            window.addEventListener(
+                "focus",
+                () => {
+                    console.debug("window has focus");
+                    init();
+                },
+                {
+                    passive: false,
+                    capture: false,
+                }
+            );
+        }
+    })();
+</script>

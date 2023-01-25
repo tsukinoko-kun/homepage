@@ -1,0 +1,64 @@
+@use "reset"
+@use "theme"
+@use "fonts"
+
+:root
+    font-family: CircularSp, Satoshi, Gotham
+    background: theme.$color-background
+    color: theme.$color-foreground
+
+.page-wrapper
+    max-width: 1000px
+    margin: 0 auto
+
+    &__content
+        padding:
+            top: 4rem
+            bottom: 4rem
+
+    section
+        margin-bottom: 8rem
+
+    a
+        cursor: pointer
+
+    b
+        color: theme.$color-primary
+        white-space: break-spaces
+        display: inline
+        width: fit-content
+
+    h1
+        font-size: 4rem
+        font-weight: 600
+        margin-bottom: 2rem
+        @include theme.surround-with("h1")
+
+    h2
+        font-size: 3rem
+        font-weight: 600
+        margin-bottom: 2rem
+        @include theme.surround-with("h2")
+
+    h3
+        font-size: 1.25rem
+        font-weight: 500
+        margin-bottom: 0.5rem
+
+    footer
+        margin:
+            bottom: 8rem
+
+    table
+        display: table !important
+        width: 100%
+        tbody
+            display: table-row-group !important
+        tr
+            display: table-row !important
+        td, th
+            display: table-cell !important
+            text-align: left
+
+            a
+                text-decoration: underline
