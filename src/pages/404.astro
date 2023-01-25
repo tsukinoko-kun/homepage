@@ -1,9 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+let target = "";
+switch (new URL(Astro.request.url).pathname) {
+    case "/portfolio":
+        target = "/#portfolio";
+        break;
+    case "/contact":
+        target = "/#contact";
+        break;
+}
 ---
 
 <Layout title="404">
     <h1>Page not found</h1>
     <p>This is not the page you are looking for!</p>
+    <br />
+    {
+        target ? (
+            <a href={target} style="text-decoration: underline;">
+                Did you mean "{target}" ?
+            </a>
+        ) : null
+    }
     <div style="height: 25vh;"></div>
 </Layout>
