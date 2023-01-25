@@ -11,8 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.0.1",
-    "firebase": "^9.16.0"
+    "astro": "^2.0.1"
   },
   "devDependencies": {
     "sass": "^1.57.1"
