@@ -1,5 +1,6 @@
 ---
 import "../styles/cta.sass";
+import Link from "./Link.astro";
 ---
 
 <section>
@@ -26,20 +27,20 @@ import "../styles/cta.sass";
     <p><b>Let's get together and create the next great app.</b></p>
     <br />
     <div class="cta card-wrapper">
-        <a
+        <Link
             class="cta__button cta__button--primary card-wrapper__card"
             href="/contact"
             data-hash="contact"
         >
             <span class="card-wrapper__card__content">Contact info</span>
-        </a>
+        </Link>
 
-        <a
+        <Link
             class="cta__button cta__button--secondary card-wrapper__card"
             href="/portfolio"
             data-hash="portfolio"
         >
             <span class="card-wrapper__card__content">My work</span>
-        </a>
+        </Link>
     </div>
 </section>

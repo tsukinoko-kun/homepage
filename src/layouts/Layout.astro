@@ -4,6 +4,7 @@ import "../styles/nav.sass";
 import "../styles/card.sass";
 import "../styles/scrollbar.sass";
 import Footer from "../components/Footer.astro";
+import Link from "../components/Link.astro";
 
 const reqUrl = new URL(Astro.request.url);
 const canonical = new URL(reqUrl.pathname, "https://www.frank-mayer.io/");
@@ -49,30 +50,30 @@ const { title, desc } = Astro.props;
     <body>
         <div class="page-wrapper">
             <nav class="nav card-wrapper">
-                <a
+                <Link
                     class="nav__item card-wrapper__card"
                     href="/"
                     data-hash="home"
                 >
                     <span class="card-wrapper__card__content">Home</span>
-                </a>
-                <a
+                </Link>
+                <Link
                     class="nav__item card-wrapper__card"
                     href="/#portfolio"
                     data-hash="portfolio"
                 >
                     <span class="card-wrapper__card__content">Portfolio</span>
-                </a>
-                <a
+                </Link>
+                <Link
                     class="nav__item card-wrapper__card"
                     href="/#contact"
                     data-hash="contact"
                 >
                     <span class="card-wrapper__card__content">Contact</span>
-                </a>
-                <a class="nav__item card-wrapper__card" href="/live">
+                </Link>
+                <Link class="nav__item card-wrapper__card" href="/live">
                     <span class="card-wrapper__card__content">Livestream</span>
-                </a>
+                </Link>
             </nav>
             <main class="page-wrapper__content">
                 <slot />
