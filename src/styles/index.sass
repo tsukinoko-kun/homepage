@@ -45,6 +45,10 @@
         font-weight: 500
         margin-bottom: 0.5rem
 
+    section>h3
+        @include theme.surround-with("h3")
+        margin-top: 2.5rem
+
     footer
         margin:
             bottom: 8rem
@@ -64,3 +68,6 @@
 
             a
                 text-decoration: underline
+
+    input
+        padding: 0.25rem 0.5rem

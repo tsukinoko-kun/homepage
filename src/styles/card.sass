@@ -8,6 +8,10 @@
     background-image: radial-gradient($size circle at $x $y, mix(theme.$color-background, theme.$color-primary, $opacity), mix(theme.$color-background, theme.$color-primary, 95%) 15%)
 
 @media (hover: hover)
+    .card-wrapper .card-wrapper__card--no-transform, .card-wrapper--no-transform .card-wrapper__card
+        &:hover
+            transform: none !important
+
     .card-wrapper
         --x-pos: -200vw
         --y-pos: -200vh
@@ -25,25 +29,17 @@
 
             &:hover
                 transform: scale(0.99)
-                ::before
-                    opacity: 1
-
-            &:not(:hover)
-                ::before
-                    opacity: 0
                 .card-wrapper__card__content
-                    background-color: theme.$color-background
+                    @include radial-gradient-back(100rem, 80%)
 
-            &::before
-                content: ""
-                z-index: -1
-                position: absolute
-                width: calc(100% - 0.1rem)
-                height: calc(100% - 0.1rem)
-                inset: 0.05rem
-                border-radius: inherit
-                transition: all theme.$timing
-                @include radial-gradient-back(100rem, 80%)
+            &--primary
+                cursor: pointer
+                .card-wrapper__card__content
+                    cursor: pointer
+                    @include radial-gradient-back(100rem, 80%)
+
+            &:not(:hover) .card-wrapper__card__content
+                background-color: theme.$color-background
 
             &__content
                 width: calc(100% - 0.1rem)
@@ -63,7 +59,6 @@
             justify-content: center
             align-items: center
             position: relative
-            transition: all theme.$timing
 
             &__content
                 background-color: theme.$color-background

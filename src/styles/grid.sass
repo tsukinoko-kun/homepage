@@ -12,8 +12,11 @@
     &__item
         display: flex
         flex-direction: column
-        padding: 0.5rem 1rem
 
     &--big .grid__item, .grid__item--big
         align-items: flex-start !important
         text-align: left !important
+
+    &:not(.grid--no-padding)
+        .grid__item
+            padding: 0.5rem 1rem

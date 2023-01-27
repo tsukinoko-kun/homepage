@@ -1,0 +1,19 @@
+@use "theme"
+
+.form
+    input
+        color: theme.$color-foreground
+
+    &__input--big
+        height: 2rem
+        &:has(*:focus)
+            height: 8rem
+
+    &__input
+        height: 2rem
+        input
+            display: block
+
+    textarea
+        resize: none
+        vertical-align: center

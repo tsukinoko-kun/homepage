@@ -1,0 +1,86 @@
+---
+import "../styles/card.sass";
+import "../styles/grid.sass";
+import "../styles/form.sass";
+---
+
+<h3>Contact Form</h3>
+
+<form
+    action="https://eo4hr3kdzumsq1q.m.pipedream.net"
+    method="post"
+    target="_blank"
+    class="card-wrapper grid grid--no-padding form"
+>
+    <label class="grid__item">
+        E-Mail
+        <div
+            class="card-wrapper__card card-wrapper__card--no-transform form__input"
+        >
+            <input
+                class="card-wrapper__card__content"
+                placeholder="your@email.com"
+                name="mail"
+                type="email"
+                auto-complete="email"
+                required
+            />
+        </div>
+    </label>
+
+    <label class="grid__item">
+        Message (max. 512 characters)
+        <div
+            class="card-wrapper__card card-wrapper__card--no-transform form__input form__input--big"
+        >
+            <textarea
+                class="card-wrapper__card__content"
+                placeholder="Your message..."
+                name="message"
+                min-length={10}
+                max-length={512}
+                required></textarea>
+        </div>
+    </label>
+
+    <label class="grid__item">
+        <div
+            class="card-wrapper__card card-wrapper__card--primary form__button"
+        >
+            <input
+                class="card-wrapper__card__content"
+                type="submit"
+                value="Send"
+            />
+        </div>
+    </label>
+
+    <input type="hidden" name="from" value={"https://www.frank-mayer.io/"} />
+</form>
+
+<script>
+    {
+        const forms = document.getElementsByClassName("form");
+        for (let i = 0; i < forms.length; i++) {
+            const form = forms[i];
+
+            if (!form) continue;
+
+            console.debug(form);
+
+            form.addEventListener("submit", () => {
+                const els = form.querySelectorAll(
+                    ".form__input input, .form__input textarea"
+                );
+
+                for (let j = 0; j < els.length; j++) {
+                    const el = els[j];
+
+                    if (!el) continue;
+
+                    (el as HTMLInputElement).value = "";
+                }
+            });
+        }
+    }
+</script>
