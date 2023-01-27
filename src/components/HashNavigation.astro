@@ -8,7 +8,6 @@
         };
 
         const scrollTo = (target) => {
-            console.debug("scroll to", target);
             target.scrollIntoView(scrollBehavior);
         };
 
@@ -36,8 +35,6 @@
         }
 
         const init = () => {
-            console.debug("init");
-
             const hash = window.location.hash;
             if (hash) {
                 const target = document.querySelector(`h1${hash}, h2${hash}`);
@@ -62,14 +59,11 @@
         };
 
         if (document.hasFocus()) {
-            console.debug("window has focus");
             init();
         } else {
-            console.debug("window does not have focus");
             window.addEventListener(
                 "focus",
                 () => {
-                    console.debug("window has focus");
                     init();
                 },
                 {
