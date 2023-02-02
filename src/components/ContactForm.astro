@@ -66,19 +66,28 @@ import "../styles/form.sass";
 
             if (!form) continue;
 
-            form.addEventListener("submit", () => {
-                const els = form.querySelectorAll(
-                    ".form__input input, .form__input textarea"
-                );
+            form.addEventListener(
+                "submit",
+                () => {
+                    window.setTimeout(() => {
+                        const els = form.querySelectorAll(
+                            ".form__input input, .form__input textarea"
+                        );
 
-                for (let j = 0; j < els.length; j++) {
-                    const el = els[j];
+                        for (let j = 0; j < els.length; j++) {
+                            const el = els[j];
 
-                    if (!el) continue;
+                            if (!el) continue;
 
-                    (el as HTMLInputElement).value = "";
+                            (el as HTMLInputElement).value = "";
+                        }
+                    }, 1000);
+                },
+                {
+                    capture: false,
+                    passive: true,
                 }
-            });
+            );
         }
     }
 </script>
