@@ -6,8 +6,7 @@ import "../styles/scrollbar.sass";
 import Footer from "../components/Footer.astro";
 import Link from "../components/Link.astro";
 
-const reqUrl = new URL(Astro.request.url);
-const canonical = new URL(reqUrl.pathname, "https://www.frank-mayer.io/");
+const canonical = new URL(Astro.url.pathname, "https://www.frank-mayer.io/");
 
 export interface Props {
     title: string;
