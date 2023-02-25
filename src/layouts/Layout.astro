@@ -5,6 +5,7 @@ import "../styles/card.sass";
 import "../styles/scrollbar.sass";
 import Footer from "../components/Footer.astro";
 import Link from "../components/Link.astro";
+import ShortcutsScript from "../components/ShortcutsScript.astro";
 
 const canonical = new URL(Astro.url.pathname, "https://www.frank-mayer.io/");
 
@@ -65,6 +66,7 @@ const { title, desc } = Astro.props;
                     class="nav__item card-wrapper__card"
                     href="/"
                     data-hash="home"
+                    data-shortcut="ctrl+1"
                 >
                     <span class="card-wrapper__card__content">Home</span>
                 </Link>
@@ -72,6 +74,7 @@ const { title, desc } = Astro.props;
                     class="nav__item card-wrapper__card"
                     href="/#portfolio"
                     data-hash="portfolio"
+                    data-shortcut="ctrl+2"
                 >
                     <span class="card-wrapper__card__content">Portfolio</span>
                 </Link>
@@ -79,10 +82,15 @@ const { title, desc } = Astro.props;
                     class="nav__item card-wrapper__card"
                     href="/#contact"
                     data-hash="contact"
+                    data-shortcut="ctrl+3"
                 >
                     <span class="card-wrapper__card__content">Contact</span>
                 </Link>
-                <Link class="nav__item card-wrapper__card" href="/live">
+                <Link
+                    class="nav__item card-wrapper__card"
+                    href="/live"
+                    data-shortcut="ctrl+4"
+                >
                     <span class="card-wrapper__card__content">Livestream</span>
                 </Link>
             </nav>
@@ -118,5 +126,6 @@ const { title, desc } = Astro.props;
                 );
             }
         </script>
+        <ShortcutsScript />
     </body>
 </html>

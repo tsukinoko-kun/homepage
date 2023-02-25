@@ -4,6 +4,7 @@ export interface Props {
     alt?: string;
     class?: string;
     "data-hash"?: string;
+    "data-shortcut"?: string;
 }
 
 const target = Astro.props.href.startsWith("https://") ? "_blank" : undefined;
@@ -15,5 +16,6 @@ const rel = target ? "noopener noreferrer" : undefined;
     target={target}
     rel={rel}
     class={Astro.props.class}
-    data-hash={Astro.props["data-hash"]}><slot /></a
+    data-hash={Astro.props["data-hash"]}
+    data-shortcut={Astro.props["data-shortcut"]}><slot /></a
 >
