@@ -7,9 +7,9 @@
             (navigator.platform &&
                 /(mac|iphone|ipod|ipad)/i.test(navigator.platform));
 
-        const ctrl = mac ? "⌃" : "ctrl";
+        const ctrl = mac ? "⌃" : "Ctrl";
         const option = mac ? "⌥" : "Alt";
-        const shift = mac ? "⇧" : "shift";
+        const shift = mac ? "⇧" : "Shift";
 
         const shortcutedElements = document.querySelectorAll("[data-shortcut]");
         const shortcutedElementsArray = Array.from(shortcutedElements);
@@ -42,13 +42,20 @@
             element.appendChild(tooltipElement);
 
             registeredShortcuts.push({
-                keys,
+                keys: keys.map((key) =>
+                    key
+                        .replace(/^[0-9]$/, (num) => "digit" + num)
+                        .replace(
+                            /^[a-z]$/i,
+                            (letter) => "key" + letter.toLowerCase()
+                        )
+                ),
                 element,
             });
         }
 
         window.addEventListener("keydown", (event) => {
-            const { key, ctrlKey, altKey, shiftKey } = event;
+            const { code, ctrlKey, altKey, shiftKey } = event;
 
             const pressedKeys = new Set();
 
@@ -64,7 +71,7 @@
                 pressedKeys.add("shift");
             }
 
-            pressedKeys.add(key.toLowerCase());
+            pressedKeys.add(code.toLowerCase());
 
             const shortcut = registeredShortcuts.find((shortcut) => {
                 return (
