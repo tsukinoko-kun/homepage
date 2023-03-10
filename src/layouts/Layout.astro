@@ -12,9 +12,6 @@ const canonical = new URL(Astro.url.pathname, "https://www.frank-mayer.io/");
 export interface Props {
     title: string;
     desc: string;
-    preload?: {
-        images?: Array<string>;
-    };
 }
 
 const { title, desc } = Astro.props;
@@ -49,15 +46,6 @@ const { title, desc } = Astro.props;
         <meta name="twitter:creator" content="@FF1493FF" />
         <meta name="twitter:image" content="/hotlink-ok/preview.jpg" />
         <meta name="theme-color" content="#13161c" />
-        {
-            Astro.props.preload
-                ? Astro.props.preload.images
-                    ? Astro.props.preload.images.map((path) => (
-                          <link rel="preload" href={path} as="image" />
-                      ))
-                    : null
-                : null
-        }
     </head>
     <body>
         <div class="page-wrapper">

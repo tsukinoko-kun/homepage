@@ -1,5 +1,4 @@
 ---
-import { WAKATIME_WIDGET_URL } from "../constants/wakatime";
 import Home from "../components/Home.astro";
 import Portfolio from "../components/Portfolio.astro";
 import Contact from "../components/Contact.astro";
@@ -7,11 +6,7 @@ import HashNavigation from "../components/HashNavigationScript.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout
-    title="Frank Mayer"
-    desc="Software engineer"
-    preload={{ images: [WAKATIME_WIDGET_URL] }}
->
+<Layout title="Frank Mayer" desc="Software engineer">
     <Home />
     <Portfolio />
     <Contact />
