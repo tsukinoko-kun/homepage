@@ -4,10 +4,24 @@ import Portfolio from "../components/Portfolio.astro";
 import Contact from "../components/Contact.astro";
 import HashNavigation from "../components/HashNavigationScript.astro";
 import Layout from "../layouts/Layout.astro";
+import Carousel from "../components/Carousel.astro";
 ---
 
 <Layout title="Frank Mayer" desc="Software engineer">
-    <h1 id="home">Hey,<br />I'm Frank</h1>
+    <h1 id="home">
+        Hey,<br />I'm Frank
+        <p>
+            <Carousel
+                srcset={[
+                    "https://upload.wikimedia.org/wikipedia/commons/4/4f/Icon-Vim.svg",
+                    "https://raw.githubusercontent.com/tmux/tmux/f04cc3997629823f0e304d4e4184e2ec93c703f0/logo/tmux-logomark.svg",
+                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/Neovim-mark.svg",
+                    "https://upload.wikimedia.org/wikipedia/commons/0/08/EmacsIcon.svg",
+                ]}
+                timeout={2500}
+            /> Vim is a way of life, not an editor.
+        </p>
+    </h1>
     <Portfolio />
     <Home />
     <Contact />
