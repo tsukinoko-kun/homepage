@@ -2,6 +2,7 @@
 export interface Props {
     srcset: Array<string>;
     timeout: number;
+    alt?: string;
 }
 
 const srcset = Astro.props.srcset;
@@ -12,6 +13,7 @@ const json = JSON.stringify(srcset);
     loading="lazy"
     decoding="async"
     src={Astro.props.srcset[0]}
+    alt={Astro.props.alt}
     data-srcset={json}
     onload={[
         'if (this.dataset.status === "loaded") { return }',
