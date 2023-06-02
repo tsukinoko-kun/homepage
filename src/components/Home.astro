@@ -5,7 +5,42 @@ import Link from "./Link.astro";
 
 <section>
     <h2>About me</h2>
-    <p id="about_me">
+    <p id="about_me" class="grid">
+        <span class="grid__item" style="padding:0!important">
+            <b>Low-end hardware? Not a problem!</b>
+            <br />
+            My software is well optimised and runs on almost any device. Including
+            old laptop from the early 2000s without an internet connection.
+        </span>
+        <img
+            style="max-width: 200px; margin: auto;"
+            loading="lazy"
+            decoding="async"
+            class="grid__item"
+            src="/img/old-laptop.webp"
+            alt="old laptop computer"
+        />
+    </p>
+    <p style="height: 4rem"></p>
+    <p id="about_me" class="grid">
+        <img
+            style="max-width: 200px; margin: auto;"
+            loading="lazy"
+            decoding="async"
+            class="grid__item"
+            src="/img/servers.webp"
+            alt="servers"
+        />
+        <span class="grid__item" style="padding:0!important">
+            <b>Distributed systems? I got you covered!</b>
+            <br />
+            From monoliths to microservices, from single machines to server farms.
+            I have experience with all of them and will ensure that your project
+            has the right scale.
+        </span>
+    </p>
+    <p style="height: 4rem"></p>
+    <p>
         I love working with startups or mid-sized companies with ambitious
         goals.
     </p>
@@ -17,12 +52,12 @@ import Link from "./Link.astro";
     <p>
         I am a well organised problem solver with <b
             >high attention to the detail</b
-        > and a passion for clean code and <b>good architecture</b>.
+        > and a passion for <b>good architecture</b>.
     </p>
     <br />
     <p>
-        In my free time I like to watch anime, play video games and listen to
-        jazz and rock music.
+        In my free time I watch anime, play video games and listen to jazz and
+        rock music.
     </p>
     <br />
     <p><b>Let's get together and create the next great app.</b></p>
@@ -103,7 +138,7 @@ import Link from "./Link.astro";
             />
             Neovim
         </Link>
-                <Link href="https://tmux.github.io/">
+        <Link href="https://tmux.github.io/">
             <img
                 loading="lazy"
                 decoding="async"
