@@ -1,0 +1,27 @@
+@use "theme";
+
+.form {
+    input {
+        padding: 0.25rem 0.5rem;
+        color: var(--color-foreground);
+    }
+
+    &__input--big {
+        height: 2.5rem !important;
+        &:has(*:focus) {
+            height: 10rem !important;
+        }
+    }
+
+    &__input {
+        height: 2rem;
+        input {
+            display: block;
+        }
+    }
+
+    textarea {
+        resize: none;
+        vertical-align: center;
+    }
+}

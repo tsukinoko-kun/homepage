@@ -1,0 +1,23 @@
+@use "sass:color";
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  &:not(:hover):not(:active) {
+    background: var(--color-inactive);
+  }
+  &:hover:not(:active) {
+    background: var(--color-foreground);
+  }
+  &:active {
+    background: var(--color-primary);
+  }
+}
+::-webkit-scrollbar-corner {
+  background: var(--color-background);
+}

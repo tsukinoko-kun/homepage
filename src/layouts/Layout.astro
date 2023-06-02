@@ -1,8 +1,8 @@
 ---
-import "../styles/index.sass";
-import "../styles/nav.sass";
-import "../styles/card.sass";
-import "../styles/scrollbar.sass";
+import "../styles/index.scss";
+import "../styles/nav.scss";
+import "../styles/card.scss";
+import "../styles/scrollbar.scss";
 import Footer from "../components/Footer.astro";
 import Link from "../components/Link.astro";
 import ShortcutsScript from "../components/ShortcutsScript.astro";
@@ -27,7 +27,14 @@ const { title, desc } = Astro.props;
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link
             rel="preload"
-            href="/fonts/CircularSp-Book.woff2"
+            href="/fonts/Circular-Book.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/fonts/Circular-Title.woff2"
             as="font"
             type="font/woff2"
             crossorigin

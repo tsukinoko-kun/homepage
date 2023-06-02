@@ -1,0 +1,17 @@
+$timing: 250ms;
+
+@mixin surround-with($name) {
+    &::before {
+        content: "<#{$name}>";
+    }
+    &::after {
+        content: "</#{$name}>";
+    }
+    &::before,
+    &::after {
+        color: var(--color-foreground-50);
+        font-size: 0.75rem;
+        display: block;
+        width: 100%;
+    }
+}
