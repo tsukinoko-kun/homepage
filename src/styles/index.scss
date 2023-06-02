@@ -68,10 +68,6 @@
         }
     }
 
-    section {
-        margin-bottom: 8rem;
-    }
-
     a {
         cursor: pointer;
     }
@@ -101,7 +97,10 @@
         font-weight: 600;
         font-family: CircularTitle, Satoshi, Gotham;
         line-height: 1.25;
-        margin-bottom: 2rem;
+        margin: {
+            top: 8rem;
+            bottom: 2rem;
+        }
         @include theme.surround-with("h2");
     }
     h3 {

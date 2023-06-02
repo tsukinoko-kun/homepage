@@ -4,8 +4,8 @@ import Link from "./Link.astro";
 ---
 
 <section>
-    <h2 id="about_me">About me</h2>
-    <p>
+    <h2>About me</h2>
+    <p id="about_me">
         I love working with startups or mid-sized companies with ambitious
         goals.
     </p>
@@ -27,25 +27,7 @@ import Link from "./Link.astro";
     <br />
     <p><b>Let's get together and create the next great app.</b></p>
     <br />
-    <div class="cta card-wrapper">
-        <Link
-            class="cta__button card-wrapper__card card-wrapper__card--primary"
-            href="/#contact"
-            data-hash="contact"
-        >
-            <span class="card-wrapper__card__content">Contact info</span>
-        </Link>
-
-        <Link
-            class="cta__button card-wrapper__card"
-            href="/#my_portfolio"
-            data-hash="my_portfolio"
-        >
-            <span class="card-wrapper__card__content">My work</span>
-        </Link>
-    </div>
-    <br />
-    <h2>My top languages</h2>
+    <h2>My favorite languages</h2>
     <p class="flex-list">
         <Link href="https://www.rust-lang.org/">
             <img
@@ -108,7 +90,7 @@ import Link from "./Link.astro";
             F#
         </Link>
     </p>
-    <br /><br />
+    <br />
     <h2>Tools I use</h2>
     <p class="flex-list">
         <Link href="https://neovim.io/">
