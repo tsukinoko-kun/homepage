@@ -6,6 +6,7 @@
 @use "sass:color";
 
 :root {
+    color-scheme: dark;
     --color-background: #{#1e1e2e}; // Base
     --color-background-o75: #{rgba(#1e1e2e, 0.75)};
     --color-foreground: #{#cdd6f4}; // Text
@@ -21,6 +22,7 @@
 
 @media (prefers-color-scheme: light) {
     :root {
+        color-scheme: light;
         --color-background: #{#eff1f5}; // Base
         --color-background-o75: #{rgba(#eff1f5, 0.75)};
         --color-foreground: #{#4c4f69}; // Text
