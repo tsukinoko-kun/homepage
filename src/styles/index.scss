@@ -112,7 +112,11 @@
     }
     section > h3 {
         @include theme.surround-with("h3");
-        margin-top: 2.5rem;
+        font-size: 3rem;
+        margin: {
+            top: 2.5rem;
+            bottom: 2rem;
+        }
     }
     footer {
         margin: {
