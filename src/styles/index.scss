@@ -44,10 +44,11 @@
 }
 
 .page-wrapper {
-    max-width: 1000px;
+    max-width: 600px;
     margin: 0 auto;
 
     &__content {
+        letter-spacing: 0.2px;
         padding: {
             top: 4rem;
             bottom: 4rem;
@@ -80,7 +81,7 @@
     }
 
     h1 {
-        font-size: 4rem;
+        font-size: 3rem;
         font-weight: 600;
         font-family: CircularTitle, Satoshi, Gotham;
         line-height: 1.25;
@@ -104,8 +105,7 @@
         @include theme.surround-with("h2");
     }
     h3 {
-        font-size: 1.25rem;
-        font-weight: 500;
+        font-weight: 600;
         font-family: CircularTitle, Satoshi, Gotham;
         line-height: 1.25;
         margin-bottom: 0.5rem;
