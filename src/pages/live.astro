@@ -1,8 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Live from "../components/Live.astro";
 ---
 
 <Layout title="Live Stream" desc="Live on YouTube">
-    <Live />
+  <h1>YouTube Live&shy;stream</h1>
+  <iframe
+    style={{
+      width: "75vmin",
+      height: "50vmin",
+      margin: "0 auto",
+      display: "block",
+    }}
+    src="https://api.frank-mayer.io/youtube/live"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowfullscreen
+  />
 </Layout>

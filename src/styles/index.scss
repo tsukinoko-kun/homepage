@@ -1,156 +1,50 @@
-@use "reset";
 @use "theme";
-@use "fonts";
-@use "tooltip";
 @use "transition";
-@use "avatar";
+@use "scrollbar";
 @use "sass:color";
 
-:root {
-    color-scheme: dark;
-    --color-background: #{#1e1e2e}; // Base
-    --color-background-o75: #{rgba(#1e1e2e, 0.75)};
-    --color-foreground: #{#cdd6f4}; // Text
-    --color-foreground-50: #{mix(#cdd6f4, #1e1e2e, 50%)};
-    --color-primary: #{#cba6f7}; // Mauve
-    --color-primary-10: #{mix(#1e1e2e, #cba6f7, 10%)};
-    --color-primary-75: #{mix(#1e1e2e, #cba6f7, 75%)};
-    --color-primary-80: #{mix(#1e1e2e, #cba6f7, 80%)};
-    --color-primary-95: #{mix(#1e1e2e, #cba6f7, 95%)};
-    --color-inactive: #{#313244}; // Surface0
-    --color-selection: #{#6c7086}; // Overlay0
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-color-scheme: light) {
+@layer base {
     :root {
-        color-scheme: light;
-        --color-background: #{#eff1f5}; // Base
-        --color-background-o75: #{rgba(#eff1f5, 0.75)};
-        --color-foreground: #{#4c4f69}; // Text
-        --color-foreground-50: #{mix(#4c4f69, #eff1f5, 50%)};
-        --color-primary: #{#8839ef}; // Mauve
-        --color-primary-10: #{mix(#eff1f5, #8839ef, 10%)};
-        --color-primary-75: #{mix(#eff1f5, #8839ef, 75%)};
-        --color-primary-80: #{mix(#eff1f5, #8839ef, 80%)};
-        --color-primary-95: #{mix(#eff1f5, #8839ef, 99%)};
-        --color-inactive: #{#ccd0da}; // Surface0
-        --color-selection: #{#9ca0b0}; // Overlay0
+        color-scheme: dark;
+        --color-background: 30 30 46; // Base
+        --color-foreground: 205 214 244; // Text
+        --color-primary: 203 166 247; // Mauve
+        --color-inactive: 49 50 68; // Surface0
+        --color-selection: 108 112 134; // Overlay0
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            color-scheme: light;
+            --color-background: 239 241 245; // Base
+            --color-foreground: 76 79 105; // Text
+            --color-primary: 136 57 239; // Mauve
+            --color-inactive: 204 208 218; // Surface0
+            --color-selection: 156 160 176; // Overlay0
+        }
     }
 }
 
-:root {
-    font-family: Circular, Satoshi, Gotham;
-    background: var(--color-background);
-    color: var(--color-foreground);
+.surround-nav {
+    @include theme.surround-with("nav");
 }
 
-.page-wrapper {
-    max-width: 600px;
-    margin: 0 auto;
-
-    &__content {
-        letter-spacing: 0.2px;
-        padding: {
-            top: 4rem;
-            bottom: 4rem;
-        }
+@for $i from 1 through 3 {
+    .surround-h#{$i} {
+        @include theme.surround-with("h#{$i}");
     }
+}
 
-    .flex-list {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 2rem;
-
-        > * {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    }
-
-    a {
-        cursor: pointer;
-    }
-
-    b {
-        color: var(--color-primary);
-        white-space: break-spaces;
-        display: inline;
-        width: fit-content;
-    }
-
-    h1 {
-        font-size: 3rem;
-        font-weight: 600;
+@for $i from 1 through 5 {
+    .text-#{$i}xl {
         font-family: CircularTitle, Satoshi, Gotham;
-        line-height: 1.25;
-        margin-bottom: 2rem;
-        @include theme.surround-with("h1");
-
-        > * {
-            font-family: Circular, Satoshi, Gotham;
-        }
-    }
-
-    h2 {
-        font-size: 3rem;
-        font-weight: 600;
-        font-family: CircularTitle, Satoshi, Gotham;
-        line-height: 1.25;
-        margin: {
-            top: 8rem;
-            bottom: 2rem;
-        }
-        @include theme.surround-with("h2");
-    }
-    h3 {
-        font-weight: 600;
-        font-family: CircularTitle, Satoshi, Gotham;
-        line-height: 1.25;
-        margin-bottom: 0.5rem;
-    }
-    section > h3 {
-        @include theme.surround-with("h3");
-        font-size: 3rem;
-        margin: {
-            top: 2.5rem;
-            bottom: 2rem;
-        }
-    }
-    footer {
-        margin: {
-            bottom: 8rem;
-        }
-    }
-
-    table {
-        display: table !important;
-        width: 100%;
-        tbody {
-            display: table-row-group !important;
-        }
-        tr {
-            display: table-row !important;
-        }
-        td,
-        th {
-            display: table-cell !important;
-            text-align: left;
-            margin: 0.1rem;
-            padding: 0.25rem 0.5rem;
-
-            a {
-                text-decoration: underline;
-                &:hover {
-                    color: var(--color-primary);
-                }
-            }
-        }
     }
 }
 
 ::selection {
-    background: var(--color-selection);
+    background: rgb(var(--color-selection) / 100%);
 }

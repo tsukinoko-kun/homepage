@@ -1,11 +1,7 @@
 ---
 import "../styles/index.scss";
-import "../styles/nav.scss";
-import "../styles/card.scss";
-import "../styles/scrollbar.scss";
 import Footer from "../components/Footer.astro";
 import Link from "../components/Link.astro";
-import ShortcutsScript from "../components/ShortcutsScript.astro";
 
 const canonical = new URL(Astro.url.pathname, "https://www.frank-mayer.io/");
 
@@ -14,17 +10,25 @@ export interface Props {
     desc: string;
 }
 
-const { title, desc } = Astro.props;
+const mainTitle = "Frank Mayer";
+
+const desc = Astro.props.desc;
+const title = Astro.props.title
+    ? `${mainTitle} \\\\ ${Astro.props.title}`
+    : mainTitle;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-background">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="view-transition" content="same-origin" />
-        <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link
+            rel="shortcut icon"
+            type="image/jpeg"
+            href="/hotlink-ok/preview.jpg"
+        />
         <link
             rel="preload"
             href="/fonts/Circular-Book.woff2"
@@ -46,78 +50,49 @@ const { title, desc } = Astro.props;
         <meta name="author" content="Frank Mayer" />
         <meta property="og:url" content={canonical} />
         <meta property="og:site_name" content="Frank Mayer" />
-        <meta property="og:title" content="Frank Mayer" />
+        <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.frank-mayer.io/hotlink-ok/preview.jpg" />
+        <meta
+            property="og:image"
+            content="https://www.frank-mayer.io/hotlink-ok/preview.jpg"
+        />
         <meta property="twitter:domain" content="frank-mayer.io" />
         <meta property="twitter:url" content={canonical} />
         <meta name="twitter:site" content="@tsukinoko_kun" />
-        <meta name="twitter:title" content="Frank Mayer" />
+        <meta name="twitter:title" content={title} />
         <meta name="twitter:creator" content="@tsukinoko_kun" />
-        <meta name="twitter:image" content="https://www.frank-mayer.io/hotlink-ok/preview.jpg" />
-        <meta name="theme-color" content="#13161c" />
+        <meta
+            name="twitter:image"
+            content="https://www.frank-mayer.io/hotlink-ok/preview.jpg"
+        />
+        <meta name="theme-color" content="#11111b" />
     </head>
-    <body>
-        <div class="page-wrapper">
-            <nav class="nav card-wrapper">
-                <Link
-                    class="nav__item card-wrapper__card"
-                    href="/"
-                    data-hash="my_portfolio"
-                    data-shortcut="option+1"
-                >
-                    <span class="card-wrapper__card__content">My Portfolio</span
-                    >
-                </Link>
-                <Link
-                    class="nav__item card-wrapper__card"
-                    href="/#about_me"
-                    data-hash="about_me"
-                    data-shortcut="option+2"
-                >
-                    <span class="card-wrapper__card__content">About me</span>
-                </Link>
-                <Link
-                    class="nav__item card-wrapper__card"
-                    href="/#contact"
-                    data-hash="contact"
-                    data-shortcut="option+3"
-                >
-                    <span class="card-wrapper__card__content">Contact</span>
-                </Link>
-            </nav>
-            <main class="page-wrapper__content">
+
+    <body
+        class="subpixel-antialiased font-normal text-base bg-background text-foreground"
+    >
+        <nav
+            class="content surround-nav backdrop-blur sticky top-0 block"
+            style="padding: 0 calc(50vw - 18em);"
+        >
+            <Link href="/">
+                <span>My Portfolio</span>
+            </Link>
+            <br />
+            <Link href="/about_me">
+                <span>About me</span>
+            </Link>
+            <br />
+            <Link href="/contact">
+                <span>Contact</span>
+            </Link>
+        </nav>
+
+        <div class="max-w-xl mx-auto">
+            <main class="tracking-wide">
                 <slot />
             </main>
             <Footer />
         </div>
-
-        <script defer>
-            const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
-            if (mql.matches) {
-                const cardsEls = Array.from(
-                    document.getElementsByClassName("card-wrapper__card")
-                );
-
-                window.addEventListener(
-                    "mousemove",
-                    (ev) => {
-                        for (const cardEl of cardsEls) {
-                            const rect = cardEl.getBoundingClientRect();
-
-                            const x = ev.clientX - rect.left;
-                            const y = ev.clientY - rect.top;
-
-                            cardEl.style.setProperty("--x-pos", `${x}px`);
-                            cardEl.style.setProperty("--y-pos", `${y}px`);
-                        }
-                    },
-                    {
-                        passive: true,
-                    }
-                );
-            }
-        </script>
-        <ShortcutsScript />
     </body>
 </html>
