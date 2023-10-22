@@ -13,6 +13,7 @@
         --color-background: 30 30 46; // Base
         --color-foreground: 205 214 244; // Text
         --color-primary: 203 166 247; // Mauve
+        --color-secondary: 108 112 134; // Overlay0
         --color-inactive: 49 50 68; // Surface0
         --color-selection: 108 112 134; // Overlay0
     }
@@ -23,6 +24,7 @@
             --color-background: 239 241 245; // Base
             --color-foreground: 76 79 105; // Text
             --color-primary: 136 57 239; // Mauve
+            --color-secondary: 156 160 176; // Overlay0
             --color-inactive: 204 208 218; // Surface0
             --color-selection: 156 160 176; // Overlay0
         }
@@ -36,6 +38,8 @@
 @for $i from 1 through 3 {
     .surround-h#{$i} {
         @include theme.surround-with("h#{$i}");
+        margin-top: #{3.5 - $i * 0.5}rem;
+        margin-bottom: 0.5rem;
     }
 }
 

@@ -1,7 +1,7 @@
 ---
 import "../styles/index.scss";
-import Footer from "../components/Footer.astro";
 import Link from "../components/Link.astro";
+import { ViewTransitions } from "astro:transitions";
 
 const canonical = new URL(Astro.url.pathname, "https://www.frank-mayer.io/");
 
@@ -66,33 +66,46 @@ const title = Astro.props.title
             content="https://www.frank-mayer.io/hotlink-ok/preview.jpg"
         />
         <meta name="theme-color" content="#11111b" />
+        <ViewTransitions />
     </head>
 
     <body
         class="subpixel-antialiased font-normal text-base bg-background text-foreground"
     >
-        <nav
-            class="content surround-nav backdrop-blur sticky top-0 block"
-            style="padding: 0 calc(50vw - 18em);"
+        <header
+            transition:animate="none"
+            class="content backdrop-blur bg-background/50 sticky top-0 z-50"
         >
-            <Link href="/">
-                <span>My Portfolio</span>
-            </Link>
-            <br />
-            <Link href="/about_me">
-                <span>About me</span>
-            </Link>
-            <br />
-            <Link href="/contact">
-                <span>Contact</span>
-            </Link>
-        </nav>
+            <nav class="surround-nav">
+                <Link href="/" class="underline hover:text-primary">
+                    My Portfolio
+                </Link>
+                <br />
+                <Link href="/about_me" class="underline hover:text-primary">
+                    About me
+                </Link>
+                <br />
+                <Link href="/contact" class="underline hover:text-primary">
+                    Contact
+                </Link>
+            </nav>
+        </header>
 
-        <div class="max-w-xl mx-auto">
-            <main class="tracking-wide">
+        <div class="max-w-xl mx-auto p-2 pb-32">
+            <main class="tracking-wide" transition:animate="slide">
                 <slot />
             </main>
-            <Footer />
         </div>
     </body>
 </html>
+
+<style>
+    header {
+        padding: 1rem max(0.5rem, calc(50vw - 18em)) !important;
+        background-image: url(/img/me.webp);
+        background-size: 6rem;
+        background-repeat: no-repeat;
+        background-position-x: calc(100% - 1rem);
+        background-position-y: 1rem;
+    }
+</style>

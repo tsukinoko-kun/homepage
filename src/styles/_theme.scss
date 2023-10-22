@@ -3,17 +3,21 @@ $timing: 250ms;
 @mixin surround-with($name) {
     &::before {
         content: "<#{$name}>";
+        margin-bottom: 0.5rem;
     }
     &::after {
         content: "</#{$name}>";
+        margin-top: 0.5rem;
     }
     &::before,
     &::after {
-        color: var(--color-foreground-50);
+        color: rgb(var(--color-secondary) / 100%);
         font-size: 0.75rem;
+        line-height: 1;
         display: block;
         width: 100%;
         transform: translateX(-1rem);
+        letter-spacing: 0.025em;
     }
-    margin-left: 1rem;
+    padding-left: 1rem;
 }

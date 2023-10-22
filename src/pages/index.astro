@@ -1,43 +1,91 @@
 ---
+import Link from "../components/Link.astro";
 import Layout from "../layouts/Layout.astro";
+
+type Project = {
+    name: string;
+    description: string;
+    link: string;
+    langs: string[];
+};
+
+const projects: Array<Project> = [
+    {
+        name: "Bloodmage Engine",
+        description: "90s style 3D game engine build in Go using SDL2.",
+        link: "https://github.com/bloodmagesoftware/bloodmage-engine",
+        langs: ["go"],
+    },
+    {
+        name: "PaperMC Web API",
+        description:
+            "Secure web api for Minecraft paper servers with OAuth2 and JWT.",
+        link: "https://github.com/Frank-Mayer/papermc-web-api",
+        langs: ["java"],
+    },
+    {
+        name: "Allybi",
+        description:
+            "Educational game for the anti discrimination organization in Heilbronn.",
+        link: "https://github.com/HHN-SEB-2022-23/allybi",
+        langs: ["ts"],
+    },
+    {
+        name: "React Tag Cloud",
+        description: "Port of TagCloud as a React Component from Cong Mins.",
+        link: "https://github.com/Frank-Mayer/react-tag-cloud",
+        langs: ["ts"],
+    },
+    {
+        name: "n5ednd",
+        description: "Naruto 5E D&D Digital Character-Sheet.",
+        link: "https://github.com/Frank-Mayer/n5ednd",
+        langs: ["ts"],
+    },
+];
 ---
 
 <Layout title="Portfolio" desc="Software Engineer">
     <div class="surround-h1">
-        <img
-            src="/img/me.webp"
-            alt=""
-            class="md:float-right md:w-60"
-            decoding="async"
-        />
         <h1 class="tracking-tight text-5xl font-semibold">
             Hey,<br />
              I'm Frank
         </h1>
         <p>
-            I make reliable and highly performant software, even on low-end
-            devices
+            Software engineer from Germany who loves things that just work.
         </p>
     </div>
     <section aria-labelledby="projects">
-        <h2 id="projects" class="text-3xl font-semibold">Projects</h2>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <li>
-                <a
-                    href="https://github.com/HHN-SEB-2022-23/allybi"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="block p-4 border-2 "
-                >
-                    <h3 class="text-xl font-semibold">
-                        HHN-SEB-2022-23/Allybi
-                    </h3>
-                    <p>
-                        Educational game for the anti discrimination
-                        organization in Heilbronn
-                    </p>
-                </a>
-            </li>
+        <h2 id="projects" class="surround-h2 text-3xl font-semibold">
+            Projects
+        </h2>
+        <ul>
+            {
+                projects.map((prj) => (
+                    <li>
+                        <Link href={prj.link}>
+                            <h3 class="text-xl font-semibold surround-h3">
+                                {prj.name}
+                            </h3>
+                            <p>{prj.description}</p>
+                            <p>
+                                {prj.langs.length > 1
+                                    ? "Languages: "
+                                    : "Language: "}
+                                {prj.langs.map((lang) => (
+                                    <img
+                                        class="inline-block w-6 h-6 mr-1"
+                                        decoding="async"
+                                        loading="lazy"
+                                        src={"/lang/" + lang + ".svg"}
+                                        alt={lang}
+                                    />
+                                ))}
+                            </p>
+                        </Link>
+                    </li>
+                ))
+            }
         </ul>
     </section>
 </Layout>
