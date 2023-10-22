@@ -1,33 +1,89 @@
 ---
-import Home from "../components/Home.astro";
-import Portfolio from "../components/Portfolio.astro";
-import Contact from "../components/Contact.astro";
-import HashNavigation from "../components/HashNavigationScript.astro";
-import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
+import Layout from "../layouts/Layout.astro";
+
+type Project = {
+    name: string;
+    description: string;
+    link: string;
+    langs: string[];
+};
+
+const projects: Array<Project> = [
+    {
+        name: "Bloodmage Engine",
+        description: "90s style 3D game engine build in Go using SDL2.",
+        link: "https://github.com/bloodmagesoftware/bloodmage-engine",
+        langs: ["go"],
+    },
+    {
+        name: "PaperMC Web API",
+        description:
+            "Secure web api for Minecraft paper servers with OAuth2 and JWT.",
+        link: "https://github.com/Frank-Mayer/papermc-web-api",
+        langs: ["java"],
+    },
+    {
+        name: "Allybi",
+        description:
+            "Educational game for the anti discrimination organization in Heilbronn.",
+        link: "https://github.com/HHN-SEB-2022-23/allybi",
+        langs: ["ts"],
+    },
+    {
+        name: "React Tag Cloud",
+        description: "Port of TagCloud as a React Component from Cong Mins.",
+        link: "https://github.com/Frank-Mayer/react-tag-cloud",
+        langs: ["ts"],
+    },
+    {
+        name: "n5ednd",
+        description: "Naruto 5E D&D Digital Character-Sheet.",
+        link: "https://github.com/Frank-Mayer/n5ednd",
+        langs: ["ts"],
+    },
+];
 ---
 
-<Layout title="Frank Mayer" desc="Software engineer">
-  <img src="/img/me.webp" alt="" class="avatar" />
-  <h1 id="home">
-    Hey,<br />I'm Frank
-    <p>
-      I make reliable and highly performant software, even on low-end devices
-    </p>
-  </h1>
-
-  <div class="cta card-wrapper">
-    <Link
-      class="cta__button card-wrapper__card card-wrapper__card--primary"
-      href="/#contact"
-      data-hash="contact"
-    >
-      <span class="card-wrapper__card__content">Contact me</span>
-    </Link>
-  </div>
-
-  <Portfolio />
-  <Home />
-  <Contact />
-  <HashNavigation />
+<Layout title="Portfolio" desc="Software Engineer">
+    <div class="surround-h1">
+        <h1 class="tracking-tight text-5xl font-semibold">
+            Hey,<br />
+             I'm Frank
+        </h1>
+        <p>Software engineer from Germany who loves things that just work.</p>
+    </div>
+    <section aria-labelledby="projects">
+        <h2 id="projects" class="surround-h2 text-3xl font-semibold">
+            Projects
+        </h2>
+        <ul>
+            {
+                projects.map((prj) => (
+                    <li>
+                        <Link href={prj.link}>
+                            <h3 class="text-xl font-semibold surround-h3">
+                                {prj.name}
+                            </h3>
+                            <p>{prj.description}</p>
+                            <p>
+                                {prj.langs.length > 1
+                                    ? "Languages: "
+                                    : "Language: "}
+                                {prj.langs.map((lang) => (
+                                    <img
+                                        class="inline-block w-6 h-6 mr-1"
+                                        decoding="async"
+                                        loading="lazy"
+                                        src={"/lang/" + lang + ".svg"}
+                                        alt={lang}
+                                    />
+                                ))}
+                            </p>
+                        </Link>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
 </Layout>

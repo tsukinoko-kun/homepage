@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Link from "../components/Link.astro";
+
+const contacts = [
+    {
+        title: "Discord",
+        username: "tsukinoko",
+        url: "https://discord.com/users/383628783187394561",
+    },
+    {
+        title: "Twitter",
+        username: "tsukinoko_kun",
+        url: "https://twitter.com/tsukinoko_kun",
+    },
+    {
+        title: "Email",
+        username: "xbjhwzsu7@mozmail.com",
+        url: "mailto:xbjhwzsu7@mozmail.com",
+    },
+    {
+        title: "LinkedIn",
+        username: "frank-mayer-de",
+        url: "https://www.linkedin.com/in/frank-mayer-de/",
+    },
+    {
+        title: "GitHub",
+        username: "Frank-Mayer",
+        url: "https://github.com/Frank-Mayer",
+    },
+];
+---
+
+<Layout title="Contact" desc="Various ways to contact me">
+    <h1 class="surround-h1 tracking-tight text-5xl font-semibold">Contact</h1>
+    {
+        contacts.map((contact) => (
+            <p>
+                {contact.title}:{" "}
+                <Link class="underline" href={contact.url}>
+                    <code>{contact.username}</code>
+                </Link>
+            </p>
+        ))
+    }
+</Layout>

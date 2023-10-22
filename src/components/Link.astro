@@ -1,4 +1,5 @@
 ---
+import { joinClassNames } from "../utils";
 export interface Props {
     href: string;
     alt?: string;
@@ -15,7 +16,26 @@ const rel = target ? "noopener noreferrer" : undefined;
     href={Astro.props.href}
     target={target}
     rel={rel}
-    class={Astro.props.class}
     data-hash={Astro.props["data-hash"]}
-    data-shortcut={Astro.props["data-shortcut"]}><slot /></a
+    data-shortcut={Astro.props["data-shortcut"]}
 >
+    <span class={joinClassNames(Astro.props.class, "inline-block")}>
+        <slot />
+    </span>
+</a>
+
+<style>
+    a {
+        height: fit-content;
+        display: inline-block;
+    }
+    @media (hover: hover) {
+        a:hover > span {
+            color: rgb(var(--color-primary));
+            transform: translateX(1rem);
+        }
+        a > span {
+            transition: transform 0.2s ease-in-out;
+        }
+    }
+</style>
