@@ -7,6 +7,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: CircularTitle;
+    src: url("/fonts/Circular-Title.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: CircularBook;
+    src: url("/fonts/Circular-Book.woff2") format("woff2");
+}
+
 @layer base {
     :root {
         color-scheme: dark;
@@ -31,6 +41,10 @@
     }
 }
 
+body {
+    font-family: CircularBook, Satoshi, Gotham, sans-serif;
+}
+
 .surround-nav {
     @include theme.surround-with("nav");
 }
@@ -45,7 +59,7 @@
 
 @for $i from 1 through 5 {
     .text-#{$i}xl {
-        font-family: CircularTitle, Satoshi, Gotham;
+        font-family: CircularTitle, Satoshi, Gotham, sans-serif;
     }
 }
 
