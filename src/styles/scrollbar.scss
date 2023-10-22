@@ -1,23 +1,23 @@
 @use "sass:color";
 
 ::-webkit-scrollbar {
-  width: 0.5rem;
-  height: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-background);
+    background: rgb(var(--color-background));
 }
 ::-webkit-scrollbar-thumb {
-  &:not(:hover):not(:active) {
-    background: var(--color-inactive);
-  }
-  &:hover:not(:active) {
-    background: var(--color-foreground);
-  }
-  &:active {
-    background: var(--color-primary);
-  }
+    &:not(:hover):not(:active) {
+        background: rgb(var(--color-inactive));
+    }
+    &:hover:not(:active) {
+        background: rgb(var(--color-foreground));
+    }
+    &:active {
+        background: rgb(var(--color-primary));
+    }
 }
 ::-webkit-scrollbar-corner {
-  background: var(--color-background);
+    background: rgb(var(--color-background));
 }

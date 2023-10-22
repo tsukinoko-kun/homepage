@@ -1,0 +1,31 @@
+---
+import Link from "./Link.astro";
+---
+
+<header
+    transition:animate="none"
+    class="content backdrop-blur bg-background/50 sticky top-0 z-50"
+>
+    <nav class="surround-nav">
+        <Link href="/" class="underline hover:text-primary">My Portfolio</Link>
+        <br />
+        <Link href="/about_me" class="underline hover:text-primary">
+            About me
+        </Link>
+        <br />
+        <Link href="/contact" class="underline hover:text-primary">
+            Contact
+        </Link>
+    </nav>
+</header>
+
+<style>
+    header {
+        padding: 1rem max(0.5rem, calc(50vw - 18em)) !important;
+        background-image: url(/img/me.webp);
+        background-size: 6rem;
+        background-repeat: no-repeat;
+        background-position-x: calc(100% - 1rem);
+        background-position-y: 1rem;
+    }
+</style>
