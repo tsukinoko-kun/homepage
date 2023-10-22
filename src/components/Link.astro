@@ -29,11 +29,13 @@ const rel = target ? "noopener noreferrer" : undefined;
         height: fit-content;
         display: inline-block;
     }
-    a:hover > span {
-        color: rgb(var(--color-primary));
-        transform: translateX(1rem);
-    }
-    a > span {
-        transition: transform 0.2s ease-in-out;
+    @media (hover: hover) {
+        a:hover > span {
+            color: rgb(var(--color-primary));
+            transform: translateX(1rem);
+        }
+        a > span {
+            transition: transform 0.2s ease-in-out;
+        }
     }
 </style>

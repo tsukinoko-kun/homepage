@@ -18,7 +18,7 @@ const title = Astro.props.title
     : mainTitle;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="bg-background">
     <head>
         <meta charset="UTF-8" />
@@ -96,16 +96,14 @@ const title = Astro.props.title
                 <slot />
             </main>
         </div>
-    </body>
+    </body><style>
+        header {
+            padding: 1rem max(0.5rem, calc(50vw - 18em)) !important;
+            background-image: url(/img/me.webp);
+            background-size: 6rem;
+            background-repeat: no-repeat;
+            background-position-x: calc(100% - 1rem);
+            background-position-y: 1rem;
+        }
+    </style>
 </html>
-
-<style>
-    header {
-        padding: 1rem max(0.5rem, calc(50vw - 18em)) !important;
-        background-image: url(/img/me.webp);
-        background-size: 6rem;
-        background-repeat: no-repeat;
-        background-position-x: calc(100% - 1rem);
-        background-position-y: 1rem;
-    }
-</style>

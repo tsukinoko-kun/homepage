@@ -1,8 +1,152 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Link from "../components/Link.astro";
+
+type Experience = {
+    from: string;
+    to: string;
+    title: string;
+    company: string;
+    companyUrl?: string;
+};
+
+function compareDateString(a: string, b: string) {
+    const [monthA, yearA] = a.split("/").map((s) => parseInt(s)) as [
+        number,
+        number,
+    ];
+    const [monthB, yearB] = b.split("/").map((s) => parseInt(s)) as [
+        number,
+        number,
+    ];
+
+    if (yearA < yearB) {
+        return 1;
+    } else if (yearA > yearB) {
+        return -1;
+    } else {
+        if (monthA < monthB) {
+            return 1;
+        } else if (monthA > monthB) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+}
+
+const work: Array<Experience> = [
+    {
+        from: "09/2023",
+        to: "in progress",
+        title: "Tutor",
+        company: "Heilbronn University",
+        companyUrl: "https://www.hs-heilbronn.de/",
+    },
+    {
+        from: "08/2022",
+        to: "09/2023",
+        title: "Software Engineer",
+        company: "Firma Wilhelm Jahn Anlasser und Lichtmaschinen",
+        companyUrl: "https://www.wjahn.de/",
+    },
+    {
+        from: "03/2023",
+        to: "07/2023",
+        title: "Research Assistant",
+        company: "Heilbronn University",
+        companyUrl: "https://www.hs-heilbronn.de/",
+    },
+    {
+        from: "08/2022",
+        to: "12/2022",
+        title: "DevOps Engineer",
+        company: "LogiSoft-S GmbH Heilbronn",
+    },
+];
+
+const education: Array<Experience> = [
+    {
+        from: "09/2022",
+        to: "in progress",
+        title: "Bachelor of Science (Software Engineering)",
+        company: "Heilbronn University",
+        companyUrl: "https://www.hs-heilbronn.de/",
+    },
+    {
+        from: "09/2019",
+        to: "07/2022",
+        title: "Apprenticeship as Software Developer",
+        company: "LogiSoft-S GmbH Heilbronn",
+    },
+    {
+        from: "09/2017",
+        to: "07/2019",
+        title: "Technical Diploma",
+        company: "Wilhelm Maybach Schule Heilbronn",
+        companyUrl: "https://www.wms-hn.de/",
+    },
+];
+
+const experience = [
+    {
+        title: "Work",
+        items: work,
+    },
+    {
+        title: "Education",
+        items: education,
+    },
+];
 ---
 
-<Layout title="404" desc="Page not found">
+<Layout title="About Me" desc="My resume">
     <h1 class="surround-h1 tracking-tight text-5xl font-semibold">About Me</h1>
-    <p>This is not the page you are looking for!</p>
+
+    {
+        experience.map((e) => (
+            <>
+                <h2
+                    id={e.title.toLowerCase()}
+                    class="surround-h2 text-3xl font-semibold"
+                >
+                    {e.title}
+                </h2>
+                <ul class="space-y-4">
+                    {e.items
+                        .sort(
+                            (a, b) =>
+                                compareDateString(a.from, b.from) ||
+                                compareDateString(a.to, b.to),
+                        )
+                        .map((exp: Experience) => (
+                            <li>
+                                <div class="flex flex-row justify-between">
+                                    <div class="flex flex-col">
+                                        <span class="font-semibold">
+                                            {exp.title}
+                                        </span>
+                                        {exp.companyUrl ? (
+                                            <Link
+                                                class="underline"
+                                                href={exp.companyUrl}
+                                            >
+                                                {exp.company}
+                                            </Link>
+                                        ) : (
+                                            <span>{exp.company}</span>
+                                        )}{" "}
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span>
+                                            {exp.from} - {exp.to}
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                </ul>
+            </>
+        ))
+    }
 </Layout>
