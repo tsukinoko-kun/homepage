@@ -72,7 +72,14 @@ const title = Astro.props.title
     <body
         class="subpixel-antialiased font-normal text-base bg-background text-foreground"
     >
-        <Header />
+        <Header
+            nav={[
+                { href: "/", text: "Portfolio" },
+                { href: "/about_me", text: "About Me" },
+                { href: "/contact_me", text: "Contact" },
+            ]}
+            current={Astro.url.pathname}
+        />
 
         <div class="max-w-xl mx-auto p-2 pb-32">
             <main class="tracking-wide" transition:animate="slide">

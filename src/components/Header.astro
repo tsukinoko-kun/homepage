@@ -1,5 +1,17 @@
 ---
 import Link from "./Link.astro";
+
+type Nav = {
+    href: string;
+    text: string;
+};
+
+export interface Props {
+    nav: Array<Nav>;
+    current: string;
+}
+
+const nav = Astro.props.nav.filter((item) => item.href !== Astro.url.pathname);
 ---
 
 <header
@@ -7,25 +19,26 @@ import Link from "./Link.astro";
     class="content backdrop-blur bg-background/50 sticky top-0 z-50"
 >
     <nav class="surround-nav">
-        <Link href="/" class="underline hover:text-primary">My Portfolio</Link>
-        <br />
-        <Link href="/about_me" class="underline hover:text-primary">
-            About me
-        </Link>
-        <br />
-        <Link href="/contact_me" class="underline hover:text-primary">
-            Contact
-        </Link>
+        {
+            nav.map((item) => (
+                <Link
+                    href={item.href}
+                    class="underline hover:text-primary block md:inline-block md:mr-4"
+                >
+                    {item.text}
+                </Link>
+            ))
+        }
     </nav>
 </header>
 
 <style>
     header {
-        padding: 1rem max(0.5rem, calc(50vw - 18em)) !important;
+        padding: 0.5rem max(0.5rem, calc(50vw - 18em)) !important;
         background-image: url(/img/me.webp);
-        background-size: 6rem;
+        background-size: 4rem;
         background-repeat: no-repeat;
-        background-position-x: calc(100% - 1rem);
+        background-position-x: calc(100% - 0.5rem);
         background-position-y: 1rem;
     }
 </style>

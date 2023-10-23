@@ -8,10 +8,22 @@ export interface Props {
 
 const target = Astro.props.href.startsWith("https://") ? "_blank" : undefined;
 const rel = target ? "noopener noreferrer" : undefined;
+const blockClass = Array.from(
+    (Astro.props.class ?? "").matchAll(/[\w\-:]*block/g),
+)
+    .map((x) => x[0])
+    .join(" ");
+let anchorClass = blockClass || "inline-block";
+if (!blockClass) {
+    anchorClass = Astro.props.class = joinClassNames(
+        Astro.props.class,
+        "inline-block",
+    );
+}
 ---
 
-<a href={Astro.props.href} target={target} rel={rel}>
-    <span class={joinClassNames(Astro.props.class, "inline-block")}>
+<a href={Astro.props.href} class={anchorClass} target={target} rel={rel}>
+    <span class={Astro.props.class}>
         <slot />
     </span>
 </a>
@@ -19,7 +31,6 @@ const rel = target ? "noopener noreferrer" : undefined;
 <style>
     a {
         height: fit-content;
-        display: inline-block;
     }
     @media (hover: hover) {
         a:hover > span {
