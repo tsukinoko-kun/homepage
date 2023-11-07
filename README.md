@@ -1,6 +1,6 @@
 # My personal homepage
 
-[www.frankmayer.io](https://www.frankmayer.io)
+[frankmayer.dev](https://frankmayer.dev)
 
 ![this product is ai free](https://this-product-is-ai-free.github.io/badge.svg)
 
