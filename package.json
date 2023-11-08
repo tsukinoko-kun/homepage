@@ -18,7 +18,7 @@
     },
     "devDependencies": {
         "@total-typescript/ts-reset": "^0.5.1",
-        "@types/quicklink": "^2.3.2",
+        "@types/quicklink": "^2.3.3",
         "autoprefixer": "^10.4.16",
         "cssnano": "^6.0.1",
         "prettier": "^3.0.3",
