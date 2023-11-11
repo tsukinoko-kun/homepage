@@ -11,12 +11,25 @@ type Project = {
 
 const portfolio: Array<{ name: string; projects: Array<Project> }> = [
     {
-        name: "Open Source",
+        name: "Open Source Contributions",
         projects: [
+            {
+                name: "neovim/node-client",
+                description: "Nvim Node.js client and plugin host",
+                link: "https://github.com/neovim/node-client",
+                langs: ["ts"],
+            },
+            {
+                name: "neovim/neovim-backup",
+                description:
+                    "Backup Neovim GitHub issues, comments, discussions, etc.",
+                link: "https://github.com/neovim/neovim-backup",
+                langs: ["bash"],
+            },
             {
                 name: "GoogleChromeLabs/squoosh",
                 description:
-                    "Make images smaller using best-in-class codecs, right in the browser.",
+                "Make images smaller using best-in-class codecs, right in the browser.",
                 link: "https://github.com/GoogleChromeLabs/squoosh",
                 langs: ["ts"],
             },
