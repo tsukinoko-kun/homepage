@@ -12,7 +12,7 @@ export interface Props {
 }
 
 let currentPath = new URL(Astro.url.href).pathname;
-if (currentPath.endsWith("/")) {
+if (currentPath.length >= 2 && currentPath.endsWith("/")) {
     currentPath = currentPath.slice(0, -1);
 }
 
