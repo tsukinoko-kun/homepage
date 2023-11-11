@@ -36,8 +36,14 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
         ],
     },
     {
-        name: "Personal",
+        name: "Personal Projects",
         projects: [
+            {
+                name: "Selene",
+                description: "Lua powered build tool.",
+                link: "https://github.com/Frank-Mayer/selene",
+                langs: ["go"],
+            },
             {
                 name: "Bloodmage Engine",
                 description: "90s style 3D game engine built in Go using SDL2.",
@@ -93,7 +99,7 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
                 <ul>
                     {x.projects.map((prj) => (
                         <li>
-                            <Link href={prj.link}>
+                            <Link href={prj.link} hover>
                                 <h3 class="text-xl font-semibold surround-h3">
                                     {prj.name}
                                 </h3>

@@ -2,6 +2,7 @@
 import { joinClassNames } from "../utils";
 export interface Props {
     href: string;
+    hover?: boolean;
     class?: string;
     title?: string;
 }
@@ -18,6 +19,7 @@ if (!blockClass) {
     anchorClass = Astro.props.class = joinClassNames(
         Astro.props.class,
         "inline-block",
+        Astro.props.hover ? "hov" : undefined,
     );
 }
 ---
@@ -43,11 +45,11 @@ if (!blockClass) {
             color: rgb(var(--color-primary));
         }
     }
-    @media (hover: hover) and (max-width: 768px) {
-        a:hover > span {
+    @media (hover: hover) {
+        a.hov:hover > span {
             transform: translateX(1rem);
         }
-        a > span {
+        a.hov > span {
             transition: transform 0.2s ease-in-out;
         }
     }
