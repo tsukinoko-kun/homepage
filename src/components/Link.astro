@@ -2,8 +2,8 @@
 import { joinClassNames } from "../utils";
 export interface Props {
     href: string;
-    alt?: string;
     class?: string;
+    title?: string;
 }
 
 const target = Astro.props.href.startsWith("https://") ? "_blank" : undefined;
@@ -22,7 +22,13 @@ if (!blockClass) {
 }
 ---
 
-<a href={Astro.props.href} class={anchorClass} target={target} rel={rel}>
+<a
+    href={Astro.props.href}
+    class={anchorClass}
+    target={target}
+    rel={rel}
+    title={Astro.props.title}
+>
     <span class={Astro.props.class}>
         <slot />
     </span>

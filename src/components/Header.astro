@@ -11,7 +11,12 @@ export interface Props {
     current: string;
 }
 
-const nav = Astro.props.nav.filter((item) => item.href !== Astro.url.pathname);
+let currentPath = new URL(Astro.url.href).pathname;
+if (currentPath.endsWith("/")) {
+    currentPath = currentPath.slice(0, -1);
+}
+
+const nav = Astro.props.nav.filter((item) => item.href !== currentPath);
 ---
 
 <header
