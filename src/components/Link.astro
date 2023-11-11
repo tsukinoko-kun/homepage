@@ -35,6 +35,10 @@ if (!blockClass) {
     @media (hover: hover) {
         a:hover > span {
             color: rgb(var(--color-primary));
+        }
+    }
+    @media (hover: hover) and (max-width: 768px) {
+        a:hover > span {
             transform: translateX(1rem);
         }
         a > span {
