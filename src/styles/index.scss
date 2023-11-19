@@ -8,13 +8,9 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: CircularTitle;
-    src: url("/fonts/Circular-Title.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: CircularBook;
-    src: url("/fonts/Circular-Book.woff2") format("woff2");
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+    weight: 400;
 }
 
 @layer base {
@@ -42,7 +38,7 @@
 }
 
 body {
-    font-family: CircularBook, Satoshi, Gotham, sans-serif;
+    font-family: "JetBrains Mono", monospace;
 }
 
 .surround-nav {
@@ -54,12 +50,6 @@ body {
         @include theme.surround-with("h#{$i}");
         margin-top: #{3.5 - $i * 0.5}rem;
         margin-bottom: 0.5rem;
-    }
-}
-
-@for $i from 1 through 5 {
-    .text-#{$i}xl {
-        font-family: CircularTitle, Satoshi, Gotham, sans-serif;
     }
 }
 
