@@ -4,8 +4,8 @@
 
 ![this product is ai free](https://this-product-is-ai-free.github.io/badge.svg)
 
-[![Selene Project](https://img.shields.io/badge/Selene_Project-2C2D72?logo=lua)](https://github.com/Frank-Mayer/selene)
+[![Yab Project](https://img.shields.io/badge/Yab_Project-2C2D72?logo=lua)](https://github.com/Frank-Mayer/yab)
 
--   Install dependencies `selene install`
--   Start dev server `selene run`
--   Compile `selene build`
+-   Install dependencies `yab install`
+-   Start dev server `yab run`
+-   Compile `yab build`
