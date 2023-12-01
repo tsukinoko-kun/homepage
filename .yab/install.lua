@@ -1,0 +1,1 @@
+Yab.js_install()
