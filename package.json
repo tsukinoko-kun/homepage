@@ -14,7 +14,7 @@
         "@astrojs/tailwind": "^5.0.3",
         "astro": "^4.0.6",
         "quicklink": "^2.3.0",
-        "tailwindcss": "^3.3.7"
+        "tailwindcss": "^3.4.0"
     },
     "devDependencies": {
         "@total-typescript/ts-reset": "^0.5.1",
