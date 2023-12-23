@@ -1,10 +1,12 @@
 @keyframes blur_in {
   from {
-    filter: blur(100px);
+    filter: blur(256px);
+    opacity: 0;
   }
 
   to {
     filter: blur(0);
+    opacity: 1;
   }
 }
 
@@ -14,7 +16,7 @@
   }
 
   to {
-    filter: blur(150px);
+    filter: blur(256px);
   }
 }
 
@@ -27,9 +29,9 @@
 }
 
 ::view-transition-old(root) {
-  animation: blur_out 0.3s;
+  animation: blur_out 500ms;
 }
 
 ::view-transition-new(root) {
-  animation: blur_in 0.5s;
+  animation: blur_in 500ms;
 }

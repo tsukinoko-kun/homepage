@@ -1,6 +1,5 @@
 ---
 import "../styles/index.scss";
-import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Quicklink from "../components/Quicklink.astro";
 
@@ -60,7 +59,7 @@ const title = Astro.props.title
             content="https://frank-mayer.dev/hotlink-ok/preview.jpg"
         />
         <meta name="theme-color" content="#11111b" />
-        <ViewTransitions />
+        <meta name="view-transition" content="same-origin">
     </head>
 
     <body
@@ -76,7 +75,7 @@ const title = Astro.props.title
         />
 
         <div class="max-w-xl mx-auto p-2 pb-32">
-            <main class="tracking-wide" transition:animate="slide">
+            <main class="tracking-wide" style="view-transition-name=main">
                 <slot />
             </main>
         </div>
