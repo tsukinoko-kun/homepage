@@ -112,7 +112,7 @@ const experience = [
                 >
                     {e.title}
                 </h2>
-                <ul class="space-y-4">
+                <ul class="space-y-8">
                     {e.items
                         .sort(
                             (a, b) =>
@@ -121,7 +121,7 @@ const experience = [
                         )
                         .map((exp: Experience) => (
                             <li>
-                                <div class="flex flex-col md:flex-row justify-between">
+                                <div class="flex flex-col md:flex-row justify-between pl-4">
                                     <div class="flex flex-col md:flex-1">
                                         <span class="font-semibold">
                                             {exp.title}
