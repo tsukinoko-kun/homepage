@@ -37,8 +37,28 @@
     }
 }
 
-body {
-    font-family: "JetBrains Mono", monospace;
+body,
+body::before,
+body::after {
+    font-family: "Monolisa", "Gintronic", "Dank Mono", "PragmataPro",
+        "JetBrains Mono", "Cascadia Code", "Source Code Pro", "Fira Code",
+        "DejaVu Sans Mono", "Hack", "Anonymous Pro", "Ubuntu Mono", monospace !important;
+}
+
+body,
+body * {
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    shape-rendering:  crispEdges;
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
 }
 
 .surround-nav {
