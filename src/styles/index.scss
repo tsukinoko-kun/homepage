@@ -37,9 +37,7 @@
     }
 }
 
-body,
-body::before,
-body::after {
+body {
     font-family: "Monolisa", "Gintronic", "Dank Mono", "PragmataPro",
         "JetBrains Mono", "Cascadia Code", "Source Code Pro", "Fira Code",
         "DejaVu Sans Mono", "Hack", "Anonymous Pro", "Ubuntu Mono", monospace !important;
@@ -53,6 +51,19 @@ body * {
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
     shape-rendering:  crispEdges;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100lvw;
+    height: 100lvh;
+    z-index: 100;
+    background-image: url("/img/bgnoise.png");
+    background-repeat: repeat;
+    pointer-events: none;
 }
 
 @media (prefers-color-scheme: light) {
