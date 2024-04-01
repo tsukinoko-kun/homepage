@@ -16,22 +16,29 @@ if (currentPath.length >= 2 && currentPath.endsWith("/")) {
     currentPath = currentPath.slice(0, -1);
 }
 
-const nav = Astro.props.nav.filter((item) => item.href !== currentPath);
+const nav = Astro.props.nav;
 ---
 
-<header
-    class="content backdrop-blur bg-background/50 sticky top-0 z-50"
->
+<header class="content bg-background sticky top-0 z-50">
     <nav class="surround-nav">
         {
-            nav.map((item) => (
-                <Link
-                    href={item.href}
-                    class="underline hover:text-primary block md:inline-block md:mr-4"
-                >
-                    {item.text}
-                </Link>
-            ))
+            nav.map((item) =>
+                item.href === currentPath ? (
+                    <Link
+                        href={item.href}
+                        class="underline hover:text-primary hidden sm:block md:inline-block md:mr-4"
+                    >
+                        {item.text}
+                    </Link>
+                ) : (
+                    <Link
+                        href={item.href}
+                        class="underline hover:text-primary block md:inline-block md:mr-4"
+                    >
+                        {item.text}
+                    </Link>
+                ),
+            )
         }
     </nav>
 </header>

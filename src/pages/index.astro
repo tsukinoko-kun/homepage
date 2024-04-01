@@ -29,7 +29,7 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
             {
                 name: "GoogleChromeLabs/squoosh",
                 description:
-                "Make images smaller using best-in-class codecs, right in the browser.",
+                    "Make images smaller using best-in-class codecs, right in the browser.",
                 link: "https://github.com/GoogleChromeLabs/squoosh",
                 langs: ["ts"],
             },
@@ -39,6 +39,19 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
         name: "Personal Projects",
         projects: [
             {
+                name: "Yab",
+                description:
+                    "Cross-platform build tool with deterministic builds defined using Lua scripts.",
+                link: "https://github.com/Frank-Mayer/yab",
+                langs: ["go"],
+            },
+            {
+                name: "Oh My Gosh",
+                description: "Cross platform implementation of a POSIX shell.",
+                link: "https://github.com/Frank-Mayer/ohmygosh",
+                langs: ["go"],
+            },
+            {
                 name: "Bloodmage Engine",
                 description: "90s style 3D game engine built in Go using SDL2.",
                 link: "https://github.com/bloodmagesoftware/bloodmage-engine",
@@ -46,14 +59,9 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
             },
             {
                 name: "serve",
-                description: "A simple static file server with nice extras.",
+                description:
+                    "A simple static file server with nice extras like auto-reload and markdown rendering.",
                 link: "https://github.com/Frank-Mayer/serve",
-                langs: ["go"],
-            },
-            {
-                name: "Yab",
-                description: "Lua powered build tool.",
-                link: "https://github.com/Frank-Mayer/yab",
                 langs: ["go"],
             },
             {
@@ -70,19 +78,6 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
                 link: "https://github.com/HHN-SEB-2022-23/allybi",
                 langs: ["ts"],
             },
-            {
-                name: "React Tag Cloud",
-                description:
-                    "Port of TagCloud as a React Component from Cong Mins.",
-                link: "https://github.com/Frank-Mayer/react-tag-cloud",
-                langs: ["ts"],
-            },
-            {
-                name: "n5ednd",
-                description: "Naruto 5E D&D Digital Character-Sheet.",
-                link: "https://github.com/Frank-Mayer/n5ednd",
-                langs: ["ts"],
-            },
         ],
     },
 ];
@@ -92,10 +87,10 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
     <div class="surround-h1">
         <h1 class="tracking-tight text-5xl font-semibold">
             Hey,<br />
-             I'm Frank
+            I'm Frank
         </h1>
-        <p>Software engineer from Germany who loves things that just work.</p>
     </div>
+    <p>Software engineer from Germany who loves things that just work.</p>
     {
         portfolio.map((x) => (
             <section aria-labelledby="projects">
@@ -131,7 +126,7 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
             </section>
         ))
     }
-    <Link href="https://neovim.io">
+    <Link href="https://neovim.io" hover>
         <h2 class="surround-h2 text-3xl font-semibold">
             I use Neovim by the way.
         </h2>
@@ -141,5 +136,6 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
             loading="lazy"
             src="https://i.imgflip.com/8bcwbk.jpg"
             alt='Meme "Running a Chrome instance to edit JavaScript" "Look what they need to mimic a fraction of our power"'
+        />
     </Link>
 </Layout>

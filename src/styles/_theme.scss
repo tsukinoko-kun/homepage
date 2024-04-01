@@ -1,23 +1,29 @@
+@use "sass:math";
+
 $timing: 250ms;
 
 @mixin surround-with($name) {
     &::before {
         content: "<#{$name}>";
-        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
     }
     &::after {
         content: "</#{$name}>";
-        margin-top: 0.5rem;
+        padding-top: 0.5rem;
     }
     &::before,
     &::after {
         color: rgb(var(--color-secondary) / 100%);
+        background-color: rgb(var(--color-background) / 100%);
         font-size: 0.75rem;
         line-height: 1;
         display: block;
-        width: 100%;
+        width: fit-content;
         transform: translateX(-1rem);
         letter-spacing: 0.025em;
     }
     padding-left: 1rem;
+    $line-width: 0.12rem;
+    $line-color: rgb(var(--color-inactive) / 100%);
+    background-image: linear-gradient(90deg, transparent #{0.5rem - math.div($line-width,2)}, $line-color #{0.5rem - math.div($line-width,2)}, $line-color #{0.5rem + math.div($line-width,2)}, transparent #{0.5rem + math.div($line-width,2)});
 }
