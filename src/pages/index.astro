@@ -90,7 +90,9 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
             I'm Frank
         </h1>
     </div>
-    <p>Software engineer from Germany who loves things that just work.</p>
+
+    <p class="text-pretty">Software engineer from Germany who loves things that just work.</p>
+
     {
         portfolio.map((x) => (
             <section aria-labelledby="projects">
@@ -104,7 +106,7 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
                                 <h3 class="text-xl font-semibold surround-h3">
                                     {prj.name}
                                 </h3>
-                                <p>{prj.description}</p>
+                                <p class="text-pretty">{prj.description}</p>
                                 <p>
                                     {prj.langs.length > 1
                                         ? "Languages: "
@@ -126,6 +128,7 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
             </section>
         ))
     }
+
     <Link href="https://neovim.io" hover>
         <h2 class="surround-h2 text-3xl font-semibold">
             I use Neovim by the way.
