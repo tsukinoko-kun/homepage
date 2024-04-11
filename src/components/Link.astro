@@ -5,6 +5,7 @@ export interface Props {
     hover?: boolean;
     class?: string;
     title?: string;
+    disabled?: boolean;
 }
 
 const target = Astro.props.href.startsWith("https://") ? "_blank" : undefined;
@@ -21,6 +22,9 @@ if (!blockClass) {
         "inline-block",
         Astro.props.hover ? "hov" : undefined,
     );
+}
+if (Astro.props.disabled) {
+    anchorClass = joinClassNames(anchorClass, "disabled")
 }
 ---
 
@@ -41,15 +45,13 @@ if (!blockClass) {
         height: fit-content;
     }
     @media (hover: hover) {
-        a:hover > span {
+        a:not(.disabled):hover > span {
             color: rgb(var(--color-primary));
         }
-    }
-    @media (hover: hover) {
-        a.hov:hover > span {
+        a:not(.disabled).hov:hover > span {
             transform: translateX(1rem);
         }
-        a.hov > span {
+        a:not(.disabled).hov > span {
             transition: transform 0.2s ease-in-out;
         }
     }

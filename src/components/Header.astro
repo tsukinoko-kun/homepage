@@ -20,20 +20,21 @@ const nav = Astro.props.nav;
 ---
 
 <header class="content bg-background sticky top-0 z-50">
-    <nav class="surround-nav">
+    <nav class="surround-nav" data-current={currentPath}>
         {
             nav.map((item) =>
                 item.href === currentPath ? (
                     <Link
+                        disabled
                         href={item.href}
-                        class="underline hover:text-primary hidden sm:block md:inline-block md:mr-4"
+                        class="text-disabled hidden sm:block md:inline-block md:mr-4"
                     >
                         {item.text}
                     </Link>
                 ) : (
                     <Link
                         href={item.href}
-                        class="underline hover:text-primary block md:inline-block md:mr-4"
+                        class="underline block md:inline-block md:mr-4"
                     >
                         {item.text}
                     </Link>

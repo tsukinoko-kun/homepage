@@ -37,8 +37,15 @@ function compareDateString(a: string, b: string) {
 
 const work: Array<Experience> = [
     {
+        from: "03/2024",
+        to: "07/2024",
+        title: "Software Engineer",
+        company: "dynabase Technologies GmbH",
+        companyUrl :"https://www.dynabase.de",
+    },
+    {
         from: "09/2023",
-        to: "in progress",
+        to: "02/2024",
         title: "Tutor",
         company: "Heilbronn University",
         companyUrl: "https://www.hs-heilbronn.de/",
@@ -100,8 +107,8 @@ const experience = [
 ];
 ---
 
-<Layout title="About Me" desc="My resume">
-    <h1 class="surround-h1 tracking-tight text-5xl font-semibold">About Me</h1>
+<Layout title="Resume" desc="Previous experiences">
+    <h1 class="surround-h1 tracking-tight text-5xl font-semibold">Resume</h1>
 
     {
         experience.map((e) => (
