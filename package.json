@@ -20,7 +20,7 @@
         "@total-typescript/ts-reset": "^0.5.1",
         "@types/quicklink": "^2.3.4",
         "autoprefixer": "^10.4.19",
-        "cssnano": "^6.1.2",
+        "cssnano": "^7.0.0",
         "prettier": "^3.2.5",
         "prettier-plugin-astro": "^0.13.0",
         "sass": "^1.75.0",
