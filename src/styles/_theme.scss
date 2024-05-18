@@ -26,5 +26,11 @@ $timing: 250ms;
     padding-left: 1rem;
     $line-width: 0.12rem;
     $line-color: rgb(var(--color-inactive) / 100%);
-    background-image: linear-gradient(90deg, transparent #{0.5rem - math.div($line-width,2)}, $line-color #{0.5rem - math.div($line-width,2)}, $line-color #{0.5rem + math.div($line-width,2)}, transparent #{0.5rem + math.div($line-width,2)});
+    background-image: linear-gradient(
+        90deg,
+        transparent #{0.5rem - math.div($line-width, 2)},
+        $line-color #{0.5rem - math.div($line-width, 2)},
+        $line-color #{0.5rem + math.div($line-width, 2)},
+        transparent #{0.5rem + math.div($line-width, 2)}
+    );
 }

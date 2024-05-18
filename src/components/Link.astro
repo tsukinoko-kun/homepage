@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const target = Astro.props.href.startsWith("https://") ? "_blank" : undefined;
-const rel = target ? "noopener noreferrer" : undefined;
+const rel = target ? "noopener noreferrer" : "prefetch";
 const blockClass = Array.from(
     (Astro.props.class ?? "").matchAll(/[\w\-:]*block/g),
 )
@@ -24,7 +24,13 @@ if (!blockClass) {
     );
 }
 if (Astro.props.disabled) {
-    anchorClass = joinClassNames(anchorClass, "disabled")
+    anchorClass = joinClassNames(anchorClass, "disabled");
+}
+
+(globalThis as any).linksOnPages ??= {};
+(globalThis as any).linksOnPages[Astro.url.pathname] ??= new Set();
+if (!Astro.props.href.startsWith("https://")) {
+    (globalThis as any).linksOnPages[Astro.url.pathname].add(Astro.props.href);
 }
 ---
 
