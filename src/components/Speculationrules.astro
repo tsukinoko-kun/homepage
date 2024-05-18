@@ -1,12 +1,5 @@
 ---
-await new Promise<void>((resolve) => {
-    setTimeout(resolve, 1000);
-});
 
-(globalThis as any).linksOnPages ??= {};
-const linksOnPage: Set<string> = ((globalThis as any).linksOnPages[
-    Astro.url.pathname
-] ??= new Set());
 ---
 
 <script
@@ -15,8 +8,10 @@ const linksOnPage: Set<string> = ((globalThis as any).linksOnPages[
     set:html={JSON.stringify({
         prerender: [
             {
-                urls: Array.from(linksOnPage),
+                where: { href_matches: "/*" },
+                eagerness: "eager",
             },
         ],
     })}
 />
+
