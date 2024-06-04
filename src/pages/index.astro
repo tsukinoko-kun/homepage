@@ -7,6 +7,8 @@ type Project = {
     description: string;
     link: string;
     langs: string[];
+    video?: string[];
+    img?: string[];
 };
 
 const portfolio: Array<{ name: string; projects: Array<Project> }> = [
@@ -32,6 +34,7 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
                     "Make images smaller using best-in-class codecs, right in the browser.",
                 link: "https://github.com/GoogleChromeLabs/squoosh",
                 langs: ["ts"],
+                img: ["squoosh.app_editor.avif"],
             },
         ],
     },
@@ -56,6 +59,7 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
                 description: "90s style 3D game engine built in Go using SDL2.",
                 link: "https://github.com/bloodmagesoftware/bloodmage-engine",
                 langs: ["go"],
+                video: ["bloodmage_engine.webm"],
             },
             {
                 name: "serve",
@@ -77,6 +81,7 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
                     "Educational game for the anti discrimination organization in Heilbronn.",
                 link: "https://github.com/HHN-SEB-2022-23/allybi",
                 langs: ["ts"],
+                video: ["allybi.webm"],
             },
         ],
     },
@@ -91,7 +96,9 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
         </h1>
     </div>
 
-    <p class="text-pretty">Software engineer from Germany who loves things that just work.</p>
+    <p class="text-pretty">
+        Software engineer from Germany who loves things that just work.
+    </p>
 
     {
         portfolio.map((x) => (
@@ -121,6 +128,43 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
                                         />
                                     ))}
                                 </p>
+                                {prj.video || prj.img ? (
+                                    <ul class="flex flex-row mt-2">
+                                        {prj.video
+                                            ? prj.video.map((v) => (
+                                                  <li class="w-9/12 md:w-1/4 hover:scale-150 transition-transform">
+                                                      <video
+                                                          autoplay
+                                                          loop
+                                                          muted
+                                                          controls={false}
+                                                          playsinline
+                                                          src={"/video/" + v}
+                                                          preload="auto"
+                                                          poster={
+                                                              "/video/" +
+                                                              v.replace(
+                                                                  /\.\w+$/,
+                                                                  ".png",
+                                                              )
+                                                          }
+                                                      />
+                                                  </li>
+                                              ))
+                                            : null}
+                                        {prj.img
+                                            ? prj.img.map((i) => (
+                                                  <li class="w-9/12 md:w-1/4 hover:scale-150 transition-transform">
+                                                      <img
+                                                          src={"/img/" + i}
+                                                          loading="lazy"
+                                                          decoding="async"
+                                                      />
+                                                  </li>
+                                              ))
+                                            : null}
+                                    </ul>
+                                ) : null}
                             </Link>
                         </li>
                     ))}
