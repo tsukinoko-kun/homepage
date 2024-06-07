@@ -6,84 +6,91 @@ type Project = {
     name: string;
     description: string;
     link: string;
-    langs: string[];
+    tech: Array<
+        | "bash"
+        | "c"
+        | "cpp"
+        | "css"
+        | "go"
+        | "java"
+        | "js"
+        | "lua"
+        | "nestjs"
+        | "papermc"
+        | "parcel"
+        | "qdrant"
+        | "react"
+        | "rollup"
+        | "rs"
+        | "sass"
+        | "sdl"
+        | "svelte"
+        | "tailwind"
+        | "ts"
+        | "vim"
+        | "webpack"
+    >;
     video?: string[];
     img?: string[];
 };
 
-const portfolio: Array<{ name: string; projects: Array<Project> }> = [
+const portfolio: Array<Project> = [
     {
-        name: "Open Source Contributions",
-        projects: [
-            {
-                name: "neovim/node-client",
-                description: "Nvim Node.js client and plugin host",
-                link: "https://github.com/neovim/node-client",
-                langs: ["ts"],
-            },
-            {
-                name: "neovim/neovim-backup",
-                description:
-                    "Backup Neovim GitHub issues, comments, discussions, etc.",
-                link: "https://github.com/neovim/neovim-backup",
-                langs: ["bash"],
-            },
-            {
-                name: "GoogleChromeLabs/squoosh",
-                description:
-                    "Make images smaller using best-in-class codecs, right in the browser.",
-                link: "https://github.com/GoogleChromeLabs/squoosh",
-                langs: ["ts"],
-                img: ["squoosh.app_editor.avif"],
-            },
-        ],
+        name: "mandelbaum.ai (dynabase Technologies GmbH)",
+        description:
+            "Discover a cost-effective AI search solution for your e-commerce webshop with mandelbaum.ai. Improve your customers' search experience with our advanced, easy-to-integrate technology.",
+        link: "https://mandelbaum.ai/",
+        tech: ["ts", "nestjs", "svelte", "tailwind", "qdrant", "webpack"],
+        img: ["mandelbaum.avif"],
     },
     {
-        name: "Personal Projects",
-        projects: [
-            {
-                name: "Yab",
-                description:
-                    "Cross-platform build tool with deterministic builds defined using Lua scripts.",
-                link: "https://github.com/tsukinoko-kun/yab",
-                langs: ["go"],
-            },
-            {
-                name: "Oh My Gosh",
-                description: "Cross platform implementation of a POSIX shell.",
-                link: "https://github.com/tsukinoko-kun/ohmygosh",
-                langs: ["go"],
-            },
-            {
-                name: "Bloodmage Engine",
-                description: "90s style 3D game engine built in Go using SDL2.",
-                link: "https://github.com/bloodmagesoftware/bloodmage-engine",
-                langs: ["go"],
-                video: ["bloodmage_engine.webm"],
-            },
-            {
-                name: "serve",
-                description:
-                    "A simple static file server with nice extras like auto-reload and markdown rendering.",
-                link: "https://github.com/tsukinoko-kun/serve",
-                langs: ["go"],
-            },
-            {
-                name: "PaperMC Web API",
-                description:
-                    "Secure web api for Minecraft paper servers with OAuth2 and JWT.",
-                link: "https://github.com/tsukinoko-kun/papermc-web-api",
-                langs: ["java"],
-            },
-            {
-                name: "Allybi",
-                description:
-                    "Educational game for the anti discrimination organization in Heilbronn.",
-                link: "https://github.com/HHN-SEB-2022-23/allybi",
-                langs: ["ts"],
-                video: ["allybi.webm"],
-            },
-        ],
+        name: "Bloodmage Engine",
+        description: "90s style 3D game engine built in Go using SDL2.",
+        link: "https://github.com/bloodmagesoftware/bloodmage-engine",
+        tech: ["go", "sdl"],
+        video: ["bloodmage_engine.webm"],
+    },
+    {
+        name: "PaperMC Web API",
+        description:
+            "Secure web api for Minecraft paper servers with OAuth2 and JWT.",
+        link: "https://github.com/tsukinoko-kun/papermc-web-api",
+        tech: ["java", "papermc"],
+    },
+    {
+        name: "Yab",
+        description:
+            "Cross-platform build tool with deterministic builds defined using Lua scripts.",
+        link: "https://github.com/tsukinoko-kun/yab",
+        tech: ["go", "lua"],
+    },
+    {
+        name: "Oh My Gosh",
+        description: "Cross platform implementation of a POSIX shell.",
+        link: "https://github.com/tsukinoko-kun/ohmygosh",
+        tech: ["go"],
+    },
+    {
+        name: "squoosh (Google Chrome Labs)",
+        description:
+            "Make images smaller using best-in-class codecs, right in the browser.",
+        link: "https://github.com/GoogleChromeLabs/squoosh",
+        tech: ["ts", "js", "cpp", "rs", "css", "rollup"],
+        img: ["squoosh.app_editor.avif"],
+    },
+    {
+        name: "neovim node-client",
+        description: "Nvim Node.js client and plugin host",
+        link: "https://github.com/neovim/node-client",
+        tech: ["ts"],
+    },
+    {
+        name: "Allybi (Heilbronn University)",
+        description:
+            "Educational game for the anti discrimination organization in Heilbronn.",
+        link: "https://github.com/HHN-SEB-2022-23/allybi",
+        tech: ["ts", "sass", "parcel"],
+        video: ["allybi.webm"],
     },
 ];
 ---
@@ -100,89 +107,75 @@ const portfolio: Array<{ name: string; projects: Array<Project> }> = [
         Software engineer from Germany who loves things that just work.
     </p>
 
-    {
-        portfolio.map((x) => (
-            <section aria-labelledby="projects">
-                <h2 id="projects" class="surround-h2 text-3xl font-semibold">
-                    {x.name}
-                </h2>
-                <ul>
-                    {x.projects.map((prj) => (
-                        <li class="pl-8">
-                            <Link href={prj.link} hover>
-                                <h3 class="text-xl font-semibold surround-h3">
-                                    {prj.name}
-                                </h3>
-                                <p class="text-pretty">{prj.description}</p>
-                                <p>
-                                    {prj.langs.length > 1
-                                        ? "Languages: "
-                                        : "Language: "}
-                                    {prj.langs.map((lang) => (
-                                        <img
-                                            class="inline-block w-6 h-6 mr-1"
-                                            decoding="async"
-                                            loading="lazy"
-                                            src={"/lang/" + lang + ".svg"}
-                                            alt={lang}
-                                        />
-                                    ))}
-                                </p>
-                                {prj.video || prj.img ? (
-                                    <ul class="flex flex-row mt-2">
-                                        {prj.video
-                                            ? prj.video.map((v) => (
-                                                  <li class="w-9/12 md:w-1/4 hover:scale-150 transition-transform">
-                                                      <video
-                                                          autoplay
-                                                          loop
-                                                          muted
-                                                          controls={false}
-                                                          playsinline
-                                                          src={"/video/" + v}
-                                                          preload="auto"
-                                                          poster={
-                                                              "/video/" +
-                                                              v.replace(
-                                                                  /\.\w+$/,
-                                                                  ".png",
-                                                              )
-                                                          }
-                                                      />
-                                                  </li>
-                                              ))
-                                            : null}
-                                        {prj.img
-                                            ? prj.img.map((i) => (
-                                                  <li class="w-9/12 md:w-1/4 hover:scale-150 transition-transform">
-                                                      <img
-                                                          src={"/img/" + i}
-                                                          loading="lazy"
-                                                          decoding="async"
-                                                      />
-                                                  </li>
-                                              ))
-                                            : null}
-                                    </ul>
-                                ) : null}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </section>
-        ))
-    }
-
-    <Link href="https://neovim.io" hover>
-        <h2 class="surround-h2 text-3xl font-semibold">
-            I use Neovim by the way.
+    <section aria-labelledby="projects">
+        <h2 id="projects" class="surround-h2 text-3xl font-semibold">
+            Projects
         </h2>
-        <img
-            class="mt-8"
-            decoding="async"
-            loading="lazy"
-            src="https://i.imgflip.com/8bcwbk.jpg"
-            alt='Meme "Running a Chrome instance to edit JavaScript" "Look what they need to mimic a fraction of our power"'
-        />
-    </Link>
+        <ul>
+            {
+                portfolio.map((prj) => (
+                    <li class="pl-8">
+                        <Link href={prj.link} hover>
+                            <h3 class="text-xl font-semibold surround-h3">
+                                {prj.name}
+                            </h3>
+                            <p class="text-pretty">{prj.description}</p>
+                            <p>
+                                {prj.tech.length > 1
+                                    ? "Technologies: "
+                                    : "Technology: "}
+                                {prj.tech.map((tech) => (
+                                    <img
+                                        class="inline-block w-6 h-6 mr-1"
+                                        decoding="async"
+                                        loading="lazy"
+                                        src={"/tech/" + tech + ".svg"}
+                                        alt={tech}
+                                        title={tech}
+                                    />
+                                ))}
+                            </p>
+                            {prj.video || prj.img ? (
+                                <ul class="flex flex-row mt-2">
+                                    {prj.video
+                                        ? prj.video.map((v) => (
+                                              <li class="w-9/12 md:w-1/3 aspect-auto">
+                                                  <video
+                                                      autoplay
+                                                      loop
+                                                      muted
+                                                      controls={false}
+                                                      playsinline
+                                                      src={"/video/" + v}
+                                                      preload="auto"
+                                                      poster={
+                                                          "/video/" +
+                                                          v.replace(
+                                                              /\.\w+$/,
+                                                              ".png",
+                                                          )
+                                                      }
+                                                  />
+                                              </li>
+                                          ))
+                                        : null}
+                                    {prj.img
+                                        ? prj.img.map((i) => (
+                                              <li class="w-9/12 md:w-1/3 aspect-auto">
+                                                  <img
+                                                      src={"/img/" + i}
+                                                      loading="lazy"
+                                                      decoding="async"
+                                                  />
+                                              </li>
+                                          ))
+                                        : null}
+                                </ul>
+                            ) : null}
+                        </Link>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
 </Layout>

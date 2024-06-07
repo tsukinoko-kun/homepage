@@ -12,6 +12,12 @@
     src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
 }
 
+:root,
+body,
+main {
+    overflow-x: hidden !important;
+}
+
 @layer base {
     :root {
         color-scheme: dark;
