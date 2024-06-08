@@ -130,23 +130,29 @@ const portfolio: Array<Project> = [
                                 {prj.name}
                             </h3>
                             <p class="text-pretty">{prj.description}</p>
-                            <p>
-                                {prj.tech.length > 1
-                                    ? "Technologies: "
-                                    : "Technology: "}
-                                {prj.tech.map((tech) => (
-                                    <img
-                                        class="inline-block w-6 h-6 mr-1"
-                                        decoding="async"
-                                        loading="lazy"
-                                        src={"/tech/" + tech + ".svg"}
-                                        alt={tech}
-                                        title={tech}
-                                    />
-                                ))}
-                            </p>
+                            <div class="w-full gap-2 grid grid-cols-[auto_1fr]">
+                                <span class="block col-auto">
+                                    {prj.tech.length > 1
+                                        ? "Technologies:"
+                                        : "Technology:"}
+                                </span>
+                                <ul class="w-fit flex flex-row flex-wrap">
+                                    {prj.tech.map((tech) => (
+                                        <li class="block">
+                                            <img
+                                                class="inline-block w-6 h-6 mr-1"
+                                                decoding="async"
+                                                loading="lazy"
+                                                src={"/tech/" + tech + ".svg"}
+                                                alt={tech}
+                                                title={tech}
+                                            />
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                             {prj.video || prj.img ? (
-                                <ul class="flex flex-row mt-2">
+                                <ul class="flex flex-row flex-wrap mt-2">
                                     {prj.video
                                         ? prj.video.map((v) => (
                                               <li class="w-9/12 md:w-1/3 aspect-auto">
