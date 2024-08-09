@@ -8,6 +8,7 @@ type Project = {
     link: string;
     tech: Array<
         | "bash"
+        | "bevy"
         | "c"
         | "cpp"
         | "css"
@@ -37,6 +38,14 @@ type Project = {
 };
 
 const portfolio: Array<Project> = [
+    {
+        name: "Mageanoid",
+        description:
+            "Twin stick shooter game where you play as a mage fighting against hordes of skeletons.",
+        link: "https://github.com/bloodmagesoftware/mageanoid",
+        tech: ["rs", "bevy"],
+        video: ["mageanoid.webm"],
+    },
     {
         name: "mandelbaum.ai (dynabase Technologies GmbH)",
         description:
