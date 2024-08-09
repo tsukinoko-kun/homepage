@@ -1,23 +1,23 @@
 @keyframes blur_in {
-  from {
-    filter: blur(256px);
-    opacity: 0;
-  }
+    from {
+        filter: blur(256px);
+        opacity: 0;
+    }
 
-  to {
-    filter: blur(0);
-    opacity: 1;
-  }
+    to {
+        filter: blur(0);
+        opacity: 1;
+    }
 }
 
 @keyframes blur_out {
-  from {
-    filter: blur(0);
-  }
+    from {
+        filter: blur(0);
+    }
 
-  to {
-    filter: blur(256px);
-  }
+    to {
+        filter: blur(256px);
+    }
 }
 
 /*
@@ -25,13 +25,13 @@
 */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  mix-blend-mode: normal;
+    mix-blend-mode: normal;
 }
 
 ::view-transition-old(root) {
-  animation: blur_out 500ms;
+    animation: blur_out 500ms;
 }
 
 ::view-transition-new(root) {
-  animation: blur_in 500ms;
+    animation: blur_in 500ms;
 }

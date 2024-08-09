@@ -5,15 +5,15 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    versioning-strategy: "increase"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    assignees:
-      - "Frank-Mayer"
-    labels:
-      - "dependencies"
-    rebase-strategy: "auto"
-    reviewers:
-      - "Frank-Mayer"
+    - package-ecosystem: "npm"
+      versioning-strategy: "increase"
+      directory: "/"
+      schedule:
+          interval: "daily"
+      assignees:
+          - "Frank-Mayer"
+      labels:
+          - "dependencies"
+      rebase-strategy: "auto"
+      reviewers:
+          - "Frank-Mayer"

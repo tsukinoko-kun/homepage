@@ -44,13 +44,16 @@ if (Astro.props.disabled) {
     a {
         height: fit-content;
     }
+
     @media (hover: hover) {
         a:not(.disabled):hover > span {
             color: rgb(var(--color-primary));
         }
+
         a:not(.disabled).hov:hover > span {
             transform: translateX(1rem);
         }
+
         a:not(.disabled).hov > span {
             transition: transform 0.2s ease-in-out;
         }
