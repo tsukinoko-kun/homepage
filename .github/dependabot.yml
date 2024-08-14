@@ -17,3 +17,10 @@ updates:
       rebase-strategy: "auto"
       reviewers:
           - "Frank-Mayer"
+      groups:
+          minor:
+              patterns:
+                  - "*"
+              update-types:
+                  - "minor"
+                  - "patch"
