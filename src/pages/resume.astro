@@ -51,13 +51,6 @@ const work: Array<Experience> = [
         companyUrl: "https://www.hs-heilbronn.de/",
     },
     {
-        from: "08/2022",
-        to: "09/2023",
-        title: "Software Engineer",
-        company: "Firma Wilhelm Jahn Anlasser und Lichtmaschinen",
-        companyUrl: "https://www.wjahn.de/",
-    },
-    {
         from: "03/2023",
         to: "07/2023",
         title: "Research Assistant",
@@ -108,14 +101,14 @@ const experience = [
 ---
 
 <Layout title="Resume" desc="Previous experiences">
-    <h1 class="surround-h1 tracking-tight text-5xl font-semibold">Resume</h1>
+    <h1 class="text-5xl font-semibold tracking-tight surround-h1">Resume</h1>
 
     {
         experience.map((e) => (
             <>
                 <h2
                     id={e.title.toLowerCase()}
-                    class="surround-h2 text-3xl font-semibold"
+                    class="text-3xl font-semibold surround-h2"
                 >
                     {e.title}
                 </h2>
@@ -128,7 +121,7 @@ const experience = [
                         )
                         .map((exp: Experience) => (
                             <li>
-                                <div class="flex flex-col md:flex-row justify-between pl-4">
+                                <div class="flex flex-col justify-between pl-4 md:flex-row">
                                     <div class="flex flex-col md:flex-1">
                                         <span class="font-semibold">
                                             {exp.title}
