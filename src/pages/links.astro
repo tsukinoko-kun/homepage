@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Link from "../components/Link.astro";
 
 const contacts = [
     {
@@ -30,11 +29,14 @@ const contacts = [
     <h1 class="text-5xl font-semibold tracking-tight surround-h1">Contact</h1>
     {
         contacts.map((contact) => (
-            <p>
-                {contact.title}:{" "}
-                <Link class="underline" href={contact.url}>
-                    <code>{contact.username}</code>
-                </Link>
+            <p class="mb-4">
+                <span>{contact.title}:</span>
+                <a
+                    class="block ml-4 underline hover:text-ctp-mauve"
+                    href={contact.url}
+                >
+                    {contact.username}
+                </a>
             </p>
         ))
     }

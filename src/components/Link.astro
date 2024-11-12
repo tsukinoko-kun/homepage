@@ -17,10 +17,10 @@ const blockClass = Array.from(
     .join(" ");
 let anchorClass = blockClass || "inline-block";
 if (!blockClass) {
-    anchorClass = Astro.props.class = joinClassNames(
+    anchorClass = joinClassNames(
         Astro.props.class,
         "inline-block",
-        Astro.props.hover ? "hov" : undefined,
+        Astro.props.hover ? "hov" : "",
     );
 }
 if (Astro.props.disabled) {
@@ -46,16 +46,18 @@ if (Astro.props.disabled) {
     }
 
     @media (hover: hover) {
-        a:not(.disabled):hover > span {
+        a:not(.disabled):hover > div {
             color: rgb(var(--color-primary));
         }
+    }
 
-        a:not(.disabled).hov:hover > span {
-            transform: translateX(1rem);
+    @media (prefers-reduced-motion: no-preference) and (hover: hover) {
+        a:not(.disabled).hov:hover > div {
+            translate: 1rem 0;
         }
 
-        a:not(.disabled).hov > span {
-            transition: transform 0.2s ease-in-out;
+        a:not(.disabled).hov > div {
+            transition: translate 0.2s ease-in-out;
         }
     }
 </style>
