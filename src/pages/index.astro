@@ -2,6 +2,12 @@
 import Link from "../components/Link.astro";
 import Layout from "../layouts/Layout.astro";
 
+type Paper = {
+    title: string;
+    link: string;
+    release: number;
+};
+
 type Project = {
     name: string;
     description: string;
@@ -36,6 +42,14 @@ type Project = {
     video?: string[];
     img?: string[];
 };
+
+const papers: Array<Paper> = [
+    {
+        title: "Wie wirkt sich die Verwendung von KI auf den Lernerfolg von Software-Engineering-Studenten aus?",
+        link: "https://tsukinoko-kun.github.io/Frank_Mayer_KI_in_der_Lehre_2025/Frank_Mayer_KI_in_der_Lehre_2025.pdf",
+        release: 2025,
+    },
+];
 
 const portfolio: Array<Project> = [
     {
@@ -74,7 +88,7 @@ const portfolio: Array<Project> = [
 
 <Layout title="Portfolio" desc="Software Engineer">
     <div class="surround-h1">
-        <h1 class="tracking-tight text-5xl font-semibold">
+        <h1 class="text-5xl font-semibold tracking-tight">
             Hey,<br />
             I'm Frank
         </h1>
@@ -85,7 +99,21 @@ const portfolio: Array<Project> = [
     </p>
 
     <section aria-labelledby="projects">
-        <h2 id="projects" class="surround-h2 text-3xl font-semibold">
+        <h2 id="papers" class="text-3xl font-semibold surround-h2">
+            Scientific Papers
+        </h2>
+        <ul>
+            {
+                papers.map((paper) => (
+                    <li class="pl-2 ml-8 list-disc">
+                        <Link href={paper.link} hover>
+                            <b>{paper.title}</b> ({paper.release})
+                        </Link>
+                    </li>
+                ))
+            }
+        </ul>
+        <h2 id="projects" class="text-3xl font-semibold surround-h2">
             Projects
         </h2>
         <ul>
@@ -97,17 +125,17 @@ const portfolio: Array<Project> = [
                                 {prj.name}
                             </h3>
                             <p class="text-pretty">{prj.description}</p>
-                            <div class="w-full gap-2 grid grid-cols-[auto_1fr]">
+                            <div class="grid gap-2 w-full grid-cols-[auto_1fr]">
                                 <span class="block col-auto">
                                     {prj.tech.length > 1
                                         ? "Technologies:"
                                         : "Technology:"}
                                 </span>
-                                <ul class="w-fit flex flex-row flex-wrap">
+                                <ul class="flex flex-row flex-wrap w-fit">
                                     {prj.tech.map((tech) => (
                                         <li class="block">
                                             <img
-                                                class="inline-block w-6 h-6 mr-1"
+                                                class="inline-block mr-1 w-6 h-6"
                                                 decoding="async"
                                                 loading="lazy"
                                                 src={"/tech/" + tech + ".svg"}
