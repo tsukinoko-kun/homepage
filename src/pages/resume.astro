@@ -6,6 +6,7 @@ type Experience = {
     from: string;
     to: string;
     title: string;
+    description?: string;
     company: string;
     companyUrl?: string;
 };
@@ -37,9 +38,19 @@ function compareDateString(a: string, b: string) {
 
 const work: Array<Experience> = [
     {
+        from: "10/2024",
+        to: "02/2025",
+        title: "Tutor",
+        description:
+            "Lecture assistance and additional teaching units alongside the lecture",
+        company: "Heilbronn University",
+        companyUrl: "https://www.hs-heilbronn.de/",
+    },
+    {
         from: "03/2024",
         to: "07/2024",
         title: "Software Engineer",
+        description: "Machine learning and web crawler development",
         company: "dynabase Technologies GmbH",
         companyUrl: "https://www.dynabase.de",
     },
@@ -47,6 +58,7 @@ const work: Array<Experience> = [
         from: "09/2023",
         to: "02/2024",
         title: "Tutor",
+        description: "Supervise student group projects",
         company: "Heilbronn University",
         companyUrl: "https://www.hs-heilbronn.de/",
     },
@@ -54,6 +66,8 @@ const work: Array<Experience> = [
         from: "03/2023",
         to: "07/2023",
         title: "Research Assistant",
+        description:
+            "Takeover and further development of scientific project in the field of artificial intelligence",
         company: "Heilbronn University",
         companyUrl: "https://www.hs-heilbronn.de/",
     },
@@ -61,7 +75,25 @@ const work: Array<Experience> = [
         from: "08/2022",
         to: "12/2022",
         title: "DevOps Engineer",
+        description: "IT Operations and infrastructure",
         company: "LogiSoft-S GmbH Heilbronn",
+    },
+];
+
+const openSource: Array<Experience> = [
+    {
+        from: "07/2023",
+        to: "07/2023",
+        title: "node-client",
+        company: "Neovim",
+        companyUrl: "https://neovim.io/",
+    },
+    {
+        from: "04/2023",
+        to: "04/2023",
+        title: "squoosh",
+        company: "Google Chrome Labs",
+        companyUrl: "https://github.com/GoogleChromeLabs",
     },
 ];
 
@@ -91,10 +123,18 @@ const education: Array<Experience> = [
 const experience = [
     {
         title: "Work",
+        description: "I worked here as an employee",
         items: work,
     },
     {
+        title: "Open Source",
+        description:
+            "Large, well-known open source projects to which I contributed",
+        items: openSource,
+    },
+    {
         title: "Education",
+        description: "School and stuff",
         items: education,
     },
 ];
@@ -112,7 +152,8 @@ const experience = [
                 >
                     {e.title}
                 </h2>
-                <ul class="space-y-8">
+                <p class="my-4 text-ctp-subtext0">{e.description}</p>
+                <ul class="space-y-4">
                     {e.items
                         .sort(
                             (a, b) =>
@@ -123,9 +164,12 @@ const experience = [
                             <li>
                                 <div class="flex flex-col justify-between pl-4 md:flex-row">
                                     <div class="flex flex-col md:flex-1">
-                                        <span class="font-semibold">
+                                        <span class="font-bold">
                                             {exp.title}
                                         </span>
+                                        {exp.description ? (
+                                            <span>{exp.description}</span>
+                                        ) : null}
                                         {exp.companyUrl ? (
                                             <Link
                                                 class="underline"
