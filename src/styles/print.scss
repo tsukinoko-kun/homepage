@@ -1,0 +1,30 @@
+@media print {
+    :root {
+        color-scheme: light !important;
+    }
+
+    :root,
+    body {
+        background: none !important;
+        color: black !important;
+    }
+
+    header,
+    body::before {
+        display: none !important;
+    }
+
+    .surround-h1,
+    .surround-h2,
+    .surround-h3,
+    .surround-h4,
+    .surround-h5,
+    .surround-h6,
+    .surround-nav {
+        /* background: none !important; */
+        &::before,
+        &::after {
+            background: white !important;
+        }
+    }
+}
