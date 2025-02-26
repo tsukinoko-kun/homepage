@@ -152,7 +152,9 @@ const experience = [
                 >
                     {e.title}
                 </h2>
-                <p class="my-4 text-ctp-subtext0">{e.description}</p>
+                <p class="my-4 text-ctp-subtext0 text-pretty">
+                    {e.description}
+                </p>
                 <ul class="space-y-4">
                     {e.items
                         .sort(
@@ -164,11 +166,13 @@ const experience = [
                             <li>
                                 <div class="flex flex-col justify-between pl-4 md:flex-row">
                                     <div class="flex flex-col md:flex-1">
-                                        <span class="font-bold">
+                                        <span class="font-bold text-pretty">
                                             {exp.title}
                                         </span>
                                         {exp.description ? (
-                                            <span>{exp.description}</span>
+                                            <span class="text-pretty">
+                                                {exp.description}
+                                            </span>
                                         ) : null}
                                         {exp.companyUrl ? (
                                             <Link

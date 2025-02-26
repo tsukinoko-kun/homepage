@@ -106,8 +106,9 @@ const portfolio: Array<Project> = [
             {
                 papers.map((paper) => (
                     <li class="pl-2 ml-8 list-disc">
-                        <Link href={paper.link} hover>
-                            <b>{paper.title}</b> ({paper.release})
+                        <Link href={paper.link} hover class="text-pretty">
+                        <b>{paper.title}</b>
+                        ({paper.release})
                         </Link>
                     </li>
                 ))
