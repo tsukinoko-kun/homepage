@@ -19,11 +19,11 @@
         "@catppuccin/tailwindcss": "^0.1.6",
         "@total-typescript/ts-reset": "^0.6.1",
         "@types/quicklink": "^2.3.4",
-        "autoprefixer": "^10.4.20",
+        "autoprefixer": "^10.4.21",
         "cssnano": "^7.0.6",
         "prettier": "^3.5.3",
         "prettier-plugin-astro": "^0.14.1",
-        "sass": "^1.85.1",
+        "sass": "^1.86.0",
         "typescript": "^5.8.2"
     }
 }
