@@ -23,7 +23,7 @@
         "cssnano": "^7.0.7",
         "prettier": "^3.5.3",
         "prettier-plugin-astro": "^0.14.1",
-        "sass": "^1.87.0",
+        "sass": "^1.88.0",
         "typescript": "^5.8.3"
     }
 }
