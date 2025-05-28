@@ -8,6 +8,14 @@ type Paper = {
     release: number;
 };
 
+type Company = {
+    name: string;
+    description: string;
+    since: number;
+    until?: number;
+    link: string;
+};
+
 type Project = {
     name: string;
     description: string;
@@ -43,6 +51,25 @@ type Project = {
     img?: string[];
 };
 
+const companies: Array<Company> = [
+    {
+        name: "Bloodmage Software",
+        description:
+            "I founded Bloodmage Software with my flatmate René after using the name on Steam for my game Mageanoid. " +
+            "We are mostly interested in games and entertainment but are definitely not restricted to that.",
+        since: 2025,
+        link: "https://bloodmagesoftware.de/",
+    },
+    {
+        name: "enyDyne",
+        description:
+            "I joined Lara and Tatjana 2024 who started enyDyne a year prior. " +
+            "We are digitalizing the german gastronomy with our SaaS platform.",
+        since: 2024,
+        link: "https://enydyne.de/",
+    },
+];
+
 const papers: Array<Paper> = [
     {
         title: "Wie wirkt sich die Verwendung von KI auf den Lernerfolg von Software-Engineering-Studenten aus?",
@@ -65,7 +92,8 @@ const portfolio: Array<Project> = [
     {
         name: "Mageanoid",
         description:
-            "Twin stick shooter game where you play as a mage fighting against hordes of skeletons.",
+            "Twin stick shooter game where you play as a mage fighting against hordes of skeletons.\n" +
+            "This was my first project with both Rust and the Bevy game engine. I wanted to try Rust and made this project in about a week.",
         link: "https://store.steampowered.com/app/3104840/Mageanoid",
         tech: ["rs", "bevy"],
         video: ["mageanoid.webm"],
@@ -73,7 +101,8 @@ const portfolio: Array<Project> = [
     {
         name: "mandelbaum.ai (dynabase Technologies GmbH)",
         description:
-            "Discover a cost-effective AI search solution for your e-commerce webshop with mandelbaum.ai. Improve your customers' search experience with our advanced, easy-to-integrate technology.",
+            "AI based semantic search component for every e-commerce webshop. Content is automatically crawled and indexed. Search is powered by a vector database.\n" +
+            "I worked here for four months and made the crawling process usable for very old websites that do not adhere to standards and have no machine-readable information.",
         link: "https://mandelbaum.ai/",
         tech: [
             "ts",
@@ -88,7 +117,10 @@ const portfolio: Array<Project> = [
     },
     {
         name: "Bloodmage Engine",
-        description: "90s style 3D game engine built in Go using SDL2.",
+        description:
+            "90s style 3D game engine built in Go using SDL2.\n" +
+            "I built a software renderer based on the algorithm used in Wolfenstein 3D and Doom. I also implemented texture streaming and a simple editor.\n" +
+            "This was a time-limited project (2 months) in a Bachelor's course.",
         link: "https://github.com/bloodmagesoftware/bloodmage-engine",
         tech: ["go", "sdl"],
         video: ["bloodmage_engine.webm"],
@@ -104,11 +136,38 @@ const portfolio: Array<Project> = [
         </h1>
     </div>
 
+    <p class="text-balance">
+        Software engineer from Germany who loves things that just work. Sadly,
+        that's not the reality.<br />I am here to fix that.<br />
+    </p>
     <p class="text-pretty">
-        Software engineer from Germany who loves things that just work.
+        You can't hire me, but you can hire my company <a
+            class="inline underline"
+            href="https://bloodmagesoftware.de/">Bloodmage Software</a
+        >.
     </p>
 
     <section aria-labelledby="projects">
+        <h2 id="companies" class="text-3xl font-semibold surround-h2">
+            Companies
+        </h2>
+        <ul>
+            {
+                companies.map((company) => (
+                    <li class="pl-2 ml-8 list-disc">
+                        <Link
+                            href={company.link}
+                            hover
+                            class="block text-pretty"
+                        >
+                            <b>{company.name}</b> (since {company.since}
+                            {company.until ? ` until ${company.until}` : ""})
+                            <p class="text-balance">{company.description}</p>
+                        </Link>
+                    </li>
+                ))
+            }
+        </ul>
         <h2 id="papers" class="text-3xl font-semibold surround-h2">
             Scientific Papers
         </h2>
@@ -116,7 +175,7 @@ const portfolio: Array<Project> = [
             {
                 papers.map((paper) => (
                     <li class="pl-2 ml-8 list-disc">
-                        <Link href={paper.link} hover class="text-pretty">
+                        <Link href={paper.link} hover class="block text-pretty">
                             <b>{paper.title}</b>({paper.release})
                         </Link>
                     </li>

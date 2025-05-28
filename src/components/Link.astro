@@ -1,5 +1,5 @@
 ---
-import { joinClassNames } from "../utils";
+import { twMerge } from "tailwind-merge";
 export interface Props {
     href: string;
     hover?: boolean;
@@ -10,21 +10,14 @@ export interface Props {
 
 const target = Astro.props.href.startsWith("https://") ? "_blank" : undefined;
 const rel = target ? "noopener noreferrer" : "prefetch";
-const blockClass = Array.from(
-    (Astro.props.class ?? "").matchAll(/[\w\-:]*block/g),
-)
-    .map((x) => x[0])
-    .join(" ");
-let anchorClass = blockClass || "inline-block";
-if (!blockClass) {
-    anchorClass = joinClassNames(
-        Astro.props.class,
-        "inline-block",
-        Astro.props.hover ? "hov" : "",
-    );
-}
+let anchorClass = twMerge(
+    Astro.props.hover ? "hov" : "",
+    "inline-block",
+    Astro.props.class,
+);
+
 if (Astro.props.disabled) {
-    anchorClass = joinClassNames(anchorClass, "disabled");
+    anchorClass = twMerge(anchorClass, "disabled");
 }
 ---
 
