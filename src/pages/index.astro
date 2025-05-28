@@ -53,6 +53,16 @@ const papers: Array<Paper> = [
 
 const portfolio: Array<Project> = [
     {
+        name: "Oh My Gosh",
+        description:
+            "High-level interactive UNIX shell.\n" +
+            "Every command runs in a block. All blocks run in the background. The user can select a running block to write to it's stdin.\n" +
+            "I implemented a compiler for ANSI escape sequences to enable rendering apps that modify their output (like Docker, curl, etc.). I also implemented some OSC (Operating System Commands) to provide a better integration to the terminal. Apps that use alt-mode (like Vim) run in full-screen instead of a block because users will interact with them more.",
+        link: "https://github.com/tsukinoko-kun/ohmygosh",
+        tech: ["go"],
+        video: ["ohmygosh.webm"],
+    },
+    {
         name: "Mageanoid",
         description:
             "Twin stick shooter game where you play as a mage fighting against hordes of skeletons.",
@@ -107,8 +117,7 @@ const portfolio: Array<Project> = [
                 papers.map((paper) => (
                     <li class="pl-2 ml-8 list-disc">
                         <Link href={paper.link} hover class="text-pretty">
-                        <b>{paper.title}</b>
-                        ({paper.release})
+                            <b>{paper.title}</b>({paper.release})
                         </Link>
                     </li>
                 ))
@@ -125,7 +134,9 @@ const portfolio: Array<Project> = [
                             <h3 class="text-xl font-semibold surround-h3">
                                 {prj.name}
                             </h3>
-                            <p class="text-pretty">{prj.description}</p>
+                            {prj.description.split("\n").map((line) => (
+                                <p class="text-balance">{line}</p>
+                            ))}
                             <div class="grid gap-2 w-full grid-cols-[auto_1fr]">
                                 <span class="block col-auto">
                                     {prj.tech.length > 1
@@ -164,7 +175,7 @@ const portfolio: Array<Project> = [
                                                           "/video/" +
                                                           v.replace(
                                                               /\.\w+$/,
-                                                              ".png",
+                                                              ".webp",
                                                           )
                                                       }
                                                   />
