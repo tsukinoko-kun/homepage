@@ -46,9 +46,10 @@ main {
 }
 
 body {
-    font-family: "Monolisa", "Gintronic", "Dank Mono", "PragmataPro",
-        "JetBrains Mono", "Cascadia Code", "Source Code Pro", "Fira Code",
-        "DejaVu Sans Mono", "Hack", "Anonymous Pro", "Ubuntu Mono", monospace !important;
+    font-family:
+        "Monolisa", "Gintronic", "Dank Mono", "PragmataPro", "JetBrains Mono",
+        "Cascadia Code", "Source Code Pro", "Fira Code", "DejaVu Sans Mono",
+        "Hack", "Anonymous Pro", "Ubuntu Mono", monospace !important;
 }
 
 body,
@@ -87,9 +88,17 @@ body::before {
 @for $i from 1 through 3 {
     .surround-h#{$i} {
         @include theme.surround-with("h#{$i}");
-        margin-top: #{3.5 - $i * 0.5}rem;
         margin-bottom: 0.5rem;
     }
+}
+.surround-h1 {
+    margin-top: 2rem;
+}
+.surround-h2 {
+    margin-top: 4rem;
+}
+.surround-h3 {
+    margin-top: 2rem;
 }
 
 ::selection {
