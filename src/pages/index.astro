@@ -1,6 +1,7 @@
 ---
 import Link from "../components/Link.astro";
 import Layout from "../layouts/Layout.astro";
+import RadarChart from "../components/RadarChart.astro";
 
 type Paper = {
     title: string;
@@ -148,6 +149,8 @@ const portfolio: Array<Project> = [
             href="https://bloodmagesoftware.de/">Bloodmage Software</a
         >.
     </p>
+
+    <RadarChart />
 
     <section aria-labelledby="projects">
         <h2 id="companies" class="text-3xl font-semibold surround-h2">
