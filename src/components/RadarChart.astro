@@ -1,0 +1,103 @@
+---
+---
+<canvas id="myChart" width="400" height="400" class="my-8 mx-auto w-full max-w-[42rem] max-h-[42rem] aspect-square"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" integrity="sha512-CQBWl4fJHWbryGE+Pc7UAxWMUMNMWzWxF4SQo9CgkJIN1kx6djDQZjh3Y8SZ1d+6I+1zze6Z7kHXO7q3UyZAWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    const canvasEl = document.getElementById("myChart");
+    const ctx = canvasEl.getContext("2d");
+    const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    let values = {
+        "Computer Science": 60,
+        "Low-Level and OS": 50,
+        "Networking": 60,
+        "Security": 75,
+        "Databases": 80,
+        "Backend": 75,
+        "Web Frontend": 75,
+        "Infrastructure": 40,
+        "Data formats": 85,
+        "Dev Tools": 95,
+        "Mobile Apps": 50,
+        "Desktop Apps": 50,
+        "Data Science": 10,
+    };
+
+    // oder by value
+    values = Object.fromEntries(
+        Object.entries(values).sort((a, b) => b[1] - a[1])
+    );
+
+    function getColors(isDark) {
+        return {
+            background: isDark
+            ? "rgba(203, 166, 247, 0.2)"
+            : "rgba(136, 57, 239, 0.2)",
+            border: isDark
+            ? "#cba6f7"
+            : "#8839ef",
+            foreground: isDark
+            ? "#cdd6f4"
+            : "#4c4f69",
+            helpers: isDark
+            ? "#6c7086"
+            : "#9ca0b0"
+        };
+    }
+
+    function createChart() {
+        const isDark = darkQuery.matches;
+        const { background, border, foreground, helpers } = getColors(isDark);
+
+        return new Chart(ctx, {
+            type: "radar",
+            data: {
+                labels: Object.keys(values),
+                datasets: [
+                    {
+                        data: Object.values(values),
+                        backgroundColor: background,
+                        borderColor: border,
+                        borderWidth: 3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                },
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 100,
+                        pointLabels: { color: foreground, },
+                        grid: {
+                            color: helpers,
+                            lineWidth: 1,
+                        },
+                        angleLines: { color: helpers, },
+                        ticks: {
+                            beginAtZero: true,
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    let myChart = createChart();
+
+    darkQuery.addEventListener("change", () => {
+        const isDark = darkQuery.matches;
+        const { background, border, foreground, helpers } = getColors(isDark);
+        myChart.data.datasets[0].backgroundColor = background;
+        myChart.data.datasets[0].borderColor = border;
+        myChart.options.scales.r.pointLabels.color = foreground;
+        myChart.options.scales.r.grid.color = helpers;
+        myChart.options.scales.r.angleLines.color = helpers;
+        myChart.update();
+    });
+</script>
