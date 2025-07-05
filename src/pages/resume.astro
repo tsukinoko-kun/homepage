@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/Link.astro";
+import RadarChart from "../components/RadarChart.astro";
 
 type Experience = {
     from: string;
@@ -158,6 +159,11 @@ const experience = [
 
 <Layout title="Resume" desc="Previous experiences">
     <h1 class="text-5xl font-semibold tracking-tight surround-h1">Resume</h1>
+
+    <h2 id="skills" class="text-3xl font-semibold surround-h2">
+        My Skills in a Nutshell
+    </h2>
+    <RadarChart />
 
     {
         experience.map((e) => (
