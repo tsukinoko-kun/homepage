@@ -1,0 +1,120 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Version Control System" desc="Git und co." class="blog">
+    <h1 class="text-5xl font-semibold tracking-tight surround-h1">
+        Version Control System
+    </h1>
+    <p>Git und co.</p>
+
+    <h2>Der Ursprung von Git</h2>
+    <p>
+        Das Linux-Kernel-Projekt, eines der größten Open-Source-Projekte der
+        Welt, nutzte bis 2005 ein proprietäres, verteiltes
+        Versionskontrollsystem (VCS) namens <a href="https://www.bitkeeper.org/"
+            >BitKeeper</a
+        >. Die Lizenz zur kostenlosen Nutzung wurde dem Kernel-Team jedoch
+        entzogen. Dies schuf ein akutes Problem: Man benötigte ein neues VCS,
+        das die extremen Anforderungen des Projekts erfüllen konnte:
+    </p>
+    <ul>
+        <li>
+            Verteilt (Distributed): Tausende Entwickler weltweit mussten
+            effizient zusammenarbeiten können.
+        </li>
+        <li>
+            Performant: Operationen wie Branching und Merging mussten extrem
+            schnell sein.
+        </li>
+        <li>
+            Sicher: Die Integrität des riesigen Code-Repositorys musste
+            jederzeit gewährleistet sein.
+        </li>
+    </ul>
+    <p>
+        Da keine existierende Lösung diese Kriterien erfüllte, nahm Linus
+        Torvalds, der Initiator von Linux, die Sache selbst in die Hand.
+    </p>
+    <p>
+        Innerhalb weniger Wochen entwickelte Linus Torvalds den Kern von Git.
+        Seine Ziele waren nicht, ein benutzerfreundliches System zu schaffen,
+        sondern ein extrem schnelles und robustes Fundament. Die erste Version
+        war minimalistisch und bestand aus einfachen Kommandozeilen-Tools, die
+        aber bereits die Kernprinzipien von Git umsetzten.
+    </p>
+    <p>
+        Linus Torvalds' Hauptinteresse galt weiterhin dem Linux-Kernel. Nachdem
+        er das Fundament von Git gelegt hatte, übergab er das Projekt im Juli
+        2005 an Junio C Hamano, einen der frühen und wichtigsten Beitragenden.
+    </p>
+    <p>Unter Hamanos Leitung wurde Git zu dem, was wir heute kennen.</p>
+    <p>
+        Der eigentliche Durchbruch von Git in der breiten Masse kam mit dem
+        Aufstieg von Code-Hosting-Plattformen, auch "Forges" genannt.
+    </p>
+    <p>
+        Diese Plattformen erweitern die reine Versionskontrolle um entscheidende
+        Kollaborations-Features:
+    </p>
+    <ul>
+        <li>
+            GitHub (2008): Machte Git durch eine grafische Oberfläche zugänglich
+            und popularisierte den "Pull Request"-Workflow, der heute Standard
+            für Open-Source-Kollaboration ist.
+        </li>
+        <li>
+            GitLab (2011): Positionierte sich als "complete DevOps platform" und
+            bietet neben Code-Hosting auch integrierte CI/CD-Pipelines,
+            Issue-Tracking und mehr. GitLab ist sowohl als SaaS als auch als
+            Self-Hosted-Lösung sehr populär.
+        </li>
+        <li>
+            Gitea, Bitbucket etc.: Es gibt viele weitere Player. Gitea ist eine
+            beliebte, leichtgewichtige Self-Hosted-Alternative zu GitHub.
+        </li>
+    </ul>
+
+    <h2>Mehr als nur Git</h2>
+    <p>Sowohl vor, als auch nach Git, gibt es viele weitere VCSs.</p>
+    <ul>
+        <li>
+            <a href="https://subversion.apache.org/">Subversion</a> (SVN, 2000):
+            Zentralisiertes VCS von der Apache Software Foundation, das Verzeichnisse
+            und Dateien versioniert und als Nachfolger von CVS entwickelt wurde.
+            Wird kaum noch verwendet.
+        </li>
+        <li>
+            <a href="https://www.perforce.com/products/helix-core"
+                >Perforce Helix Core</a
+            > (1995): Kommerzielles, zentralisiertes VCS, das sich durch hohe Performance
+            in großen Mono-Repositories und feingranulare Zugriffs­kontrolle auszeichnet.
+            Wird viel für Videospiele verwendet.
+        </li>
+        <li>
+            <a href="https://www.mercurial-scm.org/">Mercurial</a> (2005): Verteilt
+            arbeitendes VCS in Python, legt Wert auf Einfachheit, Geschwindigkeit
+            und Konsistenz der Kommandozeilenoberfläche. Wird außer bei Meta kaum
+            noch verwendet.
+        </li>
+        <li>
+            <a href="https://fossil-scm.org/">Fossil</a> (2006): In C implementiertes,
+            integriertes System von D. Richard Hipp (SQLite-Autor) mit eingebautem
+            Bug-Tracker, Wiki und Web-Oberfläche in einem einzigen Programm. Das
+            gesamte Repository ist in einer SQLite-Datenbank gespeichert. Wird außer
+            für SQLite, kaum verwendet.
+        </li>
+        <li>
+            <a href="https://pijul.org/">Pijul</a> (2014): Experimentelles, verteiltes
+            VCS in Rust, basiert auf der Theorie der Patches und zielt auf einfachere
+            Merges und bessere formale Korrektheit ab. Wird kaum verwendet.
+        </li>
+        <li>
+            <a href="https://jj-vcs.github.io/jj/latest/">Jujutsu</a> (2021):Verteiltes,
+            Git-kompatibles VCS in Rust, initiiert von Martin von Zweigbergk (Google),
+            mit Fokus auf intuitivere Historienbearbeitung und erweiterte Merge-Strategien.
+            Wird aktiv in einigen Git Repositories verwendet. Genaue Nutzerzahlen
+            lassen sich aber aufgrund der Git-Kompatibilität schwer bestimmen.
+        </li>
+    </ul>
+</Layout>

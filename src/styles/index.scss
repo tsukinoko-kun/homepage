@@ -29,6 +29,7 @@ main {
         --color-inactive: 49 50 68; // Surface0
         --color-disabled: 147 153 178; // Overlay2
         --color-selection: 108 112 134; // Overlay0
+        --color-code-background: 17, 17, 27; // Crust
     }
 
     @media (prefers-color-scheme: light) {
@@ -41,15 +42,9 @@ main {
             --color-inactive: 204 208 218; // Surface0
             --color-disabled: 124 127 147; // Overlay2
             --color-selection: 156 160 176; // Overlay0
+            --color-code-background: 220, 224, 232; // Crust
         }
     }
-}
-
-body {
-    font-family:
-        "Monolisa", "Gintronic", "Dank Mono", "PragmataPro", "JetBrains Mono",
-        "Cascadia Code", "Source Code Pro", "Fira Code", "DejaVu Sans Mono",
-        "Hack", "Anonymous Pro", "Ubuntu Mono", monospace !important;
 }
 
 body,
@@ -106,17 +101,28 @@ body::before {
 }
 
 .blog {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
+    font-family: sans-serif;
+
+    h2 {
+        @apply text-4xl surround-h2;
+    }
+    h3 {
+        @apply text-3xl surround-h3;
+    }
+    h4 {
+        @apply text-2xl surround-h4;
+    }
+    h5 {
+        @apply text-xl surround-h5;
+    }
     h6 {
-        @apply mb-4;
+        @apply text-lg surround-h6;
     }
 
-    p {
-        @apply mb-4 text-lg;
+    p,
+    ol,
+    ul {
+        @apply my-4 text-lg;
     }
 
     ul {
@@ -134,5 +140,11 @@ body::before {
 
     a[href] {
         @apply text-primary underline cursor-pointer;
+    }
+
+    code {
+        @apply text-foreground font-mono rounded-md px-1 py-0.5;
+        background-color: rgb(var(--color-code-background));
+        font-size: 0.9rem;
     }
 }

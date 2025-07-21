@@ -3,6 +3,7 @@
 $timing: 250ms;
 
 @mixin surround-with($name) {
+    @apply font-mono !important;
     &::before {
         content: "<#{$name}>";
         padding-bottom: 0.5rem;
@@ -13,6 +14,7 @@ $timing: 250ms;
     }
     &::before,
     &::after {
+        @apply font-mono !important;
         color: rgb(var(--color-secondary) / 100%);
         background-color: rgb(var(--color-background) / 100%);
         font-size: 0.75rem;
