@@ -108,6 +108,27 @@ const work: Array<Experience> = [
 
 const openSource: Array<Experience> = [
     {
+        from: "06/2025",
+        to: "06/2025",
+        title: "Fixed Go bindings for multiple third-party language parsers",
+        company: "TreeSitter",
+        companyUrl: "https://tree-sitter.github.io/",
+    },
+    {
+        from: "04/2025",
+        to: "04/2025",
+        title: "hhn-c",
+        company: "A Heil",
+        companyUrl: "https://github.com/aheil/hhn-c",
+    },
+    {
+        from: "03/2025",
+        to: "03/2025",
+        title: "typst-plotting",
+        company: "Chayraaa",
+        companyUrl: "https://github.com/Chayraaa/typst-plotting",
+    },
+    {
         from: "07/2023",
         to: "07/2023",
         title: "node-client",
@@ -126,7 +147,7 @@ const openSource: Array<Experience> = [
 const education: Array<Experience> = [
     {
         from: "09/2022",
-        to: "in progress",
+        to: "08/2025",
         title: "Bachelor of Science (Software Engineering)",
         company: "Heilbronn University",
         companyUrl: "https://www.hs-heilbronn.de/",
@@ -219,7 +240,9 @@ const experience = [
                                     <div class="md:flex-1">
                                         {exp.to === "in progress"
                                             ? `${exp.from} to present`
-                                            : `${exp.from} through ${exp.to}`}
+                                            : exp.to === exp.from
+                                              ? exp.to
+                                              : `${exp.from} through ${exp.to}`}
                                     </div>
                                 </div>
                             </li>
