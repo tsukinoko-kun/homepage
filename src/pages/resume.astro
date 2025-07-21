@@ -40,6 +40,15 @@ function compareDateString(a: string, b: string) {
 const work: Array<Experience> = [
     {
         from: "03/2025",
+        to: "07/2025",
+        title: "Software Engineer",
+        description:
+            "System architecture, development of a monitoring and debugging system, tools integration",
+        company: "A. Leistenschneider GmbH",
+        companyUrl: "https://www.foto-leistenschneider.de/",
+    },
+    {
+        from: "03/2025",
         to: "in progress",
         title: "Founder",
         description: "Project management, development, supervision of interns",
@@ -208,7 +217,7 @@ const experience = [
                                         )}{" "}
                                     </div>
                                     <div class="md:flex-1">
-                                        {exp.from} - {exp.to}
+                                        {exp.from} through {exp.to}
                                     </div>
                                 </div>
                             </li>
