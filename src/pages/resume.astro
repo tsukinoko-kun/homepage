@@ -217,7 +217,9 @@ const experience = [
                                         )}{" "}
                                     </div>
                                     <div class="md:flex-1">
-                                        {exp.from} through {exp.to}
+                                        {exp.to === "in progress"
+                                            ? `${exp.from} to present`
+                                            : `${exp.from} through ${exp.to}`}
                                     </div>
                                 </div>
                             </li>
