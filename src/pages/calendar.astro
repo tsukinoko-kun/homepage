@@ -18,7 +18,9 @@ import {
 import ICAL from "ical.js";
 
 // Your calendar URIs
-const calendarUris = (process.env.CALENDAR_URIS || "").split(",");
+const calendarUris = (
+    (process.env.CALENDAR_URIS || "").split(",") as string[]
+).filter(Boolean);
 
 // Helper function to fetch calendar data
 async function fetchCalendarData(uri: string) {

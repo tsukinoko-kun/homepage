@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
     format,
     startOfMonth,
@@ -10,6 +10,7 @@ import {
     isToday,
     isPast,
 } from "date-fns";
+import { twMerge } from "tailwind-merge";
 
 interface AvailabilityData {
     availability: {
@@ -36,7 +37,20 @@ const AvailabilityCalendar: React.FC<Props> = ({ data }) => {
     const [currentMonth, setCurrentMonth] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
-    const [requiredDuration, setRequiredDuration] = useState(60); // minutes
+    const [requiredDuration, setRequiredDuration] = useState(60);
+
+    // Set duration from URL query parameter on mount
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const durationParam = urlParams.get('duration');
+        if (durationParam) {
+            const duration = parseInt(durationParam, 10);
+            const allowedDurations = [30, 60, 90, 120, 150, 180, 240];
+            if (allowedDurations.includes(duration)) {
+                setRequiredDuration(duration);
+            }
+        }
+    }, []);
 
     const monthKey = format(currentMonth, "yyyy-MM");
     const monthData = data.availability[monthKey] || {};
@@ -262,34 +276,30 @@ const AvailabilityCalendar: React.FC<Props> = ({ data }) => {
                                             handleDateClick(day)
                                         }
                                         disabled={!hasAvailability || isPastDay}
-                                        className={`
-                      p-3 rounded-lg text-sm font-medium transition-colors
-                      ${
-                          hasAvailability && !isPastDay
-                              ? "hover:bg-ctp-surface2 cursor-pointer"
-                              : "cursor-not-allowed"
-                      }
-                      ${
-                          isSelected
-                              ? "bg-ctp-mauve text-white hover:bg-ctp-mauve/75"
-                              : ""
-                      }
-                      ${isToday(day) ? "ring-2 ring-ctp-mauve" : ""}
-                      ${hasEvents && !isSelected ? "bg-ctp-surface1 text-ctp-yellow" : ""}
-                      ${
-                          hasAvailability &&
-                          !isPastDay &&
-                          !isSelected &&
-                          !hasEvents
-                              ? "bg-ctp-surface1 text-ctp-green"
-                              : ""
-                      }
-                      ${
-                          (!hasAvailability && !hasEvents) || isPastDay
-                              ? "bg-ctp-surface1 text-ctp-maroon"
-                              : ""
-                      }
-                    `}
+                                        className={twMerge(
+                                            "p-3 rounded-lg text-sm font-medium transition-colors bg-ctp-surface1",
+                                            isToday(day)
+                                                ? "ring-2 ring-ctp-mauve"
+                                                : "",
+                                            hasAvailability &&
+                                                !isPastDay &&
+                                                hasEvents &&
+                                                !isSelected
+                                                ? "text-ctp-yellow"
+                                                : "",
+                                            hasAvailability &&
+                                                !isPastDay &&
+                                                !hasEvents &&
+                                                !isSelected
+                                                ? "text-ctp-green"
+                                                : "",
+                                            hasAvailability && !isPastDay
+                                                ? "hover:bg-ctp-surface2 cursor-pointer"
+                                                : "cursor-not-allowed text-ctp-red",
+                                            isSelected
+                                                ? "bg-ctp-mauve text-ctp-crust hover:bg-ctp-mauve/75"
+                                                : "",
+                                        )}
                                     >
                                         {format(day, "d")}
                                     </button>
