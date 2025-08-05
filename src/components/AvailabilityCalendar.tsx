@@ -20,6 +20,11 @@ interface AvailabilityData {
             }>;
         };
     };
+    events: {
+        [month: string]: {
+            [date: string]: number;
+        };
+    };
     timezone: string;
 }
 
@@ -35,6 +40,7 @@ const AvailabilityCalendar: React.FC<Props> = ({ data }) => {
 
     const monthKey = format(currentMonth, "yyyy-MM");
     const monthData = data.availability[monthKey] || {};
+    const monthEvents = data.events[monthKey] || {};
 
     // Helper function to find consecutive available slots
     const findConsecutiveSlots = (
@@ -241,6 +247,8 @@ const AvailabilityCalendar: React.FC<Props> = ({ data }) => {
                                 const hasAvailability =
                                     (filteredMonthData[dayKey]?.length ?? 0) >
                                     0;
+                                const hasEvents =
+                                    (monthEvents[dayKey] ?? 0) > 0;
                                 const isSelected =
                                     selectedDate &&
                                     isSameDay(day, selectedDate);
@@ -267,13 +275,17 @@ const AvailabilityCalendar: React.FC<Props> = ({ data }) => {
                               : ""
                       }
                       ${isToday(day) ? "ring-2 ring-ctp-mauve" : ""}
+                      ${hasEvents && !isSelected ? "bg-ctp-surface1 text-ctp-yellow" : ""}
                       ${
-                          hasAvailability && !isPastDay && !isSelected
+                          hasAvailability &&
+                          !isPastDay &&
+                          !isSelected &&
+                          !hasEvents
                               ? "bg-ctp-surface1 text-ctp-green"
                               : ""
                       }
                       ${
-                          !hasAvailability || isPastDay
+                          (!hasAvailability && !hasEvents) || isPastDay
                               ? "bg-ctp-surface1 text-ctp-maroon"
                               : ""
                       }
@@ -287,10 +299,14 @@ const AvailabilityCalendar: React.FC<Props> = ({ data }) => {
                     </div>
 
                     <div className="mt-4 text-sm">
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 flex-wrap">
                             <div className="flex items-center gap-2">
                                 <div className="w-4 h-4 bg-ctp-green/75 border border-ctp-green rounded" />
                                 <span>Available</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="w-4 h-4 bg-ctp-yellow/75 border border-ctp-yellow rounded" />
+                                <span>Partially Available</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <div className="w-4 h-4 bg-ctp-maroon/75 border border-ctp-maroon rounded" />

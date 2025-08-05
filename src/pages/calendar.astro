@@ -191,9 +191,41 @@ while (currentMonth <= threeMonthsLater) {
     currentMonth = addMonths(currentMonth, 1);
 }
 
+// Create events data by day for the client
+const eventsData = {};
+let eventMonth = startOfMonth(now);
+while (eventMonth <= threeMonthsLater) {
+    const monthEnd = endOfMonth(eventMonth);
+    const monthKey = format(eventMonth, "yyyy-MM");
+    const monthEvents = {};
+
+    const days = eachDayOfInterval({
+        start: eventMonth,
+        end: monthEnd,
+    });
+
+    for (const day of days) {
+        const dayKey = format(day, "yyyy-MM-dd");
+        const dayStart = startOfDay(day);
+        const dayEnd = endOfDay(day);
+
+        const dayEvents = relevantEvents.filter((event) => {
+            return event.start < dayEnd && event.end > dayStart;
+        });
+
+        if (dayEvents.length > 0) {
+            monthEvents[dayKey] = dayEvents.length;
+        }
+    }
+
+    eventsData[monthKey] = monthEvents;
+    eventMonth = addMonths(eventMonth, 1);
+}
+
 // Pass only the processed availability data to the client
 const clientData = {
     availability: availabilityData,
+    events: eventsData,
     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
 };
 ---
