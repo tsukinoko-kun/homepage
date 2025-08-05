@@ -1,0 +1,204 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import AvailabilityCalendar from "../components/AvailabilityCalendar";
+import {
+    startOfDay,
+    endOfDay,
+    addMonths,
+    eachDayOfInterval,
+    format,
+    setHours,
+    addMinutes,
+    isWithinInterval,
+    parseISO,
+    startOfMonth,
+    endOfMonth,
+} from "date-fns";
+import ICAL from "ical.js";
+
+// Your calendar URIs
+const calendarUris = (process.env.CALENDAR_URIS || "").split(",");
+
+// Helper function to fetch calendar data
+async function fetchCalendarData(uri: string) {
+    try {
+        // Convert webcal to https
+        const httpsUri = uri.replace("webcal://", "https://");
+        const response = await fetch(httpsUri);
+        const icsData = await response.text();
+        return icsData;
+    } catch (error) {
+        console.error(`Failed to fetch calendar: ${uri}`, error);
+        return null;
+    }
+}
+
+// Parse ICS data and extract events (including recurring instances)
+function parseEvents(icsData: string, startRange: Date, endRange: Date) {
+    const jcalData = ICAL.parse(icsData);
+    const comp = new ICAL.Component(jcalData);
+    const vevents = comp.getAllSubcomponents("vevent");
+
+    const allEvents = [];
+
+    vevents.forEach((vevent) => {
+        const event = new ICAL.Event(vevent);
+
+        if (event.isRecurring()) {
+            // For recurring events, expand all instances within our range
+            const iterator = event.iterator();
+            let next;
+
+            while ((next = iterator.next())) {
+                const instanceStart = next.toJSDate();
+                const instanceEnd = new Date(
+                    instanceStart.getTime() +
+                        (event.endDate.toJSDate() - event.startDate.toJSDate()),
+                );
+
+                // Only include instances that overlap with our range
+                if (instanceEnd >= startRange && instanceStart <= endRange) {
+                    allEvents.push({
+                        start: instanceStart,
+                        end: instanceEnd,
+                    });
+                }
+
+                // Stop if we've gone past our end range
+                if (instanceStart > endRange) {
+                    break;
+                }
+            }
+        } else {
+            // Single event
+            allEvents.push({
+                start: event.startDate.toJSDate(),
+                end: event.endDate.toJSDate(),
+            });
+        }
+    });
+
+    return allEvents;
+}
+
+// Generate time slots for a day (30-minute intervals)
+function generateDaySlots(date: Date) {
+    const slots = [];
+    const dayStart = setHours(startOfDay(date), 10); // 10am start
+    const dayEnd = setHours(startOfDay(date), 22); // 10pm end same day
+
+    let current = dayStart;
+    while (current < dayEnd) {
+        slots.push({
+            start: current,
+            end: addMinutes(current, 30),
+        });
+        current = addMinutes(current, 30);
+    }
+
+    return slots;
+}
+
+// Check if a slot overlaps with any busy period
+function isSlotAvailable(slot: any, busyPeriods: any[]) {
+    return !busyPeriods.some(
+        (busy) =>
+            isWithinInterval(slot.start, {
+                start: busy.start,
+                end: busy.end,
+            }) ||
+            isWithinInterval(slot.end, { start: busy.start, end: busy.end }) ||
+            isWithinInterval(busy.start, { start: slot.start, end: slot.end }),
+    );
+}
+
+// Main logic to generate availability data
+const now = new Date();
+const threeMonthsLater = addMonths(now, 3);
+
+// Fetch all calendar data
+const allEvents = [];
+for (const uri of calendarUris) {
+    const icsData = await fetchCalendarData(uri);
+    if (icsData) {
+        const events = parseEvents(icsData, now, threeMonthsLater);
+        allEvents.push(...events);
+    }
+}
+
+// Filter events within our time range
+// An event is relevant if it starts OR ends within our range,
+// OR if it spans across our range
+const relevantEvents = allEvents.filter((event) => {
+    const eventStart = event.start;
+    const eventEnd = event.end;
+
+    // Check if event overlaps with our time range in any way
+    return (
+        // Event starts within range
+        (eventStart >= now && eventStart <= threeMonthsLater) ||
+        // Event ends within range
+        (eventEnd >= now && eventEnd <= threeMonthsLater) ||
+        // Event spans the entire range
+        (eventStart <= now && eventEnd >= threeMonthsLater)
+    );
+});
+
+// Generate availability data by month
+const availabilityData = {};
+
+// Process each month
+let currentMonth = startOfMonth(now);
+while (currentMonth <= threeMonthsLater) {
+    const monthEnd = endOfMonth(currentMonth);
+    const monthKey = format(currentMonth, "yyyy-MM");
+    const monthAvailability = {};
+
+    // Process each day in the month
+    const days = eachDayOfInterval({
+        start: currentMonth,
+        end: monthEnd,
+    });
+
+    for (const day of days) {
+        const dayKey = format(day, "yyyy-MM-dd");
+        const daySlots = generateDaySlots(day);
+
+        // Find busy periods for this day
+        const dayStart = startOfDay(day);
+        const dayEnd = endOfDay(day);
+        const dayBusyPeriods = relevantEvents.filter((event) => {
+            // Event overlaps with this day if:
+            // 1. Event starts before day ends AND event ends after day starts
+            return event.start < dayEnd && event.end > dayStart;
+        });
+
+        // Check availability for each slot
+        const availableSlots = daySlots
+            .filter((slot) => isSlotAvailable(slot, dayBusyPeriods))
+            .map((slot) => ({
+                start: format(slot.start, "HH:mm"),
+                end: format(slot.end, "HH:mm"),
+            }));
+
+        if (availableSlots.length > 0) {
+            monthAvailability[dayKey] = availableSlots;
+        }
+    }
+
+    availabilityData[monthKey] = monthAvailability;
+    currentMonth = addMonths(currentMonth, 1);
+}
+
+// Pass only the processed availability data to the client
+const clientData = {
+    availability: availabilityData,
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+};
+---
+
+<Layout title="Calendar" desc="Want to know when I'm available?">
+    <h1 class="text-5xl font-semibold tracking-tight surround-h1">Calendar</h1>
+    <AvailabilityCalendar client:load data={clientData} />
+</Layout>
