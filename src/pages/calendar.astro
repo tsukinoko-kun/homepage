@@ -120,7 +120,7 @@ function isSlotAvailable(slot: any, busyPeriods: any[]) {
 
 // Main logic to generate availability data
 const now = new Date();
-const threeMonthsLater = addMonths(now, 3);
+const threeMonthsLater = endOfMonth(addMonths(now, 3));
 
 // Fetch all calendar data
 const allEvents = [];
