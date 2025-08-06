@@ -15,6 +15,7 @@ import {
     startOfMonth,
     endOfMonth,
 } from "date-fns";
+import { fromZonedTime } from "date-fns-tz";
 import ICAL from "ical.js";
 
 // Your calendar URIs
@@ -87,8 +88,10 @@ function parseEvents(icsData: string, startRange: Date, endRange: Date) {
 // Generate time slots for a day (30-minute intervals)
 function generateDaySlots(date: Date) {
     const slots = [];
-    const dayStart = setHours(startOfDay(date), 10); // 10am start
-    const dayEnd = setHours(startOfDay(date), 22); // 10pm end same day
+    // Create 10:00 and 22:00 in CET timezone, then convert to UTC for processing
+    const cetTimezone = "Europe/Berlin"; // CET/CEST
+    const dayStart = fromZonedTime(setHours(startOfDay(date), 10), cetTimezone); // 10am CET
+    const dayEnd = fromZonedTime(setHours(startOfDay(date), 22), cetTimezone); // 10pm CET
 
     let current = dayStart;
     while (current < dayEnd) {
@@ -106,12 +109,12 @@ function generateDaySlots(date: Date) {
 function isSlotAvailable(slot: any, busyPeriods: any[]) {
     return !busyPeriods.some(
         (busy) =>
-            isWithinInterval(slot.start, {
-                start: busy.start,
-                end: busy.end,
-            }) ||
-            isWithinInterval(slot.end, { start: busy.start, end: busy.end }) ||
-            isWithinInterval(busy.start, { start: slot.start, end: slot.end }),
+            // Slot start is within busy period (exclusive of end)
+            (slot.start >= busy.start && slot.start < busy.end) ||
+            // Slot end is within busy period (exclusive of start)
+            (slot.end > busy.start && slot.end <= busy.end) ||
+            // Slot completely contains the busy period
+            (slot.start <= busy.start && slot.end >= busy.end),
     );
 }
 
