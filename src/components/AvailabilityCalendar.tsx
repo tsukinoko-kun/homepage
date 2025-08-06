@@ -9,7 +9,11 @@ import {
     isSameDay,
     isToday,
     isPast,
+    parseISO,
+    addDays,
+    subDays,
 } from "date-fns";
+import { formatInTimeZone, zonedTimeToUtc, utcToZonedTime } from "date-fns-tz";
 import { twMerge } from "tailwind-merge";
 
 interface AvailabilityData {
@@ -38,6 +42,9 @@ const AvailabilityCalendar: React.FC<Props> = ({ data }) => {
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
     const [requiredDuration, setRequiredDuration] = useState(60);
+    
+    // Get user's timezone
+    const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     // Set duration from URL query parameter on mount
     useEffect(() => {
@@ -52,9 +59,105 @@ const AvailabilityCalendar: React.FC<Props> = ({ data }) => {
         }
     }, []);
 
+    // Convert availability data from server timezone to user timezone
+    const convertedAvailabilityData = useMemo(() => {
+        const converted: typeof data.availability = {};
+        
+        Object.entries(data.availability).forEach(([monthKey, monthData]) => {
+            const convertedMonth: typeof monthData = {};
+            
+            Object.entries(monthData).forEach(([dateKey, slots]) => {
+                const convertedSlots: Array<{ start: string; end: string }> = [];
+                
+                slots.forEach(slot => {
+                    // Parse the date and time in server timezone
+                    const slotStartDateTime = parseISO(`${dateKey}T${slot.start}:00`);
+                    const slotEndDateTime = parseISO(`${dateKey}T${slot.end}:00`);
+                    
+                    // Convert from server timezone to user timezone
+                    const userStartTime = utcToZonedTime(
+                        zonedTimeToUtc(slotStartDateTime, data.timezone),
+                        userTimezone
+                    );
+                    const userEndTime = utcToZonedTime(
+                        zonedTimeToUtc(slotEndDateTime, data.timezone),
+                        userTimezone
+                    );
+                    
+                    // Format times in user timezone
+                    const userStartTimeStr = formatInTimeZone(userStartTime, userTimezone, 'HH:mm');
+                    const userEndTimeStr = formatInTimeZone(userEndTime, userTimezone, 'HH:mm');
+                    
+                    // Check if the slot moved to a different day
+                    const userStartDate = formatInTimeZone(userStartTime, userTimezone, 'yyyy-MM-dd');
+                    const userEndDate = formatInTimeZone(userEndTime, userTimezone, 'yyyy-MM-dd');
+                    
+                    // Add slot to the appropriate date(s)
+                    if (userStartDate === userEndDate) {
+                        // Slot stays within the same day
+                        if (!convertedMonth[userStartDate]) {
+                            convertedMonth[userStartDate] = [];
+                        }
+                        convertedMonth[userStartDate].push({
+                            start: userStartTimeStr,
+                            end: userEndTimeStr
+                        });
+                    } else {
+                        // Slot spans across days - split it
+                        if (!convertedMonth[userStartDate]) {
+                            convertedMonth[userStartDate] = [];
+                        }
+                        convertedMonth[userStartDate].push({
+                            start: userStartTimeStr,
+                            end: '23:59'
+                        });
+                        
+                        if (!convertedMonth[userEndDate]) {
+                            convertedMonth[userEndDate] = [];
+                        }
+                        convertedMonth[userEndDate].push({
+                            start: '00:00',
+                            end: userEndTimeStr
+                        });
+                    }
+                });
+            });
+            
+            converted[monthKey] = convertedMonth;
+        });
+        
+        return converted;
+    }, [data.availability, data.timezone, userTimezone]);
+
+    // Convert events data from server timezone to user timezone
+    const convertedEventsData = useMemo(() => {
+        const converted: typeof data.events = {};
+        
+        Object.entries(data.events).forEach(([monthKey, monthEvents]) => {
+            const convertedMonth: typeof monthEvents = {};
+            
+            Object.entries(monthEvents).forEach(([dateKey, eventCount]) => {
+                // For events, we need to check if they might have moved to adjacent days
+                // We'll distribute the events across the potential days they could appear in user timezone
+                const serverDate = parseISO(`${dateKey}T12:00:00`);
+                const userDate = utcToZonedTime(
+                    zonedTimeToUtc(serverDate, data.timezone),
+                    userTimezone
+                );
+                const userDateKey = formatInTimeZone(userDate, userTimezone, 'yyyy-MM-dd');
+                
+                convertedMonth[userDateKey] = (convertedMonth[userDateKey] ?? 0) + eventCount;
+            });
+            
+            converted[monthKey] = convertedMonth;
+        });
+        
+        return converted;
+    }, [data.events, data.timezone, userTimezone]);
+
     const monthKey = format(currentMonth, "yyyy-MM");
-    const monthData = data.availability[monthKey] || {};
-    const monthEvents = data.events[monthKey] || {};
+    const monthData = convertedAvailabilityData[monthKey] ?? {};
+    const monthEvents = convertedEventsData[monthKey] ?? {};
 
     // Helper function to find consecutive available slots
     const findConsecutiveSlots = (
@@ -153,7 +256,7 @@ const AvailabilityCalendar: React.FC<Props> = ({ data }) => {
         ? format(selectedDate, "yyyy-MM-dd")
         : null;
     const selectedDateSlots = selectedDateKey
-        ? filteredMonthData[selectedDateKey] || []
+        ? filteredMonthData[selectedDateKey] ?? []
         : [];
 
     return (
@@ -374,7 +477,7 @@ const AvailabilityCalendar: React.FC<Props> = ({ data }) => {
                                         {selectedSlot}
                                     </p>
                                     <p className="text-xs mt-1">
-                                        Timezone: {data.timezone}
+                                        Timezone: {userTimezone}
                                     </p>
                                 </div>
                             )}
