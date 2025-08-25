@@ -9,6 +9,12 @@ import Mermaid from "../../components/Mermaid.astro";
     </h1>
     <p>Git und co.</p>
 
+    <p class="my-8">
+        <a href="/blog/version_control_system_en"
+            >English version (translated by Gemini 2.5 Pro)</a
+        >
+    </p>
+
     <h2>Der Ursprung von Git</h2>
     <p>
         Das Linux-Kernel-Projekt, eines der größten Open-Source-Projekte der
@@ -146,7 +152,6 @@ import Mermaid from "../../components/Mermaid.astro";
         sparen.
     </p>
     <Mermaid
-        class=""
         diagram={`erDiagram
     COMMIT }o--o{ FILE : ""
     FILE }o--|| CONTENT : ""
