@@ -1,0 +1,68 @@
+---
+import { twMerge } from "tailwind-merge";
+import { createMermaidRenderer } from "mermaid-isomorphic";
+
+const renderer = createMermaidRenderer();
+
+export interface Props {
+    diagram?: string;
+    class?: string;
+}
+
+const diagram =
+    Astro.props?.diagram ??
+    `
+  graph TD
+  A-->B
+  B-->C
+`;
+
+const res = await renderer([diagram], {
+    mermaidConfig: {
+        theme: "dark",
+        themeVariables: {
+            darkMode: true,
+            lineColor: "#cdd6f4",
+            textColor: "#cdd6f4",
+            primaryTextColor: "#cdd6f4",
+            primaryBorderColor: "#6c7086",
+            background: "#11111b",
+            mainBkg: "#11111b",
+            git0: "#cba6f7",
+            git1: "#f5e0dc",
+            primaryColor: "#cba6f7",
+            gitBranchLabel0: "#11111b",
+            gitBranchLabel1: "#11111b",
+            commitLabelColor: "white",
+            commitLabelBackground: "black",
+        },
+        look: "classic",
+    },
+});
+---
+
+{
+    res.map((x) =>
+        x.status === "fulfilled" ? (
+            <div
+                class={twMerge(
+                    "mermaid-diagram max-h-[50dvh] bg-[#11111b] grid place-items-center",
+                    Astro.props.class,
+                )}
+                set:html={x.value.svg}
+                style={`aspect-ratio: ${x.value.width}/${x.value.height}`}
+            />
+        ) : (
+            <div
+                class={twMerge(
+                    "bg-ctp-crust p-4 rounded-md overflow-auto",
+                    Astro.props.class,
+                )}
+            >
+                <b class="font-bold text-xl">{x.reason.name}</b>
+                <p class="text-ctp-red whitespace-pre">{x.reason.message}</p>
+                <pre>{x.reason.stack}</pre>
+            </div>
+        ),
+    )
+}

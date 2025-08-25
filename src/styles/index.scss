@@ -122,7 +122,7 @@ body::before {
     p,
     ol,
     ul {
-        @apply my-4 text-lg;
+        @apply my-4;
     }
 
     ul {
@@ -146,5 +146,28 @@ body::before {
         @apply text-foreground font-mono rounded-md px-1 py-0.5;
         background-color: rgb(var(--color-code-background));
         font-size: 0.9rem;
+    }
+
+    .mermaid-diagram {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mermaid-diagram svg {
+        overflow: visible;
+        font-size: unset !important;
+        font-family: unset !important;
+    }
+
+    .mermaid-diagram svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        display: block;
     }
 }

@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Mermaid from "../../components/Mermaid.astro";
 ---
 
 <Layout title="Version Control System" desc="Git und co." class="blog">
@@ -117,4 +118,72 @@ import Layout from "../../layouts/Layout.astro";
             lassen sich aber aufgrund der Git-Kompatibilität schwer bestimmen.
         </li>
     </ul>
+
+    <h2>Änderungen</h2>
+    <p>
+        Viele glauben, dass Git nur die Änderungen von einem Commit zum nächsten
+        speichert. Das macht fast kein VCS, weil es ineffizient ist.
+    </p>
+    <p>
+        Die meisten VCSs speichern Snapshots. Das ist eine Liste von allen
+        Dateien, die in einem Commit enthalten sind. Eine Datei in Git hat einen
+        Namen (Pfad), eine executable Flag und einen Inhalt. Es werden also in
+        jedem Commit alle Dateien gespeichert, nicht nur die, die sich verändert
+        haben. Zudem ist es egal wie viel sich an einer Datei geändert hat, sie
+        wird vollständig, neu gespeichert.
+    </p>
+    <p>
+        Dabei gibt es aber eine wichtige Optimierung: Es kommt ständig vor, dass
+        ein Dateiinhalt mehrmals auftritt. Wenn sich eine Datei durch einen
+        Commit nicht ändert, muss auch nicht der komplette Inhalt ein zweites
+        mal gespeichert werden. Genauso, wenn zwei Dateien denselben Inhalt
+        haben, muss dieser nur einmal gespeichert werden.
+    </p>
+    <p>
+        Das lässt sich mit PNPM vergleichen, dass NPM-Pakete zetral ablegt und
+        per Symlink im <code>node_modules</code>-Verzeichnis referenziert,
+        anstatt sie dorthin zu kopieren, (unter anderem) um Speicherplatz zu
+        sparen.
+    </p>
+    <Mermaid
+        class=""
+        diagram={`erDiagram
+    COMMIT }o--o{ FILE : ""
+    FILE }o--|| CONTENT : ""
+    `}
+    />
+
+    <h2>Merge</h2>
+    <p>
+        Wenn zwei Commits zusammengeführt werden, muss das VCS einen
+        Three-Way-Merge durchführen. Dabei wird die Commit-Historie als DAC
+        (Directed Acyclic Graph) betrachtet. In einem DAC ist es einfach, den
+        LCA (Lowest Common Ancestor) zu finden. Das ist der Commit, der ein
+        Parent der beiden zusammenzuführenden Commits ist, der am tiefsten im
+        DAC liegt, also am weitesten vom initial-Commit entfernt ist.
+    </p>
+    <p>
+        Das klingt kompliziert. Grafisch dargestellt sieht es aber ganz einfach
+        aus:
+    </p>
+    <Mermaid
+        diagram={`gitGraph
+    commit id: "initial commit"
+    commit id: "LCA"
+    branch feature-1
+    checkout main
+    commit id: "A"
+    checkout feature-1
+    commit id: "B"
+    checkout main
+    commit id: "C"
+    merge feature-1 id: "B+C merge"
+   `}
+    />
+    <p>
+        Wenn die Commits B und C zusammengeführt werden sollen, benötigt es eine
+        gemeinsame Basis, mit der die Änderungen der beiden Commits miteinander
+        verglichen werden können. Diese gemeinsame Basis ist der neueste Commit,
+        der ein Parent von B und C ist (der LCA).
+    </p>
 </Layout>
