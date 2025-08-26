@@ -14,10 +14,10 @@
     },
     "dependencies": {
         "@astrojs/react": "^4.3.0",
-        "@astrojs/tailwind": "^5.1.5",
+        "@astrojs/tailwind": "^6.0.2",
         "@types/react": "^19.1.9",
         "@types/react-dom": "^19.1.7",
-        "astro": "^4.16.18",
+        "astro": "^5.13.3",
         "chart.js": "^4.5.0",
         "date-fns": "^4.1.0",
         "date-fns-tz": "^3.2.0",
