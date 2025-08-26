@@ -1,0 +1,93 @@
+@use "theme";
+@use "sass:color";
+
+.blog {
+    font-family: sans-serif;
+
+    h1 {
+        @apply text-5xl font-semibold tracking-tight;
+    }
+
+    h2 {
+        @apply text-4xl;
+    }
+    h3 {
+        @apply text-3xl;
+    }
+    h4 {
+        @apply text-2xl;
+    }
+    h5 {
+        @apply text-xl;
+    }
+    h6 {
+        @apply text-lg;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-balance;
+    }
+
+    p,
+    ol,
+    ul {
+        @apply my-4 text-pretty;
+    }
+
+    ul {
+        @apply list-disc;
+    }
+
+    ol {
+        @apply list-decimal;
+    }
+
+    ol > li,
+    ul > li {
+        @apply ml-4;
+    }
+
+    a[href] {
+        @apply text-primary underline cursor-pointer;
+    }
+
+    code {
+        @apply text-foreground font-mono rounded-md px-1 py-0.5;
+        background-color: rgb(var(--color-code-background));
+        font-size: 0.9rem;
+    }
+
+    .mermaid-diagram {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mermaid-diagram svg {
+        overflow: visible;
+        font-size: unset !important;
+        font-family: unset !important;
+    }
+
+    .mermaid-diagram svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        display: block;
+    }
+
+    figcaption {
+        margin-top: 0.5rem;
+        font-size: 0.5rem;
+        line-height: 0.75rem;
+    }
+}

@@ -101,73 +101,23 @@ body::before {
 }
 
 .blog {
-    font-family: sans-serif;
+    h1 {
+        @apply surround-h1;
+    }
 
     h2 {
-        @apply text-4xl surround-h2;
+        @apply surround-h2;
     }
     h3 {
-        @apply text-3xl surround-h3;
+        @apply surround-h3;
     }
     h4 {
-        @apply text-2xl surround-h4;
+        @apply surround-h4;
     }
     h5 {
-        @apply text-xl surround-h5;
+        @apply surround-h5;
     }
     h6 {
-        @apply text-lg surround-h6;
-    }
-
-    p,
-    ol,
-    ul {
-        @apply my-4;
-    }
-
-    ul {
-        @apply list-disc;
-    }
-
-    ol {
-        @apply list-decimal;
-    }
-
-    ol > li,
-    ul > li {
-        @apply ml-4;
-    }
-
-    a[href] {
-        @apply text-primary underline cursor-pointer;
-    }
-
-    code {
-        @apply text-foreground font-mono rounded-md px-1 py-0.5;
-        background-color: rgb(var(--color-code-background));
-        font-size: 0.9rem;
-    }
-
-    .mermaid-diagram {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .mermaid-diagram svg {
-        overflow: visible;
-        font-size: unset !important;
-        font-family: unset !important;
-    }
-
-    .mermaid-diagram svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        display: block;
+        @apply surround-h6;
     }
 }
