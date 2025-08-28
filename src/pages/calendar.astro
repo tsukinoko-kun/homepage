@@ -41,8 +41,20 @@ async function fetchCalendarData(uri: string) {
 function parseEvents(icsData: string, startRange: Date, endRange: Date) {
     const jcalData = ICAL.parse(icsData);
     const comp = new ICAL.Component(jcalData);
-    const vevents = comp.getAllSubcomponents("vevent");
 
+    // Get the timezone components from the calendar
+    const vtimezones = comp.getAllSubcomponents("vtimezone");
+    const timezones = {};
+
+    vtimezones.forEach((vtimezone) => {
+        const tzid = vtimezone.getFirstPropertyValue("tzid");
+        if (tzid) {
+            timezones[tzid] = new ICAL.Timezone(vtimezone);
+            // Don't register globally - it causes conflicts with ICAL.js's built-in handling
+        }
+    });
+
+    const vevents = comp.getAllSubcomponents("vevent");
     const allEvents = [];
 
     vevents.forEach((vevent) => {
@@ -53,12 +65,34 @@ function parseEvents(icsData: string, startRange: Date, endRange: Date) {
             const iterator = event.iterator();
             let next;
 
+            // Check if we need manual timezone handling
+            const needsManualTz =
+                Object.keys(timezones).length > 0 &&
+                event.startDate?.zone?.tzid &&
+                event.startDate.zone.tzid !== "floating";
+
             while ((next = iterator.next())) {
-                const instanceStart = next.toJSDate();
-                const instanceEnd = new Date(
-                    instanceStart.getTime() +
-                        (event.endDate.toJSDate() - event.startDate.toJSDate()),
-                );
+                let instanceStart, instanceEnd;
+
+                if (needsManualTz) {
+                    // Manual timezone conversion for calendars with custom timezone definitions
+                    const instanceTimeStr = next.toString();
+                    instanceStart = fromZonedTime(
+                        parseISO(instanceTimeStr),
+                        "Europe/Berlin",
+                    );
+                    const duration =
+                        event.endDate.toJSDate().getTime() -
+                        event.startDate.toJSDate().getTime();
+                    instanceEnd = new Date(instanceStart.getTime() + duration);
+                } else {
+                    // Use ICAL.js default handling
+                    instanceStart = next.toJSDate();
+                    const duration =
+                        event.endDate.toJSDate().getTime() -
+                        event.startDate.toJSDate().getTime();
+                    instanceEnd = new Date(instanceStart.getTime() + duration);
+                }
 
                 // Only include instances that overlap with our range
                 if (instanceEnd >= startRange && instanceStart <= endRange) {
@@ -75,9 +109,38 @@ function parseEvents(icsData: string, startRange: Date, endRange: Date) {
             }
         } else {
             // Single event
+            // Check if this is a timezone that ICAL.js might not handle correctly
+            const startTzid = event.startDate?.zone?.tzid;
+            const endTzid = event.endDate?.zone?.tzid;
+
+            let startDate, endDate;
+
+            // If we have timezone definitions in this calendar and the event uses them,
+            // we need to handle the conversion manually because ICAL.js seems to fail
+            if (
+                Object.keys(timezones).length > 0 &&
+                startTzid &&
+                startTzid !== "floating"
+            ) {
+                // The event time is in the specified timezone
+                // We need to convert it properly to UTC
+                const startTimeStr = event.startDate.toString(); // e.g., "2025-08-20T11:00:00"
+                const endTimeStr = event.endDate.toString();
+
+                // Parse as Europe/Berlin time and convert to UTC
+                // Since both Europe/Berlin and Europe/Zurich are CET/CEST, we can use Europe/Berlin
+                const timezone = "Europe/Berlin";
+                startDate = fromZonedTime(parseISO(startTimeStr), timezone);
+                endDate = fromZonedTime(parseISO(endTimeStr), timezone);
+            } else {
+                // Use default ICAL.js conversion
+                startDate = event.startDate.toJSDate();
+                endDate = event.endDate.toJSDate();
+            }
+
             allEvents.push({
-                start: event.startDate.toJSDate(),
-                end: event.endDate.toJSDate(),
+                start: startDate,
+                end: endDate,
             });
         }
     });
@@ -88,10 +151,10 @@ function parseEvents(icsData: string, startRange: Date, endRange: Date) {
 // Generate time slots for a day (30-minute intervals)
 function generateDaySlots(date: Date) {
     const slots = [];
-    // Create 10:00 and 22:00 in CET timezone, then convert to UTC for processing
-    const cetTimezone = "Europe/Berlin"; // CET/CEST
-    const dayStart = fromZonedTime(setHours(startOfDay(date), 10), cetTimezone); // 10am CET
-    const dayEnd = fromZonedTime(setHours(startOfDay(date), 22), cetTimezone); // 10pm CET
+    // Generate slots from 10:00 to 22:00 in the date's context
+    // Since we're working in CET/CEST timezone, these times are already in the right zone
+    const dayStart = setHours(startOfDay(date), 10); // 10am
+    const dayEnd = setHours(startOfDay(date), 22); // 10pm
 
     let current = dayStart;
     while (current < dayEnd) {
@@ -231,7 +294,7 @@ while (eventMonth <= threeMonthsLater) {
 const clientData = {
     availability: availabilityData,
     events: eventsData,
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    timezone: "Europe/Berlin", // Server processes everything in CET/CEST
 };
 ---
 
