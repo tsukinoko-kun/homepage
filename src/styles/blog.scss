@@ -57,7 +57,7 @@
     }
 
     code {
-        @apply text-foreground font-mono rounded-md px-1 py-0.5;
+        @apply text-foreground font-mono rounded-md px-1 py-0.5 select-all;
         background-color: rgb(var(--color-code-background));
         font-size: 0.9rem;
     }

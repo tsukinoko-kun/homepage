@@ -2,6 +2,8 @@
 import Link from "../components/Link.astro";
 import Layout from "../layouts/Layout.astro";
 import RadarChart from "../components/RadarChart.astro";
+import { Markdown } from "@astropub/md";
+import "../styles/blog.scss";
 
 type Paper = {
     title: string;
@@ -73,6 +75,11 @@ const companies: Array<Company> = [
 
 const papers: Array<Paper> = [
     {
+        title: "Entwicklung und Evaluation einer Plattform für zugängliches Cloud-Gaming zur Bereitstellung von High-End-Spieledemos auf Low-End-Geräten",
+        link: "https://tsukinoko-kun.github.io/bachelor-thesis/",
+        release: 2025,
+    },
+    {
         title: "Wie wirkt sich die Verwendung von KI auf den Lernerfolg von Software-Engineering-Studenten aus?",
         link: "https://tsukinoko-kun.github.io/Frank_Mayer_KI_in_der_Lehre_2025/",
         release: 2025,
@@ -81,10 +88,27 @@ const papers: Array<Paper> = [
 
 const portfolio: Array<Project> = [
     {
+        name: "Pogo",
+        description:
+            "A centralized version control system that is simple and easy to use.\n\n" +
+            "- **🏠 Centralized Server:** A single source of truth for all your data.\n" +
+            "- **💻 Easy CLI Client:** No need for a complex GUI.\n" +
+            "- **🌐 Simple Web UI:** For easy viewing of your repositories.\n" +
+            "- **🔄 Cross-Platform Consistency:** Works the same on all major operating systems.\n" +
+            "- **📄 Text & Binary File Support:** Handles all file types with ease.\n" +
+            "- **💥 First-Class Conflicts:** Push conflicts to the remote and resolve them later.\n" +
+            "- **🌳 No Named Branches:** Create branches by adding multiple children to a change and merge them by creating a new change with multiple parents. Changes are automaticall named.\n" +
+            "- **🔖 Bookmarks:** Tag versions with bookmarks, like `main` for the current version or `v1.0.0` for a specific version. `main` is treated like a default branch in Git.\n" +
+            "- **📦 Go Module Support:** Import a Pogo repository as a Go module, no additional configuration or software required.\n" +
+            "- **🔒 Adaptive Security:** Automatically detects and uses HTTPS/TLS when available, gracefully falls back to HTTP when needed.\n",
+        link: "https://pogo-vcs.com/",
+        tech: ["go"],
+    },
+    {
         name: "Oh My Gosh",
         description:
-            "High-level interactive UNIX shell.\n" +
-            "Every command runs in a block. All blocks run in the background. The user can select a running block to write to it's stdin.\n" +
+            "High-level interactive UNIX shell.\n\n" +
+            "Every command runs in a block. All blocks run in the background. The user can select a running block to write to it's stdin.\n\n" +
             "I implemented a compiler for ANSI escape sequences to enable rendering apps that modify their output (like Docker, curl, etc.). I also implemented some OSC (Operating System Commands) to provide a better integration to the terminal. Apps that use alt-mode (like Vim) run in full-screen instead of a block because users will interact with them more.",
         link: "https://github.com/tsukinoko-kun/ohmygosh",
         tech: ["go"],
@@ -93,7 +117,7 @@ const portfolio: Array<Project> = [
     {
         name: "Mageanoid",
         description:
-            "Twin stick shooter game where you play as a mage fighting against hordes of skeletons.\n" +
+            "Twin stick shooter game where you play as a mage fighting against hordes of skeletons.\n\n" +
             "This was my first project with both Rust and the Bevy game engine. I wanted to try Rust and made this project in about a week.",
         link: "https://store.steampowered.com/app/3104840/Mageanoid",
         tech: ["rs", "bevy"],
@@ -102,7 +126,7 @@ const portfolio: Array<Project> = [
     {
         name: "mandelbaum.ai (dynabase Technologies GmbH)",
         description:
-            "AI based semantic search component for every e-commerce webshop. Content is automatically crawled and indexed. Search is powered by a vector database.\n" +
+            "AI based semantic search component for every e-commerce webshop. Content is automatically crawled and indexed. Search is powered by a vector database.\n\n" +
             "I worked here for four months and made the crawling process usable for very old websites that do not adhere to standards and have no machine-readable information.",
         link: "https://mandelbaum.ai/",
         tech: [
@@ -119,8 +143,8 @@ const portfolio: Array<Project> = [
     {
         name: "Bloodmage Engine",
         description:
-            "90s style 3D game engine built in Go using SDL2.\n" +
-            "I built a software renderer based on the algorithm used in Wolfenstein 3D and Doom. I also implemented texture streaming and a simple editor.\n" +
+            "90s style 3D game engine built in Go using SDL2.\n\n" +
+            "I built a software renderer based on the algorithm used in Wolfenstein 3D and Doom. I also implemented texture streaming and a simple editor.\n\n" +
             "This was a time-limited project (2 months) in a Bachelor's course.",
         link: "https://github.com/bloodmagesoftware/bloodmage-engine",
         tech: ["go", "sdl"],
@@ -171,7 +195,9 @@ const portfolio: Array<Project> = [
                             <b class="font-bold">{company.name}</b> (since{" "}
                             {company.since}
                             {company.until ? ` until ${company.until}` : ""})
-                            <p class="text-balance">{company.description}</p>
+                            <p class="blog">
+                                <Markdown of={company.description} />
+                            </p>
                         </Link>
                     </li>
                 ))
@@ -203,9 +229,9 @@ const portfolio: Array<Project> = [
                             <Link class="my-2 underline" href={prj.link} hover>
                                 Go to the project
                             </Link>
-                            {prj.description.split("\n").map((line) => (
-                                <p class="text-balance">{line}</p>
-                            ))}
+                            <div class="blog">
+                                <Markdown of={prj.description} />
+                            </div>
                             <div class="grid gap-2 w-full grid-cols-[auto_1fr]">
                                 <span class="block col-auto">
                                     {prj.tech.length > 1
@@ -232,7 +258,7 @@ const portfolio: Array<Project> = [
                                 <ul class="flex flex-row flex-wrap mt-2">
                                     {prj.video
                                         ? prj.video.map((v) => (
-                                              <li class="w-9/12 md:w-1/3 aspect-auto">
+                                              <li class="w-4/5 md:w-2/3 aspect-auto">
                                                   <video
                                                       autoplay
                                                       loop
@@ -254,7 +280,7 @@ const portfolio: Array<Project> = [
                                         : null}
                                     {prj.img
                                         ? prj.img.map((i) => (
-                                              <li class="w-9/12 md:w-1/3 aspect-auto">
+                                              <li class="w-4/5 md:w-2/3 aspect-auto">
                                                   <img
                                                       src={"/img/" + i}
                                                       draggable={false}

@@ -1,0 +1,20 @@
+{
+    "languages": {
+        "JavaScript": {
+            "formatter": "prettier"
+        },
+        "TypeScript": {
+            "formatter": "prettier"
+        },
+        "TSX": { "formatter": "prettier" },
+        "Astro": { "formatter": "language_server" },
+        "JSON": { "formatter": "prettier" },
+        "JSONC": { "formatter": "prettier" },
+        "HTML": { "formatter": "prettier" },
+        "CSS": { "formatter": "prettier" },
+        "YAML": { "formatter": "prettier" }
+    },
+    "tab_size": 4,
+    "prettier": { "allowed": true },
+    "format_on_save": "on"
+}
