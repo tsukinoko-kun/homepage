@@ -1,0 +1,33 @@
+---
+import EpubReader from "../../components/EpubReader.tsx";
+import "../../styles/index.scss";
+---
+
+<!doctype html>
+<html lang="en" class="bg-background">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Preis des Wissens</title>
+        <meta name="description" content="Fantasy novel" />
+        <meta name="keywords" content="fantasy, dark fantasy, magic" />
+        <meta name="author" content="Frank Mayer" />
+        <meta property="og:type" content="book" />
+        <meta
+            property="og:image"
+            content="https://tsukinoko-kun.github.io/preis_des_wissens/cover.jpg"
+        />
+        <meta
+            name="twitter:image"
+            content="https://tsukinoko-kun.github.io/preis_des_wissens/cover.jpg"
+        />
+        <meta name="theme-color" content="#11111b" />
+        <meta name="view-transition" content="same-origin" />
+    </head>
+    <body>
+        <EpubReader
+            client:load
+            url="https://tsukinoko-kun.github.io/preis_des_wissens/preis_des_wissens.epub"
+        />
+    </body>
+</html>

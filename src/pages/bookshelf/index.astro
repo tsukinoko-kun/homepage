@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const books = [
+    {
+        title: "Preis des Wissens",
+        url: "/bookshelf/preis_des_wissens/",
+        cover: "https://tsukinoko-kun.github.io/preis_des_wissens/cover.jpg",
+        aspect: 1 / Math.sqrt(2),
+    },
+];
+---
+
+<Layout title="Bookshelf" desc="My Books">
+    <h1 class="text-5xl font-semibold tracking-tight mb-16">Bookshelf</h1>
+    {
+        books.map((book) => (
+            <a
+                class="inline-block mb-4 ml-4 underline hover:text-ctp-mauve"
+                href={book.url}
+                target="_blank"
+            >
+                <img
+                    alt={book.title}
+                    src={book.cover}
+                    class="w-64"
+                    style={`aspect-ratio: ${book.aspect};`}
+                />
+            </a>
+        ))
+    }
+</Layout>
