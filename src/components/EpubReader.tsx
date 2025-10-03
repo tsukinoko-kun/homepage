@@ -249,7 +249,7 @@ export default function EpubReader(props: Props) {
                     aria-label="Previous page"
                     onClick={prevPage}
                     type="button"
-                    className="absolute inset-y-0 left-0 w-32 min-w-[120px] bg-transparent text-ctp-text opacity-0 transition-opacity duration-150 ease-in-out md:hover:opacity-100 focus-visible:opacity-100 md:hover:bg-ctp-overlay-1 focus-visible:bg-ctp-overlay-1 flex items-center justify-center touch-manipulation"
+                    className="absolute inset-y-0 left-0 w-32 min-w-[120px] bg-transparent text-ctp-text opacity-0 transition-opacity duration-250 ease-out md:hover:opacity-100 focus-visible:opacity-100 md:hover:bg-ctp-overlay-1 focus-visible:bg-ctp-overlay-1 flex items-center justify-center touch-manipulation backdrop-blur-sm"
                 >
                     <span className="block select-none text-2xl leading-8 rounded-full bg-ctp-mauve text-ctp-base text-center h-8 w-8">
                         &larr;
@@ -260,7 +260,7 @@ export default function EpubReader(props: Props) {
                     aria-label="Next page"
                     onClick={nextPage}
                     type="button"
-                    className="absolute inset-y-0 right-0 w-32 min-w-[120px] bg-transparent text-ctp-text opacity-0 transition-opacity duration-150 ease-in-out md:hover:opacity-100 focus-visible:opacity-100 md:hover:bg-ctp-overlay-1 focus-visible:bg-ctp-overlay-1 flex items-center justify-center touch-manipulation"
+                    className="absolute inset-y-0 right-0 w-32 min-w-[120px] bg-transparent text-ctp-text opacity-0 transition-opacity duration-250 ease-out md:hover:opacity-100 focus-visible:opacity-100 md:hover:bg-ctp-overlay-1 focus-visible:bg-ctp-overlay-1 flex items-center justify-center touch-manipulation backdrop-blur-sm"
                 >
                     <span className="block select-none text-2xl leading-8 rounded-full bg-ctp-mauve text-ctp-base text-center h-8 w-8">
                         &rarr;
