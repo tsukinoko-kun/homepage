@@ -1,6 +1,10 @@
 ---
 import EpubReader from "../../components/EpubReader.tsx";
 import "../../styles/index.scss";
+
+const title = "Preis des Wissens";
+const description = "Der Magier Sylvren ist ein extremes Ausnahmetalent. Doch seine Überlegenheit stellt ihn auf ein Podest der Einsamkeit."
+const coverImage = "https://tsukinoko-kun.github.io/preis_des_wissens/cover.jpg";
 ---
 
 <!doctype html>
@@ -9,18 +13,17 @@ import "../../styles/index.scss";
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>Preis des Wissens</title>
-        <meta name="description" content="Fantasy novel" />
+        <meta property="og:title" content={title} />
+        <meta name="twitter:title" content={title} />
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:description" content={description} />
         <meta name="keywords" content="fantasy, dark fantasy, magic" />
         <meta name="author" content="Frank Mayer" />
         <meta property="og:type" content="book" />
-        <meta
-            property="og:image"
-            content="https://tsukinoko-kun.github.io/preis_des_wissens/cover.jpg"
-        />
-        <meta
-            name="twitter:image"
-            content="https://tsukinoko-kun.github.io/preis_des_wissens/cover.jpg"
-        />
+        <meta property="og:image" content={coverImage} />
+        <meta name="twitter:image" content={coverImage} />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="theme-color" content="#11111b" />
         <meta name="view-transition" content="same-origin" />
     </head>
