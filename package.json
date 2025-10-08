@@ -10,7 +10,8 @@
         "prebuild": "playwright install",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "fmt": "prettier --write ."
     },
     "dependencies": {
         "@astrojs/markdown-remark": "^6.3.6",
@@ -45,6 +46,9 @@
         "tabWidth": 4,
         "useTabs": false,
         "semi": true,
-        "singleQuote": false
+        "singleQuote": false,
+        "plugins": [
+            "prettier-plugin-astro"
+        ]
     }
 }

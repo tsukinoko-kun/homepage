@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+    lang="de"
+    title="Mentoring"
+    desc="Persönliche Unterstützung für dein Wachstum"
+>
+    <h1 class="text-5xl font-semibold tracking-tight surround-h1">Mentoring</h1>
+
+    <h2 class="text-3xl font-semibold surround-h2">Was ist Mentoring?</h2>
+    <p class="text-pretty">
+        Du bist Student, Azubi oder selbstlernender Softwareentwickler? In
+        solchen Situationen ist es besonders wichtig jemanden zu haben, an dem
+        man sich orientieren kann, mit dem man technische Unterhaltungen führen
+        und sich austauschen kann.
+    </p>
+    <p class="text-pretty">
+        Der regelmäßige Austausch mit jemandem, der schon eine Weile in der
+        Industrie unterwegs ist, in die du starten willst, kann dir einen
+        entscheidenden Vorteil bieten.
+    </p>
+    <br />
+    <p class="text-pretty">Ich nehme genau diese Rolle ein.</p>
+
+    <h2 class="text-3xl font-semibold surround-h2">
+        Wobei genau kann mir ein Mentor helfen?
+    </h2>
+    <p class="text-pretty">
+        Das kommt auf dich und den Mentor an. Was ich dir bieten kann:
+    </p>
+    <ul class="list-disc list-outside pl-6 mt-4 mb-8">
+        {
+            [
+                "Wissenslücken herausfinden und schließen",
+                "Unterstützung bei der Einarbeitung in neue Themen",
+                "Kontakte zu anderen Softwareentwicklern und Firmen",
+                "Einen Überblick über die aktuellen Trends und Technologien",
+                "Einen Einblick in meinen Arbeitsalltag",
+                "Anregungen für deine eigenen Projekte (Vorschläge, Code-Reviews, etc.)",
+                "Karriereberatung",
+            ].map((item) => <li class="text-balance">{item}</li>)
+        }
+    </ul>
+    <p class="text-pretty">
+        Was du bei mir <b class="font-extrabold">nicht</b> bekommst:
+    </p>
+    <ul class="list-disc list-outside pl-6 mt-4 mb-8">
+        {
+            [
+                "Hausaufgabenhilfe",
+                "Jobvermittlung",
+                "Ghostwriter für deine Bachelorarbeit",
+            ].map((item) => <li>{item}</li>)
+        }
+    </ul>
+
+    <h2 class="text-3xl font-semibold surround-h2">
+        Was sind die Anforderungen?
+    </h2>
+    <ul class="list-disc list-outside pl-6 mt-4 mb-8">
+        {
+            [
+                "Eigenmotivation",
+                "Grundlagenwissen",
+                "Zeit und Energie",
+                "Wir müssen uns gut verstehen",
+                <>
+                    Du solltest in der Nähen von
+                    <a
+                        class="underline text-ctp-mauve width-fit inline"
+                        href="https://www.google.com/maps/place/Heilbronn"
+                    >{"Heilbronn"}</a>
+                    wohnen
+                </>,
+            ].map((item) => <li>{item}</li>)
+        }
+    </ul>
+    <p class="text-pretty">
+        Deine Noten sind mir egal. Du solltest aber Grundlegendes im Bereich
+        Softwareentwicklung beherrschen, ansonsten ist es egal wie viel du
+        weißt. Ich will, dass du Motivation zeigst.
+    </p>
+
+    <h2 class="text-3xl font-semibold surround-h2">Bewerbung</h2>
+    <p class="text-pretty">
+        Da ich nur wenige Leute gleichzeitig betreuen kann, musst du dich
+        bewerben. Es gibt keine Warteliste. Du kannst dich jederzeit bewerben.
+        Wenn ich das Gefühl habe, dass wir zusammen passen könnten, bekommst du
+        einen Platz.
+    </p>
+    <p class="text-pretty">
+        Schreibe mir eine E-Mail an <a
+            class="underline text-ctp-mauve"
+            href="mailto:mentoring@frankmayer.dev?subject=Mentoring Bewerbung"
+            >mentoring@frankmayer.dev</a
+        >
+        und gib dabei folgende Informationen an:
+    </p>
+    <ul class="list-disc list-outside pl-6 mt-4 mb-8">
+        {
+            [
+                "Dein Vor- und Nachname",
+                "Wie hast du Zeit? Ab wann willst du starten und an welchen Tagen hast du Zeit für ein Meeting?",
+                "Bildungseinrichtung (falls vorhanden)",
+                "Bisherige Erfahrungen und Projekte",
+                "Warum willst du überhaupt Softwareentwicklung lernen?",
+                "Warum willst du mit mir zusammenarbeiten? (optional, bitte nichts cringes schreiben)",
+                "Was sind deine Interessengebiete?",
+            ].map((item) => <li class="text-balance">{item}</li>)
+        }
+    </ul>
+</Layout>

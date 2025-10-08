@@ -3,3 +3,4 @@ Allow: /
 Disallow: /fonts/
 Disallow: /lang/
 Disallow: /hotlink-ok/
+Disallow: /mentoring/

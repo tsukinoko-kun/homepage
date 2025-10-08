@@ -12,6 +12,7 @@ export interface Props {
     desc: string;
     class?: string;
     image?: ImageMetadata;
+    lang?: string;
 }
 
 const mainTitle = "Frank Mayer";
@@ -24,7 +25,7 @@ const previewImage = Astro.props.image ?? defaultImage;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-background">
+<html lang={Astro.props.lang ?? "en"} class="bg-background">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
