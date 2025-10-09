@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import QRCode from "../components/QRCode.astro";
 ---
 
 <Layout
@@ -8,6 +9,11 @@ import Layout from "../layouts/Layout.astro";
     desc="Persönliche Unterstützung für dein Wachstum"
 >
     <h1 class="text-5xl font-semibold tracking-tight surround-h1">Mentoring</h1>
+
+    <details class="mt-4 mb-8">
+        <summary class="text-pretty cursor-pointer w-fit">QR-Code zu dieser Seite</summary>
+        <QRCode text="https://frankmayer.dev/mentoring" class="aspect-square max-w-96" />
+    </details>
 
     <h2 class="text-3xl font-semibold surround-h2">Was ist Mentoring?</h2>
     <p class="text-pretty">

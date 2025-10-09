@@ -1,0 +1,17 @@
+---
+import QRCode from "qrcode";
+
+export interface Props {
+    text: string;
+    errorCorrectionLevel?: "L" | "M" | "Q" | "H";
+    class?: string;
+}
+
+const svg = await QRCode.toString(Astro.props.text, {
+    type: "svg",
+    errorCorrectionLevel: Astro.props.errorCorrectionLevel,
+    margin: 1,
+});
+---
+
+<div set:html={svg} class={Astro.props.class} />
