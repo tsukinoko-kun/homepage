@@ -11,29 +11,33 @@ import QRCode from "../components/QRCode.astro";
     <h1 class="text-5xl font-semibold tracking-tight surround-h1">Mentoring</h1>
 
     <details class="mt-4 mb-8">
-        <summary class="text-pretty cursor-pointer w-fit">QR-Code zu dieser Seite</summary>
-        <QRCode text="https://frankmayer.dev/mentoring" class="aspect-square max-w-96" />
+        <summary class="text-pretty cursor-pointer w-fit"
+            >QR-Code zu dieser Seite</summary
+        >
+        <QRCode
+            text="https://frankmayer.dev/mentoring"
+            class="aspect-square max-w-96"
+        />
     </details>
 
     <h2 class="text-3xl font-semibold surround-h2">Was ist Mentoring?</h2>
-    <p class="text-pretty">
-        Du bist Student, Azubi oder selbstlernender Softwareentwickler? In
-        solchen Situationen ist es besonders wichtig jemanden zu haben, an dem
-        man sich orientieren kann, mit dem man technische Unterhaltungen führen
-        und sich austauschen kann.
+    <p class="text-pretty my-4">
+        Du bist Student, Azubi oder selbstständig lernender Softwareentwickler?
+        In solchen Situationen ist es besonders wichtig jemanden zu haben, an
+        dem man sich orientieren kann, mit dem man technische Unterhaltungen
+        führen und sich austauschen kann.
     </p>
-    <p class="text-pretty">
+    <p class="text-pretty my-4">
         Der regelmäßige Austausch mit jemandem, der schon eine Weile in der
         Industrie unterwegs ist, in die du starten willst, kann dir einen
         entscheidenden Vorteil bieten.
     </p>
-    <br />
-    <p class="text-pretty">Ich nehme genau diese Rolle ein.</p>
+    <p class="text-pretty my-4">Ich nehme genau diese Rolle ein.</p>
 
     <h2 class="text-3xl font-semibold surround-h2">
         Wobei genau kann mir ein Mentor helfen?
     </h2>
-    <p class="text-pretty">
+    <p class="text-pretty my-4">
         Das kommt auf dich und den Mentor an. Was ich dir bieten kann:
     </p>
     <ul class="list-disc list-outside pl-6 mt-4 mb-8">
@@ -49,7 +53,7 @@ import QRCode from "../components/QRCode.astro";
             ].map((item) => <li class="text-balance">{item}</li>)
         }
     </ul>
-    <p class="text-pretty">
+    <p class="text-pretty my-4">
         Was du bei mir <b class="font-extrabold">nicht</b> bekommst:
     </p>
     <ul class="list-disc list-outside pl-6 mt-4 mb-8">
@@ -90,13 +94,17 @@ import QRCode from "../components/QRCode.astro";
     </p>
 
     <h2 class="text-3xl font-semibold surround-h2">Bewerbung</h2>
-    <p class="text-pretty">
+    <p class="text-pretty my-4">
+        Ich kann ab dem Dezember 2025 beginnen, davor bin ich mit Projekten
+        ausgelastet. Meine Kapazität reicht für bis zu 4 Personen.
+    </p>
+    <p class="text-pretty my-4">
         Da ich nur wenige Leute gleichzeitig betreuen kann, musst du dich
         bewerben. Es gibt keine Warteliste. Du kannst dich jederzeit bewerben.
-        Wenn ich das Gefühl habe, dass wir zusammen passen könnten, bekommst du
+        Wenn ich das Gefühl habe, dass ich dir helfen kann, bekommst du
         einen Platz.
     </p>
-    <p class="text-pretty">
+    <p class="text-pretty my-4">
         Schreibe mir eine E-Mail an <a
             class="underline text-ctp-mauve"
             href="mailto:mentoring@frankmayer.dev?subject=Mentoring Bewerbung"
@@ -113,7 +121,7 @@ import QRCode from "../components/QRCode.astro";
                 "Bisherige Erfahrungen und Projekte",
                 "Warum willst du überhaupt Softwareentwicklung lernen?",
                 "Warum willst du mit mir zusammenarbeiten? (optional, bitte nichts cringes schreiben)",
-                "Was sind deine Interessengebiete?",
+                "Was sind deine Interessengebiete? (innerhalb und außerhalb der Informatik)",
             ].map((item) => <li class="text-balance">{item}</li>)
         }
     </ul>
