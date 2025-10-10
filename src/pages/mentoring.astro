@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import "../styles/blog.scss";
 import QRCode from "../components/QRCode.astro";
 ---
 
@@ -7,122 +8,152 @@ import QRCode from "../components/QRCode.astro";
     lang="de"
     title="Mentoring"
     desc="Persönliche Unterstützung für dein Wachstum"
+    class="blog"
 >
-    <h1 class="text-5xl font-semibold tracking-tight surround-h1">Mentoring</h1>
+    <h1>Mentoring</h1>
 
-    <details class="mt-4 mb-8">
-        <summary class="text-pretty cursor-pointer w-fit"
-            >QR-Code zu dieser Seite</summary
-        >
-        <QRCode
-            text="https://frankmayer.dev/mentoring"
-            class="aspect-square max-w-96"
-        />
-    </details>
+    <p>
+        <details>
+            <summary class="w-fit cursor-pointer"
+                >QR-Code zu dieser Seite</summary
+            >
+            <QRCode
+                text="https://frankmayer.dev/mentoring"
+                class="aspect-square max-w-96"
+            />
+        </details>
+    </p>
 
-    <h2 class="text-3xl font-semibold surround-h2">Was ist Mentoring?</h2>
-    <p class="text-pretty my-4">
-        Du bist Student, Azubi oder selbstständig lernender Softwareentwickler?
-        In solchen Situationen ist es besonders wichtig jemanden zu haben, an
-        dem man sich orientieren kann, mit dem man technische Unterhaltungen
-        führen und sich austauschen kann.
+    <p>
+        Talent und Ehrgeiz, aber kein Plan, wohin die Reise gehen soll? So ging
+        es mir auch. Ich habe damals während meiner Ausbildung einen Mentor
+        gefunden, der mir den entscheidenden Schub gegeben hat. Danach habe ich
+        studiert, und inzwischen bin ich die technische Leitung zweier
+        Softwareunternehmen.
     </p>
-    <p class="text-pretty my-4">
-        Der regelmäßige Austausch mit jemandem, der schon eine Weile in der
-        Industrie unterwegs ist, in die du starten willst, kann dir einen
-        entscheidenden Vorteil bieten.
-    </p>
-    <p class="text-pretty my-4">Ich nehme genau diese Rolle ein.</p>
 
-    <h2 class="text-3xl font-semibold surround-h2">
-        Wobei genau kann mir ein Mentor helfen?
-    </h2>
-    <p class="text-pretty my-4">
-        Das kommt auf dich und den Mentor an. Was ich dir bieten kann:
+    <p>
+        Jetzt möchte ich das weitergeben. Ich suche die Kombination aus Talent
+        und Ehrgeiz. Leute, für die Softwareentwicklung mehr als nur ein Job ist
+        und die bereit sind, dafür die extra Meile zu gehen. Wenn du das
+        Potenzial hast, zu den Besten zu gehören, helfe ich dir, den Weg dorthin
+        zu finden.
     </p>
-    <ul class="list-disc list-outside pl-6 mt-4 mb-8">
-        {
-            [
-                "Wissenslücken herausfinden und schließen",
-                "Unterstützung bei der Einarbeitung in neue Themen",
-                "Kontakte zu anderen Softwareentwicklern und Firmen",
-                "Einen Überblick über die aktuellen Trends und Technologien",
-                "Einen Einblick in meinen Arbeitsalltag",
-                "Anregungen für deine eigenen Projekte (Vorschläge, Code-Reviews, etc.)",
-                "Karriereberatung",
-            ].map((item) => <li class="text-balance">{item}</li>)
-        }
+
+    <h2>Was ich dir biete: Ein strategischer Sparringspartner</h2>
+
+    <p>
+        Wir werden auf Augenhöhe zusammenarbeiten. Ich gebe dir ehrliches,
+        direktes Feedback und teile meine Erfahrungen aus der Praxis –
+        ungeschönt und ohne Bullshit.
+    </p>
+
+    <ul>
+        <li>
+            <b>Dein Code & deine Projekte:</b> Wir analysieren deine Projekte, ich
+            mache Code-Reviews und wir heben deine praktischen Fähigkeiten auf das
+            nächste Level.
+        </li>
+        <li>
+            <b>Dein Weg & deine Karriere:</b> Wir finden heraus, wo deine Stärken
+            liegen und wie du sie am besten einsetzt. Ich öffne dir Türen zu meinem
+            Netzwerk und gebe dir einen Einblick in die aktuellen Technologietrends,
+            die wirklich zählen.
+        </li>
+        <li>
+            <b>Dein Skillset:</b> Wir identifizieren deine Wissenslücken und erstellen
+            einen Plan, um sie effizient zu schließen. Ich zeige dir, wie man sich
+            neue, komplexe Themen systematisch erarbeitet.
+        </li>
     </ul>
-    <p class="text-pretty my-4">
-        Was du bei mir <b class="font-extrabold">nicht</b> bekommst:
-    </p>
-    <ul class="list-disc list-outside pl-6 mt-4 mb-8">
-        {
-            [
-                "Hausaufgabenhilfe",
-                "Jobvermittlung",
-                "Ghostwriter für deine Bachelorarbeit",
-            ].map((item) => <li>{item}</li>)
-        }
+
+    <h2>Was ich nicht bin</h2>
+
+    <p>Es ist wichtig, dass du verstehst, welche Rolle ich nicht einnehme.</p>
+
+    <ul>
+        <li>
+            <b>Ich bin nicht dein Tutor:</b> Ich helfe dir nicht bei Hausaufgaben.
+            Ich helfe dir, die Konzepte dahinter <i>wirklich</i> zu verstehen, damit
+            du die Probleme selbst lösen kannst.
+        </li>
+        <li>
+            <b>Ich bin keine Jobvermittlung:</b> Wenn es passt, stelle ich Kontakte
+            her. Den Job musst du dir selbst holen.
+        </li>
+        <li>
+            <b>Ich bin kein Ghostwriter:</b> Deine Abschlussarbeit ist deine Leistung,
+            nicht meine.
+        </li>
+        <li>
+            <b>Ich bin kein Geldgeber:</b> Es geht um den Austausch von Wissen und
+            Erfahrung.
+        </li>
     </ul>
 
-    <h2 class="text-3xl font-semibold surround-h2">
-        Was sind die Anforderungen?
-    </h2>
-    <ul class="list-disc list-outside pl-6 mt-4 mb-8">
-        {
-            [
-                "Eigenmotivation",
-                "Grundlagenwissen",
-                "Zeit und Energie",
-                "Wir müssen uns gut verstehen",
-                <>
-                    Du solltest in der Nähen von
-                    <a
-                        class="underline text-ctp-mauve width-fit inline"
-                        href="https://www.google.com/maps/place/Heilbronn"
-                    >{"Heilbronn"}</a>
-                    wohnen
-                </>,
-            ].map((item) => <li>{item}</li>)
-        }
+    <h2>Was ich von dir erwarte</h2>
+
+    <ul>
+        <li>
+            <b>Ehrgeiz & Eigeninitiative:</b> Ich erwarte, dass du für das Thema
+            brennst. Du bringst die Themen ein, stellst die Fragen und treibst deine
+            Entwicklung voran.
+        </li>
+        <li>
+            <b>Grundlagen:</b> Du musst nicht alles wissen, aber die Basics müssen
+            sitzen. Deine Noten sind mir egal, dein praktisches Können und dein Wille
+            zur Verbesserung zählen.
+        </li>
+        <li>
+            <b>Zeit & Energie:</b> Mentoring ist keine einmalige Sache. Du musst
+            bereit sein, regelmäßig Zeit zu investieren. Ich weiß, dass viele nebenbei
+            arbeiten müssen – wir finden einen Weg.
+        </li>
+        <li>
+            <b>Offenheit & Chemie:</b> Wir werden direkt und ehrlich miteinander
+            sein. Das funktioniert nur, wenn die Chemie stimmt und du konstruktive
+            Kritik annehmen kannst.
+        </li>
+        <li>
+            <b>Nähe zu Heilbronn:</b> Da persönliche Treffen essenziell sind, solltest
+            du in der Nähe von Heilbronn wohnen oder bereit sein, regelmäßig hierherzukommen.
+        </li>
     </ul>
-    <p class="text-pretty">
-        Deine Noten sind mir egal. Du solltest aber Grundlegendes im Bereich
-        Softwareentwicklung beherrschen, ansonsten ist es egal wie viel du
-        weißt. Ich will, dass du Motivation zeigst.
+
+    <h2>Bewerbung</h2>
+
+    <p>
+        Ich kann ab Dezember 2025 mit maximal vier Mentees starten. Meine Zeit
+        ist begrenzt, daher kann ich nur wenige Plätze anbieten und wähle
+        sorgfältig aus. Es gibt keine Warteliste.
     </p>
 
-    <h2 class="text-3xl font-semibold surround-h2">Bewerbung</h2>
-    <p class="text-pretty my-4">
-        Ich kann ab dem Dezember 2025 beginnen, davor bin ich mit Projekten
-        ausgelastet. Meine Kapazität reicht für bis zu 4 Personen.
-    </p>
-    <p class="text-pretty my-4">
-        Da ich nur wenige Leute gleichzeitig betreuen kann, musst du dich
-        bewerben. Es gibt keine Warteliste. Du kannst dich jederzeit bewerben.
-        Wenn ich das Gefühl habe, dass ich dir helfen kann, bekommst du
-        einen Platz.
-    </p>
-    <p class="text-pretty my-4">
-        Schreibe mir eine E-Mail an <a
+    <p>
+        Schick mir eine E-Mail an <a
             class="underline text-ctp-mauve"
             href="mailto:mentoring@frankmayer.dev?subject=Mentoring Bewerbung"
             >mentoring@frankmayer.dev</a
-        >
-        und gib dabei folgende Informationen an:
+        >. Kein formales Anschreiben, sei einfach du selbst. Beantworte darin
+        kurz die folgenden Punkte:
     </p>
-    <ul class="list-disc list-outside pl-6 mt-4 mb-8">
-        {
-            [
-                "Dein Vor- und Nachname",
-                "Wie hast du Zeit? Ab wann willst du starten und an welchen Tagen hast du Zeit für ein Meeting?",
-                "Bildungseinrichtung (falls vorhanden)",
-                "Bisherige Erfahrungen und Projekte",
-                "Warum willst du überhaupt Softwareentwicklung lernen?",
-                "Warum willst du mit mir zusammenarbeiten? (optional, bitte nichts cringes schreiben)",
-                "Was sind deine Interessengebiete? (innerhalb und außerhalb der Informatik)",
-            ].map((item) => <li class="text-balance">{item}</li>)
-        }
+
+    <ul>
+        <li>Dein Vor- und Nachname</li>
+        <li>
+            Bisherige Erfahrungen und Projekte (Links zu GitHub, Webseiten etc.
+            sind willkommen)
+        </li>
+        <li>Warum brennst du für Softwareentwicklung?</li>
+        <li>Was sind deine Ziele?</li>
+        <li>Warum ich? (Keine Schmeicheleien, sag's wie es ist.)</li>
+        <li>
+            Deine Verfügbarkeit (Ab wann, welche Tage/Zeiten passen dir für
+            Meetings?)
+        </li>
+        <li>
+            Deine Interessengebiete (innerhalb und außerhalb der Informatik)
+        </li>
+        <li>Bildungseinrichtung (falls vorhanden)</li>
     </ul>
+    <p>Es ist okay, wenn du nicht alles beantworten kannst.</p>
 </Layout>

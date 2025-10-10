@@ -18,8 +18,14 @@ module.exports = {
     content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
     theme: {
         fontFamily: {
-            sans: [...coderFonts, "sans-serif"],
-            serif: [...coderFonts, "serif"],
+            sans: [
+                "Roboto",
+                "Fira Sans",
+                "Inter",
+                "ui-sans-serif",
+                "sans-serif",
+            ],
+            serif: ["serif"],
             mono: [...coderFonts, "monospace"],
         },
         extend: {

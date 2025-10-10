@@ -4,6 +4,10 @@
 .blog {
     font-family: sans-serif;
 
+    p {
+        @apply block my-4;
+    }
+
     h1 {
         @apply text-5xl font-semibold tracking-tight;
     }
@@ -49,7 +53,7 @@
 
     ol > li,
     ul > li {
-        @apply ml-4;
+        @apply ml-4 text-pretty;
     }
 
     a[href] {
