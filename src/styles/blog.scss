@@ -57,7 +57,7 @@
     }
 
     a[href] {
-        @apply text-primary underline cursor-pointer;
+        @apply hover:text-primary underline cursor-pointer;
     }
 
     code {
