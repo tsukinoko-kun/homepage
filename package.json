@@ -20,7 +20,7 @@
         "@astropub/md": "^1.0.0",
         "@types/react": "^19.1.9",
         "@types/react-dom": "^19.1.7",
-        "astro": "^5.13.3",
+        "astro": "^5.14.3",
         "chart.js": "^4.5.0",
         "mermaid-isomorphic": "^3.0.4",
         "qrcode": "^1.5.4",
