@@ -80,6 +80,10 @@ body::before {
     @include theme.surround-with("nav");
 }
 
+.surround-footer {
+    @include theme.surround-with("footer");
+}
+
 @for $i from 1 through 3 {
     .surround-h#{$i} {
         @include theme.surround-with("h#{$i}");

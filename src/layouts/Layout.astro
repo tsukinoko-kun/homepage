@@ -73,7 +73,10 @@ const previewImage = Astro.props.image ?? defaultImage;
 
         <div class="p-2 pb-32 mx-auto max-w-4xl">
             <main
-                class={twMerge("tracking-wide", Astro.props.class)}
+                class={twMerge(
+                    "tracking-wide overflow-clip h-fit",
+                    Astro.props.class,
+                )}
                 style="view-transition-name=main"
             >
                 <slot />
