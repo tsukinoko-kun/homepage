@@ -6,19 +6,33 @@ import "../../styles/blog.scss";
 ---
 
 <Layout
-    title="Shipping Go software with Goreleaser and ... Zig?"
-    desc="Der Gedankenstrich – Mein neues Lieblingszeichen (danke, KI!)"
+    title="Shipping Go software with Goreleaser and … Zig?"
+    desc="Zig is actually the best C toolchain for CGO-heavy Go builds. Here's how I use it to ship my Go software with Goreleaser."
     class="blog"
 >
     <section>
         <h1>Shipping Go software with Goreleaser and ... Zig?</h1>
 
         <p>
+            The Go community is divided on using C libraries versus Go rewrites.
+            Using C in Go is straightforward (on the surface) but it creates
+            problems along the way.
+        </p>
+        <p>
             I've been shipping my version control system, <a
+                target="_blank"
                 href="https://pogo-vcs.com">Pogo</a
-            >. I started with pure Go for everything, including compression. It
-            worked. But I wanted the speed and maturity of C libraries where it
-            mattered.
+            >, starting with pure Go for everything, including <a
+                target="_blank"
+                href="https://pkg.go.dev/github.com/klauspost/compress/zstd"
+                >Zstd</a
+            > for compression.
+        </p>
+        <p>
+            It worked without problems. But I wanted the speed and maturity of C
+            libraries where it mattered. Zstd was originally written at Facebook
+            in C. I would feel better using this mature code over a Go rewrite –
+            no shame on the Go rewrite.
         </p>
 
         <h2>Using C in Go</h2>
@@ -36,17 +50,7 @@ import "../../styles/blog.scss";
 
         <Code
             lang="go"
-            code={`/*
-#cgo CFLAGS: -O3
-#include <stdlib.h>
-
-int add(int a, int b) { return a + b; }
-*/
-import "C"
-
-func Add(a, b int) int {
-return int(C.add(C.int(a), C.int(b)))
-}`}
+            code={'/*\n#cgo CFLAGS: -O3\n#include <stdlib.h>\n\nint add(int a, int b) { return a + b; }\n*/\nimport "C"\n\nfunc Add(a, b int) int {\n\treturn int(C.add(C.int(a), C.int(b)))\n}'}
         />
 
         <p>
@@ -63,6 +67,11 @@ return int(C.add(C.int(a), C.int(b)))
             lang="go"
             code={"//go:build !cgo\n\npackage compression\n\n// Pure Go fallback here"}
         />
+
+        <p>
+            That's how I did it. I used the C libraries when a C compiler was
+            available and added a pure Go fallback when it wasn't.
+        </p>
 
         <h2>Go cross compilation, the nice part</h2>
         <p>
@@ -83,22 +92,30 @@ return int(C.add(C.int(a), C.int(b)))
 
         <h2>Enter Goreleaser</h2>
         <p>
-            Goreleaser is a great tool for building and publishing Go binaries
-            to package managers like Homebrew, npm, and winget. It leans on
-            cross compilation to produce a matrix of builds. That's perfect for
-            pure Go. But there's a catch with C code: cross compilation won't
-            work unless the C parts can also compile for the target.
+            <a target="_blank" href="https://goreleaser.com/">Goreleaser</a> is a
+            great tool for building and publishing Go binaries to package managers
+            like Homebrew, npm, and winget. It leans on cross compilation to produce
+            a matrix of builds. That means that you run Goreleaser once and it builds
+            for all your target platforms at once. That's perfect for pure Go. But
+            there's a catch with C code: cross compilation won't work.
         </p>
 
         <p>
             That's reasonable. When you build C, you need a compiler and system
-            headers for the target platform. Which is basically impossible.
+            headers for the target platform. When you run the cross compilation
+            on a Linux runner, the C compiler doesn't know about Windows or
+            macOS. Cross compilation with CGO is not trivial and requires a
+            cross C toolchain and target headers; by default it fails. You
+            should run your builds on the target platforms, that's way simpler.
         </p>
 
         <h2>Split and merge to avoid cross compiling the hard parts</h2>
         <p>
             I found a helpful post:
-            <a href="https://carlosbecker.com/posts/goreleaser-split-merge/">
+            <a
+                target="_blank"
+                href="https://carlosbecker.com/posts/goreleaser-split-merge/"
+            >
                 Split and Merge with Goreleaser Pro
             </a>
             . The idea is elegant:
@@ -106,7 +123,8 @@ return int(C.add(C.int(a), C.int(b)))
 
         <ul>
             <li>
-                Build each target on its native runner (no cross C toolchains).
+                Build each target on its native runner (no cross compilation
+                toolchains).
             </li>
             <li>Upload the artifacts.</li>
             <li>Merge everything into one release.</li>
@@ -130,10 +148,10 @@ return int(C.add(C.int(a), C.int(b)))
         <p>In CI, it looks like this:</p>
         <Code
             lang="bash"
-            code={"# Per-platform job\ngoreleaser release --clean --split --skip-publish\n\n# Merge job (after collecting all artifacts)\ngoreleaser release --merge"}
+            code={"# Per-platform job\ngoreleaser release --clean --split --skip-publish\n\n# Merge job (after collecting all artifacts)\ngoreleaser continue --merge"}
         />
 
-        <h2>New problem: ARM builds and Windows ARM</h2>
+        <h2>New problem: Windows</h2>
         <p>
             Linux ARM and macOS ARM were okay thanks to native runners. Windows
             ARM was painful. The available runner story wasn't smooth, and cross
@@ -151,10 +169,25 @@ return int(C.add(C.int(a), C.int(b)))
 
         <Code
             lang="bash"
-            code={'# Cross-compile Windows ARM CGO with Zig\nGOOS=windows GOARCH=arm64 CGO_ENABLED=1 \\\nCC="zig cc -target aarch64-windows-gnu" \\\nCXX="zig c++ -target aarch64-windows-gnu" \\\ngo build -o bin/pogo.exe'}
+            code={'# Cross-compile Windows ARM CGO with Zig\nGOOS=windows GOARCH=arm64 CGO_ENABLED=1 \\\nCC="zig cc -target aarch64-windows" \\\nCXX="zig c++ -target aarch64-windows" \\\ngo build -o bin/pogo.exe'}
         />
 
         <h2>Next problem: libc</h2>
+        <p>
+            Quick recap: The <a
+                target="_blank"
+                href="https://www.man7.org/linux/man-pages/man7/libc.7.html"
+                >libc</a
+            > is a library that is provided by the OS. It translates C function calls
+            into system calls. There are multiple libc implementations for different
+            OSes. The most common ones are glibc and musl but there are others. Debian
+            uses glibc but you could use musl on Debian if you provide the musl libc
+            package. That's the whole point, the OS is providing the libc so you
+            don't have to. Languages like Go and Zig don't use a libc at all, they
+            use the system calls directly, which is similar to statically linking
+            a libc.
+        </p>
+
         <p>
             By default, C code links against your OS libc dynamically. Most
             Linux distros use glibc. Alpine uses musl, Android uses Bionic, etc.
@@ -172,12 +205,19 @@ return int(C.add(C.int(a), C.int(b)))
 
         <Code
             lang="bash"
-            code={'# Statically link libc via musl using Zig\nGOOS=linux GOARCH=amd64 CGO_ENABLED=1 \\\nGOFLAGS="-ldflags=-linkmode=external -ldflags=-extldflags=-static" \\\nCC="zig cc -target x86_64-linux-musl" \\\nCXX="zig c++ -target x86_64-linux-musl" \\\nCGO_LDFLAGS="-static" \\\ngo build -trimpath -ldflags="-s -w" -o bin/pogo'}
+            code={`# Statically link musl libc using Zig\nCGO_ENABLED=1 GOOS=linux GOARCH=amd64 \\\nCC="zig cc -target x86_64-linux-musl" \\\nCXX="zig c++ -target x86_64-linux-musl" \\\ngo build -trimpath \\\n  -ldflags='-s -w -linkmode=external -extldflags "-static"' \\\n  -o bin/pogo`}
         />
 
         <p>
             Result: a single Linux binary that runs on glibc and musl systems,
             because it doesn't need the host's libc at all. Problem solved.
+        </p>
+
+        <p>
+            But wait, I still depend on a minimum kernel version/syscalls…
+            <br />
+            No, that not a problem. You all use modern Linux kernels anyway, right?
+            Right?
         </p>
 
         <h2>Putting it together</h2>
@@ -201,7 +241,10 @@ return int(C.add(C.int(a), C.int(b)))
 
         <p>
             Full example setup:
-            <a href="https://github.com/tsukinoko-kun/goreleaser-cgo">
+            <a
+                target="_blank"
+                href="https://github.com/tsukinoko-kun/goreleaser-cgo"
+            >
                 github.com/tsukinoko-kun/goreleaser-cgo
             </a>
         </p>
