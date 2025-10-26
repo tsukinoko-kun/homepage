@@ -60,7 +60,11 @@
         @apply hover:text-primary underline cursor-pointer;
     }
 
-    code {
+    pre:has(> code) {
+        @apply p-4 my-4;
+    }
+
+    code:not(pre>code) {
         @apply text-foreground font-mono rounded-md px-1 py-0.5 select-all;
         background-color: rgb(var(--color-code-background));
         font-size: 0.9rem;

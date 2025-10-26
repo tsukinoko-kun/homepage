@@ -1,0 +1,214 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Mermaid from "../../components/Mermaid.astro";
+import { Code } from "astro:components";
+import "../../styles/blog.scss";
+---
+
+<Layout
+    title="Shipping Go software with Goreleaser and ... Zig?"
+    desc="Der Gedankenstrich – Mein neues Lieblingszeichen (danke, KI!)"
+    class="blog"
+>
+    <section>
+        <h1>Shipping Go software with Goreleaser and ... Zig?</h1>
+
+        <p>
+            I've been shipping my version control system, <a
+                href="https://pogo-vcs.com">Pogo</a
+            >. I started with pure Go for everything, including compression. It
+            worked. But I wanted the speed and maturity of C libraries where it
+            mattered.
+        </p>
+
+        <h2>Using C in Go</h2>
+        <p>
+            It's straightforward to call C from Go. You write a special comment
+            above an
+            <code>import "C"</code> line. Inside that comment, you include headers
+            or small C snippets. Go then asks your system C toolchain to compile
+            and link that code into your Go binary. You can pass flags with
+            <code>#cgo CFLAGS</code> and <code>#cgo LDFLAGS</code>. You can also
+            toggle C dependencies using build tags like <code
+                >//go:build cgo</code
+            >.
+        </p>
+
+        <Code
+            lang="go"
+            code={`/*
+#cgo CFLAGS: -O3
+#include <stdlib.h>
+
+int add(int a, int b) { return a + b; }
+*/
+import "C"
+
+func Add(a, b int) int {
+return int(C.add(C.int(a), C.int(b)))
+}`}
+        />
+
+        <p>
+            Conditional builds are handy. You can keep a pure Go fallback and a
+            C-backed version:
+        </p>
+
+        <Code
+            lang="go"
+            code={"//go:build cgo\n\npackage compression\n\n// C-backed version here"}
+        />
+
+        <Code
+            lang="go"
+            code={"//go:build !cgo\n\npackage compression\n\n// Pure Go fallback here"}
+        />
+
+        <h2>Go cross compilation, the nice part</h2>
+        <p>
+            Go makes it easy to build for other platforms. You pick a target by
+            setting
+            <code>GOOS</code> and <code>GOARCH</code>. The toolchain builds your
+            code for that target. Simple.
+        </p>
+
+        <Code
+            lang="bash"
+            code={"GOOS=darwin GOARCH=arm64 go build -o bin/pogo"}
+        />
+
+        <p>
+            This works great for pure Go. It's fast, reproducible, and portable.
+        </p>
+
+        <h2>Enter Goreleaser</h2>
+        <p>
+            Goreleaser is a great tool for building and publishing Go binaries
+            to package managers like Homebrew, npm, and winget. It leans on
+            cross compilation to produce a matrix of builds. That's perfect for
+            pure Go. But there's a catch with C code: cross compilation won't
+            work unless the C parts can also compile for the target.
+        </p>
+
+        <p>
+            That's reasonable. When you build C, you need a compiler and system
+            headers for the target platform. Which is basically impossible.
+        </p>
+
+        <h2>Split and merge to avoid cross compiling the hard parts</h2>
+        <p>
+            I found a helpful post:
+            <a href="https://carlosbecker.com/posts/goreleaser-split-merge/">
+                Split and Merge with Goreleaser Pro
+            </a>
+            . The idea is elegant:
+        </p>
+
+        <ul>
+            <li>
+                Build each target on its native runner (no cross C toolchains).
+            </li>
+            <li>Upload the artifacts.</li>
+            <li>Merge everything into one release.</li>
+        </ul>
+
+        <Mermaid
+            diagram={`flowchart LR
+        A[Git tag push] --> B[Linux runner]
+        A --> C[macOS runner]
+        A --> D[Windows runner]
+        B -->|native build| E[dist/linux artifacts]
+        C -->|native build| F[dist/macos artifacts]
+        D -->|native build| G[dist/windows artifacts]
+        E --> H[Merge job]
+        F --> H
+        G --> H
+        H --> I[Single release with all targets]
+      `}
+        />
+
+        <p>In CI, it looks like this:</p>
+        <Code
+            lang="bash"
+            code={"# Per-platform job\ngoreleaser release --clean --split --skip-publish\n\n# Merge job (after collecting all artifacts)\ngoreleaser release --merge"}
+        />
+
+        <h2>New problem: ARM builds and Windows ARM</h2>
+        <p>
+            Linux ARM and macOS ARM were okay thanks to native runners. Windows
+            ARM was painful. The available runner story wasn't smooth, and cross
+            compilation kept picking the wrong <code>gcc</code>/<code
+                >clang</code
+            >.
+        </p>
+
+        <h3>Zig to the rescue</h3>
+        <p>
+            Zig ships a great C toolchain with cross compilation built in. I
+            pointed Go at Zig's compilers and set a target triple. That made the
+            C parts compile for Windows ARM reliably.
+        </p>
+
+        <Code
+            lang="bash"
+            code={'# Cross-compile Windows ARM CGO with Zig\nGOOS=windows GOARCH=arm64 CGO_ENABLED=1 \\\nCC="zig cc -target aarch64-windows-gnu" \\\nCXX="zig c++ -target aarch64-windows-gnu" \\\ngo build -o bin/pogo.exe'}
+        />
+
+        <h2>Next problem: libc</h2>
+        <p>
+            By default, C code links against your OS libc dynamically. Most
+            Linux distros use glibc. Alpine uses musl, Android uses Bionic, etc.
+            Shipping separate binaries for each libc would explode the matrix.
+            Worse, the installers provided by Goreleaser don't let you choose
+            binaries by libc at install time. They only support OS and
+            architecture.
+        </p>
+
+        <p>
+            I needed one Linux binary. No runtime libc dependency. The fix:
+            static link against musl. Zig makes this easy, even on Ubuntu-based
+            runners.
+        </p>
+
+        <Code
+            lang="bash"
+            code={'# Statically link libc via musl using Zig\nGOOS=linux GOARCH=amd64 CGO_ENABLED=1 \\\nGOFLAGS="-ldflags=-linkmode=external -ldflags=-extldflags=-static" \\\nCC="zig cc -target x86_64-linux-musl" \\\nCXX="zig c++ -target x86_64-linux-musl" \\\nCGO_LDFLAGS="-static" \\\ngo build -trimpath -ldflags="-s -w" -o bin/pogo'}
+        />
+
+        <p>
+            Result: a single Linux binary that runs on glibc and musl systems,
+            because it doesn't need the host's libc at all. Problem solved.
+        </p>
+
+        <h2>Putting it together</h2>
+        <ul>
+            <li>
+                Pure Go? Use cross basic compilation. It's simple and portable.
+            </li>
+            <li>
+                CGO? Prefer native builds per target with split and merge. Use
+                runners that match your targets.
+            </li>
+            <li>
+                Missing or flaky runners (like Windows ARM)? Use Zig's cross
+                toolchain.
+            </li>
+            <li>
+                Want one Linux binary? Static link against musl with Zig to drop
+                the libc runtime dependency.
+            </li>
+        </ul>
+
+        <p>
+            Full example setup:
+            <a href="https://github.com/tsukinoko-kun/goreleaser-cgo">
+                github.com/tsukinoko-kun/goreleaser-cgo
+            </a>
+        </p>
+
+        <p>
+            Thanks Goreleaser for the great release flow. And thanks to Zig for
+            being a fantastic C toolchain for CGO-heavy builds.
+        </p>
+    </section>
+</Layout>
