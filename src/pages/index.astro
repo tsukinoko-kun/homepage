@@ -5,6 +5,14 @@ import RadarChart from "../components/RadarChart.astro";
 import { Markdown } from "@astropub/md";
 import "../styles/blog.scss";
 
+import mandelbaumAvif from "../assets/mandelbaum.avif";
+import bloodmageEngineWebm from "../assets/video/bloodmage_engine.webm";
+import bloodmageEngineWebp from "../assets/video/bloodmage_engine.webp";
+import mageanoidWebm from "../assets/video/mageanoid.webm";
+import mageanoidWebp from "../assets/video/mageanoid.webp";
+import ohmygoshWebm from "../assets/video/ohmygosh.webm";
+import ohmygoshWebp from "../assets/video/ohmygosh.webp";
+
 type Paper = {
     title: string;
     link: string;
@@ -50,8 +58,8 @@ type Project = {
         | "vim"
         | "webpack"
     >;
-    video?: string[];
-    img?: string[];
+    video?: [ImageMetadata, string];
+    img?: ImageMetadata[];
 };
 
 const companies: Array<Company> = [
@@ -121,7 +129,7 @@ const portfolio: Array<Project> = [
             "I implemented a compiler for ANSI escape sequences to enable rendering apps that modify their output (like Docker, curl, etc.). I also implemented some OSC (Operating System Commands) to provide a better integration to the terminal. Apps that use alt-mode (like Vim) run in full-screen instead of a block because users will interact with them more.",
         link: "https://github.com/tsukinoko-kun/ohmygosh",
         tech: ["go"],
-        video: ["ohmygosh.webm"],
+        video: [ohmygoshWebp, ohmygoshWebm],
     },
     {
         name: "Mageanoid",
@@ -130,7 +138,7 @@ const portfolio: Array<Project> = [
             "This was my first project with both Rust and the Bevy game engine. I wanted to try Rust and made this project in about a week.",
         link: "https://store.steampowered.com/app/3104840/Mageanoid",
         tech: ["rs", "bevy"],
-        video: ["mageanoid.webm"],
+        video: [mageanoidWebp, mageanoidWebm],
     },
     {
         name: "mandelbaum.ai (dynabase Technologies GmbH)",
@@ -147,7 +155,7 @@ const portfolio: Array<Project> = [
             "webpack",
             "rabbitmq",
         ],
-        img: ["mandelbaum.avif"],
+        img: [mandelbaumAvif],
     },
     {
         name: "Bloodmage Engine",
@@ -157,7 +165,7 @@ const portfolio: Array<Project> = [
             "This was a time-limited project (2 months) in a Bachelor's course.",
         link: "https://github.com/bloodmagesoftware/bloodmage-engine",
         tech: ["go", "sdl"],
-        video: ["bloodmage_engine.webm"],
+        video: [bloodmageEngineWebp, bloodmageEngineWebm],
     },
 ];
 ---
@@ -263,35 +271,26 @@ const portfolio: Array<Project> = [
                                     ))}
                                 </ul>
                             </div>
-                            {prj.video || prj.img ? (
+                            {prj.video && (
+                                <video
+                                    class="w-4/5 md:w-2/3 aspect-auto"
+                                    autoplay
+                                    loop
+                                    muted
+                                    controls={false}
+                                    playsinline
+                                    src={prj.video[1]}
+                                    preload="auto"
+                                    poster={prj.video[0].src}
+                                />
+                            )}
+                            {prj.img ? (
                                 <ul class="flex flex-row flex-wrap mt-2">
-                                    {prj.video
-                                        ? prj.video.map((v) => (
-                                              <li class="w-4/5 md:w-2/3 aspect-auto">
-                                                  <video
-                                                      autoplay
-                                                      loop
-                                                      muted
-                                                      controls={false}
-                                                      playsinline
-                                                      src={"/video/" + v}
-                                                      preload="auto"
-                                                      poster={
-                                                          "/video/" +
-                                                          v.replace(
-                                                              /\.\w+$/,
-                                                              ".webp",
-                                                          )
-                                                      }
-                                                  />
-                                              </li>
-                                          ))
-                                        : null}
                                     {prj.img
                                         ? prj.img.map((i) => (
                                               <li class="w-4/5 md:w-2/3 aspect-auto">
                                                   <img
-                                                      src={"/img/" + i}
+                                                      src={i.src}
                                                       draggable={false}
                                                       loading="lazy"
                                                       decoding="async"
