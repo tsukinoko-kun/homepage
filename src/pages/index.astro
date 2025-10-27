@@ -58,7 +58,7 @@ type Project = {
         | "vim"
         | "webpack"
     >;
-    video?: [ImageMetadata, string];
+    video?: [ImageMetadata, string, string];
     img?: ImageMetadata[];
 };
 
@@ -129,7 +129,7 @@ const portfolio: Array<Project> = [
             "I implemented a compiler for ANSI escape sequences to enable rendering apps that modify their output (like Docker, curl, etc.). I also implemented some OSC (Operating System Commands) to provide a better integration to the terminal. Apps that use alt-mode (like Vim) run in full-screen instead of a block because users will interact with them more.",
         link: "https://github.com/tsukinoko-kun/ohmygosh",
         tech: ["go"],
-        video: [ohmygoshWebp, ohmygoshWebm],
+        video: [ohmygoshWebp, ohmygoshWebm, 'video/webm; codecs="vp09"'],
     },
     {
         name: "Mageanoid",
@@ -138,7 +138,7 @@ const portfolio: Array<Project> = [
             "This was my first project with both Rust and the Bevy game engine. I wanted to try Rust and made this project in about a week.",
         link: "https://store.steampowered.com/app/3104840/Mageanoid",
         tech: ["rs", "bevy"],
-        video: [mageanoidWebp, mageanoidWebm],
+        video: [mageanoidWebp, mageanoidWebm, 'video/webm; codecs="vp09"'],
     },
     {
         name: "mandelbaum.ai (dynabase Technologies GmbH)",
@@ -165,7 +165,11 @@ const portfolio: Array<Project> = [
             "This was a time-limited project (2 months) in a Bachelor's course.",
         link: "https://github.com/bloodmagesoftware/bloodmage-engine",
         tech: ["go", "sdl"],
-        video: [bloodmageEngineWebp, bloodmageEngineWebm],
+        video: [
+            bloodmageEngineWebp,
+            bloodmageEngineWebm,
+            'video/webm; codecs="vp09"',
+        ],
     },
 ];
 ---
@@ -280,6 +284,7 @@ const portfolio: Array<Project> = [
                                     controls={false}
                                     playsinline
                                     src={prj.video[1]}
+                                    type={prj.video[2] ?? "video/webm"}
                                     preload="auto"
                                     poster={prj.video[0].src}
                                 />
