@@ -64,10 +64,14 @@
         @apply p-4 my-4;
     }
 
-    code:not(pre>code) {
+    code:not(pre > code) {
         @apply text-foreground font-mono rounded-md px-1 py-0.5 select-all;
         background-color: rgb(var(--color-code-background));
         font-size: 0.9rem;
+    }
+
+    blockquote {
+        @apply text-pretty italic border-l-4 border-l-ctp-text px-4 py-2 block bg-ctp-text/10;
     }
 
     .mermaid-diagram {

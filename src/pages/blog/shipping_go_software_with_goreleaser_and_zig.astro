@@ -212,46 +212,85 @@ import "../../styles/blog.scss";
             Result: a single Linux binary that runs on glibc and musl systems,
             because it doesn't need the host's libc at all. Problem solved.
         </p>
+    </section>
+    <section>
+        <h2>Getting rid of slit-and-merge</h2>
+        <p>
+            <a target="_blank" href="https://github.com/caarlos0">Carlos</a> – maintainer
+            of Goreleaser – pointed out that I could simplify the whole workflow.
+        </p>
+        <blockquote>
+            <p>
+                the example is nice, but you don't need split merge if you're
+                using zig, you can instead template the builds.env field setting
+                it according to Os/Arch. Did you try to do something like that?
+            </p>
+            <p>
+                This would also make a great addition to the examples in <a
+                    href="https://github.com/goreleaser">@goreleaser</a
+                >
+            </p>
+        </blockquote>
 
         <p>
-            But wait, I still depend on a minimum kernel version/syscalls…
-            <br />
-            No, that not a problem. You all use modern Linux kernels anyway, right?
-            Right?
+            He was right and I found an <a
+                href="https://github.com/goreleaser/example-zig-cgo"
+                target="_blank">example that did exactly that</a
+            >.
+        </p>
+        <p>
+            Both a valid options. I played around with this and came to the
+            conclusion that both offer benefits and drawbacks. When you use a
+            separate runner for each target, those run in parallel which is
+            great for speed. It also makes it easy to build using the latest
+            platform SDKs which can be a benefit for Windows and macOS.
+        </p>
+        <p>
+            When combining the whole build into one runner, this runner will
+            need to run macOS (for legal reasons with cross compilation). Either
+            you define the C and C++ compilers for each target in the Goreleaser
+            config, or you create a wrapper script. Your CI will become a lot
+            simpler since you only need to install Go and Zig, then run
+            Goreleaser.
         </p>
 
-        <h2>Putting it together</h2>
-        <ul>
-            <li>
-                Pure Go? Use cross basic compilation. It's simple and portable.
-            </li>
-            <li>
-                CGO? Prefer native builds per target with split and merge. Use
-                runners that match your targets.
-            </li>
-            <li>
-                Missing or flaky runners (like Windows ARM)? Use Zig's cross
-                toolchain.
-            </li>
-            <li>
-                Want one Linux binary? Static link against musl with Zig to drop
-                the libc runtime dependency.
-            </li>
-        </ul>
-
+        <h3>Which solution will I use?</h3>
         <p>
-            Full example setup:
+            I'm not sure which solution I will use. I'll probably use
             <a
                 target="_blank"
-                href="https://github.com/tsukinoko-kun/goreleaser-cgo"
+                href="https://github.com/goreleaser/example-zig-cgo"
+                >goreleaser/example-zig-cgo</a
             >
-                github.com/tsukinoko-kun/goreleaser-cgo
-            </a>
+            for now. It's simple and easy to understand.
         </p>
-
         <p>
-            Thanks Goreleaser for the great release flow. And thanks to Zig for
-            being a fantastic C toolchain for CGO-heavy builds.
+            I will come back to the native runners with split-and-merge when I
+            encounter problems with cross compilation.
+        </p>
+    </section>
+
+    <section>
+        <h2>Links</h2>
+        <p>
+            Official example with one runner: <a
+                target="_blank"
+                href="https://github.com/goreleaser/example-zig-cgo"
+                >goreleaser/example-zig-cgo</a
+            >
+        </p>
+        <p>
+            My solution with split-and-merge native runners: <a
+                target="_blank"
+                href="https://github.com/tsukinoko-kun/goreleaser-cgo"
+                >tsukinoko-kun/goreleaser-cgo</a
+            >
+        </p>
+        <p>
+            My solution with one runner: <a
+                href="https://github.com/tsukinoko-kun/goreleaser-cgo/tree/no-pro"
+                target="_blank">tsukinoko-kun/goreleaser-cgo:no-pro</a
+            >
         </p>
     </section>
 </Layout>
