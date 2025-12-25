@@ -1,0 +1,635 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/blog.scss";
+---
+
+<Layout
+    title="Late Input Composition"
+    desc="Nvidia Reflex isn't working for CPU bound games, let's solve this"
+    class="blog"
+>
+    <h1>Late Input Composition</h1>
+
+    <p>
+        I have been working on my game engine and I've started researching frame
+        timing strategies. The current big thing here is Nvidia Reflex and it's
+        a good solution for GPU bound games. But I am making a 2D game, those
+        are primarily CPU bound. I went down the rabbit hole and found the ideal
+        solution for my game. I call it Late Input Composition.
+    </p>
+
+    <h2>Once upon a time there was screen tearing</h2>
+    <p>We all know VSync, right? The thing that prevents screen tearing.</p>
+    <p>
+        Screen tearing occurs when the frame rate (rendered by the GPU) does not
+        match the refresh rate of the monitor. VSync adds a delay after the
+        frame is rendered, to wait for the monitor refresh. This get the frame
+        rate of the GPU to match the refresh rate of the monitor.
+    </p>
+    <p>VSync rightfully has a bad reputation because it comes at a cost.</p>
+    <p>
+        VSync adds a delay. This means that the frame that is drawn to the
+        screen was made with old data. Players perceive this as input lag.
+    </p>
+
+    <svg
+        viewBox="0 0 800 180"
+        xmlns="http://www.w3.org/2000/svg"
+        class="font-sans font-medium"
+    >
+        <defs>
+            <marker
+                id="arrow-red"
+                markerWidth="10"
+                markerHeight="10"
+                refX="9"
+                refY="3"
+                orient="auto"
+                class="fill-ctp-red"
+            >
+                <path d="M0,0 L0,6 L9,3 z"></path>
+            </marker>
+            <circle id="dot-red" r="3" class="fill-ctp-red" cx="3" cy="3"
+            ></circle>
+        </defs>
+
+        <line
+            x1="100"
+            y1="20"
+            x2="100"
+            y2="130"
+            class="stroke-ctp-overlay1"
+            stroke-dasharray="4"
+            stroke-width="2"></line>
+        <text
+            x="100"
+            y="15"
+            class="fill-ctp-subtext0 text-xs"
+            text-anchor="middle">Monitor Refresh</text
+        >
+
+        <line
+            x1="550"
+            y1="20"
+            x2="550"
+            y2="130"
+            class="stroke-ctp-overlay1"
+            stroke-dasharray="4"
+            stroke-width="2"></line>
+        <text
+            x="550"
+            y="15"
+            class="fill-ctp-subtext0 text-xs"
+            text-anchor="middle">Monitor Refresh</text
+        >
+
+        <line
+            x1="50"
+            y1="75"
+            x2="750"
+            y2="75"
+            class="stroke-ctp-surface1"
+            stroke-width="1"></line>
+
+        <rect
+            x="100"
+            y="45"
+            width="90"
+            height="60"
+            rx="4"
+            class="fill-ctp-blue stroke-ctp-sapphire stroke-2"></rect>
+        <text x="145" y="80" class="fill-ctp-base text-sm" text-anchor="middle"
+            >Game Logic</text
+        >
+
+        <rect
+            x="195"
+            y="45"
+            width="120"
+            height="60"
+            rx="4"
+            class="fill-ctp-peach stroke-ctp-maroon stroke-2"></rect>
+        <text x="255" y="80" class="fill-ctp-base text-sm" text-anchor="middle"
+            >Rendering</text
+        >
+
+        <rect
+            x="320"
+            y="50"
+            width="230"
+            height="50"
+            rx="4"
+            class="fill-ctp-surface0 stroke-ctp-red stroke-2"
+            stroke-dasharray="6 4"></rect>
+        <text
+            x="435"
+            y="80"
+            class="fill-ctp-red text-sm font-bold"
+            text-anchor="middle">Wait for monitor refresh</text
+        >
+
+        <rect
+            x="550"
+            y="45"
+            width="90"
+            height="60"
+            rx="4"
+            class="fill-ctp-blue stroke-ctp-sapphire stroke-2 opacity-50"
+        ></rect>
+        <text x="595" y="80" class="fill-ctp-base text-sm" text-anchor="middle"
+            >Next Logic</text
+        >
+
+        <line
+            x1="100"
+            y1="140"
+            x2="550"
+            y2="140"
+            class="stroke-ctp-red stroke-2"
+            marker-start="url(#dot-red)"
+            marker-end="url(#arrow-red)"></line>
+        <text x="325" y="165" class="fill-ctp-red text-sm" text-anchor="middle"
+            >Total time from input read until frame is displayed</text
+        >
+    </svg>
+
+    <h2>VRR (variable refresh rate)</h2>
+    <p>We have heard of VRR under different names. G-Sync, Free Sync, etc.</p>
+    <p>
+        What it comes down to is that it makes the monitor the slave of the GPU.
+        VRR monitors can draw frames at fluctuating rates. This allowes the GPU
+        to render at its pace and forces the monitor to adjust to the speed of
+        the GPU.
+    </p>
+    <p>
+        VRR is a good solution but not the silver bullet. It has technical
+        downsides like brightness and gamma flickering, overdrive and ghosting,
+        LFC stutter (Low Framerate Compensation).
+    </p>
+    <p>
+        The main way I am not considering VRR for my solution is because not
+        every gamer has a VRR capable monitor. Especially at my target audience
+        with more slow paced games it is less common than at competitive games.
+    </p>
+
+    <svg
+        viewBox="0 0 800 180"
+        xmlns="http://www.w3.org/2000/svg"
+        class="font-sans font-medium"
+    >
+        <defs>
+            <marker
+                id="arrow-green"
+                markerWidth="10"
+                markerHeight="10"
+                refX="9"
+                refY="3"
+                orient="auto"
+                class="fill-ctp-green"
+            >
+                <path d="M0,0 L0,6 L9,3 z"></path>
+            </marker>
+            <circle id="dot-green" r="3" class="fill-ctp-green" cx="3" cy="3"
+            ></circle>
+        </defs>
+
+        <line
+            x1="20"
+            y1="95"
+            x2="780"
+            y2="95"
+            class="stroke-ctp-surface1"
+            stroke-width="1"></line>
+
+        <line
+            x1="50"
+            y1="20"
+            x2="50"
+            y2="170"
+            class="stroke-ctp-overlay1"
+            stroke-dasharray="4"
+            stroke-width="2"></line>
+        <text
+            x="50"
+            y="15"
+            class="fill-ctp-subtext0 text-xs"
+            text-anchor="middle">Refresh</text
+        >
+
+        <rect
+            x="50"
+            y="65"
+            width="50"
+            height="60"
+            rx="4"
+            class="fill-ctp-blue stroke-ctp-sapphire stroke-2"></rect>
+        <text x="75" y="100" class="fill-ctp-base text-xs" text-anchor="middle"
+            >Logic</text
+        >
+
+        <rect
+            x="105"
+            y="65"
+            width="100"
+            height="60"
+            rx="4"
+            class="fill-ctp-peach stroke-ctp-maroon stroke-2"></rect>
+        <text x="155" y="100" class="fill-ctp-base text-xs" text-anchor="middle"
+            >Render</text
+        >
+
+        <line
+            x1="205"
+            y1="20"
+            x2="205"
+            y2="170"
+            class="stroke-ctp-overlay1"
+            stroke-dasharray="4"
+            stroke-width="2"></line>
+        <text
+            x="205"
+            y="15"
+            class="fill-ctp-subtext0 text-xs"
+            text-anchor="middle">Refresh</text
+        >
+
+        <rect
+            x="205"
+            y="65"
+            width="50"
+            height="60"
+            rx="4"
+            class="fill-ctp-blue stroke-ctp-sapphire stroke-2"></rect>
+        <text x="230" y="100" class="fill-ctp-base text-xs" text-anchor="middle"
+            >Logic</text
+        >
+
+        <rect
+            x="260"
+            y="65"
+            width="200"
+            height="60"
+            rx="4"
+            class="fill-ctp-peach stroke-ctp-maroon stroke-2"></rect>
+        <text x="360" y="100" class="fill-ctp-base text-xs" text-anchor="middle"
+            >Render</text
+        >
+
+        <line
+            x1="460"
+            y1="20"
+            x2="460"
+            y2="170"
+            class="stroke-ctp-overlay1"
+            stroke-dasharray="4"
+            stroke-width="2"></line>
+        <text
+            x="460"
+            y="15"
+            class="fill-ctp-subtext0 text-xs"
+            text-anchor="middle">Refresh</text
+        >
+
+        <rect
+            x="460"
+            y="65"
+            width="70"
+            height="60"
+            rx="4"
+            class="fill-ctp-blue stroke-ctp-sapphire stroke-2"></rect>
+        <text x="495" y="100" class="fill-ctp-base text-xs" text-anchor="middle"
+            >Logic</text
+        >
+
+        <rect
+            x="535"
+            y="65"
+            width="60"
+            height="60"
+            rx="4"
+            class="fill-ctp-peach stroke-ctp-maroon stroke-2"></rect>
+        <text x="565" y="100" class="fill-ctp-base text-xs" text-anchor="middle"
+            >Render</text
+        >
+
+        <line
+            x1="595"
+            y1="20"
+            x2="595"
+            y2="170"
+            class="stroke-ctp-overlay1"
+            stroke-dasharray="4"
+            stroke-width="2"></line>
+        <text
+            x="595"
+            y="15"
+            class="fill-ctp-subtext0 text-xs"
+            text-anchor="middle">Refresh</text
+        >
+
+        <line
+            x1="50"
+            y1="150"
+            x2="205"
+            y2="150"
+            class="stroke-ctp-green stroke-2"
+            marker-start="url(#dot-green)"
+            marker-end="url(#arrow-green)"></line>
+        <text
+            x="127"
+            y="180"
+            class="fill-ctp-green text-xs"
+            text-anchor="middle">16ms (60Hz)</text
+        >
+
+        <line
+            x1="205"
+            y1="150"
+            x2="460"
+            y2="150"
+            class="stroke-ctp-green stroke-2"
+            marker-start="url(#dot-green)"
+            marker-end="url(#arrow-green)"></line>
+        <text
+            x="332"
+            y="180"
+            class="fill-ctp-green text-xs"
+            text-anchor="middle">25ms (Drop to 40Hz)</text
+        >
+
+        <line
+            x1="460"
+            y1="150"
+            x2="595"
+            y2="150"
+            class="stroke-ctp-green stroke-2"
+            marker-start="url(#dot-green)"
+            marker-end="url(#arrow-green)"></line>
+        <text
+            x="527"
+            y="180"
+            class="fill-ctp-green text-xs"
+            text-anchor="middle">14ms (Up to 70Hz)</text
+        >
+    </svg>
+
+    <h2>Reflex</h2>
+    <p>
+        Reflex is the current industry darling for latency reduction, and for
+        good reason. It works by eliminating the "render queue."
+    </p>
+    <p>
+        In modern high-fidelity 3D games, the CPU is often much faster than the
+        GPU. The CPU prepares frame instructions and lines them up in a buffer
+        (the queue) for the GPU to process. While this keeps the GPU fed, it
+        creates input lag because your latest inputs are stuck in line behind
+        old frames.
+    </p>
+
+    <p>
+        Reflex solves this by synchronizing the CPU to the GPU. It forces the
+        CPU to wait and only sample input right before the GPU is ready to
+        receive commands. It effectively empties the waiting line.
+    </p>
+    <p>
+        But this relies on one major assumption: that the GPU is the bottleneck.
+    </p>
+    <p>
+        In my case (and for most 2D games), we are CPU bound. My GPU is
+        powerful; it renders my 2D sprites instantly and then sits idle, waiting
+        for the CPU to finish the game logic for the next frame. There is no
+        render queue building up because the GPU is eating the frames faster
+        than the CPU can cook them.
+    </p>
+    <p>
+        Since there is no queue to eliminate, enabling Reflex in a CPU-bound
+        scenario does absolutely nothing. We need a different strategy.
+    </p>
+
+    <h2>Late Input Composition</h2>
+    <p>
+        Late Input Composition is a strategy that works similar to Reflex but
+        for CPU-bound games.
+    </p>
+    <p>
+        We mainly target the perceived input latency. We can use this to get
+        more FPS. But the main goal is to reduce the input lag.
+    </p>
+    <p>Think about this: How do you notice the input lag?</p>
+    <p>
+        You notice it when you press a button but you player character wait a
+        few milliseconds before it responds.
+    </p>
+    <p>
+        You don't notice any lag when it comes to the environment or NPCs moving
+        around. You can't notice because you don't know when the AI decided to
+        throw a fireball at you. You only notice when you see the fireball on
+        the screen.
+    </p>
+    <p>Normally we have two parts:</p>
+    <ul>
+        <li>Reading inputs, calculating physics, animations, AI, etc.</li>
+        <li>Rendering the frame.</li>
+    </ul>
+    <p>Why not split this up?</p>
+
+    <ol>
+        <li>
+            <ol>
+                <li>
+                    Calculate physics, animations, AI, etc. But nothing that is
+                    related to the player character.
+                </li>
+                <li>Render the frame.</li>
+            </ol>
+        </li>
+        <li>
+            <ol>
+                <li>Read inputs.</li>
+                <li>
+                    Calculate physics, animations, etc. But only for the player
+                    character.
+                </li>
+                <li>Overdraw the frame or fully redraw it.</li>
+            </ol>
+        </li>
+    </ol>
+
+    <p>
+        The point is that what created the perceived input lag is the disconnect
+        between user input and player character actions. By delaying everything
+        that is related to the user input, we can reduce this lag.
+    </p>
+
+    <p>But this is not the end of the story.</p>
+    <p>
+        This alone is irrelevant. We have reduced the input lag by a few
+        milliseconds. But we are still stuck with the delay from VSync.
+    </p>
+
+    <h2>Just-In-Time Frame Pacing</h2>
+    <p>
+        Let's take a look at VSync again. It's nearly perfect actually. We just
+        need to invert it.
+    </p>
+    <p>
+        VSync is pretty simple. We do all of our calculations and rendering,
+        then we wait for the monitor to be ready.
+    </p>
+    <p>
+        But what if we could do first wait, then do all of our calculations? By
+        the time our frame is ready to be displayed, the monitor is ready as
+        well. We get perfect synchronization and get low input latency because
+        the input is read as late as possible.
+    </p>
+
+    <svg
+        viewBox="0 0 800 180"
+        xmlns="http://www.w3.org/2000/svg"
+        class="font-sans font-medium"
+    >
+        <defs>
+            <marker
+                id="arrow-green-jit"
+                markerWidth="10"
+                markerHeight="10"
+                refX="9"
+                refY="3"
+                orient="auto"
+                class="fill-ctp-green"
+            >
+                <path d="M0,0 L0,6 L9,3 z"></path>
+            </marker>
+            <circle
+                id="dot-green-jit"
+                r="3"
+                class="fill-ctp-green"
+                cx="3"
+                cy="3"></circle>
+        </defs>
+
+        <line
+            x1="50"
+            y1="75"
+            x2="750"
+            y2="75"
+            class="stroke-ctp-surface1"
+            stroke-width="1"></line>
+
+        <line
+            x1="100"
+            y1="20"
+            x2="100"
+            y2="130"
+            class="stroke-ctp-overlay1"
+            stroke-dasharray="4"
+            stroke-width="2"></line>
+        <text
+            x="100"
+            y="15"
+            class="fill-ctp-subtext0 text-xs"
+            text-anchor="middle">Monitor Refresh</text
+        >
+
+        <line
+            x1="600"
+            y1="20"
+            x2="600"
+            y2="130"
+            class="stroke-ctp-overlay1"
+            stroke-dasharray="4"
+            stroke-width="2"></line>
+        <text
+            x="600"
+            y="15"
+            class="fill-ctp-subtext0 text-xs"
+            text-anchor="middle">Monitor Refresh</text
+        >
+
+        <rect
+            x="100"
+            y="50"
+            width="250"
+            height="50"
+            rx="4"
+            class="fill-ctp-surface0 stroke-ctp-red stroke-2"
+            stroke-dasharray="6 4"></rect>
+        <text
+            x="225"
+            y="80"
+            class="fill-ctp-red text-sm font-bold"
+            text-anchor="middle">Wait (Sleep)</text
+        >
+
+        <rect
+            x="350"
+            y="45"
+            width="100"
+            height="60"
+            rx="4"
+            class="fill-ctp-blue stroke-ctp-sapphire stroke-2"></rect>
+        <text x="400" y="80" class="fill-ctp-base text-sm" text-anchor="middle"
+            >Game Logic</text
+        >
+
+        <rect
+            x="450"
+            y="45"
+            width="150"
+            height="60"
+            rx="4"
+            class="fill-ctp-peach stroke-ctp-maroon stroke-2"></rect>
+        <text x="525" y="80" class="fill-ctp-base text-sm" text-anchor="middle"
+            >Rendering</text
+        >
+
+        <line
+            x1="350"
+            y1="140"
+            x2="600"
+            y2="140"
+            class="stroke-ctp-green stroke-2"
+            marker-start="url(#dot-green-jit)"
+            marker-end="url(#arrow-green-jit)"></line>
+        <text
+            x="475"
+            y="165"
+            class="fill-ctp-green text-sm"
+            text-anchor="middle">Minimized Input Latency</text
+        >
+
+        <text
+            x="350"
+            y="40"
+            class="fill-ctp-subtext0 text-xs"
+            text-anchor="middle">Input Read</text
+        >
+        <line
+            x1="350"
+            y1="45"
+            x2="350"
+            y2="55"
+            class="stroke-ctp-subtext0"
+            stroke-width="2"></line>
+    </svg>
+    <p>In theory, this is the best we can do.</p>
+    <p>But in practice, it's not possible to get the timing this perfect.</p>
+
+    <p>
+        The problem is that not every frame takes the same amount of time to be
+        calculated.
+    </p>
+    <p>
+        Even if every frame takes the same amount of time to be calculated, the
+        OS might schedule other processes in the meantime, resulting in
+        fluctuations in the frame timing.
+    </p>
+    <p>
+        If we wait for too long before starting the frame calculations, we will
+        miss the monitor refresh and need to wait a whole frame.
+    </p>
+
+    <br />
+
+    <p>We need to do an approximation.</p>
+</Layout>
