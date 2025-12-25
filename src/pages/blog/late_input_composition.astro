@@ -5,16 +5,16 @@ import "../../styles/blog.scss";
 
 <Layout
     title="Late Input Composition"
-    desc="Nvidia Reflex isn't working for CPU bound games, let's solve this"
+    desc="Nvidia Reflex doesn't work for CPU-bound games; let's solve this"
     class="blog"
 >
     <h1>Late Input Composition</h1>
 
     <p>
         I have been working on my game engine and I've started researching frame
-        timing strategies. The current big thing here is Nvidia Reflex and it's
-        a good solution for GPU bound games. But I am making a 2D game, those
-        are primarily CPU bound. I went down the rabbit hole and found the ideal
+        timing strategies. The current big thing here is Nvidia Reflex, and it's
+        a good solution for GPU-bound games. But I am making a 2D game; those
+        are primarily CPU-bound. I went down the rabbit hole and found the ideal
         solution for my game. I call it Late Input Composition.
     </p>
 
@@ -23,7 +23,7 @@ import "../../styles/blog.scss";
     <p>
         Screen tearing occurs when the frame rate (rendered by the GPU) does not
         match the refresh rate of the monitor. VSync adds a delay after the
-        frame is rendered, to wait for the monitor refresh. This get the frame
+        frame is rendered to wait for the monitor refresh. This gets the frame
         rate of the GPU to match the refresh rate of the monitor.
     </p>
     <p>VSync rightfully has a bad reputation because it comes at a cost.</p>
@@ -154,22 +154,22 @@ import "../../styles/blog.scss";
     </svg>
 
     <h2>VRR (variable refresh rate)</h2>
-    <p>We have heard of VRR under different names. G-Sync, Free Sync, etc.</p>
+    <p>We have heard of VRR under different names. G-Sync, FreeSync, etc.</p>
     <p>
         What it comes down to is that it makes the monitor the slave of the GPU.
-        VRR monitors can draw frames at fluctuating rates. This allowes the GPU
+        VRR monitors can draw frames at fluctuating rates. This allows the GPU
         to render at its pace and forces the monitor to adjust to the speed of
         the GPU.
     </p>
     <p>
         VRR is a good solution but not the silver bullet. It has technical
         downsides like brightness and gamma flickering, overdrive and ghosting,
-        LFC stutter (Low Framerate Compensation).
+        and LFC stutter (Low Framerate Compensation).
     </p>
     <p>
-        The main way I am not considering VRR for my solution is because not
-        every gamer has a VRR capable monitor. Especially at my target audience
-        with more slow paced games it is less common than at competitive games.
+        The main reason I am not considering VRR for my solution is that not
+        every gamer has a VRR-capable monitor. Especially for my target audience
+        with slower-paced games, it is less common than in competitive games.
     </p>
 
     <svg
@@ -395,7 +395,7 @@ import "../../styles/blog.scss";
         But this relies on one major assumption: that the GPU is the bottleneck.
     </p>
     <p>
-        In my case (and for most 2D games), we are CPU bound. My GPU is
+        In my case (and for most 2D games), we are CPU-bound. My GPU is
         powerful; it renders my 2D sprites instantly and then sits idle, waiting
         for the CPU to finish the game logic for the next frame. There is no
         render queue building up because the GPU is eating the frames faster
@@ -408,16 +408,16 @@ import "../../styles/blog.scss";
 
     <h2>Late Input Composition</h2>
     <p>
-        Late Input Composition is a strategy that works similar to Reflex but
+        Late Input Composition is a strategy that works similarly to Reflex but
         for CPU-bound games.
     </p>
     <p>
         We mainly target the perceived input latency. We can use this to get
-        more FPS. But the main goal is to reduce the input lag.
+        more FPS, but the main goal is to reduce the input lag.
     </p>
     <p>Think about this: How do you notice the input lag?</p>
     <p>
-        You notice it when you press a button but you player character wait a
+        You notice it when you press a button but your player character waits a
         few milliseconds before it responds.
     </p>
     <p>
@@ -437,7 +437,7 @@ import "../../styles/blog.scss";
         <li>
             <ol>
                 <li>
-                    Calculate physics, animations, AI, etc. But nothing that is
+                    Calculate physics, animations, AI, etc., but nothing that is
                     related to the player character.
                 </li>
                 <li>Render the frame.</li>
@@ -447,7 +447,7 @@ import "../../styles/blog.scss";
             <ol>
                 <li>Read inputs.</li>
                 <li>
-                    Calculate physics, animations, etc. But only for the player
+                    Calculate physics, animations, etc., but only for the player
                     character.
                 </li>
                 <li>Overdraw the frame or fully redraw it.</li>
@@ -456,7 +456,7 @@ import "../../styles/blog.scss";
     </ol>
 
     <p>
-        The point is that what created the perceived input lag is the disconnect
+        The point is that what creates the perceived input lag is the disconnect
         between user input and player character actions. By delaying everything
         that is related to the user input, we can reduce this lag.
     </p>
@@ -464,7 +464,7 @@ import "../../styles/blog.scss";
     <p>But this is not the end of the story.</p>
     <p>
         This alone is irrelevant. We have reduced the input lag by a few
-        milliseconds. But we are still stuck with the delay from VSync.
+        milliseconds, but we are still stuck with the delay from VSync.
     </p>
 
     <h2>Just-In-Time Frame Pacing</h2>
@@ -477,10 +477,10 @@ import "../../styles/blog.scss";
         then we wait for the monitor to be ready.
     </p>
     <p>
-        But what if we could do first wait, then do all of our calculations? By
-        the time our frame is ready to be displayed, the monitor is ready as
-        well. We get perfect synchronization and get low input latency because
-        the input is read as late as possible.
+        But what if we could wait first, then do all of our calculations? By the
+        time our frame is ready to be displayed, the monitor is ready as well.
+        We get perfect synchronization and get low input latency because the
+        input is read as late as possible.
     </p>
 
     <svg
