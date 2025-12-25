@@ -412,8 +412,8 @@ import "../../styles/blog.scss";
         for CPU-bound games.
     </p>
     <p>
-        We mainly target the perceived input latency. We can use this to get
-        more FPS, but the main goal is to reduce the input lag.
+        We mainly target the perceived input latency. We won't calculate frames
+        faster, but we reduce the input lag by shifting things around.
     </p>
     <p>Think about this: How do you notice the input lag?</p>
     <p>
@@ -433,7 +433,7 @@ import "../../styles/blog.scss";
     </ul>
     <p>Why not split this up?</p>
 
-    <ol>
+    <ol class="pl-1">
         <li>
             <ol>
                 <li>
